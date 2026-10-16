@@ -2,19 +2,20 @@ import cfg from '../../site.config.mjs';
 import { esc, href, abs, clamp, fitTitle, md, fmtDate } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, ctaCard, sideLinks, answerBox, band } from '../lib/layout.mjs';
 import { enrollForm } from '../lib/forms.mjs';
+import { partnerById } from '../lib/partners.mjs';
 
 export const companyFaqs = [
   ['What is MrPress Education?', 'MrPress Education is a U.S. online training company that offers general career training by job title, plus free career resources: career profiles with BLS salary data, quizzes, step-by-step job guides and college and career-change guides.'],
   ['How do the trainings work?', `Each training is a self-paced online course on our learning platform (LMS). Lessons cover what the job involves, a typical day, key vocabulary, common procedures, safety, tools and how to launch your career, ending with a final knowledge check and a ${cfg.course.certificate.toLowerCase()}.`],
   ['Are the courses accredited, and will I get a license?', 'No. Our trainings are general, non-credit career-preparation courses. They do not grant academic credit, state licenses or industry certifications, and they do not replace state-required training programs. They help you understand a career and prepare for formal training, exams and interviews.'],
-  ['How do I enroll?', `Choose a training and complete the enrollment form. It opens a pre-filled email to our team at ${cfg.enrollTo}. We reply with your payment link or invoice and your login details. Certification and safety courses can be bought instantly at checkout. You can also call ${cfg.phone}.`],
+  ['How do I enroll?', `Open the training you want and complete the enrollment form on its page. It opens a pre-filled email to our team at ${cfg.enrollTo}. We reply with your payment link or invoice and your login details. Certification and safety courses can be bought instantly at checkout. You can also call ${cfg.phone}.`],
   ['Do you offer training for employers and groups?', `Yes. Employers, staffing agencies, schools and workforce programs use our job-title trainings for onboarding, pre-placement and career exploration. ${cfg.course.groupNote}.`],
   ['Who can use MrPress Education?', 'Our services and website are intended for people in the United States. Our policies are designed to comply with U.S. federal and state law only.'],
   ['Is the career information free?', 'Yes. All career profiles, salary data, quizzes, guides, worksheets and practice tests are free to use without an account.']
 ];
 
 export function companyPages(ctx) {
-  const { careers, labor } = ctx;
+  const { careers, labor, categories } = ctx;
   const pages = [];
   const simple = (path, crumbName, h1, lead, main, aside, extra = {}) => {
     const crumbs = [['Home', '/'], [crumbName, path]];
@@ -52,16 +53,23 @@ Phone: [${cfg.phone}](tel:${cfg.phoneE164}) · Email: [${cfg.email}](mailto:${cf
   simple('/how-it-works/', 'How it works', 'How MrPress Education Works', 'From “what should I do?” to day one on the job, in four steps.',
     `<ol class="steps"><li><h3>Explore careers for free</h3><p>Browse ${careers.length} career profiles with day-in-the-life details, BLS pay data, skills, vocabulary and step-by-step task guides. Take the <a href="${href('/quizzes/career-match/')}">Career Match Quiz</a> if you’re not sure where to start.</p></li><li><h3>Pick your training</h3><p>Every career has a matching <a href="${href('/training/')}">job-title training</a> covering the role, a typical day, key vocabulary, common procedures, safety, tools and career launch. Try the free practice test first.</p></li><li><h3>Send your enrollment request</h3><p>Fill out the short form on any training page. It opens a pre-filled email to our team, and nothing is stored on the website. We reply with your payment link or invoice and your learning-platform login. Certification and safety courses can be bought online right away.</p></li><li><h3>Learn at your own pace</h3><p>Work through the modules on our online learning platform (LMS). Courses take 6 to 14 hours and include ${esc(cfg.course.access)}. Pass the final knowledge check to earn your ${esc(cfg.course.certificate.toLowerCase())}.</p></li></ol>
 <h2>For teams</h2><p>Employers, staffing agencies and workforce programs can enroll groups of learners with a single request. See <a href="${href('/for-employers/')}">training for employers</a>.</p>${faqBlock(companyFaqs.slice(1, 5))}`,
-    ctaCard({ title: 'Ready to start?', text: 'Choose a training or send a general enrollment request.', btn: 'Enroll now', link: '/enroll/' }),
+    ctaCard({ title: 'Ready to start?', text: 'Choose a training and enroll from its page.', btn: 'Enroll now', link: '/enroll/' }),
     { title: fitTitle('How MrPress Education Works (4 Simple Steps)'), desc: clamp('How MrPress Education works: explore careers free, choose a job-title training, send a quick enrollment request by email and learn at your own pace online with a certificate of completion.'), schema: [faqSchema(companyFaqs.slice(1, 5), '/how-it-works/')] });
 
   // Enroll
   {
     const path = '/enroll/';
     const crumbs = [['Home', '/'], ['Enroll', path]];
-    pages.push({ path, crumbs, og: '/og/training.png', kind: 'Page', name: 'Enroll in a training', scripts: ['enroll'],
-      title: fitTitle('Enroll in Online Career Training'), desc: clamp(`Enroll in any of ${careers.length} MrPress Education career trainings. Complete a short form that opens a pre-filled email to our team: we reply with a payment link and your login.`),
-      body: `${pageHero({ crumbs, eyebrow: 'Enrollment', h1: 'Enroll in a Training', lead: 'Pick your course, complete the form and press send. Your email app opens with your request pre-filled; our team replies with a payment link or invoice and your learning-platform login.' })}<div class="wrap layout"><div class="prose">${enrollForm(careers, { heading: 'Enrollment request' })}<h2>What happens next</h2><ol><li>Your email app opens with your request, just press send.</li><li>Our team replies by email, usually within one business day, with a payment link or invoice for the listed price.</li><li>After payment, you receive your login to our online learning platform.</li><li>Start learning right away, at your own pace.</li></ol>${faqBlock(companyFaqs.slice(2, 6))}</div><aside>${sideLinks('Not sure which course?', [['Career Match Quiz', '/quizzes/career-match/'], ['Browse all trainings', '/training/'], ['Group & employer training', '/for-employers/'], ['Contact us', '/contact/']])}</aside></div>`,
+    const row = (c) => {
+      const m = c.replacedBy && partnerById[c.replacedBy];
+      return m ? `<li><a href="${href(`/checkout/?course=${m.slug}`)}">${esc(c.title)}: ${esc(m.short)}</a> <span class="muted small">${m.hoursNum} hours · $${m.price.toFixed(2)} · buy online</span></li>`
+        : `<li><a href="${href(`${c.trainingUrl}#enroll`)}">${esc(c.title)} Training</a> <span class="muted small">${c.hours} hours · $${c.price.toFixed(2)}</span></li>`;
+    };
+    pages.push({ path, crumbs, og: '/og/training.png', kind: 'Page', name: 'Enroll in a training',
+      title: fitTitle('Enroll in Online Career Training'), desc: clamp(`Enroll in any of ${careers.length} MrPress Education career trainings. Pick your training, then use the short form on its page or buy certification courses online.`),
+      body: `${pageHero({ crumbs, eyebrow: 'Enrollment', h1: 'Enroll in a Training', lead: 'Choose your training below. Each training page has a short enrollment form for that course, and certification courses can be bought online right away.' })}<div class="wrap layout"><div class="prose"><h2>Choose your training</h2><p>Select a training to open its enrollment form. Prices are per learner, with volume pricing from 2 learners.</p>${categories.map((cat) => `<h3>${esc(cat.name)}</h3><ul class="enroll-list">${careers.filter((c) => c.cat === cat.slug).map(row).join('')}</ul>`).join('')}
+<h2>Safety, compliance and CDL courses</h2><p>OSHA 10 and 30, HAZWOPER, CDL Entry-Level Driver Training and more can be bought online with instant enrollment. <a href="${href('/courses/')}">Browse all certification courses</a>.</p>
+<h2>What happens next</h2><ol><li>Open your training and complete its enrollment form. Your email app opens with your request, just press send.</li><li>Our team replies by email, usually within one business day, with a payment link or invoice for the listed price.</li><li>After payment, you receive your login to our online learning platform.</li><li>Start learning right away, at your own pace.</li></ol>${faqBlock(companyFaqs.slice(2, 6))}</div><aside>${sideLinks('Not sure which course?', [['Career Match Quiz', '/quizzes/career-match/'], ['Browse all trainings', '/training/'], ['Certification courses', '/courses/'], ['Group & employer training', '/for-employers/'], ['Contact us', '/contact/']])}</aside></div>`,
       schema: [faqSchema(companyFaqs.slice(2, 6), path)] });
   }
 
@@ -71,7 +79,7 @@ Phone: [${cfg.phone}](tel:${cfg.phoneE164}) · Email: [${cfg.email}](mailto:${cf
     const crumbs = [['Home', '/'], ['Contact', path]];
     pages.push({ path, crumbs, og: '/og/default.png', kind: 'Page', name: 'Contact us', scripts: ['enroll'], pageType: 'ContactPage',
       title: fitTitle('Contact MrPress Education'), desc: clamp(`Contact MrPress Education by phone at ${cfg.phone} or email ${cfg.email}. Questions about courses, group training, billing, accessibility or privacy requests are welcome.`),
-      body: `${pageHero({ crumbs, eyebrow: 'We’re here to help', h1: 'Contact Us', lead: 'Questions about a course, group training, billing, accessibility or your privacy? Reach us by phone, email or the form below.' })}<div class="wrap layout"><div class="prose"><div class="cols"><div><h3>Phone</h3><p><a href="tel:${cfg.phoneE164}">${cfg.phone}</a></p></div><div><h3>Email</h3><p><a href="mailto:${cfg.email}">${cfg.email}</a></p></div></div><p style="margin-top:1em">For privacy requests (access, deletion, correction or opt-out), choose “Privacy request” as the topic or see <a href="${href('/your-privacy-choices/')}">Your Privacy Choices</a>. For accessibility help, choose “Accessibility request.”</p>${enrollForm(careers, { kind: 'contact', heading: 'Send us a message', id: 'contact' })}</div><aside>${sideLinks('Quick links', [['Enroll in a training', '/enroll/'], ['FAQ', '/faq/'], ['Employer training', '/for-employers/'], ['Privacy Policy', '/privacy-policy/']])}</aside></div>`, schema: [] });
+      body: `${pageHero({ crumbs, eyebrow: 'We’re here to help', h1: 'Contact Us', lead: 'Questions about a course, group training, billing, accessibility or your privacy? Reach us by phone, email or the form below.' })}<div class="wrap layout"><div class="prose"><div class="cols"><div><h3>Phone</h3><p><a href="tel:${cfg.phoneE164}">${cfg.phone}</a></p></div><div><h3>Email</h3><p><a href="mailto:${cfg.email}">${cfg.email}</a></p></div></div><p style="margin-top:1em">For privacy requests (access, deletion, correction or opt-out), choose “Privacy request” as the topic or see <a href="${href('/your-privacy-choices/')}">Your Privacy Choices</a>. For accessibility help, choose “Accessibility request.”</p>${enrollForm({ kind: 'contact', heading: 'Send us a message', id: 'contact' })}</div><aside>${sideLinks('Quick links', [['Enroll in a training', '/enroll/'], ['FAQ', '/faq/'], ['Employer training', '/for-employers/'], ['Privacy Policy', '/privacy-policy/']])}</aside></div>`, schema: [] });
   }
 
   // FAQ

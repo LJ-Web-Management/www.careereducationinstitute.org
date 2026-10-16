@@ -23,7 +23,7 @@ const buyerFaqs = [
   ['Can you invoice our company or accept a purchase order?', 'Yes. Ask for an invoice or provide your PO details when you request a quote.']
 ];
 
-const quoteForm = (careers, kind = 'employer', heading = 'Request group pricing') => enrollForm(careers, { kind: 'employer', heading, id: 'quote' });
+const quoteForm = (careers, kind = 'employer', heading = 'Request group pricing') => enrollForm({ kind: 'employer', heading, id: 'quote' });
 
 function buyerPage({ path, crumbs, eyebrow, h1, lead, title, desc, sections, careers, faqs = buyerFaqs, asideTitle = 'Get a team quote' }) {
   const aside = `<div class="cta-card"><h2>${esc(asideTitle)}</h2><p>Tell us your roles and headcount. We’ll reply with pricing and setup details.</p><ul><li>${careers.length} job-title trainings</li><li>Self-paced, online: no scheduling</li><li>${esc(cfg.course.certificate)}</li><li>Volume discounts</li></ul><a class="btn btn-primary" href="#quote">Request pricing</a></div>${sideLinks('Employer resources', [['Hiring guides by job', '/employers/hiring-guides/'], ['Job description templates', '/employers/job-descriptions/'], ['Onboarding plans by job', '/employers/onboarding-plans/'], ['Training ROI calculator', '/employers/training-roi-calculator/'], ['Onboarding assessment', '/employers/onboarding-assessment/'], ['Employer resource center', '/employers/']])}`;

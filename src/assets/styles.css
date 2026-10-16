@@ -248,6 +248,11 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--navy);bo
 .req{color:var(--red)}
 .form-box{background:#fff;border:1.5px solid var(--navy);border-radius:var(--r);padding:24px;box-shadow:6px 6px 0 var(--gold)}
 .form-box h2{margin-top:0}
+.form-course{margin:0 0 14px;padding:10px 14px;background:var(--teal-soft);border-radius:8px;line-height:1.5}
+.form-course .k{display:block;font:600 .72rem/1.2 var(--mono,monospace);letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.enroll-list{columns:2 260px;column-gap:28px;padding-left:1.1em}
+.enroll-list li{break-inside:avoid;margin:0 0 10px}
+.enroll-list .muted{display:block}
 .err{color:var(--red);font-size:.85rem;font-weight:600}
 .notice{display:none;background:var(--teal-soft);border:1px solid #bcd6f2;border-radius:12px;padding:16px 18px}
 .notice.show{display:block}

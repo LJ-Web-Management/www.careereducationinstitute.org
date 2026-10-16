@@ -1,13 +1,5 @@
 (function () {
   var forms = document.querySelectorAll('form[data-enroll]');
-  // Preselect a course from ?course=Slug-Title on the general enroll page
-  try {
-    var want = new URLSearchParams(location.search).get('course');
-    if (want) [].forEach.call(document.querySelectorAll('select[name="Course"]'), function (s) {
-      [].forEach.call(s.options, function (o) { if (o.value.toLowerCase().replace(/[^a-z0-9]+/g, '-').indexOf(want) === 0) s.value = o.value; });
-    });
-  } catch (e) {}
-
   [].forEach.call(forms, function (form) {
     var box = form.parentNode, notice = box.querySelector('.notice'), err = form.querySelector('.err');
     form.addEventListener('submit', function (e) {
@@ -30,9 +22,10 @@
       var kind = form.dataset.kind;
       var course = v('Course');
       var subject = kind === 'contact' ? 'Website inquiry: ' + v('Topic') + ' (' + v('Name') + ')'
-        : (kind === 'employer' ? 'Group training request: ' : 'Enrollment request: ') + (course || 'Course') + ' (' + v('Name') + ')';
+        : kind === 'employer' ? 'Group training request: ' + (v('Organization') || v('Name'))
+        : 'Enrollment request: ' + course + ' (' + v('Name') + ')';
       var lines = [
-        kind === 'contact' ? 'Hello MrPress Education team,' : 'Hello MrPress Education team, I would like to enroll.',
+        kind === 'contact' ? 'Hello MrPress Education team,' : kind === 'employer' ? 'Hello MrPress Education team, we would like pricing for group training.' : 'Hello MrPress Education team, I would like to enroll.',
         '',
         'Name: ' + v('Name'),
         'Email: ' + v('Email'),
@@ -41,11 +34,12 @@
       ];
       if (kind === 'contact') lines.push('Topic: ' + v('Topic'));
       else {
-        var opt = form.elements.Course && form.elements.Course.selectedOptions ? form.elements.Course.selectedOptions[0] : null;
-        var listPrice = opt && opt.getAttribute('data-price');
-        lines.push('Course: ' + course + (listPrice ? ' (list price $' + Number(listPrice).toFixed(2) + ' per learner)' : ''), 'Enrolling: ' + v('Enrolling'), 'Number of learners: ' + (v('Learners') || '1'));
+        var courseEl = form.elements.Course;
+        var listPrice = courseEl && courseEl.getAttribute('data-price');
+        if (course) lines.push('Course: ' + course + (listPrice ? ' (list price $' + Number(listPrice).toFixed(2) + ' per learner)' : ''));
         if (v('Organization')) lines.push('Organization: ' + v('Organization'));
-        lines.push('Preferred start: ' + v('Start'));
+        if (v('Trainings')) lines.push('Roles or trainings of interest: ' + v('Trainings'));
+        lines.push('Enrolling: ' + v('Enrolling'), 'Number of learners: ' + (v('Learners') || '1'));
       }
       lines.push('', (kind === 'contact' ? 'Message: ' : 'Notes: ') + (v('Message') || 'None'), '', 'Age confirmation: 18 or older, or parent/guardian (confirmed)', 'Contact consent: agreed to Terms of Use and Privacy Policy', 'Sent from: ' + location.href);
       var body = lines.join('\n');
