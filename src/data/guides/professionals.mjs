@@ -8,7 +8,7 @@ export default [
 Good moments: before budgets are set, during reviews, after you’ve taken on new responsibilities, earned a certification or delivered a measurable win. Avoid moments when your manager is overwhelmed or the company just announced cuts.
 
 ## Research your value
-Check BLS pay percentiles for your role in our [salary guide](/salary-guide/), local postings with pay ranges and what peers with your credentials earn. Know where you fall — entry, median or experienced.
+Check BLS pay percentiles for your role in our [salary guide](/salary-guide/), local postings with pay ranges and what peers with your credentials earn. Know where you fall: entry, median or experienced.
 
 ## Build your case
 List your contributions from the past 6–12 months:
@@ -23,11 +23,11 @@ List your contributions from the past 6–12 months:
 Then stop talking and listen.
 
 ## If the answer is no
-Ask: “What would I need to accomplish to earn this increase, and can we revisit it in [three or six] months?” Get the goals in writing. Also ask about non-salary options — training, schedule flexibility or a title change.
+Ask: “What would I need to accomplish to earn this increase, and can we revisit it in [three or six] months?” Get the goals in writing. Also ask about non-salary options: training, schedule flexibility or a title change.
 
 ## If the answer is yes
 Thank them, confirm the amount and effective date in writing, and keep delivering.`,
-  faq: [['How much of a raise should I ask for?', 'Base your ask on market data and your contributions. Aim for the realistic market rate for your skills, not an arbitrary percentage.'], ['Should I mention a competing offer?', 'Only if it’s real and you’re prepared to take it. Use it carefully — it can change the relationship.']]
+  faq: [['How much of a raise should I ask for?', 'Base your ask on market data and your contributions. Aim for the realistic market rate for your skills, not an arbitrary percentage.'], ['Should I mention a competing offer?', 'Only if it’s real and you’re prepared to take it. Use it carefully: it can change the relationship.']]
 },
 {
   slug: 'how-to-get-promoted', title: 'How to Get Promoted: 8 Moves That Work', crumb: 'How to get promoted', topic: 'career-growth', audience: ['professionals'],
@@ -41,7 +41,7 @@ Reliability is the foundation. Promotions rarely go to people who are inconsiste
 Managers aren’t mind readers. Tell yours you want to grow and ask what the next role requires.
 
 ## 3. Learn the next job
-Find out what the next level does day to day. Ask to shadow, cover tasks or join projects that build those skills. Each career profile on our site includes a career ladder — for example, the [medical assistant career path](/careers/medical-assistant/#career-path).
+Find out what the next level does day to day. Ask to shadow, cover tasks or join projects that build those skills. Each career profile on our site includes a career ladder, for example, the [medical assistant career path](/careers/medical-assistant/#career-path).
 
 ## 4. Solve problems your boss cares about
 Ask: “What’s the biggest headache on your plate right now?” Volunteering to help with that gets noticed more than extra work nobody asked for.
@@ -57,12 +57,12 @@ Earn certifications that matter for the next role (see [certifications vs. degre
 
 ## 8. Build relationships beyond your team
 Get to know leaders and peers in other departments. Decision-makers promote people they know and trust.`,
-  faq: [['How long should I wait before asking for a promotion?', 'Many organizations expect 12–24 months in a role, but performance and the business need matter more than time.'], ['What if I keep getting passed over?', 'Ask for direct feedback on what’s missing, agree on a plan and timeline — and if growth isn’t possible, consider moving to an organization where it is.']]
+  faq: [['How long should I wait before asking for a promotion?', 'Many organizations expect 12–24 months in a role, but performance and the business need matter more than time.'], ['What if I keep getting passed over?', 'Ask for direct feedback on what’s missing, agree on a plan and timeline, and if growth isn’t possible, consider moving to an organization where it is.']]
 },
 {
   slug: 'certifications-vs-degrees', title: 'Certifications vs. Degrees: Which Is Worth It?', crumb: 'Certifications vs. degrees', topic: 'career-growth', audience: ['professionals', 'changers', 'students'],
   desc: 'When a professional certification beats a degree (and vice versa): cost, time, career impact, how employers view each and how to pick credentials that actually raise your pay.',
-  answer: 'Certifications are faster and cheaper and prove specific skills — they’re often the best move in trades, IT, healthcare support and specialized roles. Degrees take longer but are required for many professions and leadership tracks. Check job postings for your target role: whatever employers consistently require is the credential worth getting.',
+  answer: 'Certifications are faster and cheaper and prove specific skills: they’re often the best move in trades, IT, healthcare support and specialized roles. Degrees take longer but are required for many professions and leadership tracks. Check job postings for your target role: whatever employers consistently require is the credential worth getting.',
   related: ['upskilling-vs-reskilling', 'how-to-get-promoted', 'college-vs-trade-school'],
   body: `## The quick comparison
 | | Certification | Degree |
@@ -78,7 +78,7 @@ Get to know leaders and peers in other departments. Decision-makers promote peop
 - You already have a degree and need practical skills.
 
 ## When degrees win
-- The law or profession requires one — for example, CPA licensure for [accountants](/careers/accountant/) or ADN/BSN for [registered nurses](/careers/registered-nurse/).
+- The law or profession requires one, for example, CPA licensure for [accountants](/careers/accountant/) or ADN/BSN for [registered nurses](/careers/registered-nurse/).
 - You want management or professional roles where a degree is standard.
 - You want maximum long-term flexibility.
 
@@ -91,11 +91,11 @@ Get to know leaders and peers in other departments. Decision-makers promote peop
 
 ## Beware of credentials that don’t matter
 If employers in your field don’t recognize it, it won’t help much. A general course (including our own non-credit trainings) can build knowledge and confidence, but it isn’t a substitute for a required license or industry certification.`,
-  faq: [['Can a certification replace a degree?', 'In some fields, yes — especially IT and skilled trades. In licensed professions, no.'], ['Do certifications increase pay?', 'Recognized certifications that employers require or prefer often lead to higher pay or promotion. Check postings in your field.']]
+  faq: [['Can a certification replace a degree?', 'In some fields, yes, especially IT and skilled trades. In licensed professions, no.'], ['Do certifications increase pay?', 'Recognized certifications that employers require or prefer often lead to higher pay or promotion. Check postings in your field.']]
 },
 {
   slug: 'soft-skills-employers-want', title: '10 Soft Skills Employers Want (And How to Prove Them)', crumb: 'Soft skills employers want', topic: 'career-growth', audience: ['professionals', 'students', 'changers'],
-  desc: 'The soft skills employers value most — communication, reliability, teamwork, problem-solving and more — with practical ways to build each and prove them on your resume and in interviews.',
+  desc: 'The soft skills employers value most (communication, reliability, teamwork, problem-solving and more) with practical ways to build each and prove them on your resume and in interviews.',
   answer: 'Employers consistently value reliability, communication, teamwork, problem-solving, adaptability, time management, a positive attitude, leadership, customer focus and integrity. Prove them with specific stories and results rather than just listing them.',
   related: ['transferable-skills', 'job-interview-tips', 'how-to-get-promoted'],
   body: `## The top 10
@@ -138,7 +138,7 @@ Confirm your start time, location, dress code and who to ask for. Review the job
 
 ## Days 31–60: Contribute
 - Handle your core responsibilities independently.
-- Deliver one or two early wins — finish something useful and visible.
+- Deliver one or two early wins: finish something useful and visible.
 - Ask for feedback: “What should I keep doing, start doing or stop doing?”
 
 ## Days 61–90: Own
@@ -150,10 +150,10 @@ Confirm your start time, location, dress code and who to ask for. Review the job
 - Be early and reliable.
 - Close the loop on every task.
 - Admit mistakes quickly and fix them.
-- Say thank you — often.
+- Say thank you, often.
 
 Employers: see our job-specific [30-60-90 day onboarding plans](/employers/onboarding-plans/).`,
-  faq: [['What if my job is different from what I expected?', 'Talk with your manager early, clarify expectations and give it time — but if the gap is serious, start planning your options thoughtfully.'], ['How do I make a good first impression?', 'Be on time, friendly, curious and reliable. Take notes and follow through on small things.']]
+  faq: [['What if my job is different from what I expected?', 'Talk with your manager early, clarify expectations and give it time, but if the gap is serious, start planning your options thoughtfully.'], ['How do I make a good first impression?', 'Be on time, friendly, curious and reliable. Take notes and follow through on small things.']]
 },
 {
   slug: 'avoid-burnout', title: 'How to Avoid Burnout at Work', crumb: 'Avoiding burnout', topic: 'career-growth', audience: ['professionals'],
@@ -225,13 +225,13 @@ Personal protective equipment is the last line of defense, after eliminating haz
 - **OSHA 30:** More in-depth training for supervisors and workers with safety responsibilities
 - **Job-specific training:** Such as forklift, HAZWOPER, first aid/CPR and confined space
 
-OSHA Outreach cards (10- and 30-hour) are offered through authorized trainers. Our sister company [HAZWOPER-OSHA.com](https://hazwoper-osha.com) offers online OSHA Outreach and HAZWOPER courses.`,
-  faq: [['Can I refuse unsafe work?', 'In limited circumstances involving imminent danger, workers may have a right to refuse. The conditions are specific — learn more from OSHA and talk to your supervisor first when possible.'], ['Is OSHA 10 required?', 'Federal OSHA doesn’t require OSHA 10 for all workers, but some states, cities, employers and job sites require it.']]
+OSHA Outreach cards (10- and 30-hour) are offered through authorized trainers. You can take [OSHA 10 and OSHA 30](/courses/osha-outreach/), [HAZWOPER](/courses/hazwoper/) and other [safety courses](/courses/) online through MrPress Education.`,
+  faq: [['Can I refuse unsafe work?', 'In limited circumstances involving imminent danger, workers may have a right to refuse. The conditions are specific: learn more from OSHA and talk to your supervisor first when possible.'], ['Is OSHA 10 required?', 'Federal OSHA doesn’t require OSHA 10 for all workers, but some states, cities, employers and job sites require it.']]
 },
 {
   slug: 'networking-guide', title: 'Networking for People Who Hate Networking', crumb: 'Networking guide', topic: 'career-growth', audience: ['professionals', 'changers', 'students'],
   desc: 'A low-pressure networking guide: where to meet people, what to say, how to follow up and how introverts can build a strong professional network without feeling fake.',
-  answer: 'Networking is just building relationships with people in your field. Start with people you already know, ask for advice rather than jobs, be genuinely curious, follow up and offer help in return. Small, consistent actions — one conversation a week — beat big events.',
+  answer: 'Networking is just building relationships with people in your field. Start with people you already know, ask for advice rather than jobs, be genuinely curious, follow up and offer help in return. Small, consistent actions, one conversation a week, beat big events.',
   related: ['informational-interviews', 'linkedin-profile-tips', 'job-search-strategy'],
   body: `## Reframe it
 Networking isn’t selling yourself. It’s learning from people, helping them when you can and staying in touch. That’s it.
@@ -259,10 +259,10 @@ Send a message within a day or two referencing something you talked about. Then 
 - Prefer one-on-one conversations over large events.
 - Prepare two or three questions in advance.
 - Set a small goal: one meaningful conversation per event.
-- Use [informational interviews](/guides/informational-interviews/) — they’re structured and focused.
+- Use [informational interviews](/guides/informational-interviews/): they’re structured and focused.
 
 ## Give before you ask
 Share job leads, introduce people, congratulate wins. Generosity makes your network stronger and more willing to help when you need it.`,
-  faq: [['How do I network without being awkward?', 'Ask for advice, not jobs, and be genuinely curious. Most people enjoy talking about their work.'], ['How often should I network?', 'Small and steady works best — one conversation or follow-up a week adds up quickly.']]
+  faq: [['How do I network without being awkward?', 'Ask for advice, not jobs, and be genuinely curious. Most people enjoy talking about their work.'], ['How often should I network?', 'Small and steady works best, one conversation or follow-up a week adds up quickly.']]
 }
 ];

@@ -36,7 +36,7 @@
         var d = f.querySelector('details'); if (d) d.open = true;
       });
       var p = Math.round(right / sets.length * 100);
-      show('<div class="result-card"><p class="eyebrow">Your score</p><p class="score">' + p + '%</p><p>You answered <strong>' + right + ' of ' + sets.length + '</strong> correctly. ' + (p >= data.passing ? 'Nice work — that is a passing score.' : 'Review the explanations below and try again.') + '</p><p>' + esc(data.cta.text) + '</p><div class="btn-row"><a class="btn btn-primary" href="' + data.cta.link + '">' + esc(data.cta.btn) + '</a><button class="btn" type="button" onclick="location.reload()">Retake test</button></div></div>');
+      show('<div class="result-card"><p class="eyebrow">Your score</p><p class="score">' + p + '%</p><p>You answered <strong>' + right + ' of ' + sets.length + '</strong> correctly. ' + (p >= data.passing ? 'Nice work, that is a passing score.' : 'Review the explanations below and try again.') + '</p><p>' + esc(data.cta.text) + '</p><div class="btn-row"><a class="btn btn-primary" href="' + data.cta.link + '">' + esc(data.cta.btn) + '</a><button class="btn" type="button" onclick="location.reload()">Retake test</button></div></div>');
       return;
     }
 
@@ -86,7 +86,7 @@
         return '<li><span><a href="' + x.c.u + '">' + esc(x.c.n) + '</a><br><span class="small muted">Median pay ' + x.c.p + ' · ' + esc(x.c.tr) + ' to train</span></span><span class="pct">' + m + '%</span><span class="meter"><i style="width:' + m + '%"></i></span></li>';
       }).join('') + '</ol>';
       var tops = 'RIASEC'.split('').filter(function (k) { return w[k] > 0; }).sort(function (a, z) { return w[z] - w[a]; }).slice(0, 3);
-      if (tops.length && data.riasecNames) html += '<p style="margin-top:14px"><strong>Your interest code:</strong> ' + tops.join('') + ' — ' + tops.map(function (k) { return data.riasecNames[k]; }).join(', ') + '.</p>';
+      if (tops.length && data.riasecNames) html += '<p style="margin-top:14px"><strong>Your interest code:</strong> ' + tops.join('') + ': ' + tops.map(function (k) { return data.riasecNames[k]; }).join(', ') + '.</p>';
       html += '<div class="btn-row"><a class="btn btn-primary" href="' + top[0].c.u.replace('/careers/', '/training/') + '">See ' + esc(top[0].c.n) + ' training</a><button class="btn" type="button" onclick="location.reload()">Retake quiz</button></div></div>';
       show(html);
     }

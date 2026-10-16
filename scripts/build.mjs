@@ -4,7 +4,8 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import cfg from '../site.config.mjs';
 import { abs, esc, href, wordCount } from '../src/lib/util.mjs';
-import { layout, setGlobals, logoMark } from '../src/lib/layout.mjs';
+import { layout, setGlobals } from '../src/lib/layout.mjs';
+import { partnerCourses } from '../src/lib/partners.mjs';
 import { categories } from '../src/data/categories.mjs';
 import { enrich, compareSlug } from '../src/lib/career-helpers.mjs';
 import { careerPages, comparePage } from '../src/pages/careers.mjs';
@@ -18,6 +19,7 @@ import { legalPages } from '../src/pages/legal.mjs';
 import { blogPages, loadPosts } from '../src/pages/blog.mjs';
 import { utilityPages } from '../src/pages/utility.mjs';
 import { employerPages } from '../src/pages/employers.mjs';
+import { coursePages } from '../src/pages/courses.mjs';
 import { writeImages } from './images.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -37,7 +39,7 @@ const byslug = Object.fromEntries(careers.map((c) => [c.slug, c]));
 for (const c of careers) for (const r of c.related) if (!byslug[r]) console.warn(`! ${c.slug} relates to missing career ${r}`);
 const posts = loadPosts(path.join(ROOT, 'src/content/blog'));
 const cats = categories.filter((cat) => careers.some((c) => c.cat === cat.slug));
-setGlobals({ careers, categories: cats });
+setGlobals({ careers, categories: cats, partners: partnerCourses });
 const ctx = { labor, careers, byslug, categories: cats, posts, ROOT };
 
 // ---------- Generate pages ----------
@@ -47,7 +49,7 @@ const pairs = new Map();
 for (const c of careers) for (const r of c.related) if (byslug[r]) pairs.set(compareSlug(c.slug, r), [c, byslug[r]]);
 ctx.pairs = [...pairs.values()];
 for (const [a, b] of ctx.pairs) pages.push(comparePage(a, b, ctx));
-pages.push(trainingCatalog(ctx), homePage(ctx), ...hubPages(ctx), ...quizPages(ctx), ...guidePages(ctx), ...companyPages(ctx), ...legalPages(ctx), ...blogPages(ctx), ...employerPages(ctx));
+pages.push(trainingCatalog(ctx), homePage(ctx), ...hubPages(ctx), ...quizPages(ctx), ...guidePages(ctx), ...companyPages(ctx), ...legalPages(ctx), ...blogPages(ctx), ...employerPages(ctx), ...coursePages(ctx));
 pages.push(...utilityPages(ctx, pages)); // search, sitemap page, 404 (needs the full list)
 
 // ---------- Write ----------
@@ -57,7 +59,8 @@ const seen = new Set();
 for (const p of pages) {
   if (seen.has(p.path)) throw new Error('Duplicate path ' + p.path);
   seen.add(p.path);
-  const html = p.raw ? p.content : layout(p);
+  // No em dashes anywhere in published pages (style rule); convert any that slip through.
+  const html = (p.raw ? p.content : layout(p)).replace(/[ \t]*—[ \t]*/g, ', ');
   const file = p.file ? path.join(DIST, p.file) : path.join(DIST, p.path, 'index.html');
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, html);
@@ -76,14 +79,13 @@ for (const p of posts) {
   for (const img of p.images) fs.copyFileSync(path.join(p.dir, img), path.join(dir, img));
 }
 fs.writeFileSync(path.join(DIST, '.nojekyll'), '');
-fs.writeFileSync(path.join(DIST, 'favicon.svg'), logoMark(48).replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" '));
 if (process.env.CNAME) fs.writeFileSync(path.join(DIST, 'CNAME'), process.env.CNAME);
 
 // ---------- SEO files ----------
 const indexable = pages.filter((p) => !p.noindex && !p.file);
-const groups = { main: [], careers: [], training: [], guides: [], employers: [], blog: [] };
+const groups = { main: [], careers: [], training: [], courses: [], guides: [], employers: [], blog: [] };
 for (const p of indexable) {
-  const g = p.path.startsWith('/careers/') || p.path.startsWith('/compare/') || p.path.startsWith('/best-careers/') ? 'careers' : p.path.startsWith('/training/') ? 'training' : p.path.startsWith('/guides/') || p.path.startsWith('/resources/') || p.path.startsWith('/quizzes/') ? 'guides' : p.path.startsWith('/blog/') ? 'blog' : p.path.startsWith('/employers/') || p.path.startsWith('/for-') ? 'employers' : 'main';
+  const g = p.path.startsWith('/careers/') || p.path.startsWith('/compare/') || p.path.startsWith('/best-careers/') ? 'careers' : p.path.startsWith('/training/') ? 'training' : p.path.startsWith('/courses/') ? 'courses' : p.path.startsWith('/guides/') || p.path.startsWith('/resources/') || p.path.startsWith('/quizzes/') ? 'guides' : p.path.startsWith('/blog/') ? 'blog' : p.path.startsWith('/employers/') || p.path.startsWith('/for-') ? 'employers' : 'main';
   groups[g].push(p);
 }
 const urlset = (list) => `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${list.map((p) => `<url><loc>${abs(p.path)}</loc><lastmod>${p.modified || cfg.updated}</lastmod>${p.og ? `<image:image><image:loc>${abs(p.og)}</image:loc></image:image>` : ''}</url>`).join('\n')}\n</urlset>\n`;
@@ -91,7 +93,7 @@ for (const [g, list] of Object.entries(groups)) if (list.length) fs.writeFileSyn
 fs.writeFileSync(path.join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${Object.entries(groups).filter(([, l]) => l.length).map(([g, l]) => `<sitemap><loc>${abs(`/sitemap-${g}.xml`)}</loc><lastmod>${l.map((p) => p.modified || cfg.updated).sort().at(-1)}</lastmod></sitemap>`).join('\n')}\n</sitemapindex>\n`);
 
 const aiBots = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'anthropic-ai', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot', 'Applebot-Extended', 'Bingbot', 'DuckAssistBot', 'Amazonbot', 'meta-externalagent', 'MistralAI-User', 'cohere-ai', 'CCBot', 'YouBot'];
-fs.writeFileSync(path.join(DIST, 'robots.txt'), `# MrPress Education — all search engines and AI assistants are welcome.\nUser-agent: *\nAllow: /\nDisallow: ${cfg.basePath}/search/?\n\n${aiBots.map((b) => `User-agent: ${b}\nAllow: /`).join('\n\n')}\n\nSitemap: ${abs('/sitemap.xml')}\n`);
+fs.writeFileSync(path.join(DIST, 'robots.txt'), `# MrPress Education: all search engines and AI assistants are welcome.\nUser-agent: *\nAllow: /\nDisallow: ${cfg.basePath}/search/?\n\n${aiBots.map((b) => `User-agent: ${b}\nAllow: /`).join('\n\n')}\n\nSitemap: ${abs('/sitemap.xml')}\n`);
 
 fs.writeFileSync(path.join(DIST, 'site.webmanifest'), JSON.stringify({ name: cfg.name, short_name: cfg.shortName, description: cfg.description, start_url: href('/'), scope: href('/'), display: 'standalone', background_color: '#faf8f3', theme_color: '#13294b', icons: [{ src: href('/icons/icon-192.png'), sizes: '192x192', type: 'image/png' }, { src: href('/icons/icon-512.png'), sizes: '512x512', type: 'image/png' }, { src: href('/icons/icon-maskable-512.png'), sizes: '512x512', type: 'image/png', purpose: 'maskable' }] }, null, 1));
 fs.mkdirSync(path.join(DIST, '.well-known'), { recursive: true });
@@ -113,6 +115,7 @@ ${cfg.name} publishes free, plain-language career information for ${careers.leng
 - [All careers](${abs('/careers/')}): directory with pay, growth and training time
 - [Salary guide](${abs('/salary-guide/')}): BLS median pay for all ${careers.length} careers
 - [All trainings](${abs('/training/')}): online courses by job title
+- [Safety, compliance and CDL courses](${abs('/courses/')}): OSHA 10 and 30, HAZWOPER, CDL ELDT, forklift, first aid and more, bought online
 - [Guides](${abs('/guides/')}): choosing a career, college vs. trade school, changing careers, resumes, interviews
 - [For students](${abs('/students/')}) · [For career changers](${abs('/career-changers/')}) · [For working professionals](${abs('/professionals/')})
 - [Full facts for every career (llms-full.txt)](${abs('/llms-full.txt')})
@@ -124,12 +127,12 @@ ${careers.map((c) => `- [${c.title}](${abs(c.url)}): ${c.summary} Median pay ${m
 ${pages.filter((p) => p.path.startsWith('/guides/') && p.path !== '/guides/').map((p) => `- [${p.name || p.title}](${abs(p.path)}): ${p.desc}`).join('\n')}
 
 ## Policies
-- [Privacy Policy](${abs('/privacy-policy/')}) — U.S.-only service
+- [Privacy Policy](${abs('/privacy-policy/')}): U.S.-only service
 - [Terms of Use](${abs('/terms-of-use/')})
 - [Editorial policy and data sources](${abs('/editorial-policy/')})
 `;
 fs.writeFileSync(path.join(DIST, 'llms.txt'), llms);
-const full = `# ${cfg.name} — career facts (${careers.length} careers)\n\nSource of pay data: ${labor.meta.wageSource}. Projections: ${labor.meta.projectionsSource}. Reviewed ${cfg.updated}. National U.S. figures.\n\n${careers.map((c) => `## ${c.title}\nURL: ${abs(c.url)}\nAlso called: ${c.aka.join(', ')}\nSOC: ${c.l.soc} (${c.l.blsTitle})\nSummary: ${c.summary}\nMedian annual pay: ${money(c.l.wages.median)} (${'$' + c.l.wages.hourly.toFixed(2)}/hour). 10th percentile ${money(c.l.wages.p10)}; 90th percentile ${money(c.l.wages.p90)}.\nProjected growth ${labor.meta.projections}: ${c.l.growthPct}%; about ${c.l.annualOpenings.toLocaleString('en-US')} openings per year.\nTypical entry education (BLS): ${c.l.entryEducation}. Typical training time: ${c.train}.\nKey duties: ${c.duties.join('; ')}.\nCertifications: ${c.certs.map((x) => x[0]).join('; ')}.\nSkills: ${[...c.hard, ...c.soft].join('; ')}.\nHow to become: ${c.steps.map((s, i) => `${i + 1}) ${s[0]}`).join(' ')}\nTraining course: ${abs(c.trainingUrl)}\n`).join('\n')}`;
+const full = `# ${cfg.name}: career facts (${careers.length} careers)\n\nSource of pay data: ${labor.meta.wageSource}. Projections: ${labor.meta.projectionsSource}. Reviewed ${cfg.updated}. National U.S. figures.\n\n${careers.map((c) => `## ${c.title}\nURL: ${abs(c.url)}\nAlso called: ${c.aka.join(', ')}\nSOC: ${c.l.soc} (${c.l.blsTitle})\nSummary: ${c.summary}\nMedian annual pay: ${money(c.l.wages.median)} (${'$' + c.l.wages.hourly.toFixed(2)}/hour). 10th percentile ${money(c.l.wages.p10)}; 90th percentile ${money(c.l.wages.p90)}.\nProjected growth ${labor.meta.projections}: ${c.l.growthPct}%; about ${c.l.annualOpenings.toLocaleString('en-US')} openings per year.\nTypical entry education (BLS): ${c.l.entryEducation}. Typical training time: ${c.train}.\nKey duties: ${c.duties.join('; ')}.\nCertifications: ${c.certs.map((x) => x[0]).join('; ')}.\nSkills: ${[...c.hard, ...c.soft].join('; ')}.\nHow to become: ${c.steps.map((s, i) => `${i + 1}) ${s[0]}`).join(' ')}\nTraining course: ${abs(c.trainingUrl)}\n`).join('\n')}`;
 fs.writeFileSync(path.join(DIST, 'llms-full.txt'), full);
 
 await writeImages({ DIST, careers, categories: cats, posts, ROOT });

@@ -7,7 +7,7 @@ import { pageHero, ctaCard, sideLinks } from '../lib/layout.mjs';
 export function loadPosts(dir) {
   if (!fs.existsSync(dir)) return [];
   return fs.readdirSync(dir).filter((d) => fs.existsSync(path.join(dir, d, 'post.json'))).map((d) => {
-    const p = JSON.parse(fs.readFileSync(path.join(dir, d, 'post.json'), 'utf8'));
+    const p = JSON.parse(fs.readFileSync(path.join(dir, d, 'post.json'), 'utf8').replace(/[ \t]*—[ \t]*/g, ', '));
     const files = fs.readdirSync(path.join(dir, d)).filter((f) => /\.(jpe?g|png|webp|gif|avif)$/i.test(f));
     return { ...p, slug: p.slug || d, dir: path.join(dir, d), images: files, category: p.category || 'Career Advice' };
   }).sort((a, b) => b.date.localeCompare(a.date) || a.title.localeCompare(b.title));
@@ -51,7 +51,7 @@ ${related.length ? `<h2 id="more-posts">More from the blog</h2><div class="grid-
     const path = `/blog/category/${slugify(c)}/`;
     const crumbs = [['Home', '/'], ['Blog', '/blog/'], [c, path]];
     const list = posts.filter((p) => p.category === c);
-    pages.push({ path, crumbs, og: '/og/blog.png', kind: 'Blog', name: `Blog: ${c}`, title: fitTitle(`${c} Articles`), desc: clamp(`${c} articles from the MrPress Education blog — practical career advice and insights for U.S. learners and employers. ${list.length} article${list.length === 1 ? '' : 's'}.`), body: listBody(list, `${esc(c)}`, `${list.length} article${list.length === 1 ? '' : 's'} in ${esc(c)}.`, crumbs, path), schema: [], modified: list[0]?.date });
+    pages.push({ path, crumbs, og: '/og/blog.png', kind: 'Blog', name: `Blog: ${c}`, title: fitTitle(`${c} Articles`), desc: clamp(`${c} articles from the MrPress Education blog: practical career advice and insights for U.S. learners and employers. ${list.length} article${list.length === 1 ? '' : 's'}.`), body: listBody(list, `${esc(c)}`, `${list.length} article${list.length === 1 ? '' : 's'} in ${esc(c)}.`, crumbs, path), schema: [], modified: list[0]?.date });
   }
   // RSS feed
   const rss = `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MrPress Education Blog</title><link>${abs('/blog/')}</link><atom:link href="${abs('/blog/feed.xml')}" rel="self" type="application/rss+xml"/><description>Career advice, industry news and training tips from MrPress Education.</description><language>en-us</language>${posts.slice(0, 30).map((p) => `<item><title>${esc(p.title)}</title><link>${abs(`/blog/${p.slug}/`)}</link><guid>${abs(`/blog/${p.slug}/`)}</guid><pubDate>${new Date(p.date + 'T12:00:00Z').toUTCString()}</pubDate><category>${esc(p.category)}</category><description>${esc(p.description)}</description></item>`).join('')}</channel></rss>\n`;

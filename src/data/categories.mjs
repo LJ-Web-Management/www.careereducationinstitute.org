@@ -27,13 +27,13 @@ export const categories = [
     slug: 'skilled-trades', short: 'Skilled Trades',
     name: 'Skilled Trades & Construction',
     noun: 'skilled trades',
-    blurb: 'Build, wire, plumb and power the country — usually through paid apprenticeships instead of student debt.',
+    blurb: 'Build, wire, plumb and power the country, usually through paid apprenticeships instead of student debt.',
     intro: [
       'Skilled trades and construction careers let you earn while you learn. Most electricians, plumbers and carpenters train through apprenticeships that combine paid on-the-job hours with classroom instruction, and many finish with no student loans.',
       'Demand is strong because of retirements, infrastructure investment and the shift to clean energy. The trade-off is physical work, outdoor conditions and safety hazards that require serious respect for procedures and personal protective equipment.'
     ],
     payFactors: ['Union versus non-union employment and local wage agreements', 'License level (apprentice, journeyworker, master or contractor)', 'Overtime, per diem and travel work', 'Specialization (industrial, commercial, renewable energy, high voltage)'],
-    tips: 'Start with OSHA 10 safety training, a valid driver’s license and basic math skills — apprenticeship programs test for all three.'
+    tips: 'Start with OSHA 10 safety training, a valid driver’s license and basic math skills: apprenticeship programs test for all three.'
   },
   {
     slug: 'mechanics-and-manufacturing', short: 'Mechanics & Manufacturing',
@@ -45,7 +45,7 @@ export const categories = [
       'Modern equipment is computer-controlled, so these jobs mix hands-on skill with diagnostic software, sensors and programming. Certificates from technical schools, manufacturer programs and FAA or ASE credentials can raise pay quickly.'
     ],
     payFactors: ['Certifications such as ASE, FAA A&P or manufacturer credentials', 'Flat-rate versus hourly pay plans in repair shops', 'Industry (aerospace and utilities often pay more than general repair)', 'Shift work and overtime in plants running around the clock'],
-    tips: 'Buy tools gradually, document every repair you do, and earn certifications one at a time — employers notice steady progress.'
+    tips: 'Buy tools gradually, document every repair you do, and earn certifications one at a time: employers notice steady progress.'
   },
   {
     slug: 'safety-and-environmental', short: 'Safety & Environmental',
@@ -53,17 +53,17 @@ export const categories = [
     noun: 'safety and environmental',
     blurb: 'Protect workers, communities and natural resources through inspection, cleanup and compliance.',
     intro: [
-      'Safety and environmental careers exist because every workplace, building and water system has rules designed to keep people alive and healthy. These professionals inspect, test, clean up and teach — and they are often the people who stop an incident before it happens.',
+      'Safety and environmental careers exist because every workplace, building and water system has rules designed to keep people alive and healthy. These professionals inspect, test, clean up and teach, and they are often the people who stop an incident before it happens.',
       'Many roles require specific federal or state training, such as OSHA HAZWOPER for hazardous waste work or state operator certification for water treatment. That training is a real barrier to entry, which helps keep demand and pay steady for those who earn it.'
     ],
     payFactors: ['Required credentials (HAZWOPER, CSP, state inspector or operator licenses)', 'Government versus private-sector employment', 'Hazard level and emergency-response duties', 'Industry (construction, energy, chemical and federal contracting)'],
-    tips: 'Pair a recognized safety certificate with clear writing skills — reports and documentation are a big part of these jobs.'
+    tips: 'Pair a recognized safety certificate with clear writing skills: reports and documentation are a big part of these jobs.'
   },
   {
     slug: 'transportation-and-logistics', short: 'Transportation & Logistics',
     name: 'Transportation & Logistics',
     noun: 'transportation and logistics',
-    blurb: 'Move freight from factories to front doors — on the road, in the warehouse and behind the dashboard.',
+    blurb: 'Move freight from factories to front doors, on the road, in the warehouse and behind the dashboard.',
     intro: [
       'Transportation and logistics jobs keep shelves stocked and packages moving. Some roles, such as warehouse associate and forklift operator, can start in days with on-the-job training; others, such as truck driving, need a Commercial Driver’s License (CDL).',
       'The field also has a clear ladder into planning and management. Many logistics coordinators and supply chain analysts started on a warehouse floor or behind the wheel and moved up after learning how the whole system fits together.'
@@ -75,7 +75,7 @@ export const categories = [
     slug: 'business-and-office', short: 'Business & Office',
     name: 'Business & Office',
     noun: 'business and office',
-    blurb: 'Keep organizations organized — money, people, projects, customers and contracts.',
+    blurb: 'Keep organizations organized: money, people, projects, customers and contracts.',
     intro: [
       'Business and office careers are found in every industry, from hospitals and construction firms to software companies and government agencies. That flexibility makes them a strong choice if you are not yet sure which industry you want to work in.',
       'Entry points range from customer service and administrative roles that require a high school diploma to accounting and project management roles that usually need a bachelor’s degree or professional certification. Strong software skills and clear communication raise pay at every level.'
@@ -93,19 +93,19 @@ export const categories = [
       'The field changes quickly, so the most successful people build a habit of learning. Industry certifications, portfolio projects and home labs are practical ways to prove ability to employers.'
     ],
     payFactors: ['Specialization (security and cloud skills typically pay more)', 'Certifications such as CompTIA, Cisco, AWS or Google', 'Portfolio quality and real project experience', 'Location and remote-work eligibility'],
-    tips: 'Build something you can show — a home lab, a website, a write-up of a fixed problem. Proof of skill beats a list of buzzwords.'
+    tips: 'Build something you can show: a home lab, a website, a write-up of a fixed problem. Proof of skill beats a list of buzzwords.'
   },
   {
     slug: 'public-safety', short: 'Public Safety',
     name: 'Public Safety & Security',
     noun: 'public safety',
-    blurb: 'Respond, protect and serve — in communities, buildings and emergencies.',
+    blurb: 'Respond, protect and serve, in communities, buildings and emergencies.',
     intro: [
       'Public safety and security careers attract people who want work that matters and are comfortable making decisions under pressure. Police officers and firefighters serve communities through government agencies, while security officers protect people and property for businesses of every kind.',
-      'Hiring processes are thorough: expect written exams, physical fitness tests, background investigations and academy training. Pay and benefits — including pensions in many public agencies — tend to rise steadily with rank and years of service.'
+      'Hiring processes are thorough: expect written exams, physical fitness tests, background investigations and academy training. Pay and benefits, including pensions in many public agencies, tend to rise steadily with rank and years of service.'
     ],
     payFactors: ['Agency size and local government budgets', 'Rank, seniority and specialty assignments', 'Overtime, shift differentials and court time', 'State licensing and armed-guard credentials for security work'],
-    tips: 'Keep your record clean and start a fitness routine now — background and physical tests are pass/fail gates.'
+    tips: 'Keep your record clean and start a fitness routine now: background and physical tests are pass/fail gates.'
   }
 ];
 

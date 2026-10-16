@@ -4,7 +4,7 @@ import { pageHero, sideLinks } from '../lib/layout.mjs';
 
 const D = fmtDate(cfg.updated);
 const contact = `**${cfg.legalName}**  \nPhone: [${cfg.phone}](tel:${cfg.phoneE164})  \nEmail: [${cfg.email}](mailto:${cfg.email})`;
-const usOnly = `> **U.S.-only notice:** This website and the services offered through it are intended solely for individuals located in the United States. This policy is designed to comply with applicable U.S. federal and state laws only. The website is **not** designed to comply with the laws of any other country or jurisdiction — including the European Union or United Kingdom General Data Protection Regulation (GDPR), Canada’s PIPEDA, Brazil’s LGPD or similar laws. If you access the website from outside the United States, you do so on your own initiative, and any information you provide will be processed in the United States under U.S. law.`;
+const usOnly = `> **U.S.-only notice:** This website and the services offered through it are intended solely for individuals located in the United States. This policy is designed to comply with applicable U.S. federal and state laws only. The website is **not** designed to comply with the laws of any other country or jurisdiction, including the European Union or United Kingdom General Data Protection Regulation (GDPR), Canada’s PIPEDA, Brazil’s LGPD or similar laws. If you access the website from outside the United States, you do so on your own initiative, and any information you provide will be processed in the United States under U.S. law.`;
 
 const docs = [
   { slug: 'privacy-policy', title: 'Privacy Policy', desc: 'How MrPress Education collects, uses and protects personal information, your U.S. state privacy rights (including California) and how to contact us. U.S.-only service.',
@@ -16,13 +16,14 @@ This Privacy Policy explains how ${cfg.legalName} (“MrPress Education,” “w
 
 ## 1. Information we collect
 ### Information you give us
-- **Enrollment and contact requests.** Our forms do not send or store your information on this website. When you press the submit button, your own email application opens with a pre-filled message. If you choose to send it, we receive what you include — typically your name, email address, phone number (optional), state, course of interest, number of learners, organization (for group requests) and any message.
-- **Course enrollment and payment.** When you enroll, we collect the information needed to create your learning-platform (LMS) account and process payment. Payment card details are handled by our payment processor; we do not store full card numbers.
+- **Enrollment and contact requests.** Our forms do not send or store your information on this website. When you press the submit button, your own email application opens with a pre-filled message. If you choose to send it, we receive what you include, typically your name, email address, phone number (optional), state, course of interest, number of learners, organization (for group requests) and any message.
+- **Course enrollment and payment.** When you enroll, we collect the information needed to create your learning-platform (LMS) account and process payment.
+- **Online checkout.** When you buy a course on our checkout page, the details you enter (name, email, phone, company, billing address and number of learners) are sent to the learning platform of our affiliated provider, ${cfg.checkout.provider}, to create your learner account and order. Your card details are entered into a secure form provided by Stripe, Inc. and go directly to Stripe. We never see or store full card numbers.
 - **Communications.** Emails, calls and messages you send us.
 
 ### Information collected automatically
 - **Hosting logs.** Our website is hosted by a third-party provider (currently GitHub Pages), which may automatically log technical information such as IP address, browser type, pages requested and date/time for security and operations. See GitHub’s privacy statement for details.
-- **Browser storage.** We do not use advertising or tracking cookies by default. We may store a small preference in your browser’s local storage (for example, your analytics opt-out choice). Quiz answers are processed entirely in your browser and are not transmitted or saved by us.
+- **Browser storage.** We do not use advertising or tracking cookies by default. On the checkout page only, Stripe’s secure card form may set cookies and collect device information to prevent fraud, under Stripe’s privacy policy. We may store a small preference in your browser’s local storage (for example, your analytics opt-out choice). Quiz answers are processed entirely in your browser and are not transmitted or saved by us.
 - **Optional analytics.** If we enable website analytics (such as Google Analytics) in the future, it will collect pseudonymous usage information (pages viewed, approximate location, device type). Analytics will not load if your browser sends a Global Privacy Control (GPC) signal or if you opt out on our [Your Privacy Choices](/your-privacy-choices/) page.
 
 ### Information from others
@@ -39,8 +40,8 @@ This Privacy Policy explains how ${cfg.legalName} (“MrPress Education,” “w
 
 ## 3. How we disclose information
 We disclose personal information only as described here:
-- **Service providers** that help us operate — website hosting, email, learning-platform, payment processing and customer-support tools — under contracts that limit their use of your information.
-- **Affiliated company.** Enrollment and contact emails are received at mailboxes on the hazwoper-osha.com domain and our phone line is shared with our affiliated training company, which helps us handle enrollment and support.
+- **Service providers** that help us operate, such as website hosting, email, learning-platform, payment processing (Stripe) and customer-support tools, under terms that limit their use of your information.
+- **Affiliated company.** Our affiliated training company, ${cfg.checkout.provider} (${cfg.checkout.providerLegal}), receives our enrollment and contact emails, answers our phone line, and fulfills online course orders, including creating learner accounts and issuing certificates.
 - **Your organization.** If an employer or program enrolled you, we may share course progress and completion status with that organization.
 - **Legal and safety.** When required by law, subpoena or court order, or to protect rights, property or safety.
 - **Business transfers.** In connection with a merger, acquisition or sale of assets, subject to this policy.
@@ -54,7 +55,7 @@ We do not intentionally collect sensitive personal information (such as Social S
 This website is not directed to children under 13, and we do not knowingly collect personal information from children under 13, consistent with the Children’s Online Privacy Protection Act (COPPA). Learners under 18 should use our services with a parent or guardian’s permission, and enrollment requests for minors must be submitted by a parent or guardian. If you believe a child under 13 has provided us information, contact us and we will delete it.
 
 ## 6. Data retention
-We keep personal information only as long as needed for the purposes above — generally for the duration of your enrollment plus up to seven years for tax, accounting and legal records — and then delete or de-identify it.
+We keep personal information only as long as needed for the purposes above (generally for the duration of your enrollment plus up to seven years for tax, accounting and legal records) and then delete or de-identify it.
 
 ## 7. Security
 We use reasonable administrative, technical and physical safeguards, including encrypted connections (HTTPS). No method of transmission or storage is completely secure, and email is not a fully secure channel, so please don’t email sensitive information.
@@ -89,13 +90,13 @@ In the past 12 months we have collected the following categories of personal inf
 | Category | Examples | Collected | Sold or shared |
 |---|---|---|---|
 | Identifiers | Name, email, phone, IP address | Yes | No |
-| Customer records (Cal. Civ. Code § 1798.80) | Name, contact and payment details | Yes | No |
+| Customer records (Cal. Civ. Code § 1798.80) | Name, contact and billing details (card numbers are handled by Stripe) | Yes | No |
 | Commercial information | Courses requested or purchased | Yes | No |
 | Internet or network activity | Pages visited (hosting logs; analytics if enabled) | Yes | No |
 | General geolocation | State of residence; approximate location from IP | Yes | No |
 | Professional or employment information | Employer name for group enrollments | Sometimes | No |
 | Education information | Course progress and certificates (not covered by FERPA) | Yes | No |
-| Sensitive personal information | — | No | No |
+| Sensitive personal information |: | No | No |
 
 **Shine the Light (Cal. Civ. Code § 1798.83):** We do not disclose personal information to third parties for their own direct-marketing purposes.
 
@@ -119,16 +120,21 @@ Please read these Terms of Use (“Terms”) carefully. By accessing or using th
 The Services are offered only to individuals located in the United States. You must be at least 18 years old, or at least 13 years old with the permission and supervision of a parent or guardian who agrees to these Terms on your behalf. Organizations that enroll learners are responsible for ensuring their learners comply with these Terms.
 
 ## 2. What we offer
-MrPress Education provides free career information (career profiles, salary data, quizzes, guides and worksheets) and paid, general online career-preparation courses delivered through a learning-management system (LMS).
+MrPress Education provides free career information (career profiles, salary data, quizzes, guides and worksheets), paid general online career-preparation courses delivered through a learning-management system (LMS), and certification and safety courses (such as OSHA Outreach, HAZWOPER and CDL Entry-Level Driver Training) provided by our affiliated training provider, ${cfg.checkout.provider} (${cfg.checkout.providerLegal}).
 
 **Important disclosures about our courses:**
 - Courses are general, non-credit, professional-development courses. They do not award academic credit, degrees, diplomas, state licenses or industry certifications.
 - MrPress Education is not a degree-granting institution and is not accredited by an agency recognized by the U.S. Department of Education. Courses are not eligible for federal student aid.
-- Courses do not replace state-approved or employer-required training programs, supervised clinical or apprenticeship hours, or licensing exams.
+- Job-title trainings do not replace state-approved or employer-required training programs, supervised clinical or apprenticeship hours, or licensing exams.
+- Certification and safety courses cover the regulations stated on each course page. Whether a certificate, card or completion record satisfies a particular employer, state, agency or job site is decided by that party. Some credentials have additional steps, such as behind-the-wheel training for a CDL or hands-on evaluation for forklift operators.
 - We do not guarantee employment, a particular salary, admission to any program or passing any exam.
 
 ## 3. Enrollment, pricing and payment
-Enrollment requests are submitted by email using our forms. A course purchase is complete only when we confirm your enrollment and receive payment. Prices are provided on request and may change, but changes will not affect enrollments already confirmed. You are responsible for any applicable taxes. Refunds are governed by our [Refund Policy](/refund-policy/).
+Prices are listed in U.S. dollars on each course page and may change, but changes will not affect purchases already confirmed. Volume discounts are applied by seat count as shown on the course and checkout pages.
+- **Job-title trainings** are requested with our enrollment form, which opens an email to our team. The purchase is complete when we confirm your enrollment and receive payment.
+- **Certification and safety courses** are purchased with a credit or debit card on our checkout page. Card payments are processed by Stripe, Inc., and your order and learner account are created in the learning platform of ${cfg.checkout.provider}, which delivers the course and issues certificates. By purchasing, you also agree to follow that provider’s course rules, such as identity validation and assessment requirements described in the course.
+
+You are responsible for any applicable taxes. Refunds are governed by our [Refund Policy](/refund-policy/).
 
 ## 4. Course access and license
 When you enroll, we grant you a limited, personal, non-exclusive, non-transferable, revocable license to access the course for the access period stated at purchase (currently ${cfg.course.access}). You may not share login credentials, copy, record, resell, redistribute or publicly display course materials. Group and employer licenses are governed by the terms agreed at purchase.
@@ -178,12 +184,13 @@ MrPress Education is built to be fast and private. **By default, our website doe
 ## What we use
 | Technology | Purpose | Duration | Can you opt out? |
 |---|---|---|---|
-| Local storage: \`mp-optout\` | Remembers your choice to opt out of optional analytics | Until you clear it | Yes — clear browser data |
+| Local storage: \`mp-optout\` | Remembers your choice to opt out of optional analytics | Until you clear it | Yes: clear browser data |
 | Hosting logs (GitHub Pages) | Security and reliable delivery; set by our host, not by cookies we control | Per host’s policy | Not applicable |
-| Optional analytics cookies (for example, \`_ga\`) | Only if we enable analytics: aggregated usage statistics | Up to 13 months | Yes — GPC signal or [Your Privacy Choices](/your-privacy-choices/) |
+| Stripe cookies (for example, \`__stripe_mid\`, \`__stripe_sid\`) | Fraud prevention for card payments, set only on the checkout page | Up to 1 year | Avoid the checkout page; order by phone instead |
+| Optional analytics cookies (for example, \`_ga\`) | Only if we enable analytics: aggregated usage statistics | Up to 13 months | Yes: GPC signal or [Your Privacy Choices](/your-privacy-choices/) |
 
 ## Quizzes and forms
-Quiz answers are processed in your browser and are not stored or sent. Enrollment and contact forms open your own email app; the website itself does not store what you type.
+Quiz answers are processed in your browser and are not stored or sent. Enrollment and contact forms open your own email app, and the website itself does not store what you type. The checkout page sends your order details to our course provider and your card details to Stripe, as described in our [Privacy Policy](/privacy-policy/).
 
 ## Third-party sites
 When you follow links to other sites (such as government data sources or our learning platform), those sites may use their own cookies under their own policies.
@@ -225,28 +232,39 @@ ${contact}
 
 You can also use our [contact form](/contact/) and select “Accessibility request.”` },
 
-  { slug: 'refund-policy', title: 'Refund & Cancellation Policy', desc: 'MrPress Education refund and cancellation policy for individual and group online course enrollments, including timelines and how to request a refund.',
+  { slug: 'refund-policy', title: 'Refund & Cancellation Policy', desc: 'MrPress Education refund policy: cancel within 30 days for a full refund, a money-back guarantee, account credit after 30 days and how to request a refund.',
     body: `**Effective date and last updated:** ${D}
 
-We want you to be satisfied with your training. This policy applies to purchases by U.S. customers.
+This policy applies to every course purchased from MrPress Education, including our job-title trainings and the certification and safety courses provided by our affiliated provider, ${cfg.checkout.provider}.
 
-## Individual enrollments
-- **14-day refund window.** You may request a full refund within 14 days of your enrollment confirmation if you have completed less than 25% of the course.
-- **After 14 days or 25% completion,** course fees are non-refundable, except where required by law or as described below.
-- **Technical problems.** If a verified technical problem on our side prevents you from accessing the course and we cannot fix it within a reasonable time, we will refund your fee.
-- **Duplicate purchases** will be refunded in full.
+## 30-day full refund
+Not sure whether you or your employees will be able to complete the course you purchased? You can cancel a course within 30 days of purchase and receive a full refund. If you cancel more than 30 days after purchase, you receive a credit for the full amount paid, which can be used to enroll in a different course of equal or lesser value. Organizations can also ask to pay by invoice to make it easier to finalize plans later.
 
-## Group and employer enrollments
-Refunds for group, employer and workforce-program purchases follow the terms of the written quote or agreement. Unused, unassigned seats may be refunded within 30 days of purchase unless otherwise agreed.
+You must give notice of cancellation to receive a refund, to have your account credited or to cancel an invoice. Call [${cfg.phone}](tel:${cfg.phoneE164}) between ${cfg.checkout.providerHours}, or email [${cfg.email}](mailto:${cfg.email}).
 
-## How to request a refund
-Email [${cfg.email}](mailto:${cfg.email}) with the subject “Refund Request,” including your name, the course, and your enrollment date. Approved refunds are issued to the original payment method, typically within 5–10 business days after approval.
+## 100% money-back guarantee
+Your purchase is risk free. If you are unsatisfied with the value of the training after completing a course, notify us in writing at [${cfg.email}](mailto:${cfg.email}) with the reason, and we will promptly refund your payment. Most refunds are returned to the original payment method. Certain restrictions may apply, and some purchases may be eligible for a credit instead of a refund.
 
-## Cancellations by us
-If we cancel or permanently discontinue a course you paid for before your access period ends, we will offer a comparable course or a prorated refund.
+## When a refund or credit is not available
+No refund or credit is issued for:
+- **Course completion:** 65% or more of the course material has been completed.
+- **Certificate issuance:** a certificate of completion has already been issued.
+- **Assessment failure:** you did not pass quizzes, final exams or other required in-course assessments within the allowed number of attempts.
+- **Identity validation:** you did not pass required identity validation, such as verification of a state or government ID, security questions or other methods described in the course guidelines.
+- **Time limit:** the refund was requested more than 30 days after the purchase date.
+- **Expedited services:** expedited processing or mailing of certificates, once that service has been provided as promised.
+
+## How refunds are processed
+Approved refunds can take up to 10 business days to appear on your account. Refunds are issued only to the payment method used for the original purchase.
+
+## Group and employer purchases
+The same terms apply to each seat purchased. Seats that have not been assigned to a learner can be cancelled within 30 days of purchase for a full refund.
+
+## Purchases from outside the United States
+Our services are intended for customers in the United States, and this guarantee does not apply to international or overseas registrations. Payment for international registrations must be made in U.S. dollars before the course starts, and those course fees are non-refundable. Learner substitutions can be made at any time before the course starts.
 
 ## Your rights
-Nothing in this policy limits any rights you may have under applicable state or federal consumer-protection laws.
+Nothing in this policy limits any rights you may have under applicable consumer-protection laws.
 
 ## Contact
 ${contact}` },
@@ -255,7 +273,7 @@ ${contact}` },
     body: `**Last updated:** ${D}
 
 ## Educational information only
-All content on this website — career profiles, salary data, quizzes, guides, worksheets and how-to articles — is provided for general educational and informational purposes. It is not professional career counseling, legal, medical, financial, tax or safety-engineering advice.
+All content on this website (career profiles, salary data, quizzes, guides, worksheets and how-to articles) is provided for general educational and informational purposes. It is not professional career counseling, legal, medical, financial, tax or safety-engineering advice.
 
 ## Salary and labor-market data
 Pay and job-outlook figures come from the U.S. Bureau of Labor Statistics (BLS) and represent national estimates for the Standard Occupational Classification categories we match each career to. Actual pay varies by location, employer, experience, credentials and other factors. Data is shown with its source and date and may not reflect current conditions in your area. MrPress Education is not affiliated with or endorsed by the BLS, the U.S. Department of Labor or O*NET.
@@ -263,11 +281,11 @@ Pay and job-outlook figures come from the U.S. Bureau of Labor Statistics (BLS) 
 ## No guarantees
 We do not guarantee employment, wages, career advancement, admission to any program, or passing any certification or licensing exam.
 
-## Courses are non-credit
-Our trainings are general, non-credit career-preparation courses. They do not grant licenses, certifications, academic credit or degrees and do not replace state-approved or employer-required training. Licensing and certification requirements vary by state and change over time; always confirm requirements with the appropriate state board, certifying body or employer.
+## Courses
+Our job-title trainings are general, non-credit career-preparation courses. They do not grant licenses, certifications, academic credit or degrees and do not replace state-approved or employer-required training. Certification and safety courses are provided by our affiliated provider, ${cfg.checkout.provider}, and cover the regulations stated on each course page; whether a certificate or card is accepted is decided by employers, agencies and authorities. Licensing and certification requirements vary by state and change over time; always confirm requirements with the appropriate state board, certifying body or employer.
 
 ## How-to and safety content
-Step-by-step guides are general overviews. Many tasks — especially in healthcare, electrical, mechanical, hazardous-materials and public-safety work — require formal training, supervision, licensure and compliance with OSHA and other regulations. Never perform a task beyond your training or legal scope of practice. Always follow your employer’s procedures and manufacturer instructions.
+Step-by-step guides are general overviews. Many tasks (especially in healthcare, electrical, mechanical, hazardous-materials and public-safety work) require formal training, supervision, licensure and compliance with OSHA and other regulations. Never perform a task beyond your training or legal scope of practice. Always follow your employer’s procedures and manufacturer instructions.
 
 ## Quizzes
 Career quizzes are self-reflection tools, not psychological or vocational assessments. Use results as a starting point for exploration.
@@ -300,7 +318,7 @@ This setting is saved in this browser only. If you use another browser or device
 If your browser or extension sends a GPC signal, we automatically treat it as a request to opt out of sale, sharing and targeted advertising for that browser.
 
 ## Other privacy requests
-To request access, correction, deletion or a copy of your personal information — or to appeal a decision — email [${cfg.email}](mailto:${cfg.email}) with the subject “Privacy Request,” call [${cfg.phone}](tel:${cfg.phoneE164}) or use our [contact form](/contact/). Authorized agents may submit requests on your behalf with written permission.
+To request access, correction, deletion or a copy of your personal information, or to appeal a decision, email [${cfg.email}](mailto:${cfg.email}) with the subject “Privacy Request,” call [${cfg.phone}](tel:${cfg.phoneE164}) or use our [contact form](/contact/). Authorized agents may submit requests on your behalf with written permission.
 
 We will not discriminate against you for exercising your privacy rights. See our full [Privacy Policy](/privacy-policy/). This page applies to U.S. residents only.` },
 
@@ -310,7 +328,7 @@ We will not discriminate against you for exercising your privacy rights. See our
 MrPress Education welcomes learners of every background. We do not discriminate on the basis of race, color, religion, creed, national origin, ancestry, sex, pregnancy, sexual orientation, gender identity or expression, age, disability, genetic information, marital status, veteran or military status, or any other characteristic protected by applicable federal, state or local law in admission to, access to, or participation in our courses and services.
 
 ## Accommodations
-We provide reasonable accommodations to learners with disabilities. To request an accommodation — such as alternative formats, additional time on knowledge checks or help navigating our learning platform — contact us. Requests are handled confidentially.
+We provide reasonable accommodations to learners with disabilities. To request an accommodation (such as alternative formats, additional time on knowledge checks or help navigating our learning platform) contact us. Requests are handled confidentially.
 
 ## Concerns
 If you believe you have experienced discrimination or harassment in connection with our services, please contact us. We will review concerns promptly and take appropriate action. We prohibit retaliation against anyone who raises a concern in good faith.

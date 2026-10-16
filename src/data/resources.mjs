@@ -2,7 +2,7 @@
 export const resources = [
   {
     slug: 'career-decision-worksheet', title: 'Career Decision Worksheet',
-    desc: 'Compare up to three career options side by side on pay, training time, daily work and fit — a printable worksheet for students and career changers.',
+    desc: 'Compare up to three career options side by side on pay, training time, daily work and fit: a printable worksheet for students and career changers.',
     body: `## Step 1: Write down what matters to you
 Rank each factor from 1 (least important) to 5 (most important).
 
@@ -43,7 +43,7 @@ The first action I will take this week: ____________________`
   },
   {
     slug: 'college-visit-checklist', title: 'College & Program Visit Checklist',
-    desc: 'A printable checklist of questions to ask when you visit a college, trade school or training program — costs, job placement, accreditation and more.',
+    desc: 'A printable checklist of questions to ask when you visit a college, trade school or training program: costs, job placement, accreditation and more.',
     body: `## Before the visit
 - Confirm the program leads to the credential your target career requires
 - Check accreditation and, for licensed fields, state board approval
@@ -112,7 +112,7 @@ Aim for at least three to six months of runway before reducing your current inco
   },
   {
     slug: 'job-application-tracker', title: 'Job Application Tracker',
-    desc: 'A printable tracker for every job you apply to — dates, contacts, follow-ups and interview stages — so nothing slips through the cracks.',
+    desc: 'A printable tracker for every job you apply to (dates, contacts, follow-ups and interview stages) so nothing slips through the cracks.',
     body: `## How to use this tracker
 Log every application the day you send it. Follow up five to seven business days after applying if you haven’t heard back, and send a thank-you note within 24 hours of every interview.
 
@@ -170,7 +170,7 @@ See the full [resume guide](/guides/how-to-write-a-resume/).`
     body: `## About the job
 1. What does a typical day or week look like for you?
 2. What parts of the job take the most time?
-3. What do you enjoy most — and least?
+3. What do you enjoy most, and least?
 4. What surprised you when you started?
 5. What skills matter most for success?
 
@@ -212,7 +212,7 @@ Send a thank-you message within 24 hours. See the [informational interview guide
   },
   {
     slug: 'new-hire-onboarding-checklist', title: 'New Hire Onboarding Checklist (Employer Template)', audience: 'employers', metaTitle: 'New Hire Onboarding Checklist (Free Template)',
-    desc: 'A printable new-hire onboarding checklist for employers: before day one, first day, first week and first 90 days — including safety and role training.',
+    desc: 'A printable new-hire onboarding checklist for employers: before day one, first day, first week and first 90 days, including safety and role training.',
     body: `## Before day one
 - [ ] Offer letter signed; start date, schedule and pay confirmed in writing
 - [ ] Background checks, drug screens or license verifications completed (as applicable and lawful)
@@ -244,13 +244,13 @@ Send a thank-you message within 24 hours. See the [informational interview guide
 - [ ] Begins advanced tasks or cross-training
 - [ ] 60- and 90-day reviews documented; development goals set
 
-> Template only — confirm required forms, training and recordkeeping with your HR, legal and safety advisors for your state and industry.`
+> Template only: confirm required forms, training and recordkeeping with your HR, legal and safety advisors for your state and industry.`
   },
   {
     slug: 'interview-scorecard-template', title: 'Structured Interview Scorecard (Employer Template)', audience: 'employers', metaTitle: 'Interview Scorecard Template (Free, Printable)',
     desc: 'A printable structured interview scorecard: rate every candidate on the same job-related criteria to make fairer, faster and better hiring decisions.',
     body: `## Instructions
-Ask every candidate the same core questions in the same order. Rate each answer immediately using the scale below, and write evidence — what the candidate actually said — not impressions.
+Ask every candidate the same core questions in the same order. Rate each answer immediately using the scale below, and write evidence, what the candidate actually said, not impressions.
 
 **Rating scale:** 1 = No evidence · 2 = Weak · 3 = Meets the bar · 4 = Strong · 5 = Exceptional
 
@@ -322,7 +322,7 @@ See job-specific plans in our [onboarding plans by job title](/employers/onboard
     slug: 'training-needs-skills-matrix', title: 'Team Skills Matrix Template (Employer Template)', audience: 'employers', metaTitle: 'Skills Matrix Template for Teams (Free, Printable)',
     desc: 'Map who on your team can do what. A printable skills matrix template to spot training gaps, plan cross-training and prioritize onboarding.',
     body: `## How to use
-List the critical tasks for the role across the top and your team members down the side. Rate each person, then circle any task with fewer than two people at level 3 or higher — that’s a training priority.
+List the critical tasks for the role across the top and your team members down the side. Rate each person, then circle any task with fewer than two people at level 3 or higher. That’s a training priority.
 
 **Levels:** 0 = Not trained · 1 = In training · 2 = Can do with help · 3 = Independent · 4 = Can train others
 

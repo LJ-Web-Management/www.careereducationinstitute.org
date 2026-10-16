@@ -50,18 +50,18 @@ Run through the [resume checklist](/resources/resume-checklist/) before you hit 
   answer: 'A good cover letter is three or four short paragraphs: open with the role and a hook, show how your experience matches the employer’s top needs with one or two specific examples, explain your motivation (especially if changing careers) and close with a clear next step. Keep it under one page and tailor it to each job.',
   related: ['how-to-write-a-resume', 'career-change-resume', 'job-interview-tips'],
   body: `## Do cover letters still matter?
-Not every employer reads them, but many do — especially for smaller employers, competitive roles and career changers. A short, specific letter can explain what your resume can’t.
+Not every employer reads them, but many do, especially for smaller employers, competitive roles and career changers. A short, specific letter can explain what your resume can’t.
 
 ## The four-paragraph structure
 1. **Opening:** Name the role and why you’re excited about this employer specifically.
 2. **Match:** Show how you meet their top one or two needs with a concrete example.
-3. **Motivation:** Explain your interest in the field — especially important if you’re changing careers.
+3. **Motivation:** Explain your interest in the field, especially important if you’re changing careers.
 4. **Close:** Thank them and state your next step.
 
 ## Template
 > Dear [Hiring Manager’s Name],
 >
-> I’m applying for the [Job Title] position at [Company]. [One sentence on why this company — its patients, customers, mission or reputation.]
+> I’m applying for the [Job Title] position at [Company]. [One sentence on why this company: its patients, customers, mission or reputation.]
 >
 > In my role as [current/past role], I [specific accomplishment with a number]. That experience prepared me for [key requirement from the posting], and I’ve recently completed [relevant training or certification].
 >
@@ -74,10 +74,10 @@ Not every employer reads them, but many do — especially for smaller employers,
 
 ## Tips
 - Address a real person when you can find the name.
-- Don’t repeat your resume — add context and personality.
+- Don’t repeat your resume: add context and personality.
 - Keep it to 250–400 words.
 - Proofread aloud.`,
-  faq: [['Should I write a cover letter if it’s optional?', 'Yes, if you can make it specific. A tailored letter can set you apart, especially for career changers.'], ['How long should a cover letter be?', 'Under one page — usually 250 to 400 words.']]
+  faq: [['Should I write a cover letter if it’s optional?', 'Yes, if you can make it specific. A tailored letter can set you apart, especially for career changers.'], ['How long should a cover letter be?', 'Under one page, usually 250 to 400 words.']]
 },
 {
   slug: 'job-interview-tips', title: 'Job Interview Tips: How to Prepare and Stand Out', crumb: 'Job interview tips', topic: 'job-search', audience: ['students', 'changers', 'professionals'],
@@ -88,7 +88,7 @@ Not every employer reads them, but many do — especially for smaller employers,
 - **Research:** Read the company website, recent news and the job description.
 - **Know your story:** Prepare a 60–90 second answer to “Tell me about yourself.”
 - **Prepare STAR stories:** Three to five examples showing teamwork, problem-solving, handling pressure, a mistake you learned from and a success.
-- **Practice out loud** — with a friend or by recording yourself.
+- **Practice out loud**, with a friend or by recording yourself.
 - **Plan logistics:** Route, parking, dress code, documents and copies of your resume.
 
 ## The STAR method
@@ -96,17 +96,17 @@ Not every employer reads them, but many do — especially for smaller employers,
 |---|---|
 | Situation | Set the scene briefly |
 | Task | What you needed to achieve |
-| Action | What *you* did — the most important part |
+| Action | What *you* did: the most important part |
 | Result | What happened, ideally with a number, and what you learned |
 
 ## Common questions
 - Tell me about yourself.
 - Why do you want this job?
 - Tell me about a time you handled a difficult customer or coworker.
-- What’s your greatest strength — and an area you’re improving?
+- What’s your greatest strength, and an area you’re improving?
 - Where do you see yourself in a few years?
 
-Every career on our site has job-specific interview questions — for example, [medical assistant](/careers/medical-assistant/interview-questions/) or [electrician](/careers/electrician/interview-questions/).
+Every career on our site has job-specific interview questions, for example, [medical assistant](/careers/medical-assistant/interview-questions/) or [electrician](/careers/electrician/interview-questions/).
 
 ## Questions to ask them
 - What does success look like in the first 90 days?
@@ -127,7 +127,7 @@ Send a short thank-you email within 24 hours that mentions something specific yo
   answer: 'Research pay for the role using BLS data and local postings, decide your target and walk-away numbers, let the employer make the first offer when possible, respond with appreciation and a specific, justified counter, and consider benefits such as sign-on bonuses, schedule and training if base pay is fixed.',
   related: ['how-to-ask-for-a-raise', 'job-interview-tips', 'how-to-read-a-job-description'],
   body: `## 1. Know your market value
-Use our [salary guide](/salary-guide/) and each career’s salary page for BLS percentiles — for example, the 25th percentile is a typical starting point and the median reflects mid-career pay. Then check local job postings, especially in states that require pay ranges.
+Use our [salary guide](/salary-guide/) and each career’s salary page for BLS percentiles, for example, the 25th percentile is a typical starting point and the median reflects mid-career pay. Then check local job postings, especially in states that require pay ranges.
 
 ## 2. Pick your numbers
 - **Target:** The number you’ll ask for, based on your skills and the market
@@ -138,7 +138,7 @@ Use our [salary guide](/salary-guide/) and each career’s salary page for BLS p
 If asked for expectations early, try: “I’m focused on finding the right fit. Can you share the range budgeted for this role?” If you must give a number, give a researched range.
 
 ## 4. Counter with appreciation and evidence
-> Thank you so much — I’m excited about this role. Based on my [certification/experience] and pay data for this position in our area, I was hoping for something closer to $[number]. Is there flexibility?
+> Thank you so much. I’m excited about this role. Based on my [certification/experience] and pay data for this position in our area, I was hoping for something closer to $[number]. Is there flexibility?
 
 Then pause and let them respond.
 
@@ -156,7 +156,7 @@ Once you agree, ask for an updated written offer before you resign from your cur
 
 ## When to accept
 If the offer meets your acceptable number and the role fits your goals, say yes graciously. Negotiation should build the relationship, not strain it.`,
-  faq: [['Can negotiating cause an offer to be withdrawn?', 'It’s rare when you’re polite and reasonable. Most employers expect some negotiation.'], ['Should I negotiate an entry-level offer?', 'You can, respectfully — especially if you have relevant certifications or competing offers. Benefits and start dates are often easier to adjust.']]
+  faq: [['Can negotiating cause an offer to be withdrawn?', 'It’s rare when you’re polite and reasonable. Most employers expect some negotiation.'], ['Should I negotiate an entry-level offer?', 'You can, respectfully, especially if you have relevant certifications or competing offers. Benefits and start dates are often easier to adjust.']]
 },
 {
   slug: 'job-search-strategy', title: 'Job Search Strategy: How to Find a Job Faster', crumb: 'Job search strategy', topic: 'job-search', audience: ['students', 'changers', 'professionals'],
@@ -192,13 +192,13 @@ If the offer meets your acceptable number and the role fits your goals, say yes 
 Use our free [job application tracker](/resources/job-application-tracker/). Follow up five to seven business days after applying if you haven’t heard back.
 
 ## Stay resilient
-Rejection is part of the process. Review what’s working each week — if you’re not getting interviews, adjust your resume and targeting; if interviews aren’t turning into offers, practice your answers.`,
-  faq: [['How many jobs should I apply to each week?', 'Quality beats quantity. Five to ten well-matched, tailored applications plus networking usually works better than dozens of generic ones.'], ['How long does a job search take?', 'It varies by field and market — from a couple of weeks for high-demand entry-level roles to several months for specialized positions.']]
+Rejection is part of the process. Review what’s working each week, if you’re not getting interviews, adjust your resume and targeting; if interviews aren’t turning into offers, practice your answers.`,
+  faq: [['How many jobs should I apply to each week?', 'Quality beats quantity. Five to ten well-matched, tailored applications plus networking usually works better than dozens of generic ones.'], ['How long does a job search take?', 'It varies by field and market, from a couple of weeks for high-demand entry-level roles to several months for specialized positions.']]
 },
 {
   slug: 'how-to-read-a-job-description', title: 'How to Read a Job Description (And What It Really Means)', crumb: 'Reading job descriptions', topic: 'job-search', audience: ['students', 'changers'],
   desc: 'How to decode job descriptions: required vs. preferred qualifications, red flags, hidden expectations, pay transparency and how to use the posting to tailor your application.',
-  answer: 'Read a job description in three passes: identify the core responsibilities, separate true requirements from “nice-to-haves,” then note keywords, red flags and the pay range. Apply if you meet most of the required qualifications — many people get hired without meeting every preferred item.',
+  answer: 'Read a job description in three passes: identify the core responsibilities, separate true requirements from “nice-to-haves,” then note keywords, red flags and the pay range. Apply if you meet most of the required qualifications. Many people get hired without meeting every preferred item.',
   related: ['how-to-write-a-resume', 'job-search-strategy', 'how-to-negotiate-salary'],
   body: `## Pass 1: What will you actually do?
 Highlight the responsibilities. The first few bullets usually describe what matters most. Compare them with the career’s [day-in-the-life page](/careers/) to see the full picture.
@@ -210,8 +210,8 @@ Highlight the responsibilities. The first few bullets usually describe what matt
 A good rule: if you meet most required qualifications and some preferred ones, apply.
 
 ## Pass 3: Keywords and clues
-- Repeated words are priorities — use them (truthfully) in your resume.
-- “Fast-paced” may mean high volume or understaffing — ask about workload.
+- Repeated words are priorities: use them (truthfully) in your resume.
+- “Fast-paced” may mean high volume or understaffing: ask about workload.
 - “Other duties as assigned” is normal, but a very long list of unrelated duties may mean one person doing several jobs.
 - Physical requirements (lifting, standing) tell you about the work environment.
 
@@ -224,7 +224,7 @@ A growing number of states and cities require pay ranges in job postings. Compar
 - No company name or verifiable contact
 
 ## Turn the posting into your application
-Use your highlights to tailor your summary, skills section and top bullets — and to prepare interview stories for the top three responsibilities.`,
+Use your highlights to tailor your summary, skills section and top bullets, and to prepare interview stories for the top three responsibilities.`,
   faq: [['Should I apply if I don’t meet all the requirements?', 'Often yes. Preferred qualifications are flexible. Focus on whether you meet the true requirements and can show transferable skills.'], ['How can I tell if a job posting is a scam?', 'Be wary of requests for payment, personal financial information before an interview, unverifiable companies and offers that sound too good to be true.']]
 },
 {
@@ -253,7 +253,7 @@ Use the same results-focused bullets as your [resume](/guides/how-to-write-a-res
 List your top skills (LinkedIn allows many) and add licenses and certifications with dates. Ask colleagues to endorse your top three skills.
 
 ## Recommendations
-Ask two or three people — supervisors, instructors or coworkers — for short recommendations. Offer to write one for them too.
+Ask two or three people (supervisors, instructors or coworkers) for short recommendations. Offer to write one for them too.
 
 ## Simple networking habits
 - Connect with classmates, coworkers and people you meet at events.
@@ -290,6 +290,6 @@ Lead with a summary of your goal and strengths, list relevant training, and desc
 
 ## Win the interview
 Employers hiring inexperienced candidates want reliability, a good attitude and coachability. Show up early, be honest about what you don’t know and share examples of learning quickly.`,
-  faq: [['What jobs are easiest to get with no experience?', 'Warehouse, retail, food service, customer service, security and many healthcare support roles commonly hire and train beginners.'], ['How do I explain no experience in an interview?', 'Focus on related training, transferable skills, reliability and your eagerness to learn — then give a specific example.']]
+  faq: [['What jobs are easiest to get with no experience?', 'Warehouse, retail, food service, customer service, security and many healthcare support roles commonly hire and train beginners.'], ['How do I explain no experience in an interview?', 'Focus on related training, transferable skills, reliability and your eagerness to learn, then give a specific example.']]
 }
 ];

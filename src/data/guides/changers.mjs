@@ -6,13 +6,13 @@ export default [
   careers: ['medical-assistant', 'hvac-technician', 'it-support-specialist', 'truck-driver', 'project-manager'],
   related: ['career-change-at-30-40-50', 'transferable-skills', 'career-change-resume', 'financial-planning-career-change'],
   body: `## Step 1: Get clear on why
-Write down exactly what isn’t working: pay, schedule, stress, physical demands, lack of growth, boredom or values. Then write what you want instead. This list becomes your filter for every option — and helps you avoid jumping into a career with the same problems.
+Write down exactly what isn’t working: pay, schedule, stress, physical demands, lack of growth, boredom or values. Then write what you want instead. This list becomes your filter for every option, and helps you avoid jumping into a career with the same problems.
 
 ## Step 2: Choose realistic targets
 Use the [Career Match Quiz](/quizzes/career-match/) and our [best careers for career changers](/best-careers/best-careers-for-career-changers/) to build a shortlist of three to five careers. Then filter by:
 
 - **Training time and cost** you can realistically handle
-- **Pay** — starting and after a few years (see the [salary guide](/salary-guide/))
+- **Pay**: starting and after a few years (see the [salary guide](/salary-guide/))
 - **Demand** in your area
 - **Fit** with your energy, health and family needs
 
@@ -40,7 +40,7 @@ Estimate training costs, any income gap and your savings runway. Our [career cha
 ## Step 7: Rebrand and land the first role
 - Rewrite your resume to lead with skills and relevant training (see the [career change resume guide](/guides/career-change-resume/)).
 - Update LinkedIn with your new target title.
-- Tell your network what you’re looking for — most career changers land roles through people.
+- Tell your network what you’re looking for. Most career changers land roles through people.
 - Consider bridge roles that combine your old and new fields.
 
 > Take the [Career Change Readiness Quiz](/quizzes/career-change-readiness/) to see which step to focus on first.`,
@@ -54,11 +54,11 @@ Estimate training costs, any income gap and your savings runway. Our [career cha
   related: ['how-to-change-careers', 'transferable-skills', 'financial-planning-career-change', 'upskilling-vs-reskilling'],
   body: `## Your advantages
 - **Work ethic and reliability** that entry-level candidates may not have proven yet
-- **Professional skills** — communication, problem-solving, leadership, customer service
+- **Professional skills**: communication, problem-solving, leadership, customer service
 - **Industry knowledge** that can make you valuable in a related field
 - **A network** of people who know your work
 
-## Common obstacles — and how to handle them
+## Common obstacles, and how to handle them
 | Obstacle | Strategy |
 |---|---|
 | Can’t afford a pay cut | Train while employed; target careers with short training; look for bridge roles |
@@ -67,26 +67,26 @@ Estimate training costs, any income gap and your savings runway. Our [career cha
 | Fear of starting over | Look for careers where your experience transfers so you don’t start at the very bottom |
 
 ## In your 30s
-You have time to invest in longer training — even a degree — and still enjoy decades in the new field. Consider careers with strong growth such as [cybersecurity](/careers/cybersecurity-analyst/), [nursing](/careers/registered-nurse/) or [skilled trades](/careers/skilled-trades/).
+You have time to invest in longer training, even a degree, and still enjoy decades in the new field. Consider careers with strong growth such as [cybersecurity](/careers/cybersecurity-analyst/), [nursing](/careers/registered-nurse/) or [skilled trades](/careers/skilled-trades/).
 
 ## In your 40s
-Balance training time with earning years. Careers that build on your experience often work best — for example, moving from a trade into [construction inspection](/careers/construction-inspector/) or [safety](/careers/occupational-safety-specialist/), or from operations into [project management](/careers/project-manager/) or [logistics](/careers/logistics-coordinator/).
+Balance training time with earning years. Careers that build on your experience often work best, for example, moving from a trade into [construction inspection](/careers/construction-inspector/) or [safety](/careers/occupational-safety-specialist/), or from operations into [project management](/careers/project-manager/) or [logistics](/careers/logistics-coordinator/).
 
 ## In your 50s and beyond
-Prioritize short training paths, physical sustainability and flexibility. Options include roles that value judgment and communication — [real estate](/careers/real-estate-agent/), [pharmacy technician](/careers/pharmacy-technician/), [bookkeeping](/careers/bookkeeper/), consulting in your former industry or training others.
+Prioritize short training paths, physical sustainability and flexibility. Options include roles that value judgment and communication: [real estate](/careers/real-estate-agent/), [pharmacy technician](/careers/pharmacy-technician/), [bookkeeping](/careers/bookkeeper/), consulting in your former industry or training others.
 
 ## Five moves that make it work
 1. Run the numbers first with our [budget worksheet](/resources/career-change-budget-worksheet/).
-2. Test the new field before you quit — conversations, courses, volunteering.
+2. Test the new field before you quit: conversations, courses, volunteering.
 3. Get one recognized credential quickly.
 4. Rewrite your story: “I’m bringing 15 years of X to Y.”
-5. Use your network — it’s your biggest asset.`,
+5. Use your network: it’s your biggest asset.`,
   faq: [['Is 50 too old to change careers?', 'No. Many people change careers in their 50s. Choose paths with reasonable training time and lean on the experience and judgment you already have.'], ['Will employers hire older career changers?', 'Many do, especially in fields with worker shortages. Show current skills, enthusiasm for learning and how your experience helps them.']]
 },
 {
   slug: 'transferable-skills', title: 'Transferable Skills: How to Find and Sell Yours', crumb: 'Transferable skills', topic: 'career-change', audience: ['changers', 'students'],
   desc: 'What transferable skills are, a list of the most valuable ones, how to identify yours from any job and how to describe them on a resume and in interviews when changing careers.',
-  answer: 'Transferable skills are abilities you can use in many jobs — communication, problem-solving, teamwork, organization, customer service, leadership, technical troubleshooting and attention to safety. Find yours by listing what you actually did in past roles, then translate them into the language of your target career with specific, measurable examples.',
+  answer: 'Transferable skills are abilities you can use in many jobs: communication, problem-solving, teamwork, organization, customer service, leadership, technical troubleshooting and attention to safety. Find yours by listing what you actually did in past roles, then translate them into the language of your target career with specific, measurable examples.',
   related: ['career-change-resume', 'how-to-change-careers', 'soft-skills-employers-want'],
   body: `## The most valuable transferable skills
 | Skill | Where it shows up | Careers that value it |
@@ -101,7 +101,7 @@ Prioritize short training paths, physical sustainability and flexibility. Option
 
 ## How to find your transferable skills
 1. List every job, volunteer role and major responsibility from the past 10 years.
-2. For each, write what you actually did — verbs, not titles. (Trained new hires. Handled complaints. Tracked inventory. Fixed equipment.)
+2. For each, write what you actually did: verbs, not titles. (Trained new hires. Handled complaints. Tracked inventory. Fixed equipment.)
 3. Add results where you can: numbers, time saved, money saved, satisfaction scores.
 4. Circle the skills that appear in job postings for your target career.
 
@@ -109,7 +109,7 @@ Prioritize short training paths, physical sustainability and flexibility. Option
 Read three to five job postings for your target role and note repeated words. Then rewrite your skills using those words.
 
 - **Before:** “Server at a busy restaurant.”
-- **After:** “Managed 6–8 tables per shift in a fast-paced environment, resolving customer concerns and coordinating with kitchen staff — skills directly applicable to patient flow as a medical assistant.”
+- **After:** “Managed 6–8 tables per shift in a fast-paced environment, resolving customer concerns and coordinating with kitchen staff: skills directly applicable to patient flow as a medical assistant.”
 
 ## Prove it in interviews with STAR stories
 Prepare three or four stories using **Situation, Task, Action, Result**. Choose stories that show your top transferable skills, and end each by connecting it to the new job.`,
@@ -121,7 +121,7 @@ Prepare three or four stories using **Situation, Task, Action, Result**. Choose 
   answer: 'For a career change resume, lead with a targeted summary that names your new goal, follow with a skills section using keywords from job postings, list relevant training and certifications near the top, and rewrite past experience to highlight transferable results. Keep it to one or two pages and tailor it for each job.',
   related: ['transferable-skills', 'how-to-write-a-resume', 'how-to-write-a-cover-letter', 'how-to-change-careers'],
   body: `## Choose the right format
-A **hybrid (combination) resume** works best for most career changers. It opens with a summary and skills section, then lists experience in reverse-chronological order. Avoid purely “functional” resumes with no dates — many employers find them confusing or suspicious.
+A **hybrid (combination) resume** works best for most career changers. It opens with a summary and skills section, then lists experience in reverse-chronological order. Avoid purely “functional” resumes with no dates. Many employers find them confusing or suspicious.
 
 ## The structure
 1. **Header:** Name, phone, email, city/state, LinkedIn
@@ -141,7 +141,7 @@ A **hybrid (combination) resume** works best for most career changers. It opens 
 Focus each bullet on actions and results that match the new role.
 
 ## Put new training where it’s seen
-If your training is your most relevant qualification, move it above experience. Include the course name, provider and completion date — for example, a [job-title training](/training/) or industry certification.
+If your training is your most relevant qualification, move it above experience. Include the course name, provider and completion date, for example, a [job-title training](/training/) or industry certification.
 
 ## Common mistakes
 - Listing every past duty instead of relevant achievements
@@ -150,7 +150,7 @@ If your training is your most relevant qualification, move it above experience. 
 - Sending one generic resume to every job
 
 Use our [resume checklist](/resources/resume-checklist/) before you apply, and pair it with a [cover letter](/guides/how-to-write-a-cover-letter/) that tells the story of your change.`,
-  faq: [['Should I explain my career change on my resume?', 'Yes, briefly — in your summary. Your cover letter can explain the why in more detail.'], ['Should I remove old experience?', 'Keep the last 10–15 years and focus on what’s relevant. Older roles can be summarized in a short “earlier experience” line.']]
+  faq: [['Should I explain my career change on my resume?', 'Yes, briefly, in your summary. Your cover letter can explain the why in more detail.'], ['Should I remove old experience?', 'Keep the last 10–15 years and focus on what’s relevant. Older roles can be summarized in a short “earlier experience” line.']]
 },
 {
   slug: 'financial-planning-career-change', title: 'Budgeting for a Career Change', crumb: 'Budgeting for a career change', topic: 'career-change', audience: ['changers'],
@@ -164,7 +164,7 @@ Include tuition, books, tools, uniforms, exam and licensing fees, transportation
 Will you keep working full time, go part time or stop working while training? Calculate the monthly difference between your expenses and expected income.
 
 ## Step 3: Build your runway
-**Runway (months) = savings ÷ monthly gap.** Aim for three to six months of essential expenses — more if your new field has a slow hiring season. Cut non-essential spending before you start.
+**Runway (months) = savings ÷ monthly gap.** Aim for three to six months of essential expenses: more if your new field has a slow hiring season. Cut non-essential spending before you start.
 
 ## Step 4: Lower the cost
 - Employer tuition assistance (at your current job or a new one)
@@ -187,7 +187,7 @@ Download the free [Career Change Budget Worksheet](/resources/career-change-budg
 {
   slug: 'upskilling-vs-reskilling', title: 'Upskilling vs. Reskilling: Which Do You Need?', crumb: 'Upskilling vs. reskilling', topic: 'career-change', audience: ['changers', 'professionals'],
   desc: 'The difference between upskilling and reskilling, how to tell which one you need, the fastest ways to do each and how employers use both to grow and keep talent.',
-  answer: 'Upskilling means deepening skills for your current career path — such as adding a certification or new software. Reskilling means learning new skills to move into a different role or career. Upskill if you like your field and want to advance; reskill if your role is shrinking or no longer fits you.',
+  answer: 'Upskilling means deepening skills for your current career path: such as adding a certification or new software. Reskilling means learning new skills to move into a different role or career. Upskill if you like your field and want to advance; reskill if your role is shrinking or no longer fits you.',
   related: ['certifications-vs-degrees', 'how-to-change-careers', 'how-to-get-promoted'],
   body: `## Definitions
 - **Upskilling:** Building on your existing skills to grow in your current career. Example: a [medical assistant](/careers/medical-assistant/) earning phlebotomy certification.

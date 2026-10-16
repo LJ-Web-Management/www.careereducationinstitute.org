@@ -6,43 +6,76 @@ import { icons } from '../data/categories.mjs';
 const cssRaw = fs.readFileSync(new URL('../assets/styles.css', import.meta.url), 'utf8');
 export const CSS = cssRaw.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s*\n\s*/g, '').replace(/\s*([{};,>])\s*/g, '$1').replace(/;}/g, '}');
 
-let G = { careers: [], categories: [] };
+let G = { careers: [], categories: [], partners: [] };
 export const setGlobals = (g) => { G = { ...G, ...g }; };
 
-export const logoMark = (size = 40) =>
-  `<svg viewBox="0 0 48 48" width="${size}" height="${size}" aria-hidden="true" focusable="false"><rect width="48" height="48" rx="11" fill="#13294b"/><path d="M11.5 36V17l9.5 10.5L31.5 12v24" fill="none" stroke="#fff" stroke-width="5.4" stroke-linejoin="round" stroke-linecap="square"/><rect x="35.2" y="30.6" width="5.6" height="5.6" rx="1" fill="#f2b134"/></svg>`;
+import { partnerCategories } from '../data/partner-selection.mjs';
 
 export const logo = (cls = '') =>
-  `<a class="logo ${cls}" href="${href('/')}">${logoMark()}<span class="logo-word"><span class="logo-name"><i>Mr</i>Press</span> <span class="logo-sub">Education</span></span></a>`;
+  `<a class="logo ${cls}" href="${href('/')}"><picture><source type="image/webp" srcset="${href('/brand/mp-logo.webp')}"><img src="${href('/brand/mp-logo.png')}" width="68" height="40" alt=""></picture><span class="logo-word"><span class="logo-name"><i>Mr</i>Press</span> <span class="logo-sub">Education</span></span></a>`;
 
 export const icon = (cat, size = 24) =>
   `<svg viewBox="0 0 24 24" width="${size}" height="${size}" aria-hidden="true" focusable="false">${icons[cat] || icons['business-and-office']}</svg>`;
 
-const NAV = [
-  ['Careers', '/careers/'], ['Training', '/training/'], ['Quizzes', '/quizzes/'], ['Students', '/students/'],
-  ['Career Changers', '/career-changers/'], ['Employers', '/employers/'], ['Guides', '/guides/'], ['Blog', '/blog/']
-];
+const chev = '<svg viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const pick = (slugs) => slugs.map((s) => G.careers.find((c) => c.slug === s)).filter(Boolean);
+
+function menu() {
+  const popularCareers = pick(['registered-nurse', 'electrician', 'medical-assistant', 'hvac-technician', 'cybersecurity-analyst', 'truck-driver']);
+  const popularTraining = pick(['medical-assistant', 'phlebotomist', 'pharmacy-technician', 'electrician', 'it-support-specialist', 'project-manager']);
+  const pc = (id) => (G.partners || []).find((c) => c.id === id);
+  const popularCourses = [478, 480, 435, 123, 304, 248, 474].map(pc).filter(Boolean);
+  return [
+    { label: 'Careers', match: ['/careers/', '/compare/', '/best-careers/', '/salary-guide/', '/glossary/'], cols: [
+      { h: 'Career fields', links: G.categories.map((c) => [c.name, `/careers/${c.slug}/`]) },
+      { h: 'Explore', links: [['All 50 careers', '/careers/'], ['Salary guide', '/salary-guide/'], ['Best careers lists', '/best-careers/'], ['Compare careers', '/compare/'], ['Career glossary', '/glossary/'], ['Career Match Quiz', '/quizzes/career-match/']] },
+      { h: 'Popular careers', links: popularCareers.map((c) => [c.title, c.url]) }] },
+    { label: 'Training', match: ['/training/', '/enroll/'], cols: [
+      { h: 'Job-title training by field', links: G.categories.map((c) => [c.short || c.name, `/training/#${c.slug}`]) },
+      { h: 'Popular trainings', links: popularTraining.map((c) => [`${c.title} Training`, c.trainingUrl]) },
+      { h: 'Get started', links: [['All 50 trainings', '/training/'], ['How it works', '/how-it-works/'], ['Free practice tests', '/quizzes/#practice-tests'], ['Enroll', '/enroll/']] }] },
+    { label: 'Courses', match: ['/courses/', '/checkout/'], cols: [
+      { h: 'Safety, compliance and CDL', links: partnerCategories.slice(0, 6).map((c) => [c.name, `/courses/${c.slug}/`]) },
+      { h: 'More categories', links: partnerCategories.slice(6).map((c) => [c.name, `/courses/${c.slug}/`]).concat([['All courses', '/courses/']]) },
+      { h: 'Popular courses', links: popularCourses.map((c) => [c.short, c.url]) }] },
+    { label: 'Quizzes', match: ['/quizzes/'], cols: [
+      { h: 'Find your fit', links: [['Career Match Quiz', '/quizzes/career-match/'], ['Work Style Quiz', '/quizzes/work-style/'], ['College or Trade School?', '/quizzes/college-or-trade-school/'], ['Career Change Readiness', '/quizzes/career-change-readiness/']] },
+      { h: 'Quizzes by field', links: G.categories.map((c) => [c.short || c.name, `/quizzes/which-${c.slug}-career-is-right-for-me/`]) },
+      { h: 'Test yourself', links: [['Career fit quizzes', '/quizzes/#fit-quizzes'], ['Practice tests', '/quizzes/#practice-tests'], ['All quizzes', '/quizzes/']] }] },
+    { label: 'Resources', match: ['/students/', '/career-changers/', '/professionals/', '/guides/', '/resources/', '/blog/'], cols: [
+      { h: 'Start here', links: [['For students', '/students/'], ['For career changers', '/career-changers/'], ['For working professionals', '/professionals/']] },
+      { h: 'Learn', links: [['Career guides', '/guides/'], ['Free worksheets', '/resources/'], ['Blog', '/blog/'], ['Career glossary', '/glossary/']] },
+      { h: 'Popular guides', links: [['How to choose a career', '/guides/how-to-choose-a-career/'], ['College vs. trade school', '/guides/college-vs-trade-school/'], ['How to change careers', '/guides/how-to-change-careers/'], ['How to write a resume', '/guides/how-to-write-a-resume/'], ['Job interview tips', '/guides/job-interview-tips/']] }] },
+    { label: 'Employers', match: ['/employers/', '/for-'], cols: [
+      { h: 'Training for teams', links: [['Onboarding training', '/for-employers/'], ['Recruiters and staffing agencies', '/for-staffing-agencies/'], ['Schools and workforce programs', '/for-workforce-programs/'], ['Safety and compliance courses', '/courses/']] },
+      { h: 'Hiring tools', links: [['Hiring guides by job', '/employers/hiring-guides/'], ['Job description templates', '/employers/job-descriptions/'], ['30-60-90 onboarding plans', '/employers/onboarding-plans/'], ['Training ROI calculator', '/employers/training-roi-calculator/'], ['Onboarding assessment', '/employers/onboarding-assessment/'], ['Employer resource center', '/employers/']] },
+      { h: 'By industry', links: G.categories.map((c) => [c.short || c.name, `/for-employers/${c.slug}/`]) }] },
+    { label: 'About', match: ['/about/', '/how-it-works/', '/faq/', '/contact/', '/editorial-policy/'], cols: [
+      { h: 'Company', links: [['About us', '/about/'], ['How it works', '/how-it-works/'], ['Editorial policy', '/editorial-policy/']] },
+      { h: 'Help', links: [['FAQ', '/faq/'], ['Contact us', '/contact/'], ['Refund policy', '/refund-policy/']] },
+      { h: 'Talk to us', links: [[cfg.phone, `tel:${cfg.phoneE164}`], [cfg.email, `mailto:${cfg.email}`]] }] }
+  ];
+}
 
 function header(path) {
-  const items = NAV.map(([t, p]) => `<a href="${href(p)}"${path.startsWith(p) || (p === '/employers/' && path.startsWith('/for-')) ? ' aria-current="page"' : ''}>${t}</a>`).join('');
-  return `<header class="site-header"><div class="wrap hdr">${logo()}<button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu <span aria-hidden="true">☰</span></button><nav class="nav" id="nav" aria-label="Main">${items}<a class="search-link" href="${href('/search/')}" aria-label="Search the site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></a><a class="btn btn-primary btn-sm" href="${href('/enroll/')}">Enroll</a></nav></div></header>`;
+  const items = menu().map((m, i) => {
+    const on = m.match.some((p) => path.startsWith(p));
+    return `<li class="mi"><button class="mt" type="button" aria-expanded="false" aria-controls="mp${i}"${on ? ' data-current="true"' : ''}>${m.label}${chev}</button><div class="mp" id="mp${i}"><div class="mp-in">${m.cols.map((c) => `<div><p class="mp-h">${esc(c.h)}</p><ul>${c.links.map(([t, l]) => `<li><a href="${esc(href(l))}">${esc(t)}</a></li>`).join('')}</ul></div>`).join('')}</div></div></li>`;
+  }).join('');
+  return `<header class="site-header"><div class="wrap hdr">${logo()}<button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 5.5h14M3 10h14M3 14.5h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Menu</span></button><nav class="nav" id="nav" aria-label="Main"><ul class="menu">${items}</ul><div class="nav-end"><a class="search-link" href="${href('/search/')}" aria-label="Search the site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class="search-label">Search</span></a><a class="btn btn-primary btn-sm" href="${href('/enroll/')}">Enroll</a></div></nav></div></header>`;
 }
 
 function footer() {
-  const cats = G.categories.map((c) => `<li><a href="${href(`/careers/${c.slug}/`)}">${esc(c.name)}</a></li>`).join('');
-  const popular = ['medical-assistant', 'electrician', 'hvac-technician', 'pharmacy-technician', 'truck-driver', 'cybersecurity-analyst', 'phlebotomist', 'occupational-safety-specialist']
-    .map((s) => G.careers.find((c) => c.slug === s)).filter(Boolean)
-    .map((c) => `<li><a href="${href(`/training/${c.slug}/`)}">${esc(c.title)} Training</a></li>`).join('');
+  const col = (h, links) => `<div><h2>${h}</h2><ul>${links.map(([t, l]) => `<li><a href="${esc(href(l))}">${esc(t)}</a></li>`).join('')}</ul></div>`;
   const legal = [['Privacy Policy', '/privacy-policy/'], ['Terms of Use', '/terms-of-use/'], ['Cookie Policy', '/cookie-policy/'], ['Accessibility', '/accessibility/'], ['Refund Policy', '/refund-policy/'], ['Disclaimer', '/disclaimer/'], ['Your Privacy Choices', '/your-privacy-choices/'], ['Non-Discrimination', '/non-discrimination/'], ['Copyright', '/copyright-policy/']]
     .map(([t, p]) => `<a href="${href(p)}">${t}</a>`).join(' · ');
   return `<footer class="site-footer"><div class="wrap"><div class="fgrid">
-<div>${logo()}<p style="margin-top:14px">Career training by job title, plus free tools to help students and working adults choose — and change — careers.</p><p><a href="tel:${cfg.phoneE164}">${cfg.phone}</a><br><a href="mailto:${cfg.email}">${cfg.email}</a></p></div>
-<div><h2>Careers</h2><ul>${cats}<li><a href="${href('/careers/')}">All 50 careers</a></li><li><a href="${href('/salary-guide/')}">Salary guide</a></li></ul></div>
-<div><h2>Trainings</h2><ul>${popular}<li><a href="${href('/training/')}">All trainings</a></li></ul></div>
-<div><h2>Resources</h2><ul><li><a href="${href('/quizzes/career-match/')}">Career Match Quiz</a></li><li><a href="${href('/quizzes/')}">All quizzes</a></li><li><a href="${href('/guides/')}">Career guides</a></li><li><a href="${href('/students/')}">For students</a></li><li><a href="${href('/career-changers/')}">For career changers</a></li><li><a href="${href('/professionals/')}">For working professionals</a></li><li><a href="${href('/best-careers/')}">Best careers lists</a></li><li><a href="${href('/glossary/')}">Career glossary</a></li><li><a href="${href('/resources/')}">Free worksheets</a></li><li><a href="${href('/blog/')}">Blog</a></li></ul></div>
-<div><h2>Employers</h2><ul><li><a href="${href('/for-employers/')}">Onboarding training for employers</a></li><li><a href="${href('/for-staffing-agencies/')}">For recruiters &amp; staffing agencies</a></li><li><a href="${href('/for-workforce-programs/')}">For schools &amp; workforce programs</a></li><li><a href="${href('/employers/')}">Employer resource center</a></li><li><a href="${href('/employers/hiring-guides/')}">Hiring guides by job</a></li><li><a href="${href('/employers/training-roi-calculator/')}">Training ROI calculator</a></li></ul><h2 style="margin-top:22px">Company</h2><ul><li><a href="${href('/about/')}">About us</a></li><li><a href="${href('/how-it-works/')}">How it works</a></li><li><a href="${href('/enroll/')}">Enroll</a></li><li><a href="${href('/contact/')}">Contact</a></li><li><a href="${href('/faq/')}">FAQ</a></li><li><a href="${href('/editorial-policy/')}">Editorial policy</a></li><li><a href="${href('/sitemap/')}">Site map</a></li></ul></div>
+<div>${logo()}<p style="margin-top:14px">Career training by job title, plus free tools to help students and working adults choose and change careers.</p><p><a href="tel:${cfg.phoneE164}">${cfg.phone}</a><br><a href="mailto:${cfg.email}">${cfg.email}</a></p></div>
+${col('Careers', G.categories.map((c) => [c.name, `/careers/${c.slug}/`]).concat([['All 50 careers', '/careers/'], ['Salary guide', '/salary-guide/']]))}
+${col('Training and courses', [['All job-title trainings', '/training/'], ...pick(['medical-assistant', 'electrician', 'pharmacy-technician', 'cybersecurity-analyst']).map((c) => [`${c.title} Training`, c.trainingUrl]), ['Safety and compliance courses', '/courses/'], ['OSHA 10 and 30', '/courses/osha-outreach/'], ['HAZWOPER', '/courses/hazwoper/'], ['CDL ELDT', '/courses/cdl-eldt/'], ['Enroll', '/enroll/']])}
+${col('Resources', [['Career Match Quiz', '/quizzes/career-match/'], ['All quizzes', '/quizzes/'], ['Career guides', '/guides/'], ['For students', '/students/'], ['For career changers', '/career-changers/'], ['For working professionals', '/professionals/'], ['Best careers lists', '/best-careers/'], ['Career glossary', '/glossary/'], ['Free worksheets', '/resources/'], ['Blog', '/blog/']])}
+<div><h2>Employers</h2><ul>${[['Onboarding training', '/for-employers/'], ['Recruiters and staffing agencies', '/for-staffing-agencies/'], ['Schools and workforce programs', '/for-workforce-programs/'], ['Employer resource center', '/employers/'], ['Hiring guides by job', '/employers/hiring-guides/'], ['Training ROI calculator', '/employers/training-roi-calculator/']].map(([t, l]) => `<li><a href="${href(l)}">${t}</a></li>`).join('')}</ul><h2 style="margin-top:22px">Company</h2><ul>${[['About us', '/about/'], ['How it works', '/how-it-works/'], ['Contact', '/contact/'], ['FAQ', '/faq/'], ['Editorial policy', '/editorial-policy/'], ['Site map', '/sitemap/']].map(([t, l]) => `<li><a href="${href(l)}">${t}</a></li>`).join('')}</ul></div>
 </div>
-<p class="us-only"><strong>U.S. only:</strong> MrPress Education serves learners in the United States. This website and our policies are designed to comply with applicable U.S. federal and state law only. See our <a href="${href('/privacy-policy/')}">Privacy Policy</a>.</p>
 <div class="fbottom"><span>© ${cfg.updated.slice(0, 4)} ${esc(cfg.legalName)}. All rights reserved.</span><span>${legal}</span></div>
 </div></footer>`;
 }
@@ -76,7 +109,7 @@ export function layout(p) {
   const ld = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
   const js = ['site', ...scripts].map((s) => `<script src="${href(`/assets/${s}.js`)}" defer></script>`).join('');
   const mobile = mcta ? `<div class="mobile-cta">${mcta}</div>` : '';
-  return `<!doctype html><html lang="en-US"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><link rel="canonical" href="${url}"><meta name="robots" content="${noindex ? 'noindex,follow' : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}"><link rel="alternate" hreflang="en-US" href="${url}"><link rel="alternate" hreflang="x-default" href="${url}"><meta property="og:site_name" content="${cfg.name}"><meta property="og:locale" content="en_US"><meta property="og:type" content="${type}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${abs(og)}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(ogAlt || title)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${abs(og)}">${type === 'article' ? `<meta property="article:published_time" content="${published || cfg.launched}"><meta property="article:modified_time" content="${modified || cfg.updated}">` : ''}${cfg.verification.google ? `<meta name="google-site-verification" content="${cfg.verification.google}">` : ''}${cfg.verification.bing ? `<meta name="msvalidate.01" content="${cfg.verification.bing}">` : ''}<meta name="theme-color" content="#13294b"><meta name="format-detection" content="telephone=no"><link rel="icon" href="${href('/favicon.svg')}" type="image/svg+xml"><link rel="icon" href="${href('/favicon.ico')}" sizes="32x32"><link rel="apple-touch-icon" href="${href('/apple-touch-icon.png')}"><link rel="manifest" href="${href('/site.webmanifest')}"><link rel="alternate" type="application/rss+xml" title="MrPress Education Blog" href="${href('/blog/feed.xml')}"><style>${CSS}</style><script type="application/ld+json">${ld}</script></head><body${mcta ? ' class="has-mcta"' : ''}><a class="skip" href="#main">Skip to main content</a>${header(path)}<main id="main">${body}</main>${footer()}${mobile}<script>window.MP=${JSON.stringify({ base: cfg.basePath, ga: cfg.analytics.ga4 || '' })}</script>${js}</body></html>`;
+  return `<!doctype html><html lang="en-US"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><link rel="canonical" href="${url}"><meta name="robots" content="${noindex ? 'noindex,follow' : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}"><link rel="alternate" hreflang="en-US" href="${url}"><link rel="alternate" hreflang="x-default" href="${url}"><meta property="og:site_name" content="${cfg.name}"><meta property="og:locale" content="en_US"><meta property="og:type" content="${type}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${abs(og)}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(ogAlt || title)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${abs(og)}">${type === 'article' ? `<meta property="article:published_time" content="${published || cfg.launched}"><meta property="article:modified_time" content="${modified || cfg.updated}">` : ''}${cfg.verification.google ? `<meta name="google-site-verification" content="${cfg.verification.google}">` : ''}${cfg.verification.bing ? `<meta name="msvalidate.01" content="${cfg.verification.bing}">` : ''}<meta name="theme-color" content="#13294b"><meta name="format-detection" content="telephone=no"><link rel="icon" href="${href('/favicon.ico')}" sizes="32x32"><link rel="icon" href="${href('/favicon-48.png')}" type="image/png" sizes="48x48"><link rel="apple-touch-icon" href="${href('/apple-touch-icon.png')}"><link rel="manifest" href="${href('/site.webmanifest')}"><link rel="alternate" type="application/rss+xml" title="MrPress Education Blog" href="${href('/blog/feed.xml')}"><style>${CSS}</style><script type="application/ld+json">${ld}</script></head><body${mcta ? ' class="has-mcta"' : ''}><a class="skip" href="#main">Skip to main content</a>${header(path)}<main id="main">${body}</main>${footer()}${mobile}<script>window.MP=${JSON.stringify({ base: cfg.basePath, ga: cfg.analytics.ga4 || '' })}</script>${js}</body></html>`;
 }
 
 // ---------- Shared components ----------

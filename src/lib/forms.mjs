@@ -5,11 +5,11 @@ export const STATES = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
 
 // Enrollment form. Submitting opens a pre-filled email (no data is stored by the website).
 export function enrollForm(careers, { course = '', kind = 'enroll', heading = 'Request enrollment', id = 'enroll' } = {}) {
-  const opts = careers.slice().sort((a, b) => a.title.localeCompare(b.title)).map((c) => `<option value="${esc(c.title)} Training"${c.slug === course ? ' selected' : ''}>${esc(c.title)} Training</option>`).join('');
+  const opts = careers.filter((c) => !c.replacedBy).sort((a, b) => a.title.localeCompare(b.title)).map((c) => `<option value="${esc(c.title)} Training" data-price="${c.price}"${c.slug === course ? ' selected' : ''}>${esc(c.title)} Training ($${c.price.toFixed(2)})</option>`).join('');
   const isEmployer = kind === 'employer';
   const isContact = kind === 'contact';
   return `<section class="form-box" id="${id}" aria-labelledby="${id}-h"><h2 id="${id}-h">${esc(heading)}</h2>
-<p class="small muted">Fill this out and press the button — your email app will open with a pre-filled message to our enrollment team (${esc(cfg.enrollTo)}). We reply with pricing, payment options and your learning-platform login. Nothing you type is stored on this website.</p>
+<p class="small muted">Fill this out and press the button: your email app will open with a pre-filled message to our enrollment team (${esc(cfg.enrollTo)}). We reply with a payment link or invoice for the listed price and your learning-platform login. Nothing you type is stored on this website.</p>
 <noscript><p class="callout">JavaScript is turned off, so this form can’t open your email app. Please email <a href="mailto:${cfg.enrollTo}">${cfg.enrollTo}</a> or call ${cfg.phone} to enroll.</p></noscript>
 <form class="form" data-enroll data-kind="${kind}" data-to="${esc(cfg.enrollTo)}" data-cc="${esc(cfg.enrollCc)}" method="post" novalidate>
 <div class="row2"><div class="field"><label for="${id}-name">Full name <span class="req" aria-hidden="true">*</span></label><input id="${id}-name" name="Name" type="text" autocomplete="name" required></div>

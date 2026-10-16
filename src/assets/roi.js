@@ -12,7 +12,7 @@
     var invest = hires * cost;
     var net = rampValue + turnValue - invest;
     out('ramp', fmt(rampValue)); out('turn', fmt(turnValue)); out('cost', fmt(invest)); out('net', fmt(net));
-    out('roi', invest > 0 ? Math.round(net / invest * 100) + '%' : '—');
+    out('roi', invest > 0 ? Math.round(net / invest * 100) + '%' : 'N/A');
   };
   f.elements.role.addEventListener('change', function () { if (this.value) f.elements.wage.value = this.value; run(); });
   f.addEventListener('input', run);

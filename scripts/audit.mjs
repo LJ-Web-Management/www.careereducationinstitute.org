@@ -47,6 +47,7 @@ for (const f of htmlFiles) {
     if (d.length < 70) warn(rel, `description short (${d.length})`);
     if (!noindex) descs.set(d, [...(descs.get(d) || []), rel]);
   }
+  if (html.includes('—')) err(rel, 'contains an em dash');
   const h1s = (html.match(/<h1[\s>]/g) || []).length;
   if (h1s !== 1) err(rel, `${h1s} <h1> tags`);
   if (!/<html lang="en-US">/.test(html)) err(rel, 'missing lang');
@@ -93,10 +94,10 @@ for (const u of sm) {
   if (!exists(p)) err('sitemap', `URL not found: ${u}`);
   if (p !== base + '/' && !inbound.get(p)) warn('orphan', `no internal links to ${p}`);
 }
-for (const f of ['robots.txt', 'sitemap.xml', 'llms.txt', 'llms-full.txt', 'site.webmanifest', 'favicon.svg', '404.html', 'search-index.json']) if (!fs.existsSync(path.join(DIST, f))) err('site', `missing ${f}`);
+for (const f of ['robots.txt', 'sitemap.xml', 'llms.txt', 'llms-full.txt', 'site.webmanifest', 'favicon.ico', '404.html', 'search-index.json']) if (!fs.existsSync(path.join(DIST, f))) err('site', `missing ${f}`);
 
 const show = (label, list, n = 40) => { if (list.length) { console.log(`\n${label} (${list.length}):`); list.slice(0, n).forEach((x) => console.log('  - ' + x)); if (list.length > n) console.log(`  … ${list.length - n} more`); } };
 show('ERRORS', errors);
 show('WARNINGS', warnings);
-console.log(`\nAudited ${htmlFiles.length} HTML pages, ${linkCount} internal links, ${sm.length} sitemap URLs — ${errors.length} errors, ${warnings.length} warnings.`);
+console.log(`\nAudited ${htmlFiles.length} HTML pages, ${linkCount} internal links, ${sm.length} sitemap URLs: ${errors.length} errors, ${warnings.length} warnings.`);
 process.exit(errors.length ? 1 : 0);

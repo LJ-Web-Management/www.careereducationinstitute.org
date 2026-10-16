@@ -2,7 +2,7 @@
 export const employerCats = {
   healthcare: {
     audience: 'clinics, hospitals, pharmacies, labs and care facilities',
-    pitch: 'Healthcare onboarding has to cover clinical tasks, terminology, infection control and patient privacy — before a new hire is on their own with patients. Job-title training gives every new hire the same foundation, so preceptors spend their time on your workflows instead of the basics.',
+    pitch: 'Healthcare onboarding has to cover clinical tasks, terminology, infection control and patient privacy, before a new hire is on their own with patients. Job-title training gives every new hire the same foundation, so preceptors spend their time on your workflows instead of the basics.',
     pains: ['Preceptors pulled off the floor to teach the basics again and again', 'New hires who don’t yet know the terminology charting and handoffs depend on', 'Uneven grounding in infection control, HIPAA and patient-identification habits', 'Early turnover when the job turns out to be different than expected'],
     sources: ['Community college and vocational program career centers', 'Clinical externship and student-placement partnerships', 'State nurse aide registries and healthcare job boards', 'Employee referral programs'],
     screening: ['Verify certifications and state registry or license status with the issuing body', 'Background checks and federal exclusion-list (OIG LEIE) screening as required for your organization', 'Immunization records, TB testing and drug screening according to policy and law', 'Current BLS/CPR certification'],
@@ -10,7 +10,7 @@ export const employerCats = {
   },
   'skilled-trades': {
     audience: 'contractors, builders, utilities and energy companies',
-    pitch: 'On a job site, a new hire who doesn’t know the vocabulary, the tools or the safety basics slows down the whole crew — or gets hurt. Job-title training gives apprentices and helpers a common foundation before they pick up a tool.',
+    pitch: 'On a job site, a new hire who doesn’t know the vocabulary, the tools or the safety basics slows down the whole crew, or gets hurt. Job-title training gives apprentices and helpers a common foundation before they pick up a tool.',
     pains: ['Foremen spending hours explaining basic terms and tools', 'New helpers who don’t recognize hazards on day one', 'Inconsistent knowledge across crews and job sites', 'Apprentices who wash out because the work wasn’t what they expected'],
     sources: ['Registered apprenticeship programs and union halls', 'Trade and technical school placement offices', 'Pre-apprenticeship and veterans programs', 'Referrals from current crew members'],
     screening: ['Verify state licenses (apprentice registration, journeyworker, master) where required', 'OSHA 10 or OSHA 30 cards and prior safety record', 'Valid driver’s license and driving record if operating company vehicles', 'A practical skills test or supervised trial task'],
@@ -34,7 +34,7 @@ export const employerCats = {
   },
   'transportation-and-logistics': {
     audience: 'warehouses, distribution centers, carriers and 3PLs',
-    pitch: 'High-volume hiring means onboarding has to scale. Job-title training gives every new driver, operator and associate the same safety and process foundation — without pulling leads off the floor for every class.',
+    pitch: 'High-volume hiring means onboarding has to scale. Job-title training gives every new driver, operator and associate the same safety and process foundation, without pulling leads off the floor for every class.',
     pains: ['High-volume hiring that overwhelms trainers', 'Early turnover in the first 30–90 days', 'Safety incidents involving new operators', 'Inconsistent scanning, picking and documentation accuracy'],
     sources: ['CDL schools and trucking academies', 'Local workforce centers and staffing partners', 'Military transition programs', 'Referral bonuses for current drivers and associates'],
     screening: ['CDL, endorsements and DOT medical card for drivers', 'Motor vehicle record and FMCSA Drug & Alcohol Clearinghouse query for CDL drivers', 'Forklift operator training and evaluation, which OSHA requires employers to provide', 'Pre-employment drug screening according to policy and law'],
@@ -50,7 +50,7 @@ export const employerCats = {
   },
   technology: {
     audience: 'IT departments, MSPs, agencies and software teams',
-    pitch: 'Tech hires come in with uneven fundamentals. Job-title training establishes shared vocabulary and core procedures — ticketing, troubleshooting, security hygiene — so your senior engineers aren’t stuck teaching the basics.',
+    pitch: 'Tech hires come in with uneven fundamentals. Job-title training establishes shared vocabulary and core procedures (ticketing, troubleshooting, security hygiene) so your senior engineers aren’t stuck teaching the basics.',
     pains: ['Uneven fundamentals across bootcamp, degree and self-taught hires', 'Security mistakes from people who don’t yet know the risks', 'Senior staff time lost to repeated basic training', 'Slow ramp-up on documentation and ticket quality'],
     sources: ['Community college IT programs and bootcamps', 'Certification communities (CompTIA, Cisco, cloud providers)', 'Portfolio and GitHub reviews', 'Help desk promotion paths and IT apprenticeships'],
     screening: ['A hands-on troubleshooting or technical exercise', 'Certification verification (CompTIA, Cisco, cloud)', 'Portfolio or code review', 'Background check for roles with privileged access'],
@@ -58,7 +58,7 @@ export const employerCats = {
   },
   'public-safety': {
     audience: 'security firms, property managers, agencies and campus safety departments',
-    pitch: 'Security officers often start on post within days of hire. Job-title training reinforces observation, reporting, de-escalation and emergency basics so new officers are prepared — on every shift and every site.',
+    pitch: 'Security officers often start on post within days of hire. Job-title training reinforces observation, reporting, de-escalation and emergency basics so new officers are prepared, on every shift and every site.',
     pains: ['Officers posted before they fully understand reporting standards', 'Inconsistent incident reports across sites', 'De-escalation and emergency-response gaps', 'High turnover in the first months on post'],
     sources: ['Licensed security training schools', 'Military and law-enforcement transition programs', 'Community job fairs and workforce centers', 'Referrals from current officers'],
     screening: ['State security license or guard card verification', 'Background checks according to state licensing rules', 'Driving record if patrol vehicles are used', 'A scenario-based interview on judgment and de-escalation'],

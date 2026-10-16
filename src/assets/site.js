@@ -1,10 +1,34 @@
 (function () {
   var d = document;
-  // Mobile menu
+  // Menu: mobile toggle + dropdown panels (click, keyboard, outside click, Escape)
   var btn = d.querySelector('.menu-btn'), nav = d.getElementById('nav');
+  var items = [].slice.call(d.querySelectorAll('.mi'));
+  var closeAll = function (except) {
+    items.forEach(function (li) { if (li !== except) { li.classList.remove('open'); li.querySelector('.mt').setAttribute('aria-expanded', 'false'); } });
+  };
   if (btn && nav) btn.addEventListener('click', function () {
     var open = nav.classList.toggle('open');
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (!open) closeAll();
+  });
+  items.forEach(function (li) {
+    var t = li.querySelector('.mt');
+    t.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = !li.classList.contains('open');
+      closeAll(li);
+      li.classList.toggle('open', open);
+      t.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    li.addEventListener('mouseleave', function () { if (window.matchMedia('(min-width: 1201px)').matches) { li.classList.remove('open'); t.setAttribute('aria-expanded', 'false'); } });
+  });
+  d.addEventListener('click', function (e) { if (!e.target.closest || !e.target.closest('.mi')) closeAll(); });
+  d.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      var openLi = d.querySelector('.mi.open');
+      closeAll();
+      if (openLi) openLi.querySelector('.mt').focus();
+    }
   });
 
   // Career directory filters
@@ -59,7 +83,7 @@
     show();
   }
 
-  // Optional analytics — only loads if configured, never with GPC or opt-out
+  // Optional analytics: only loads if configured, never with GPC or opt-out
   var ga = window.MP && window.MP.ga;
   if (ga && !navigator.globalPrivacyControl && !getOpt()) {
     var load = function () {

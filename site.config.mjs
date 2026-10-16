@@ -24,23 +24,43 @@ export default {
   // Enrollment form opens a pre-filled email to these addresses.
   enrollTo: 'info@hazwoper-osha.com',
   enrollCc: 'hasan@hazwoper-osha.com',
-  governingState: 'California',
+  governingState: 'Illinois',
 
   // Date shown as "Last updated" on content pages (YYYY-MM-DD). Bump when content is reviewed.
   updated: '2026-10-15',
   launched: '2026-10-15',
 
-  // Course defaults shown on every training page. Edit to match your LMS.
+  // Defaults for MrPress job-title trainings. Per-course hours and prices live in
+  // src/data/course-pricing.mjs.
   course: {
     format: 'Online, self-paced',
-    length: 'About 8–12 hours',
-    lengthISO: 'PT10H',
     access: '12 months of LMS access',
     certificate: 'Certificate of completion',
     level: 'Beginner to intermediate',
     language: 'English',
-    price: null, // e.g. 149 — leave null to show "Request pricing"
-    groupNote: 'Group and employer pricing available'
+    groupNote: 'Volume pricing from 2 seats'
+  },
+
+  // Seat-count discount ladder (same ladder the LMS applies at checkout)
+  bulkTiers: [
+    { min: 1, max: 1, discount: 0 },
+    { min: 2, max: 10, discount: 0.01 },
+    { min: 11, max: 20, discount: 0.02 },
+    { min: 21, max: 50, discount: 0.03 },
+    { min: 51, max: 100, discount: 0.05 },
+    { min: 101, max: 250, discount: 0.07 },
+    { min: 251, max: 500, discount: 0.08 },
+    { min: 501, max: 1000, discount: 0.1 }
+  ],
+
+  // Card checkout for partner courses: Stripe (publishable key only) + the provider LMS API.
+  checkout: {
+    stripePublishableKey: 'pk_live_doCHB0jglD5eISjEmB1vB6mb00xIg51noK',
+    apiBase: 'https://hazwoper-osha.com/api',
+    orderFrom: 'mrpress-education.org',
+    provider: 'HAZWOPER-OSHA.com',
+    providerLegal: 'Industrial Certified Training, LLC',
+    providerHours: '6:00 AM to 5:00 PM Pacific Time'
   },
 
   // Optional integrations — leave empty to keep the site cookie-free and fastest.

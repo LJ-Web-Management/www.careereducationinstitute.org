@@ -29,23 +29,25 @@
       var v = function (n) { var el = form.elements[n]; return el ? String(el.value || '').trim() : ''; };
       var kind = form.dataset.kind;
       var course = v('Course');
-      var subject = kind === 'contact' ? 'Website inquiry: ' + v('Topic') + ' — ' + v('Name')
-        : (kind === 'employer' ? 'Group training request: ' : 'Enrollment request: ') + (course || 'Course') + ' — ' + v('Name');
+      var subject = kind === 'contact' ? 'Website inquiry: ' + v('Topic') + ' (' + v('Name') + ')'
+        : (kind === 'employer' ? 'Group training request: ' : 'Enrollment request: ') + (course || 'Course') + ' (' + v('Name') + ')';
       var lines = [
         kind === 'contact' ? 'Hello MrPress Education team,' : 'Hello MrPress Education team, I would like to enroll.',
         '',
         'Name: ' + v('Name'),
         'Email: ' + v('Email'),
-        'Phone: ' + (v('Phone') || '—'),
+        'Phone: ' + (v('Phone') || 'Not provided'),
         'State: ' + v('State')
       ];
       if (kind === 'contact') lines.push('Topic: ' + v('Topic'));
       else {
-        lines.push('Course: ' + course, 'Enrolling: ' + v('Enrolling'), 'Number of learners: ' + (v('Learners') || '1'));
+        var opt = form.elements.Course && form.elements.Course.selectedOptions ? form.elements.Course.selectedOptions[0] : null;
+        var listPrice = opt && opt.getAttribute('data-price');
+        lines.push('Course: ' + course + (listPrice ? ' (list price $' + Number(listPrice).toFixed(2) + ' per learner)' : ''), 'Enrolling: ' + v('Enrolling'), 'Number of learners: ' + (v('Learners') || '1'));
         if (v('Organization')) lines.push('Organization: ' + v('Organization'));
         lines.push('Preferred start: ' + v('Start'));
       }
-      lines.push('', (kind === 'contact' ? 'Message: ' : 'Notes: ') + (v('Message') || '—'), '', 'Age confirmation: 18+ or parent/guardian — confirmed', 'Contact consent: agreed to Terms of Use and Privacy Policy', 'Sent from: ' + location.href);
+      lines.push('', (kind === 'contact' ? 'Message: ' : 'Notes: ') + (v('Message') || 'None'), '', 'Age confirmation: 18 or older, or parent/guardian (confirmed)', 'Contact consent: agreed to Terms of Use and Privacy Policy', 'Sent from: ' + location.href);
       var body = lines.join('\n');
       var url = 'mailto:' + form.dataset.to + '?cc=' + encodeURIComponent(form.dataset.cc) + '&subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       notice.querySelector('pre').textContent = 'To: ' + form.dataset.to + '\nCc: ' + form.dataset.cc + '\nSubject: ' + subject + '\n\n' + body;

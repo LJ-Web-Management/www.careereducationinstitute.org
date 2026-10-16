@@ -12,8 +12,8 @@ export const href = (p = '/') => (/^(https?:|mailto:|tel:|#)/.test(p) ? p : cfg.
 // Absolute URL for canonicals, sitemaps and structured data.
 export const abs = (p = '/') => (/^https?:/.test(p) ? p : cfg.url + p);
 
-export const money = (n) => (n == null ? '—' : '$' + Math.round(n).toLocaleString('en-US'));
-export const money2 = (n) => (n == null ? '—' : '$' + Number(n).toFixed(2));
+export const money = (n) => (n == null ? 'N/A' : '$' + Math.round(n).toLocaleString('en-US'));
+export const money2 = (n) => (n == null ? 'N/A' : '$' + Number(n).toFixed(2));
 export const num = (n) => Math.round(n).toLocaleString('en-US');
 export const pct = (n) => (n > 0 ? '+' : '') + n.toFixed(1) + '%';
 
@@ -57,6 +57,9 @@ export const shuffle = (arr, seed) => {
 
 export const article = (word) => (/^[aeiou]/i.test(word) && !/^(uni|use|eu)/i.test(word) ? 'an' : 'a');
 export const lowerFirst = (s) => (/^[A-Z]{2}/.test(s) ? s : s.charAt(0).toLowerCase() + s.slice(1));
+// Title-case task names ("Verify a Circuit Is De-Energized") as an in-sentence phrase; keeps acronyms and proper nouns.
+const KEEP_CASE = new Set(['I', 'Git', 'English', 'Spanish', 'Medicare', 'Medicaid', 'Excel', 'Google', 'Windows', 'Linux', 'Heimlich', 'Miranda']);
+export const taskPhrase = (s) => s.replace(/[A-Za-z’']+/g, (w) => (KEEP_CASE.has(w.replace(/’s$|'s$/, '')) || !/^[A-Z][^A-Z]*$/.test(w) ? w : w.toLowerCase()));
 export const listJoin = (items, conj = 'and') =>
   items.length <= 1 ? items.join('') : items.length === 2 ? `${items[0]} ${conj} ${items[1]}` : `${items.slice(0, -1).join(', ')}, ${conj} ${items.at(-1)}`;
 export const wordCount = (html) => html.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
