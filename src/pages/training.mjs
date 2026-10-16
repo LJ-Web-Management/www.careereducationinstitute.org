@@ -5,8 +5,7 @@ import { enrollForm } from '../lib/forms.mjs';
 import { pick } from '../lib/career-helpers.mjs';
 import { catBySlug } from '../data/categories.mjs';
 import { moduleWeights, minutesLabel } from '../data/course-pricing.mjs';
-import { careerCourses } from '../data/partner-selection.mjs';
-import { partnerById, partnerTable, tierTable, providerLine } from '../lib/partners.mjs';
+import { partnerById, partnerCourses, partnerTable, tierTable, providerLine } from '../lib/partners.mjs';
 
 const usd = (n) => '$' + Number(n).toFixed(2);
 
@@ -66,9 +65,8 @@ function courseFaqs(c) {
 }
 
 const replacedIntro = {
-  'truck-driver': ['Federal rules require new commercial drivers to complete Entry-Level Driver Training (ELDT) theory before taking the Class A or Class B CDL skills test, or certain endorsement knowledge tests, for the first time.', 'The course below is the theory training for a Class A CDL, the license most tractor-trailer jobs require. Class B, the Class B to Class A upgrade and endorsement courses are listed further down.'],
-  'forklift-operator': ['OSHA requires every forklift operator to be trained and evaluated before operating a powered industrial truck on their own (29 CFR 1910.178).', 'The course below covers the formal classroom instruction. Your employer completes the hands-on practice and the workplace evaluation on the trucks you will use.'],
-  'hazmat-technician': ['Most workers at hazardous waste sites need 40 hours of HAZWOPER training under OSHA 29 CFR 1910.120 before they start, plus supervised field experience and an 8-hour refresher every year.', 'The course below is the 40-hour training. The 24-hour, 8-hour refresher and related awareness courses are listed further down.']
+  'truck-driver': ['Federal rules require new commercial drivers to complete Entry-Level Driver Training (ELDT) theory before taking the Class A or Class B CDL skills test, or certain endorsement knowledge tests, for the first time.', 'The course below is the theory training for a Class A CDL, the license most tractor-trailer jobs require. Driving a straight truck, dump truck or delivery truck instead? The Class B course is listed further down.'],
+  'forklift-operator': ['OSHA requires every forklift operator to be trained and evaluated before operating a powered industrial truck on their own (29 CFR 1910.178).', 'The course below covers the formal classroom instruction. Your employer completes the hands-on practice and the workplace evaluation on the trucks you will use.']
 };
 
 function replacedPage(c, ctx) {
@@ -76,7 +74,7 @@ function replacedPage(c, ctx) {
   const cat = catBySlug[c.cat];
   const path = c.trainingUrl;
   const crumbs = [['Home', '/'], ['Training', '/training/'], [cat.name, `/training/#${cat.slug}`], [`${c.title} Training`, path]];
-  const others = (careerCourses[c.slug] || []).filter((id) => id !== m.id);
+  const others = partnerCourses.filter((p) => p.career === c.slug && p.id !== m.id);
   const [p1, p2] = replacedIntro[c.slug] || ['', ''];
   const buy = href(`/checkout/?course=${m.slug}`);
   const facts = [['Price', `${usd(m.price)} per learner`], ['Length', m.hours], ['Language', m.langLabel], ['Regulation', m.regulation], ['Course access', m.facts['Course Access Validity']], ['Certificate validity', m.facts['Certificate Validity']]].filter(([, v]) => v);
@@ -124,14 +122,12 @@ export function trainingPages(c, ctx) {
     const path = c.trainingUrl;
     const crumbs = [['Home', '/'], ['Training', '/training/'], [cat.name, `/training/#${cat.slug}`], [`${c.title} Training`, path]];
     const price = usd(c.price);
-    const recs = careerCourses[c.slug] || [];
     const main = `${answerBox(`What you’ll learn in ${c.title} training`, `A practical, general introduction to the ${esc(c.lower)} job: what the role involves, ${c.terms.length}+ key terms, how to perform common tasks such as ${listJoin(c.howto.slice(0, 2).map((h) => esc(taskPhrase(h.t))))}, safety essentials and how to launch your career. ${esc(cfg.course.format)}, about ${c.hours} hours, ${price}.`)}
 <ul class="facts"><li class="fact"><div class="k">Tuition</div><div class="v">${price}</div><div class="n">${esc(cfg.course.groupNote)}</div></li><li class="fact"><div class="k">Length</div><div class="v">${c.hours} hours</div><div class="n">${mods.length} modules</div></li><li class="fact"><div class="k">Format</div><div class="v">Online</div><div class="n">Self-paced, any device</div></li><li class="fact"><div class="k">Access</div><div class="v">12 months</div><div class="n">LMS access</div></li><li class="fact"><div class="k">Level</div><div class="v">Beginner</div><div class="n">To intermediate</div></li><li class="fact"><div class="k">You receive</div><div class="v">Certificate</div><div class="n">Of completion</div></li></ul>
 <h2 id="outcomes">Learning outcomes</h2><p>By the end of this course you will be able to:</p><ul class="checks">${outs.map((o) => `<li>${esc(o)}</li>`).join('')}</ul>
 <h2 id="syllabus">Course syllabus</h2><p>${mods.length} modules, about ${c.hours} hours in total.</p><div class="modules">${mods.map(([t, ls, mins], i) => `<details${i === 0 ? ' open' : ''}><summary><span class="n">MODULE ${String(i + 1).padStart(2, '0')}</span><span>${esc(t)}</span><span class="dur">${minutesLabel(mins)}</span></summary><ul>${ls.map((l) => `<li>${esc(l)}</li>`).join('')}</ul></details>`).join('')}</div>
 <h2 id="who">Who this training is for</h2><ul><li><strong>Students:</strong> find out what the ${esc(c.lower)} job is really like before choosing a program or major.</li><li><strong>Career changers:</strong> test-drive the field and build vocabulary and confidence before investing in formal training.</li><li><strong>New hires and employers:</strong> shorten ramp-up time with a consistent foundation for every new ${esc(c.lower)}.</li></ul>
 <h2 id="pricing">Pricing</h2><p><strong>${price} per learner.</strong> Buying for a team? Volume pricing applies automatically from 2 learners.</p>${tierTable()}
-${recs.length ? `<h2 id="certifications">Recommended certification and safety courses</h2><p>Employers often look for these credentials alongside ${esc(c.lower)} training. Each one can be purchased online right now.</p>${partnerTable(recs, { caption: `Courses for ${c.pluralLower}` })}` : ''}
 <h2 id="preview">Free preview lessons</h2><p>Sample the course material for free:</p><ul><li><a href="${href(c.url + 'glossary/')}">${esc(c.title)} vocabulary (${c.terms.length} terms)</a></li>${c.howto.map((h) => `<li><a href="${href(`${c.url}how-to/${h.slug}/`)}">How to ${esc(taskPhrase(h.t))}</a></li>`).join('')}<li><a href="${href(path + 'practice-test/')}">${esc(c.title)} practice test (${qs.length} questions)</a></li><li><a href="${href(c.url + 'day-in-the-life/')}">A day in the life of ${c.a} ${esc(c.lower)}</a></li></ul>
 <h2 id="career">Why train for this career</h2><p>${esc(c.summary)} BLS reports a median wage of <strong>${money(c.l.wages.median)}</strong> (${ctx.labor.meta.oewsLabel}) and about <strong>${c.l.annualOpenings.toLocaleString('en-US')}</strong> openings per year. <a href="${href(c.url)}">Read the full ${esc(c.lower)} career profile</a> or <a href="${href(c.url + 'salary/')}">see salary details</a>.</p>
 <aside class="callout info"><p><strong>Important:</strong> This is a general, non-credit career-preparation course. It does not by itself grant a state license, national certification, college credit or a guarantee of employment, and it does not replace any state-required training program. ${c.license ? esc(c.license) : ''}</p></aside>
@@ -187,7 +183,7 @@ export function trainingCatalog(ctx) {
   const body = `${pageHero({ crumbs, eyebrow: `${careers.length} job-title trainings`, h1: 'Career Training by Job Title', lead: `Practical, self-paced online courses that teach you what a job really involves: duties, vocabulary, common procedures, safety and how to get hired. Pick a job title to start.`, extra: `<div class="btn-row"><a class="btn btn-primary" href="${href('/enroll/')}">Enroll</a><a class="btn" href="${href('/quizzes/career-match/')}">Not sure? Take the Career Match Quiz</a></div>`})}
 <section class="section alt"><div class="wrap"><div class="section-head"><h2>What every training includes</h2></div><div class="grid-3">${[['Role foundations', 'What the job is, where people work, pay and the career ladder.'], ['Day-on-the-job walkthrough', 'A realistic shift so you know what to expect.'], ['Essential vocabulary', 'The terms you’ll hear on day one, with practice drills.'], ['Step-by-step procedures', 'How to perform the common tasks of the role.'], ['Safety & compliance', 'Hazards, standards and professional expectations.'], ['Career launch & final exam', 'Credentials, resumes, interviews and a certificate of completion.']].map(([t, d]) => `<div class="card"><h3>${t}</h3><p>${d}</p></div>`).join('')}</div></div></section>
 <div class="wrap" style="padding-top:20px;padding-bottom:60px">${categories.map((cat) => `<section id="${cat.slug}" style="scroll-margin-top:90px"><h2>${icon(cat.slug, 26)} ${esc(cat.name)} trainings</h2><p class="muted">${esc(cat.blurb)}</p><div class="grid">${careers.filter((c) => c.cat === cat.slug).map((c) => `<article class="card link"><h3><a class="stretch" href="${href(c.trainingUrl)}">${esc(c.title)} Training</a></h3><p>${esc(c.blurb)}</p><ul class="chips"><li class="chip pay">${c.replacedBy && partnerById[c.replacedBy] ? `From ${usd(partnerById[c.replacedBy].price)}` : usd(c.price)}</li><li class="chip">${c.replacedBy && partnerById[c.replacedBy] ? esc(partnerById[c.replacedBy].hours) : `${c.hours} hours`}</li></ul></article>`).join('')}</div></section>`).join('')}
-<section id="certification-courses" style="scroll-margin-top:90px;margin-top:34px"><h2>Safety, compliance and CDL courses</h2><p class="muted">Need a specific credential? Buy OSHA 10 and 30, HAZWOPER, CDL ELDT, forklift, first aid and more online.</p><p><a class="btn" href="${href('/courses/')}">Browse all courses</a></p></section>
+<section id="buy-online" style="scroll-margin-top:90px;margin-top:34px"><h2>More job titles: buy online</h2><p class="muted">Complete online training for these job titles comes from our affiliated training provider. Buy online and start right away.</p>${partnerTable(partnerCourses.filter((p) => !careers.some((c) => c.replacedBy === p.id)), { caption: 'More job-title courses' })}</section>
 <aside class="callout info" style="margin-top:30px"><p>MrPress Education trainings are general, non-credit career-preparation courses for U.S. learners. They do not replace state-required licensing programs. ${esc(cfg.course.groupNote)}: see <a href="${href('/for-employers/')}">training for employers</a>.</p></aside></div>`;
   return {
     path, crumbs, og: '/og/training.png', kind: 'Training catalog', name: 'All trainings',

@@ -225,7 +225,7 @@ Personal protective equipment is the last line of defense, after eliminating haz
 - **OSHA 30:** More in-depth training for supervisors and workers with safety responsibilities
 - **Job-specific training:** Such as forklift, HAZWOPER, first aid/CPR and confined space
 
-OSHA Outreach cards (10- and 30-hour) are offered through authorized trainers. You can take [OSHA 10 and OSHA 30](/courses/osha-outreach/), [HAZWOPER](/courses/hazwoper/) and other [safety courses](/courses/) online through MrPress Education.`,
+OSHA Outreach cards (10- and 30-hour) are offered through OSHA-authorized trainers; ask your employer, union or local community college where to take them. If your job is driving a forklift, [forklift operator training](/courses/forklift-operator-training/) covers the formal instruction OSHA requires before your hands-on evaluation.`,
   faq: [['Can I refuse unsafe work?', 'In limited circumstances involving imminent danger, workers may have a right to refuse. The conditions are specific: learn more from OSHA and talk to your supervisor first when possible.'], ['Is OSHA 10 required?', 'Federal OSHA doesn’t require OSHA 10 for all workers, but some states, cities, employers and job sites require it.']]
 },
 {

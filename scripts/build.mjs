@@ -115,7 +115,7 @@ ${cfg.name} publishes free, plain-language career information for ${careers.leng
 - [All careers](${abs('/careers/')}): directory with pay, growth and training time
 - [Salary guide](${abs('/salary-guide/')}): BLS median pay for all ${careers.length} careers
 - [All trainings](${abs('/training/')}): online courses by job title
-- [Safety, compliance and CDL courses](${abs('/courses/')}): OSHA 10 and 30, HAZWOPER, CDL ELDT, forklift, first aid and more, bought online
+- [Job-title courses to buy online](${abs('/courses/')}): CDL Entry-Level Driver Training (Class A and B), forklift operator, flagger and mold inspector, bought online
 - [Guides](${abs('/guides/')}): choosing a career, college vs. trade school, changing careers, resumes, interviews
 - [For students](${abs('/students/')}) · [For career changers](${abs('/career-changers/')}) · [For working professionals](${abs('/professionals/')})
 - [Full facts for every career (llms-full.txt)](${abs('/llms-full.txt')})

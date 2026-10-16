@@ -3,8 +3,7 @@ import { esc, href, abs, money, money2, pct, num, fmtDate, clamp, fitTitle, list
 import { pageHero, faqBlock, faqSchema, ctaCard, sideLinks, answerBox, icon } from '../lib/layout.mjs';
 import { subnav, pick, dataNote, facts, rangeBar, occupationSchema, relatedCards, compareSlug, genFaqs, stateNote, growthWord, SUB } from '../lib/career-helpers.mjs';
 import { catBySlug } from '../data/categories.mjs';
-import { careerCourses } from '../data/partner-selection.mjs';
-import { partnerById, partnerTable } from '../lib/partners.mjs';
+import { partnerById, partnerCourses, partnerTable } from '../lib/partners.mjs';
 
 const usd = (n) => '$' + Number(n).toFixed(2);
 
@@ -54,7 +53,7 @@ ${dataNote(labor)}${facts(c, labor)}
 <h2 id="certifications">Certifications and licenses</h2><ul>${c.certs.map(([n, d]) => `<li><strong>${esc(n)}:</strong> ${esc(d)}</li>`).join('')}</ul>${stateNote(c)}
 <h2 id="career-path">Career path</h2><ol class="ladder">${c.path.map(([t, d]) => `<li><b>${esc(t)}</b>: ${esc(d)}</li>`).join('')}</ol>
 <h2 id="learn-the-job">Learn the job before day one</h2>${c.replacedBy && partnerById[c.replacedBy] ? `<p>The training this job requires is <a href="${href(partnerById[c.replacedBy].url)}">${esc(partnerById[c.replacedBy].title)}</a> (${esc(partnerById[c.replacedBy].hours.toLowerCase())}, ${usd(partnerById[c.replacedBy].price)}), available online. Our free resources cover the rest: ${c.terms.length}+ key terms, step-by-step procedures such as ${listJoin(c.howto.slice(0, 2).map((h) => `<a href="${href(`${c.url}how-to/${h.slug}/`)}">${esc(taskPhrase(h.t))}</a>`))} and a practice test.</p>` : `<p>Our <a href="${href(c.trainingUrl)}">${esc(c.title)} training</a> (${c.hours} hours, ${usd(c.price)}) covers the role, ${c.terms.length}+ key terms, step-by-step procedures such as ${listJoin(c.howto.slice(0, 2).map((h) => `<a href="${href(`${c.url}how-to/${h.slug}/`)}">${esc(taskPhrase(h.t))}</a>`))}, safety and how to land your first job.</p>`}<div class="btn-row"><a class="btn btn-primary" href="${href(c.trainingUrl)}">View ${esc(c.title)} training</a><a class="btn" href="${href(c.url + 'is-it-right-for-me/')}">Is this career right for me?</a></div>
-${(careerCourses[c.slug] || []).length ? `<h2 id="certifications">Certification and safety courses for ${esc(c.pluralLower)}</h2><p>Courses employers often ask ${esc(c.pluralLower)} to complete. Each is 100% online and can be purchased right now.</p>${partnerTable(careerCourses[c.slug].slice(0, 6), { caption: `Courses for ${c.pluralLower}` })}` : ''}
+${partnerCourses.some((p) => p.career === c.slug) ? `<h2 id="buy-online">Online training for ${esc(c.pluralLower)}</h2><p>Complete job-title training from our affiliated training provider. Buy online and start right away.</p>${partnerTable(partnerCourses.filter((p) => p.career === c.slug), { caption: `Training for ${c.pluralLower}` })}` : ''}
 <h2 id="related">Related careers</h2>${relatedCards(c.related, byslug)}<p style="margin-top:14px">Compare: ${c.related.filter((s) => byslug[s]).map((s) => `<a href="${href(`/compare/${compareSlug(c.slug, s)}/`)}">${esc(c.short)} vs. ${esc(byslug[s].short)}</a>`).join(' · ')}</p>
 ${faqBlock(faqs, `${c.title} FAQ`)}<p><a href="${href(c.url + 'faq/')}">More ${esc(c.lower)} questions →</a></p>${sources(c, labor)}`;
     const s = shell(c, ctx, { path, h1: esc(c.title), lead: `What ${esc(c.pluralLower)} do, what they earn, how long training takes and how to get started, with official BLS pay data and practical, job-level detail.`, eyebrow: `${catBySlug[c.cat].name} career`, main, showAka: true });

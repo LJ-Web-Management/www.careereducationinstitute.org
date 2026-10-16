@@ -8,7 +8,7 @@ import { categories } from '../src/data/categories.mjs';
 import { enrich } from '../src/lib/career-helpers.mjs';
 import { modules } from '../src/pages/training.mjs';
 import { minutesLabel, priceForHours } from '../src/data/course-pricing.mjs';
-import { partnerById } from '../src/lib/partners.mjs';
+import { partnerCourses } from '../src/lib/partners.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const labor = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/data/labor.json'), 'utf8'));
@@ -44,11 +44,11 @@ ${build.map((c) => `| ${c.title} | ${catName[c.cat]} | ${c.hours} | ${$(c.price)
 
 ## Sold as provider courses (no build needed)
 
-These job titles are covered by a HAZWOPER-OSHA.com course sold through the website checkout.
+These job titles are covered by a complete HAZWOPER-OSHA.com course sold through the website checkout${replaced.length ? ` (these replace our ${replaced.map((c) => c.title.toLowerCase()).join(' and ')} trainings)` : ''}.
 
 | Job title | Course | Hours | Price | LMS course id |
 |---|---|---|---|---|
-${replaced.map((c) => { const m = partnerById[c.replacedBy]; return `| ${c.title} | ${m.title} | ${m.hoursNum} | ${$(m.price)} | ${m.id} |`; }).join('\n')}
+${partnerCourses.map((m) => `| ${m.job} | ${m.title} | ${m.hoursNum} | ${$(m.price)} | ${m.id} |`).join('\n')}
 
 ## Module plans
 `;
@@ -57,4 +57,4 @@ for (const c of build) {
   md += modules(c).map(([t, ls, mins], i) => `| ${i + 1} | ${t} | ${minutesLabel(mins)} | ${ls.join('; ').replace(/\|/g, '/')} |`).join('\n') + '\n';
 }
 fs.writeFileSync(path.join(ROOT, 'COURSE-SPECS.md'), md.replace(/[ \t]*—[ \t]*/g, ', '));
-console.log(`Wrote COURSE-SPECS.md (${build.length} trainings to build, ${replaced.length} sold as provider courses)`);
+console.log(`Wrote COURSE-SPECS.md (${build.length} trainings to build, ${partnerCourses.length} provider courses)`);

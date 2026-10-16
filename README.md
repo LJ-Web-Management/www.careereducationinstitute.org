@@ -1,15 +1,15 @@
 # MrPress Education: www.mrpress-education.org
 
-Static website for MrPress Education: career training by job title, safety and CDL certification courses
-sold through an online checkout, plus free career resources (50 career profiles, salary data, quizzes,
+Static website for MrPress Education: career training by job title, a few complete job-title courses from
+HAZWOPER-OSHA.com sold through an online checkout, plus free career resources (50 career profiles, salary data, quizzes,
 guides, employer hiring and onboarding resources, and a blog). Hosted on GitHub Pages.
 
-## What's in the site (about 1,280 pages)
+## What's in the site (about 1,180 pages)
 | Section | Pages |
 |---|---|
-| 50 career hubs | Overview, day in the life, salary, how to become, skills, glossary, how-to index plus 3 step-by-step task pages, interview questions, FAQ, fit quiz, recommended certification courses |
-| 50 job-title trainings | Course page with price, length, timed syllabus and enrollment form, plus a free practice test. Truck driver, forklift operator and HAZMAT technician point to the matching provider course instead |
-| 96 certification courses | OSHA Outreach, HAZWOPER, CDL ELDT, construction, workplace, electrical, equipment, healthcare, environmental, incident command and competent person courses, each with a buy button, in 11 category pages and a catalog at `/courses/` |
+| 50 career hubs | Overview, day in the life, salary, how to become, skills, glossary, how-to index plus 3 step-by-step task pages, interview questions, FAQ, fit quiz |
+| 50 job-title trainings | Course page with price, length, timed syllabus and enrollment form, plus a free practice test. Truck driver and forklift operator point to the matching provider course instead |
+| 5 provider courses | Complete job-title training from HAZWOPER-OSHA.com: CDL ELDT Class A and Class B, forklift operator, flagger and mold inspector, each with a buy button, listed at `/courses/` |
 | Checkout | `/checkout/?course=<slug>`: Stripe card payment and enrollment in the provider LMS |
 | Comparisons | About 100 "X vs. Y" career comparisons |
 | Quizzes | Career Match, College vs. Trade School, Career Change Readiness, Work Style, 8 field quizzes |
@@ -24,8 +24,8 @@ guides, employer hiring and onboarding resources, and a blog). Hosted on GitHub 
 | Publish a blog post | Upload a zip to `blog-uploads/` on GitHub. See **BLOG-UPLOAD-GUIDE.md** |
 | Change phone, emails, governing state, volume discounts | Edit `site.config.mjs` |
 | Change a job-title training's length | Edit `src/data/course-pricing.mjs` (the price follows the length ladder), then run `npm run course-specs` |
-| Add or remove a certification course | Edit `src/data/partner-selection.mjs` (LMS course id and category), then run `npm run update-partner-courses` |
-| Refresh certification course prices and details | `npm run update-partner-courses` (reads the provider catalog and rewrites `src/data/partner-courses.json`) |
+| Add or remove a provider course | Edit `src/data/partner-selection.mjs` (LMS course id, page slug, job title, field), then run `npm run update-partner-courses`. Only list courses that are the complete training for a job title, not topic, refresher or endorsement courses |
+| Refresh provider course prices and details | `npm run update-partner-courses` (reads the provider catalog and rewrites `src/data/partner-courses.json`) |
 | Edit a career | `src/data/careers/*.mjs` |
 | Edit a guide | `src/data/guides/*.mjs` (Markdown in the `body` field) |
 | Edit legal pages | `src/pages/legal.mjs` |
@@ -40,7 +40,7 @@ Job-title trainings are priced by length: 6 hours $59.99, 8 hours $74.99, 10 hou
 14 hours $129.99. Each course splits into 10 timed modules. **COURSE-SPECS.md** lists every training's
 length, price and module plan for the course builders. Regenerate it with `npm run course-specs`.
 
-Certification courses use the provider's own price, because the provider LMS charges by course id.
+Provider courses use the provider's own price, because the provider LMS charges by course id.
 Volume discounts (2 to 1,000 seats) are set in `site.config.mjs → bulkTiers`.
 
 ## Checkout

@@ -16,7 +16,7 @@ Each job-title training is self-paced online with 12 months of LMS access, ends 
 
 Volume discounts at checkout and on quotes: 2 to 10 seats 1%, 11 to 20 seats 2%, 21 to 50 seats 3%, 51 to 100 seats 5%, 101 to 250 seats 7%, 251 to 500 seats 8%, 501 to 1000 seats 10%.
 
-## Trainings to build (47)
+## Trainings to build (48)
 
 | Training | Category | Hours | Price |
 |---|---|---|---|
@@ -47,6 +47,7 @@ Volume discounts at checkout and on quotes: 2 to 10 seats 1%, 11 to 20 seats 2%,
 | Industrial Maintenance Technician | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
 | Construction and Building Inspector | Safety & Environmental | 12 | $109.99 |
 | Environmental Technician | Safety & Environmental | 10 | $89.99 |
+| Hazardous Materials Technician | Safety & Environmental | 12 | $109.99 |
 | Occupational Safety Specialist | Safety & Environmental | 12 | $109.99 |
 | Water Treatment Plant Operator | Safety & Environmental | 10 | $89.99 |
 | Logistics Coordinator | Transportation & Logistics | 10 | $89.99 |
@@ -70,13 +71,15 @@ Volume discounts at checkout and on quotes: 2 to 10 seats 1%, 11 to 20 seats 2%,
 
 ## Sold as provider courses (no build needed)
 
-These job titles are covered by a HAZWOPER-OSHA.com course sold through the website checkout.
+These job titles are covered by a complete HAZWOPER-OSHA.com course sold through the website checkout (these replace our forklift operator and truck driver trainings).
 
 | Job title | Course | Hours | Price | LMS course id |
 |---|---|---|---|---|
-| Hazardous Materials Technician | OSHA 40-Hour HAZWOPER Training | 40 | $249.99 | 123 |
+| Truck Driver (Class A CDL) | CDL Entry Level Driver Training (ELDT): Class A | 15 | $159.99 | 304 |
+| Class B CDL Driver | CDL Entry Level Driver Training (ELDT): Class B | 13 | $159.99 | 309 |
 | Forklift Operator | OSHA Forklift Safety Training | 4 | $59.99 | 248 |
-| Truck Driver | CDL Entry Level Driver Training (ELDT): Class A | 15 | $159.99 | 304 |
+| Flagger | National Flagger and Traffic Control for Construction Sites Certification Training | 4 | $89.99 | 535 |
+| Mold Inspector | Mold Inspector Certification for Prevention, Remediation, and Removal Training | 6 | $329.99 | 237 |
 
 ## Module plans
 
@@ -484,6 +487,21 @@ These job titles are covered by a HAZWOPER-OSHA.com course sold through the webs
 | 8 | Skills Employers Look For | 50 min | Environmental sampling methods; Field instrument calibration; Chain-of-custody documentation; Attention to detail; Written communication |
 | 9 | Launching Your Environmental Technician Career | 50 min | Education and training pathways; Credential overview: OSHA HAZWOPER 40-hour; Credential overview: Stormwater inspector certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
+
+### Hazardous Materials Technician Training: 12 hours, $109.99
+
+| # | Module | Time | Lessons |
+|---|---|---|---|
+| 1 | Introduction to the Hazardous Materials Technician Role | 1 hr | What hazardous materials technicians do and why the role matters; Where they work: settings, employers and teams; Pay, job outlook and the career ladder; Professional and ethical expectations |
+| 2 | A Day on the Job | 45 min | A realistic shift, start to finish; Schedules, shifts and workload; Working with supervisors, coworkers and customers; The best and hardest parts of the job |
+| 3 | Essential Hazardous Materials Technician Vocabulary | 1 hr 10 min | Key term: HAZWOPER; Key term: Exclusion zone (hot zone); Key term: Contamination reduction zone (warm zone); Key term: Support zone (cold zone); Key term: Decontamination (decon); Plus 10 more terms with practice drills |
+| 4 | Core Duties and Responsibilities | 1 hr 10 min | Set up regulated areas, containment and decontamination zones; Identify hazardous materials and review safety data and site plans; Remove asbestos, lead paint, mold or contaminated materials using approved methods; Wear and maintain respirators and chemical protective clothing; Decontaminate workers, tools and equipment |
+| 5 | Common Tasks, Step by Step | 2 hr 40 min | How to perform a respirator user seal check; How to set up site work zones; How to decontaminate when leaving a work area; Common mistakes and how to avoid them |
+| 6 | Tools, Equipment and Technology | 1 hr | Air-purifying respirators and SCBA; Chemical protective suits and gloves; HEPA vacuums and negative-air machines; Glove bags and poly sheeting; Air monitoring instruments |
+| 7 | Safety, Compliance and Professional Standards | 1 hr 25 min | Never work on a hazardous waste site without current HAZWOPER training; Wear the PPE and respirator specified in the site safety plan; Follow decontamination procedures every time you exit; Report exposures |
+| 8 | Skills Employers Look For | 1 hr | HAZWOPER procedures; Respirator use and maintenance; Containment and negative-air setup; Discipline with procedures; Teamwork |
+| 9 | Launching Your Hazardous Materials Technician Career | 1 hr | Education and training pathways; Credential overview: OSHA HAZWOPER 40-hour; Credential overview: Asbestos abatement worker license; Resume and interview preparation; Your first 90 days on the job |
+| 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
 ### Occupational Safety Specialist Training: 12 hours, $109.99
 

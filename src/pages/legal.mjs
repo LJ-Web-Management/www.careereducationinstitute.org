@@ -120,19 +120,19 @@ Please read these Terms of Use (“Terms”) carefully. By accessing or using th
 The Services are offered only to individuals located in the United States. You must be at least 18 years old, or at least 13 years old with the permission and supervision of a parent or guardian who agrees to these Terms on your behalf. Organizations that enroll learners are responsible for ensuring their learners comply with these Terms.
 
 ## 2. What we offer
-MrPress Education provides free career information (career profiles, salary data, quizzes, guides and worksheets), paid general online career-preparation courses delivered through a learning-management system (LMS), and certification and safety courses (such as OSHA Outreach, HAZWOPER and CDL Entry-Level Driver Training) provided by our affiliated training provider, ${cfg.checkout.provider} (${cfg.checkout.providerLegal}).
+MrPress Education provides free career information (career profiles, salary data, quizzes, guides and worksheets), paid general online career-preparation courses delivered through a learning-management system (LMS), and job-title courses (CDL Entry-Level Driver Training, forklift operator, flagger and mold inspector training) provided by our affiliated training provider, ${cfg.checkout.provider} (${cfg.checkout.providerLegal}).
 
 **Important disclosures about our courses:**
-- Courses are general, non-credit, professional-development courses. They do not award academic credit, degrees, diplomas, state licenses or industry certifications.
+- Job-title trainings are general, non-credit, professional-development courses. They do not award academic credit, degrees, diplomas, state licenses or industry certifications.
 - MrPress Education is not a degree-granting institution and is not accredited by an agency recognized by the U.S. Department of Education. Courses are not eligible for federal student aid.
 - Job-title trainings do not replace state-approved or employer-required training programs, supervised clinical or apprenticeship hours, or licensing exams.
-- Certification and safety courses cover the regulations stated on each course page. Whether a certificate, card or completion record satisfies a particular employer, state, agency or job site is decided by that party. Some credentials have additional steps, such as behind-the-wheel training for a CDL or hands-on evaluation for forklift operators.
+- Provider courses cover the regulations stated on each course page. Whether a certificate, card or completion record satisfies a particular employer, state, agency or job site is decided by that party. Some credentials have additional steps, such as behind-the-wheel training for a CDL or hands-on evaluation for forklift operators.
 - We do not guarantee employment, a particular salary, admission to any program or passing any exam.
 
 ## 3. Enrollment, pricing and payment
 Prices are listed in U.S. dollars on each course page and may change, but changes will not affect purchases already confirmed. Volume discounts are applied by seat count as shown on the course and checkout pages.
 - **Job-title trainings** are requested with our enrollment form, which opens an email to our team. The purchase is complete when we confirm your enrollment and receive payment.
-- **Certification and safety courses** are purchased with a credit or debit card on our checkout page. Card payments are processed by Stripe, Inc., and your order and learner account are created in the learning platform of ${cfg.checkout.provider}, which delivers the course and issues certificates. By purchasing, you also agree to follow that provider’s course rules, such as identity validation and assessment requirements described in the course.
+- **Provider courses** (CDL ELDT, forklift operator, flagger and mold inspector) are purchased with a credit or debit card on our checkout page. Card payments are processed by Stripe, Inc., and your order and learner account are created in the learning platform of ${cfg.checkout.provider}, which delivers the course and issues certificates. By purchasing, you also agree to follow that provider’s course rules, such as identity validation and assessment requirements described in the course.
 
 You are responsible for any applicable taxes. Refunds are governed by our [Refund Policy](/refund-policy/).
 
@@ -235,7 +235,7 @@ You can also use our [contact form](/contact/) and select “Accessibility reque
   { slug: 'refund-policy', title: 'Refund & Cancellation Policy', desc: 'MrPress Education refund policy: cancel within 30 days for a full refund, a money-back guarantee, account credit after 30 days and how to request a refund.',
     body: `**Effective date and last updated:** ${D}
 
-This policy applies to every course purchased from MrPress Education, including our job-title trainings and the certification and safety courses provided by our affiliated provider, ${cfg.checkout.provider}.
+This policy applies to every course purchased from MrPress Education, including our job-title trainings and the job-title courses provided by our affiliated provider, ${cfg.checkout.provider}.
 
 ## 30-day full refund
 Not sure whether you or your employees will be able to complete the course you purchased? You can cancel a course within 30 days of purchase and receive a full refund. If you cancel more than 30 days after purchase, you receive a credit for the full amount paid, which can be used to enroll in a different course of equal or lesser value. Organizations can also ask to pay by invoice to make it easier to finalize plans later.
@@ -282,7 +282,7 @@ Pay and job-outlook figures come from the U.S. Bureau of Labor Statistics (BLS) 
 We do not guarantee employment, wages, career advancement, admission to any program, or passing any certification or licensing exam.
 
 ## Courses
-Our job-title trainings are general, non-credit career-preparation courses. They do not grant licenses, certifications, academic credit or degrees and do not replace state-approved or employer-required training. Certification and safety courses are provided by our affiliated provider, ${cfg.checkout.provider}, and cover the regulations stated on each course page; whether a certificate or card is accepted is decided by employers, agencies and authorities. Licensing and certification requirements vary by state and change over time; always confirm requirements with the appropriate state board, certifying body or employer.
+Our job-title trainings are general, non-credit career-preparation courses. They do not grant licenses, certifications, academic credit or degrees and do not replace state-approved or employer-required training. Provider courses (CDL ELDT, forklift operator, flagger and mold inspector) are provided by our affiliated provider, ${cfg.checkout.provider}, and cover the regulations stated on each course page; whether a certificate or card is accepted is decided by employers, agencies and authorities. Licensing and certification requirements vary by state and change over time; always confirm requirements with the appropriate state board, certifying body or employer.
 
 ## How-to and safety content
 Step-by-step guides are general overviews. Many tasks (especially in healthcare, electrical, mechanical, hazardous-materials and public-safety work) require formal training, supervision, licensure and compliance with OSHA and other regulations. Never perform a task beyond your training or legal scope of practice. Always follow your employer’s procedures and manufacturer instructions.

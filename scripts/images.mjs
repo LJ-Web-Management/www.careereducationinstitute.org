@@ -70,7 +70,7 @@ export async function writeImages({ DIST, ROOT, careers, categories, posts }) {
   const fixed = [
     ['default', 'Find the career that fits, then train for it', 'Career training by job title', '50 careers · Free quizzes · Salary data · U.S.-focused'],
     ['training', 'Online career training by job title', 'Training catalog', 'Self-paced · Practical · Certificate of completion'],
-    ['courses', 'OSHA, HAZWOPER and CDL ELDT courses', 'Safety and compliance courses', 'Buy online · Self-paced · Volume pricing'],
+    ['courses', 'Job-title courses to buy online', 'CDL ELDT, forklift, flagger, mold inspector', 'Buy online · Self-paced · Volume pricing'],
     ['compare', 'Compare careers side by side', 'Career comparison', 'Pay · Training time · Job growth · Daily duties'],
     ['quiz', 'Free career quizzes', 'Quizzes', 'Career Match · College vs. Trade School · Career Change'],
     ['guides', 'Career guides for every stage', 'Guides', 'Students · Career changers · Working professionals'],

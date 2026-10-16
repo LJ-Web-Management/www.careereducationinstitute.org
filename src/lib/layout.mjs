@@ -9,7 +9,6 @@ export const CSS = cssRaw.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s*\n\s*/g, 
 let G = { careers: [], categories: [], partners: [] };
 export const setGlobals = (g) => { G = { ...G, ...g }; };
 
-import { partnerCategories } from '../data/partner-selection.mjs';
 
 export const logo = (cls = '') =>
   `<a class="logo ${cls}" href="${href('/')}"><picture><source type="image/webp" srcset="${href('/brand/mp-logo.webp')}"><img src="${href('/brand/mp-logo.png')}" width="68" height="40" alt=""></picture><span class="logo-word"><span class="logo-name"><i>Mr</i>Press</span> <span class="logo-sub">Education</span></span></a>`;
@@ -23,21 +22,16 @@ const pick = (slugs) => slugs.map((s) => G.careers.find((c) => c.slug === s)).fi
 function menu() {
   const popularCareers = pick(['registered-nurse', 'electrician', 'medical-assistant', 'hvac-technician', 'cybersecurity-analyst', 'truck-driver']);
   const popularTraining = pick(['medical-assistant', 'phlebotomist', 'pharmacy-technician', 'electrician', 'it-support-specialist', 'project-manager']);
-  const pc = (id) => (G.partners || []).find((c) => c.id === id);
-  const popularCourses = [478, 480, 435, 123, 304, 248, 474].map(pc).filter(Boolean);
+  const buyOnline = G.partners || [];
   return [
     { label: 'Careers', match: ['/careers/', '/compare/', '/best-careers/', '/salary-guide/', '/glossary/'], cols: [
       { h: 'Career fields', links: G.categories.map((c) => [c.name, `/careers/${c.slug}/`]) },
       { h: 'Explore', links: [['All 50 careers', '/careers/'], ['Salary guide', '/salary-guide/'], ['Best careers lists', '/best-careers/'], ['Compare careers', '/compare/'], ['Career glossary', '/glossary/'], ['Career Match Quiz', '/quizzes/career-match/']] },
       { h: 'Popular careers', links: popularCareers.map((c) => [c.title, c.url]) }] },
-    { label: 'Training', match: ['/training/', '/enroll/'], cols: [
-      { h: 'Job-title training by field', links: G.categories.map((c) => [c.short || c.name, `/training/#${c.slug}`]) },
-      { h: 'Popular trainings', links: popularTraining.map((c) => [`${c.title} Training`, c.trainingUrl]) },
-      { h: 'Get started', links: [['All 50 trainings', '/training/'], ['How it works', '/how-it-works/'], ['Free practice tests', '/quizzes/#practice-tests'], ['Enroll', '/enroll/']] }] },
-    { label: 'Courses', match: ['/courses/', '/checkout/'], cols: [
-      { h: 'Safety, compliance and CDL', links: partnerCategories.slice(0, 6).map((c) => [c.name, `/courses/${c.slug}/`]) },
-      { h: 'More categories', links: partnerCategories.slice(6).map((c) => [c.name, `/courses/${c.slug}/`]).concat([['All courses', '/courses/']]) },
-      { h: 'Popular courses', links: popularCourses.map((c) => [c.short, c.url]) }] },
+    { label: 'Training', match: ['/training/', '/enroll/', '/courses/', '/checkout/'], cols: [
+      { h: 'Job-title training by field', links: G.categories.map((c) => [c.short || c.name, `/training/#${c.slug}`]).concat([[`All ${G.careers.length} trainings`, '/training/']]) },
+      { h: 'Popular trainings', links: popularTraining.map((c) => [`${c.title} Training`, c.trainingUrl]).concat([['How it works', '/how-it-works/'], ['Enroll', '/enroll/']]) },
+      { h: 'Buy online now', links: buyOnline.map((c) => [c.short, c.url]).concat([['All online courses', '/courses/']]) }] },
     { label: 'Quizzes', match: ['/quizzes/'], cols: [
       { h: 'Find your fit', links: [['Career Match Quiz', '/quizzes/career-match/'], ['Work Style Quiz', '/quizzes/work-style/'], ['College or Trade School?', '/quizzes/college-or-trade-school/'], ['Career Change Readiness', '/quizzes/career-change-readiness/']] },
       { h: 'Quizzes by field', links: G.categories.map((c) => [c.short || c.name, `/quizzes/which-${c.slug}-career-is-right-for-me/`]) },
@@ -47,7 +41,7 @@ function menu() {
       { h: 'Learn', links: [['Career guides', '/guides/'], ['Free worksheets', '/resources/'], ['Blog', '/blog/'], ['Career glossary', '/glossary/']] },
       { h: 'Popular guides', links: [['How to choose a career', '/guides/how-to-choose-a-career/'], ['College vs. trade school', '/guides/college-vs-trade-school/'], ['How to change careers', '/guides/how-to-change-careers/'], ['How to write a resume', '/guides/how-to-write-a-resume/'], ['Job interview tips', '/guides/job-interview-tips/']] }] },
     { label: 'Employers', match: ['/employers/', '/for-'], cols: [
-      { h: 'Training for teams', links: [['Onboarding training', '/for-employers/'], ['Recruiters and staffing agencies', '/for-staffing-agencies/'], ['Schools and workforce programs', '/for-workforce-programs/'], ['Safety and compliance courses', '/courses/']] },
+      { h: 'Training for teams', links: [['Onboarding training', '/for-employers/'], ['Recruiters and staffing agencies', '/for-staffing-agencies/'], ['Schools and workforce programs', '/for-workforce-programs/'], ['Courses to buy online', '/courses/']] },
       { h: 'Hiring tools', links: [['Hiring guides by job', '/employers/hiring-guides/'], ['Job description templates', '/employers/job-descriptions/'], ['30-60-90 onboarding plans', '/employers/onboarding-plans/'], ['Training ROI calculator', '/employers/training-roi-calculator/'], ['Onboarding assessment', '/employers/onboarding-assessment/'], ['Employer resource center', '/employers/']] },
       { h: 'By industry', links: G.categories.map((c) => [c.short || c.name, `/for-employers/${c.slug}/`]) }] },
     { label: 'About', match: ['/about/', '/how-it-works/', '/faq/', '/contact/', '/editorial-policy/'], cols: [
@@ -72,7 +66,7 @@ function footer() {
   return `<footer class="site-footer"><div class="wrap"><div class="fgrid">
 <div>${logo()}<p style="margin-top:14px">Career training by job title, plus free tools to help students and working adults choose and change careers.</p><p><a href="tel:${cfg.phoneE164}">${cfg.phone}</a><br><a href="mailto:${cfg.email}">${cfg.email}</a></p></div>
 ${col('Careers', G.categories.map((c) => [c.name, `/careers/${c.slug}/`]).concat([['All 50 careers', '/careers/'], ['Salary guide', '/salary-guide/']]))}
-${col('Training and courses', [['All job-title trainings', '/training/'], ...pick(['medical-assistant', 'electrician', 'pharmacy-technician', 'cybersecurity-analyst']).map((c) => [`${c.title} Training`, c.trainingUrl]), ['Safety and compliance courses', '/courses/'], ['OSHA 10 and 30', '/courses/osha-outreach/'], ['HAZWOPER', '/courses/hazwoper/'], ['CDL ELDT', '/courses/cdl-eldt/'], ['Enroll', '/enroll/']])}
+${col('Training and courses', [['All job-title trainings', '/training/'], ...pick(['medical-assistant', 'electrician', 'pharmacy-technician', 'cybersecurity-analyst']).map((c) => [`${c.title} Training`, c.trainingUrl]), ['Courses to buy online', '/courses/'], ...(G.partners || []).slice(0, 3).map((c) => [c.short, c.url]), ['Enroll', '/enroll/']])}
 ${col('Resources', [['Career Match Quiz', '/quizzes/career-match/'], ['All quizzes', '/quizzes/'], ['Career guides', '/guides/'], ['For students', '/students/'], ['For career changers', '/career-changers/'], ['For working professionals', '/professionals/'], ['Best careers lists', '/best-careers/'], ['Career glossary', '/glossary/'], ['Free worksheets', '/resources/'], ['Blog', '/blog/']])}
 <div><h2>Employers</h2><ul>${[['Onboarding training', '/for-employers/'], ['Recruiters and staffing agencies', '/for-staffing-agencies/'], ['Schools and workforce programs', '/for-workforce-programs/'], ['Employer resource center', '/employers/'], ['Hiring guides by job', '/employers/hiring-guides/'], ['Training ROI calculator', '/employers/training-roi-calculator/']].map(([t, l]) => `<li><a href="${href(l)}">${t}</a></li>`).join('')}</ul><h2 style="margin-top:22px">Company</h2><ul>${[['About us', '/about/'], ['How it works', '/how-it-works/'], ['Contact', '/contact/'], ['FAQ', '/faq/'], ['Editorial policy', '/editorial-policy/'], ['Site map', '/sitemap/']].map(([t, l]) => `<li><a href="${href(l)}">${t}</a></li>`).join('')}</ul></div>
 </div>

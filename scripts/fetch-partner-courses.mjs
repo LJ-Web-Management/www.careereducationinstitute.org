@@ -115,13 +115,13 @@ for (const m of listing.matchAll(/<[^>]*\bdata-id="(\d+)"[^>]*data-title="[^"]*"
 
 // 2) Detail pages for the selected courses
 const out = [];
-for (const [id, category] of selection) {
+for (const { id, job, career = null } of selection) {
   const c = cat[id];
   if (!c || !c.path) { console.warn('! not found in catalog:', id); continue; }
   const html = await (await fetch(BASE + c.path, { headers: UA })).text();
   const d = parseDetail(html);
   const slug = c.path.split('/').pop();
-  out.push({ id, slug, category, price: c.price, hours: c.hours, langs: c.langs, ...d, fetched: new Date().toLocaleDateString('en-CA') });
+  out.push({ id, slug, job, career, price: c.price, hours: c.hours, langs: c.langs, ...d, fetched: new Date().toLocaleDateString('en-CA') });
   process.stdout.write('.');
   await sleep(250);
 }

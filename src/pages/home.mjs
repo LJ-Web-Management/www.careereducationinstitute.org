@@ -3,7 +3,7 @@ import { esc, href, abs, money, pct, clamp } from '../lib/util.mjs';
 import { faqBlock, faqSchema, icon, band } from '../lib/layout.mjs';
 import { companyFaqs } from './company.mjs';
 import { guides, gp } from '../data/guides/index.mjs';
-import { partnerTable } from '../lib/partners.mjs';
+import { partnerCourses, partnerTable } from '../lib/partners.mjs';
 
 export function homePage(ctx) {
   const { careers, categories, labor, posts, byslug } = ctx;
@@ -41,7 +41,7 @@ export function homePage(ctx) {
 <p style="margin-top:20px"><a class="btn btn-primary" href="${href('/training/')}">View all trainings</a></p></div></section>
 
 <section class="section dark"><div class="wrap"><div class="section-head"><p class="eyebrow" style="color:#7fd1c4">How it works</p><h2>From “what should I do?” to day one</h2></div>
-<ol class="how"><li><h3>Explore free</h3><p>Read real career profiles with BLS pay data, daily routines and requirements.</p></li><li><h3>Find your match</h3><p>Take the Career Match Quiz or a career’s fit quiz and practice test.</p></li><li><h3>Enroll</h3><p>Prices are listed on every course. Buy certification courses at checkout or request a job-title training by email.</p></li><li><h3>Learn at your pace</h3><p>Complete modules online and earn a certificate of completion.</p></li></ol></div></section>
+<ol class="how"><li><h3>Explore free</h3><p>Read real career profiles with BLS pay data, daily routines and requirements.</p></li><li><h3>Find your match</h3><p>Take the Career Match Quiz or a career’s fit quiz and practice test.</p></li><li><h3>Enroll</h3><p>Prices are listed on every course. Request a training by email, or buy CDL, forklift, flagger and mold inspector courses at checkout.</p></li><li><h3>Learn at your pace</h3><p>Complete modules online and earn a certificate of completion.</p></li></ol></div></section>
 
 <section class="section"><div class="wrap"><div class="grid-2">
 <div><p class="eyebrow">By the numbers</p><h2 style="margin-top:0">Top-paying careers without a four-year degree</h2>${mini(noDegree, (c) => money(c.l.wages.median))}<p><a href="${href('/best-careers/highest-paying-jobs-without-a-degree/')}">See the full list →</a></p></div>
@@ -51,7 +51,7 @@ export function homePage(ctx) {
 <section class="section alt"><div class="wrap"><div class="section-head"><p class="eyebrow">Free tools</p><h2>Career quizzes that actually help</h2></div>
 <div class="grid">${[['Career Match Quiz', '/quizzes/career-match/', 'Match your interests to careers using the RIASEC model.'], ['College or Trade School?', '/quizzes/college-or-trade-school/', 'Find the education path that fits how you learn and what you want.'], ['Career Change Readiness', '/quizzes/career-change-readiness/', 'Score your readiness and get a clear next step.'], ['Work Style Quiz', '/quizzes/work-style/', 'People, things or data? Indoors or out?']].map(([t, l, d]) => `<article class="card link"><h3><a class="stretch" href="${href(l)}">${t}</a></h3><p>${d}</p><span class="more">Start →</span></article>`).join('')}</div></div></section>
 
-<section class="section alt"><div class="wrap"><div class="section-head"><p class="eyebrow">Buy online today</p><h2>Safety, compliance and CDL courses</h2><p>The credentials employers ask for most, from OSHA 10 and HAZWOPER to CDL Entry-Level Driver Training. 100% online with a certificate.</p></div>${partnerTable([478, 480, 435, 123, 304, 248, 474, 132])}<p><a class="btn" href="${href('/courses/')}">See all courses</a></p></div></section>
+<section class="section alt"><div class="wrap"><div class="section-head"><p class="eyebrow">Buy online today</p><h2>Job-title training you can start now</h2><p>Complete online training for truck drivers, forklift operators, flaggers and mold inspectors. Buy here and start right away.</p></div>${partnerTable(partnerCourses)}<p><a class="btn" href="${href('/courses/')}">See all online courses</a></p></div></section>
 
 ${band('Training new hires? Give every one the same strong start.', 'Onboarding training by job title for employers, staffing agencies and workforce programs, with group pricing.', 'See employer training', '/for-employers/', 'Hiring guides', '/employers/hiring-guides/')}
 

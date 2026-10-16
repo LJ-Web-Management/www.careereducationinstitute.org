@@ -4,6 +4,7 @@ import { pageHero, faqBlock, faqSchema, ctaCard, sideLinks, answerBox, icon, car
 import { dataNote, growthWord, compareSlug, EDU_LABEL } from '../lib/career-helpers.mjs';
 import { lists as allLists } from '../data/lists.mjs';
 import { guides, gp } from '../data/guides/index.mjs';
+import { fieldCourses } from '../lib/partners.mjs';
 
 const cardWithData = (c) => `<article class="card link" data-card data-name="${esc((c.title + ' ' + c.aka.join(' ')).toLowerCase())}" data-cat="${c.cat}" data-edu="${c.eduLevel}" data-median="${c.l.wages.median}" data-growth="${c.l.growthPct}" data-months="${c.months}"><span class="ico">${icon(c.cat)}</span><h3><a class="stretch" href="${href(c.url)}">${esc(c.title)}</a></h3><p>${esc(c.blurb)}</p><ul class="chips"><li class="chip pay">${money(c.l.wages.median)}/yr</li><li class="chip grow">${pct(c.l.growthPct)} growth</li><li class="chip">${esc(c.train)}</li></ul></article>`;
 
@@ -47,7 +48,7 @@ ${band('Not sure where to start?', 'Answer 24 quick questions and get matched wi
       [`Which ${cat.noun} career is growing fastest?`, `${growth.title}, with projected growth of ${pct(growth.l.growthPct)} from ${labor.meta.projections} (${growthWord(growth.l.growthPct)}).`],
       [`How do I choose the right ${cat.noun} career?`, `Compare day-to-day duties, training time and pay, then take our ${cat.name} career quiz for a personalized match. Reading a day in the life for your top two choices helps a lot.`]
     ];
-    const partner = cat.slug === 'safety-and-environmental' || cat.slug === 'skilled-trades' ? `<aside class="callout info"><p><strong>Need OSHA or HAZWOPER certification?</strong> Take <a href="${href('/courses/osha-outreach/')}">OSHA 10 and 30</a>, <a href="${href('/courses/hazwoper/')}">HAZWOPER</a> and other <a href="${href('/courses/')}">safety courses</a> online.</p></aside>` : '';
+    const partner = fieldCourses(cat.slug);
     const body = `${pageHero({ crumbs, eyebrow: 'Career field', h1: `${esc(cat.name)} Careers`, lead: esc(cat.blurb) })}
 <div class="wrap layout"><div class="prose">${cat.intro.map((p) => `<p>${esc(p)}</p>`).join('')}${dataNote(labor)}
 <h2 id="careers">${cs.length} ${esc(cat.noun)} careers</h2><div class="grid-2">${cs.map((c) => careerCard(c, c.l)).join('')}</div>

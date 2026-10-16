@@ -7,6 +7,7 @@ import { modules } from './training.mjs';
 import { employerCats } from '../data/employer-cats.mjs';
 import { guides, gp } from '../data/guides/index.mjs';
 import { resources } from '../data/resources.mjs';
+import { fieldCourses } from '../lib/partners.mjs';
 
 const E = ['Home', '/'];
 const EH = ['Employers', '/employers/'];
@@ -30,7 +31,7 @@ function buyerPage({ path, crumbs, eyebrow, h1, lead, title, desc, sections, car
   return {
     path, crumbs, og: '/og/training.png', kind: 'Employers', name: h1, scripts: ['enroll'], title, desc,
     mcta: `<a class="btn btn-primary" href="#quote">Request pricing</a><a class="btn" href="${href('/employers/training-roi-calculator/')}">ROI calculator</a>`,
-    body: `${pageHero({ crumbs, eyebrow, h1, lead, meta: false, extra: `<div class="btn-row"><a class="btn btn-primary" href="#quote">Request group pricing</a><a class="btn" href="${href('/employers/training-roi-calculator/')}">Calculate your training ROI</a></div>` })}<div class="wrap layout"><div class="prose">${sections}${quoteForm(careers)}${faqBlock(faqs, 'Questions from employers')}<aside class="callout info"><p>MrPress Education trainings are general, non-credit job-role courses. They supplement, and do not replace, legally required safety training, licensing programs or your site-specific procedures. For OSHA, HAZWOPER, CDL ELDT and other certification courses, see our <a href="${href('/courses/')}">safety, compliance and CDL courses</a>.</p></aside></div><aside>${aside}</aside></div>`,
+    body: `${pageHero({ crumbs, eyebrow, h1, lead, meta: false, extra: `<div class="btn-row"><a class="btn btn-primary" href="#quote">Request group pricing</a><a class="btn" href="${href('/employers/training-roi-calculator/')}">Calculate your training ROI</a></div>` })}<div class="wrap layout"><div class="prose">${sections}${quoteForm(careers)}${faqBlock(faqs, 'Questions from employers')}<aside class="callout info"><p>MrPress Education trainings are general, non-credit job-role courses. They supplement, and do not replace, legally required safety training, licensing programs or your site-specific procedures. For CDL Entry-Level Driver Training, forklift operator, flagger and mold inspector training you can buy online, see our <a href="${href('/courses/')}">online courses</a>.</p></aside></div><aside>${aside}</aside></div>`,
     schema: [faqSchema(faqs, path), { '@type': 'Service', name: h1, serviceType: 'Employee onboarding and job-role training', provider: { '@id': abs('/#org') }, areaServed: { '@type': 'Country', name: 'United States' }, audience: { '@type': 'BusinessAudience', name: 'Employers' }, url: abs(path) }]
   };
 }
@@ -92,7 +93,7 @@ export function employerPages(ctx) {
 <h2 id="roles">${cs.length} roles we train</h2><div class="grid-2">${cs.map((c) => `<article class="card"><h3><a href="${href(c.trainingUrl)}">${esc(c.title)} Training</a></h3><p>${esc(c.blurb)}</p><p class="small"><a href="${href(`/employers/hiring-guides/${c.slug}/`)}">Hiring guide</a> · <a href="${href(`/employers/job-descriptions/${c.slug}/`)}">Job description</a> · <a href="${href(`/employers/onboarding-plans/${c.slug}/`)}">Onboarding plan</a></p></article>`).join('')}</div>
 <h2 id="measure">Onboarding metrics to track</h2><ul>${ec.kpis.map((k) => `<li>${esc(k)}</li>`).join('')}</ul>
 <h2 id="labor">The hiring market</h2>${dataNote(labor)}<div class="table-wrap"><table><thead><tr><th scope="col">Role</th><th scope="col" class="num">Median pay</th><th scope="col" class="num">Openings/yr</th><th scope="col" class="num">Growth</th></tr></thead><tbody>${cs.map((c) => `<tr><td><a href="${href(`/employers/hiring-guides/${c.slug}/`)}">${esc(c.title)}</a></td><td class="num">${money(c.l.wages.median)}</td><td class="num">${num(c.l.annualOpenings)}</td><td class="num">${pct(c.l.growthPct)}</td></tr>`).join('')}</tbody></table></div><p>With thousands of openings each year, competition for qualified ${esc(cat.noun)} workers is real. Faster, more consistent onboarding is one of the few levers fully within your control.</p>
-${cat.slug === 'safety-and-environmental' || cat.slug === 'skilled-trades' ? `<aside class="callout"><p><strong>Need OSHA 10, OSHA 30 or HAZWOPER for your team?</strong> Buy them online on our <a href="${href('/courses/')}">safety and compliance courses</a> page, with volume pricing from 2 learners.</p></aside>` : ''}`
+${fieldCourses(cat.slug, 'Job-title courses your team can start today')}`
     }));
   }
 

@@ -1,7 +1,7 @@
 // Course length and price for each MrPress job-title training.
 // Price ladder is set against comparable self-paced, non-credit career-prep courses
-// (roughly $7–$10 per instructional hour) and sits below credential courses such as
-// OSHA 30 or CDL ELDT. The LMS course should be built to the hours below.
+// (roughly $7 to $10 per instructional hour) and sits below credential courses such as
+// CDL ELDT. The LMS course should be built to the hours below.
 export const priceForHours = { 6: 59.99, 8: 74.99, 10: 89.99, 12: 109.99, 14: 129.99 };
 
 export const courseHours = {
@@ -12,11 +12,11 @@ export const courseHours = {
   // 10 hours: technical and specialized roles
   'medical-assistant': 10, 'medical-billing-and-coding-specialist': 10, emt: 10, 'hvac-technician': 10, welder: 10, carpenter: 10, 'heavy-equipment-operator': 10, 'automotive-service-technician': 10, 'diesel-mechanic': 10, 'cnc-machinist': 10, 'environmental-technician': 10, 'water-treatment-operator': 10, 'logistics-coordinator': 10, 'human-resources-specialist': 10, 'digital-marketing-specialist': 10, paralegal: 10, 'police-officer': 10, firefighter: 10, 'wind-turbine-technician': 10, 'industrial-maintenance-technician': 10, 'web-developer': 10,
   // 12 hours: licensed, high-hazard or advanced professional roles
-  electrician: 12, plumber: 12, 'licensed-practical-nurse': 12, 'surgical-technologist': 12, 'electrical-lineworker': 12, 'aircraft-mechanic': 12, 'construction-inspector': 12, 'network-administrator': 12, 'cybersecurity-analyst': 12, accountant: 12, 'project-manager': 12, 'occupational-safety-specialist': 12,
+  electrician: 12, plumber: 12, 'licensed-practical-nurse': 12, 'surgical-technologist': 12, 'electrical-lineworker': 12, 'aircraft-mechanic': 12, 'construction-inspector': 12, 'network-administrator': 12, 'cybersecurity-analyst': 12, accountant: 12, 'project-manager': 12, 'occupational-safety-specialist': 12, 'hazmat-technician': 12,
   // 14 hours
   'registered-nurse': 14,
-  // Replaced by partner courses (see partner-selection.mjs): truck-driver, forklift-operator, hazmat-technician
-  'truck-driver': 10, 'forklift-operator': 6, 'hazmat-technician': 10
+  // Replaced by provider courses (see partner-selection.mjs): truck-driver, forklift-operator
+  'truck-driver': 10, 'forklift-operator': 6
 };
 
 // Share of course time per syllabus module (10 modules, sums to 1)
