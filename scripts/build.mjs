@@ -69,7 +69,7 @@ fs.mkdirSync(path.join(DIST, 'assets'), { recursive: true });
 for (const f of fs.readdirSync(path.join(ROOT, 'src/assets')).filter((f) => f.endsWith('.js'))) {
   fs.writeFileSync(path.join(DIST, 'assets', f), minJs(fs.readFileSync(path.join(ROOT, 'src/assets', f), 'utf8')));
 }
-fs.cpSync(path.join(ROOT, 'static'), DIST, { recursive: true });
+if (fs.existsSync(path.join(ROOT, 'static'))) fs.cpSync(path.join(ROOT, 'static'), DIST, { recursive: true });
 for (const p of posts) {
   const dir = path.join(DIST, 'blog', p.slug);
   fs.mkdirSync(dir, { recursive: true });
