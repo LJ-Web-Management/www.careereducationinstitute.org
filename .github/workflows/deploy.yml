@@ -52,6 +52,8 @@ jobs:
 
       - name: SEO audit
         run: node scripts/audit.mjs
+        env:
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
 
       - uses: actions/upload-pages-artifact@v3
         with:
