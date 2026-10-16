@@ -1,0 +1,19 @@
+{
+  "name": "mrpress-education",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MrPress Education — static website generator (career profiles, trainings, quizzes, guides, employer resources, blog).",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "audit": "node scripts/audit.mjs",
+    "serve": "node scripts/serve.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "import-blog": "node scripts/import-blog.mjs",
+    "update-salaries": "node scripts/fetch-bls.mjs"
+  },
+  "engines": { "node": ">=20" },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

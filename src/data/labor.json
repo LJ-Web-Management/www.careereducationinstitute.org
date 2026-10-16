@@ -1,0 +1,912 @@
+{
+ "meta": {
+  "oewsYear": 2025,
+  "oewsLabel": "May 2025",
+  "projections": "2025\u201335",
+  "projectionsSource": "BLS Employment Projections, Table 1.2 (2025\u201335)",
+  "wageSource": "BLS Occupational Employment and Wage Statistics (OEWS), May 2025",
+  "fetched": "2026-10-15"
+ },
+ "careers": {
+  "medical-assistant": {
+   "soc": "31-9092",
+   "blsTitle": "Medical assistants",
+   "employment": 833900,
+   "growthPct": 12.9,
+   "annualOpenings": 109700,
+   "entryEducation": "Postsecondary nondegree award",
+   "relatedExperience": "None",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 45690,
+    "p10": 36050,
+    "p25": 38470,
+    "p75": 49180,
+    "p90": 59310,
+    "hourly": 21.97
+   }
+  },
+  "phlebotomist": {
+   "soc": "31-9097",
+   "blsTitle": "Phlebotomists",
+   "employment": 143900,
+   "growthPct": 6.8,
+   "annualOpenings": 18000,
+   "entryEducation": "Postsecondary nondegree award",
+   "relatedExperience": "None",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 45230,
+    "p10": 35780,
+    "p25": 38190,
+    "p75": 48930,
+    "p90": 58780,
+    "hourly": 21.75
+   }
+  },
+  "pharmacy-technician": {
+   "soc": "29-2052",
+   "blsTitle": "Pharmacy technicians",
+   "employment": 471200,
+   "growthPct": 6.4,
+   "annualOpenings": 44700,
+   "entryEducation": "High school diploma or equivalent",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Moderate-term on-the-job training",
+   "wages": {
+    "median": 45750,
+    "p10": 36020,
+    "p25": 37850,
+    "p75": 49990,
+    "p90": 61040,
+    "hourly": 22
+   }
+  },
+  "certified-nursing-assistant": {
+   "soc": "31-1131",
+   "blsTitle": "Nursing assistants",
+   "employment": 1505900,
+   "growthPct": 2.6,
+   "annualOpenings": 196200,
+   "entryEducation": "Postsecondary nondegree award",
+   "relatedExperience": "None",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 42260,
+    "p10": 33940,
+    "p25": 37260,
+    "p75": 47220,
+    "p90": 51980,
+    "hourly": 20.32
+   }
+  },
+  "licensed-practical-nurse": {
+   "soc": "29-2061",
+   "blsTitle": "Licensed practical and licensed vocational nurses",
+   "employment": 666900,
+   "growthPct": 3,
+   "annualOpenings": 51800,
+   "entryEducation": "Postsecondary nondegree award",
+   "relatedExperience": "None",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 64400,
+    "p10": 49740,
+    "p25": 59000,
+    "p75": 76030,
+    "p90": 83440,
+    "hourly": 30.96
+   }
+  },
+  "registered-nurse": {
+   "soc": "29-1141",
+   "blsTitle": "Registered nurses",
+   "employment": 3465400,
+   "growthPct": 5.6,
+   "annualOpenings": 180800,
+   "entryEducation": "Bachelor's degree",
+   "relatedExperience": "None",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 97550,
+    "p10": 68940,
+    "p25": 80330,
+    "p75": 112350,
+    "p90": 137470,
+    "hourly": 46.9
+   }
+  },
+  "emt": {
+   "soc": "29-2042",
+   "blsTitle": "Emergency medical technicians",
+   "employment": 181900,
+   "growthPct": 5.8,
+   "annualOpenings": 13800,
+   "entryEducation": "Postsecondary nondegree award",
+   "relatedExperience": "None",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 44470,
+    "p10": 34130,
+    "p25": 37960,
+    "p75": 50100,
+    "p90": 62500,
+    "hourly": 21.38
+   }
+  },
+  "dental-assistant": {
+   "soc": "31-9091",
+   "blsTitle": "Dental assistants",
+   "employment": 388600,
+   "growthPct": 7.4,
+   "annualOpenings": 53000,
+   "entryEducation": "Postsecondary nondegree award",
+   "relatedExperience": "None",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 48070,
+    "p10": 37130,
+    "p25": 44340,
+    "p75": 58090,
+    "p90": 62250,
+    "hourly": 23.11
+   }
+  },
+  "medical-billing-and-coding-specialist": {
+   "soc": "29-2072",
+   "blsTitle": "Medical records specialists",
+   "employment": 200700,
+   "growthPct": 7.8,
+   "annualOpenings": 14000,
+   "entryEducation": "Postsecondary nondegree award",
+   "relatedExperience": "None",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 51140,
+    "p10": 37000,
+    "p25": 43490,
+    "p75": 64820,
+    "p90": 81150,
+    "hourly": 24.59
+   }
+  },
+  "surgical-technologist": {
+   "soc": "29-2055",
+   "blsTitle": "Surgical technologists",
+   "employment": 118400,
+   "growthPct": 5,
+   "annualOpenings": 7100,
+   "entryEducation": "Postsecondary nondegree award",
+   "relatedExperience": "None",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 64650,
+    "p10": 45940,
+    "p25": 54690,
+    "p75": 79750,
+    "p90": 96940,
+    "hourly": 31.08
+   }
+  },
+  "electrician": {
+   "soc": "47-2111",
+   "blsTitle": "Electricians",
+   "employment": 821000,
+   "growthPct": 9.2,
+   "annualOpenings": 72700,
+   "entryEducation": "High school diploma or equivalent",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Apprenticeship",
+   "wages": {
+    "median": 63190,
+    "p10": 42640,
+    "p25": 49430,
+    "p75": 83940,
+    "p90": 108510,
+    "hourly": 30.38
+   }
+  },
+  "plumber": {
+   "soc": "47-2152",
+   "blsTitle": "Plumbers, pipefitters, and steamfitters",
+   "employment": 510600,
+   "growthPct": 6.8,
+   "annualOpenings": 42000,
+   "entryEducation": "High school diploma or equivalent",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Apprenticeship",
+   "wages": {
+    "median": 63800,
+    "p10": 44150,
+    "p25": 50190,
+    "p75": 85110,
+    "p90": 108420,
+    "hourly": 30.67
+   }
+  },
+  "hvac-technician": {
+   "soc": "49-9021",
+   "blsTitle": "Heating, air conditioning, and refrigeration mechanics and installers",
+   "employment": 440900,
+   "growthPct": 10.9,
+   "annualOpenings": 40600,
+   "entryEducation": "Postsecondary nondegree award",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Long-term on-the-job training",
+   "wages": {
+    "median": 61010,
+    "p10": 40050,
+    "p25": 48360,
+    "p75": 77060,
+    "p90": 95210,
+    "hourly": 29.33
+   }
+  },
+  "welder": {
+   "soc": "51-4121",
+   "blsTitle": "Welders, cutters, solderers, and brazers",
+   "employment": 437700,
+   "growthPct": 2.4,
+   "annualOpenings": 40300,
+   "entryEducation": "High school diploma or equivalent",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Moderate-term on-the-job training",
+   "wages": {
+    "median": 53750,
+    "p10": 39240,
+    "p25": 46790,
+    "p75": 63010,
+    "p90": 77530,
+    "hourly": 25.84
+   }
+  },
+  "carpenter": {
+   "soc": "47-2031",
+   "blsTitle": "Carpenters",
+   "employment": 889700,
+   "growthPct": 3.9,
+   "annualOpenings": 62800,
+   "entryEducation": "High school diploma or equivalent",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Apprenticeship",
+   "wages": {
+    "median": 60580,
+    "p10": 40410,
+    "p25": 48510,
+    "p75": 76830,
+    "p90": 99910,
+    "hourly": 29.12
+   }
+  },
+  "construction-laborer": {
+   "soc": "47-2061",
+   "blsTitle": "Construction laborers",
+   "employment": 1489300,
+   "growthPct": 7.3,
+   "annualOpenings": 120000,
+   "entryEducation": "No formal educational credential",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Short-term on-the-job training",
+   "wages": {
+    "median": 47120,
+    "p10": 35090,
+    "p25": 38620,
+    "p75": 59740,
+    "p90": 78090,
+    "hourly": 22.66
+   }
+  },
+  "heavy-equipment-operator": {
+   "soc": "47-2073",
+   "blsTitle": "Operating engineers and other construction equipment operators",
+   "employment": 489500,
+   "growthPct": 4.6,
+   "annualOpenings": 39200,
+   "entryEducation": "High school diploma or equivalent",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Moderate-term on-the-job training",
+   "wages": {
+    "median": 59850,
+    "p10": 42190,
+    "p25": 48680,
+    "p75": 77170,
+    "p90": 101090,
+    "hourly": 28.78
+   }
+  },
+  "electrical-lineworker": {
+   "soc": "49-9051",
+   "blsTitle": "Electrical power-line installers and repairers",
+   "employment": 131900,
+   "growthPct": 10.3,
+   "annualOpenings": 10900,
+   "entryEducation": "High school diploma or equivalent",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Long-term on-the-job training",
+   "wages": {
+    "median": 95320,
+    "p10": 51470,
+    "p25": 67270,
+    "p75": 109740,
+    "p90": 128690,
+    "hourly": 45.83
+   }
+  },
+  "solar-panel-installer": {
+   "soc": "47-2231",
+   "blsTitle": "Solar photovoltaic installers",
+   "employment": 31100,
+   "growthPct": 36.5,
+   "annualOpenings": 4200,
+   "entryEducation": "High school diploma or equivalent",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Moderate-term on-the-job training",
+   "wages": {
+    "median": 53140,
+    "p10": 41600,
+    "p25": 46700,
+    "p75": 62870,
+    "p90": 79970,
+    "hourly": 25.55
+   }
+  },
+  "wind-turbine-technician": {
+   "soc": "49-9081",
+   "blsTitle": "Wind turbine service technicians",
+   "employment": 11800,
+   "growthPct": 29.5,
+   "annualOpenings": 1500,
+   "entryEducation": "Postsecondary nondegree award",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Long-term on-the-job training",
+   "wages": {
+    "median": 64120,
+    "p10": 49230,
+    "p25": 58840,
+    "p75": 78010,
+    "p90": 92460,
+    "hourly": 30.83
+   }
+  },
+  "diesel-mechanic": {
+   "soc": "49-3031",
+   "blsTitle": "Bus and truck mechanics and diesel engine specialists",
+   "employment": 316000,
+   "growthPct": 3.6,
+   "annualOpenings": 24400,
+   "entryEducation": "High school diploma or equivalent",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Long-term on-the-job training",
+   "wages": {
+    "median": 61770,
+    "p10": 44530,
+    "p25": 50540,
+    "p75": 75470,
+    "p90": 88740,
+    "hourly": 29.7
+   }
+  },
+  "automotive-service-technician": {
+   "soc": "49-3023",
+   "blsTitle": "Automotive service technicians and mechanics",
+   "employment": 825800,
+   "growthPct": 5,
+   "annualOpenings": 66200,
+   "entryEducation": "Postsecondary nondegree award",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Short-term on-the-job training",
+   "wages": {
+    "median": 50620,
+    "p10": 34660,
+    "p25": 38900,
+    "p75": 70430,
+    "p90": 81790,
+    "hourly": 24.34
+   }
+  },
+  "industrial-maintenance-technician": {
+   "soc": "49-9041",
+   "blsTitle": "Industrial machinery mechanics",
+   "employment": 446900,
+   "growthPct": 17.8,
+   "annualOpenings": 44400,
+   "entryEducation": "High school diploma or equivalent",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Long-term on-the-job training",
+   "wages": {
+    "median": 64520,
+    "p10": 46120,
+    "p25": 55010,
+    "p75": 78780,
+    "p90": 95170,
+    "hourly": 31.02
+   }
+  },
+  "cnc-machinist": {
+   "soc": "51-4041",
+   "blsTitle": "Machinists",
+   "employment": 288300,
+   "growthPct": 1,
+   "annualOpenings": 26100,
+   "entryEducation": "High school diploma or equivalent",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Long-term on-the-job training",
+   "wages": {
+    "median": 58750,
+    "p10": 39200,
+    "p25": 47570,
+    "p75": 67700,
+    "p90": 80010,
+    "hourly": 28.24
+   }
+  },
+  "aircraft-mechanic": {
+   "soc": "49-3011",
+   "blsTitle": "Aircraft mechanics and service technicians",
+   "employment": 140000,
+   "growthPct": 5.4,
+   "annualOpenings": 11400,
+   "entryEducation": "Postsecondary nondegree award",
+   "relatedExperience": "None",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 79870,
+    "p10": 48780,
+    "p25": 62630,
+    "p75": 99130,
+    "p90": 128890,
+    "hourly": 38.4
+   }
+  },
+  "occupational-safety-specialist": {
+   "soc": "19-5011",
+   "blsTitle": "Occupational health and safety specialists",
+   "employment": 143100,
+   "growthPct": 18.5,
+   "annualOpenings": 17100,
+   "entryEducation": "Bachelor's degree",
+   "relatedExperience": "None",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 90150,
+    "p10": 55000,
+    "p25": 69560,
+    "p75": 111690,
+    "p90": 134950,
+    "hourly": 43.34
+   }
+  },
+  "hazmat-technician": {
+   "soc": "47-4041",
+   "blsTitle": "Hazardous materials removal workers",
+   "employment": 52700,
+   "growthPct": 1.5,
+   "annualOpenings": 4300,
+   "entryEducation": "High school diploma or equivalent",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Moderate-term on-the-job training",
+   "wages": {
+    "median": 49450,
+    "p10": 38460,
+    "p25": 44720,
+    "p75": 61530,
+    "p90": 82410,
+    "hourly": 23.78
+   }
+  },
+  "environmental-technician": {
+   "soc": "19-4042",
+   "blsTitle": "Environmental science and protection technicians, including health",
+   "employment": 36400,
+   "growthPct": 6.9,
+   "annualOpenings": 5300,
+   "entryEducation": "Associate's degree",
+   "relatedExperience": "None",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 55090,
+    "p10": 38170,
+    "p25": 45820,
+    "p75": 69910,
+    "p90": 94160,
+    "hourly": 26.49
+   }
+  },
+  "construction-inspector": {
+   "soc": "47-4011",
+   "blsTitle": "Construction and building inspectors",
+   "employment": 153900,
+   "growthPct": 0,
+   "annualOpenings": 14800,
+   "entryEducation": "High school diploma or equivalent",
+   "relatedExperience": "5 years or more",
+   "onTheJobTraining": "Moderate-term on-the-job training",
+   "wages": {
+    "median": 74690,
+    "p10": 47140,
+    "p25": 58860,
+    "p75": 94710,
+    "p90": 114200,
+    "hourly": 35.91
+   }
+  },
+  "water-treatment-operator": {
+   "soc": "51-8031",
+   "blsTitle": "Water and wastewater treatment plant and system operators",
+   "employment": 131000,
+   "growthPct": -5.7,
+   "annualOpenings": 10000,
+   "entryEducation": "High school diploma or equivalent",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Long-term on-the-job training",
+   "wages": {
+    "median": 60020,
+    "p10": 39110,
+    "p25": 48040,
+    "p75": 74780,
+    "p90": 91060,
+    "hourly": 28.86
+   }
+  },
+  "truck-driver": {
+   "soc": "53-3032",
+   "blsTitle": "Heavy and tractor-trailer truck drivers",
+   "employment": 2221200,
+   "growthPct": 3.8,
+   "annualOpenings": 214500,
+   "entryEducation": "Postsecondary nondegree award",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Short-term on-the-job training",
+   "wages": {
+    "median": 58640,
+    "p10": 40140,
+    "p25": 47960,
+    "p75": 69120,
+    "p90": 79380,
+    "hourly": 28.19
+   }
+  },
+  "forklift-operator": {
+   "soc": "53-7051",
+   "blsTitle": "Industrial truck and tractor operators",
+   "employment": 765200,
+   "growthPct": 1.5,
+   "annualOpenings": 64700,
+   "entryEducation": "No formal educational credential",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Short-term on-the-job training",
+   "wages": {
+    "median": 46420,
+    "p10": 36840,
+    "p25": 40030,
+    "p75": 54770,
+    "p90": 62520,
+    "hourly": 22.32
+   }
+  },
+  "warehouse-associate": {
+   "soc": "53-7062",
+   "blsTitle": "Laborers and freight, stock, and material movers, hand",
+   "employment": 2940300,
+   "growthPct": 1.8,
+   "annualOpenings": 340500,
+   "entryEducation": "No formal educational credential",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Short-term on-the-job training",
+   "wages": {
+    "median": 40240,
+    "p10": 31270,
+    "p25": 36090,
+    "p75": 46920,
+    "p90": 55140,
+    "hourly": 19.35
+   }
+  },
+  "logistics-coordinator": {
+   "soc": "13-1081",
+   "blsTitle": "Logisticians",
+   "employment": 255100,
+   "growthPct": 17.6,
+   "annualOpenings": 26600,
+   "entryEducation": "Bachelor's degree",
+   "relatedExperience": "None",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 82320,
+    "p10": 50890,
+    "p25": 64440,
+    "p75": 106190,
+    "p90": 133160,
+    "hourly": 39.58
+   }
+  },
+  "administrative-assistant": {
+   "soc": "43-6014",
+   "blsTitle": "Secretaries and administrative assistants, except legal, medical, and executive",
+   "employment": 1889800,
+   "growthPct": -6,
+   "annualOpenings": 163900,
+   "entryEducation": "High school diploma or equivalent",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Short-term on-the-job training",
+   "wages": {
+    "median": 47540,
+    "p10": 33280,
+    "p25": 38830,
+    "p75": 58000,
+    "p90": 66350,
+    "hourly": 22.86
+   }
+  },
+  "bookkeeper": {
+   "soc": "43-3031",
+   "blsTitle": "Bookkeeping, accounting, and auditing clerks",
+   "employment": 1532400,
+   "growthPct": -5.6,
+   "annualOpenings": 144100,
+   "entryEducation": "Some college, no degree",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Moderate-term on-the-job training",
+   "wages": {
+    "median": 50670,
+    "p10": 36000,
+    "p25": 43520,
+    "p75": 61470,
+    "p90": 74550,
+    "hourly": 24.36
+   }
+  },
+  "customer-service-representative": {
+   "soc": "43-4051",
+   "blsTitle": "Customer service representatives",
+   "employment": 2666000,
+   "growthPct": -5.3,
+   "annualOpenings": 289500,
+   "entryEducation": "High school diploma or equivalent",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Short-term on-the-job training",
+   "wages": {
+    "median": 44770,
+    "p10": 31750,
+    "p25": 36870,
+    "p75": 51780,
+    "p90": 63590,
+    "hourly": 21.53
+   }
+  },
+  "human-resources-specialist": {
+   "soc": "13-1071",
+   "blsTitle": "Human resources specialists",
+   "employment": 939700,
+   "growthPct": 6.4,
+   "annualOpenings": 73700,
+   "entryEducation": "Bachelor's degree",
+   "relatedExperience": "None",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 75940,
+    "p10": 47180,
+    "p25": 58610,
+    "p75": 99380,
+    "p90": 128720,
+    "hourly": 36.51
+   }
+  },
+  "project-manager": {
+   "soc": "13-1082",
+   "blsTitle": "Project management specialists",
+   "employment": 1094300,
+   "growthPct": 6.7,
+   "annualOpenings": 76500,
+   "entryEducation": "Bachelor's degree",
+   "relatedExperience": "None",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 102320,
+    "p10": 61580,
+    "p25": 78440,
+    "p75": 133100,
+    "p90": 167970,
+    "hourly": 49.19
+   }
+  },
+  "paralegal": {
+   "soc": "23-2011",
+   "blsTitle": "Paralegals and legal assistants",
+   "employment": 404900,
+   "growthPct": -0.3,
+   "annualOpenings": 40800,
+   "entryEducation": "Associate's degree",
+   "relatedExperience": "None",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 62890,
+    "p10": 44740,
+    "p25": 50340,
+    "p75": 80080,
+    "p90": 101500,
+    "hourly": 30.24
+   }
+  },
+  "accountant": {
+   "soc": "13-2011",
+   "blsTitle": "Accountants and auditors",
+   "employment": 1595200,
+   "growthPct": 5,
+   "annualOpenings": 115300,
+   "entryEducation": "Bachelor's degree",
+   "relatedExperience": "None",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 83680,
+    "p10": 56020,
+    "p25": 67020,
+    "p75": 109810,
+    "p90": 144090,
+    "hourly": 40.23
+   }
+  },
+  "real-estate-agent": {
+   "soc": "41-9022",
+   "blsTitle": "Real estate sales agents",
+   "employment": 427000,
+   "growthPct": 1.7,
+   "annualOpenings": 32600,
+   "entryEducation": "High school diploma or equivalent",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Moderate-term on-the-job training",
+   "wages": {
+    "median": 52830,
+    "p10": 32970,
+    "p25": 40040,
+    "p75": 82020,
+    "p90": 123590,
+    "hourly": 25.4
+   }
+  },
+  "it-support-specialist": {
+   "soc": "15-1232",
+   "blsTitle": "Computer user support specialists",
+   "employment": 750600,
+   "growthPct": -3.5,
+   "annualOpenings": 39700,
+   "entryEducation": "Some college, no degree",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Moderate-term on-the-job training",
+   "wages": {
+    "median": 61860,
+    "p10": 40980,
+    "p25": 49000,
+    "p75": 79040,
+    "p90": 100540,
+    "hourly": 29.74
+   }
+  },
+  "cybersecurity-analyst": {
+   "soc": "15-1212",
+   "blsTitle": "Information security analysts",
+   "employment": 192900,
+   "growthPct": 21,
+   "annualOpenings": 14100,
+   "entryEducation": "Bachelor's degree",
+   "relatedExperience": "Less than 5 years",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 129180,
+    "p10": 75090,
+    "p25": 97810,
+    "p75": 163500,
+    "p90": 199850,
+    "hourly": 62.11
+   }
+  },
+  "web-developer": {
+   "soc": "15-1254",
+   "blsTitle": "Web developers",
+   "employment": 87400,
+   "growthPct": 3.8,
+   "annualOpenings": 5300,
+   "entryEducation": "Bachelor's degree",
+   "relatedExperience": "None",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 92650,
+    "p10": 48100,
+    "p25": 64230,
+    "p75": 126230,
+    "p90": 162290,
+    "hourly": 44.54
+   }
+  },
+  "network-administrator": {
+   "soc": "15-1244",
+   "blsTitle": "Network and computer systems administrators",
+   "employment": 323600,
+   "growthPct": -4.1,
+   "annualOpenings": 13400,
+   "entryEducation": "Bachelor's degree",
+   "relatedExperience": "None",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 99130,
+    "p10": 62640,
+    "p25": 78010,
+    "p75": 126640,
+    "p90": 155050,
+    "hourly": 47.66
+   }
+  },
+  "digital-marketing-specialist": {
+   "soc": "13-1161",
+   "blsTitle": "Market research analysts and marketing specialists",
+   "employment": 952700,
+   "growthPct": 7,
+   "annualOpenings": 82000,
+   "entryEducation": "Bachelor's degree",
+   "relatedExperience": "None",
+   "onTheJobTraining": "None",
+   "wages": {
+    "median": 78760,
+    "p10": 43390,
+    "p25": 58350,
+    "p75": 108310,
+    "p90": 155480,
+    "hourly": 37.87
+   }
+  },
+  "police-officer": {
+   "soc": "33-3051",
+   "blsTitle": "Police and sheriff's patrol officers",
+   "employment": 693200,
+   "growthPct": 3.5,
+   "annualOpenings": 51500,
+   "entryEducation": "High school diploma or equivalent",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Moderate-term on-the-job training",
+   "wages": {
+    "median": 76210,
+    "p10": 47510,
+    "p25": 59290,
+    "p75": 97600,
+    "p90": 115120,
+    "hourly": 36.64
+   }
+  },
+  "firefighter": {
+   "soc": "33-2011",
+   "blsTitle": "Firefighters",
+   "employment": 355300,
+   "growthPct": 3.7,
+   "annualOpenings": 26800,
+   "entryEducation": "Postsecondary nondegree award",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Long-term on-the-job training",
+   "wages": {
+    "median": 59280,
+    "p10": 34910,
+    "p25": 44490,
+    "p75": 77250,
+    "p90": 101040,
+    "hourly": 28.5
+   }
+  },
+  "security-guard": {
+   "soc": "33-9032",
+   "blsTitle": "Security guards",
+   "employment": 1294300,
+   "growthPct": 0.9,
+   "annualOpenings": 156000,
+   "entryEducation": "High school diploma or equivalent",
+   "relatedExperience": "None",
+   "onTheJobTraining": "Short-term on-the-job training",
+   "wages": {
+    "median": 38020,
+    "p10": 30210,
+    "p25": 35210,
+    "p75": 46200,
+    "p90": 58840,
+    "hourly": 18.28
+   }
+  }
+ }
+}
