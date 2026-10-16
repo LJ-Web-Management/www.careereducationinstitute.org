@@ -3,8 +3,6 @@ import { esc, href } from './util.mjs';
 
 export const STATES = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District of Columbia', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming', 'Puerto Rico', 'U.S. Virgin Islands', 'Guam', 'American Samoa', 'Northern Mariana Islands'];
 
-const mailtoFallback = () => `mailto:${cfg.enrollTo}?cc=${cfg.enrollCc}&subject=${encodeURIComponent('Enrollment request — MrPress Education')}`;
-
 // Enrollment form. Submitting opens a pre-filled email (no data is stored by the website).
 export function enrollForm(careers, { course = '', kind = 'enroll', heading = 'Request enrollment', id = 'enroll' } = {}) {
   const opts = careers.slice().sort((a, b) => a.title.localeCompare(b.title)).map((c) => `<option value="${esc(c.title)} Training"${c.slug === course ? ' selected' : ''}>${esc(c.title)} Training</option>`).join('');
@@ -12,7 +10,8 @@ export function enrollForm(careers, { course = '', kind = 'enroll', heading = 'R
   const isContact = kind === 'contact';
   return `<section class="form-box" id="${id}" aria-labelledby="${id}-h"><h2 id="${id}-h">${esc(heading)}</h2>
 <p class="small muted">Fill this out and press the button — your email app will open with a pre-filled message to our enrollment team (${esc(cfg.enrollTo)}). We reply with pricing, payment options and your learning-platform login. Nothing you type is stored on this website.</p>
-<form class="form" data-enroll data-kind="${kind}" data-to="${esc(cfg.enrollTo)}" data-cc="${esc(cfg.enrollCc)}" action="${mailtoFallback()}" method="post" enctype="text/plain" novalidate>
+<noscript><p class="callout">JavaScript is turned off, so this form can’t open your email app. Please email <a href="mailto:${cfg.enrollTo}">${cfg.enrollTo}</a> or call ${cfg.phone} to enroll.</p></noscript>
+<form class="form" data-enroll data-kind="${kind}" data-to="${esc(cfg.enrollTo)}" data-cc="${esc(cfg.enrollCc)}" method="post" novalidate>
 <div class="row2"><div class="field"><label for="${id}-name">Full name <span class="req" aria-hidden="true">*</span></label><input id="${id}-name" name="Name" type="text" autocomplete="name" required></div>
 <div class="field"><label for="${id}-email">Email <span class="req" aria-hidden="true">*</span></label><input id="${id}-email" name="Email" type="email" autocomplete="email" required></div></div>
 <div class="row2"><div class="field"><label for="${id}-phone">Phone <span class="muted small">(optional)</span></label><input id="${id}-phone" name="Phone" type="tel" autocomplete="tel"></div>

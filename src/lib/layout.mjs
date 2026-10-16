@@ -13,7 +13,7 @@ export const logoMark = (size = 40) =>
   `<svg viewBox="0 0 48 48" width="${size}" height="${size}" aria-hidden="true" focusable="false"><rect width="48" height="48" rx="11" fill="#13294b"/><path d="M11.5 36V17l9.5 10.5L31.5 12v24" fill="none" stroke="#fff" stroke-width="5.4" stroke-linejoin="round" stroke-linecap="square"/><rect x="35.2" y="30.6" width="5.6" height="5.6" rx="1" fill="#f2b134"/></svg>`;
 
 export const logo = (cls = '') =>
-  `<a class="logo ${cls}" href="${href('/')}" aria-label="MrPress Education home">${logoMark()}<span class="logo-word"><span class="logo-name"><i>Mr</i>Press</span><span class="logo-sub">Education</span></span></a>`;
+  `<a class="logo ${cls}" href="${href('/')}">${logoMark()}<span class="logo-word"><span class="logo-name"><i>Mr</i>Press</span> <span class="logo-sub">Education</span></span></a>`;
 
 export const icon = (cat, size = 24) =>
   `<svg viewBox="0 0 24 24" width="${size}" height="${size}" aria-hidden="true" focusable="false">${icons[cat] || icons['business-and-office']}</svg>`;
