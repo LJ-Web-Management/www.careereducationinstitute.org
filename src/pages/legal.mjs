@@ -198,6 +198,7 @@ Career Education Institute is built to be fast and private. **By default, our we
 |---|---|---|---|
 | Local storage: \`cei-optout\` | Remembers your choice to opt out of optional analytics | Until you clear it | Yes: clear browser data |
 | Local storage: \`cei-newsletter-popup\`, plus a blog service worker that stores nothing | Remembers that you have seen the newsletter sign-up popup on the blog, so it opens only once. The service worker caches no pages or data; it only lets a hard refresh show the popup again | Until you clear it | Yes: clear browser data |
+| Local storage: \`cei-partner-code\` | Remembers a partner discount code from a partner’s link, so it is filled in at checkout and on enrollment forms | ${cfg.partnerProgram.linkDays} days, or until you clear it | Yes: clear browser data |
 | Form provider (contact and newsletter forms) | Runs the contact form and the newsletter sign-up and unsubscribe forms, only on those three pages. The provider may set its own cookies under its privacy policy | Per the provider’s policy | Avoid those pages; call or email us instead |
 | Hosting logs (GitHub Pages) | Security and reliable delivery; set by our host, not by cookies we control | Per host’s policy | Not applicable |
 | Stripe cookies (for example, \`__stripe_mid\`, \`__stripe_sid\`) | Fraud prevention for card payments, set only on the checkout page | Up to 1 year | Avoid the checkout page; order by phone instead |

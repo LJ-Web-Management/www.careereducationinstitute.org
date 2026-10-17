@@ -397,3 +397,7 @@ html:has(.nl-pop[open]){overflow:hidden}
 .tf-box{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:8px;min-height:calc(var(--tf-h,520px) + 18px)}
 .tf-box [data-tf-widget]{min-height:var(--tf-h,520px)}
 .nl-list li{padding:7px 0}
+.code-row{display:flex;gap:10px;align-items:stretch}
+.code-row input{flex:1;min-width:0}
+.code-row .btn{flex:none}
+.share-link{display:block;overflow-wrap:anywhere;background:#fff;border:1px solid var(--line);padding:.6em .8em;border-radius:10px;font-size:.9rem}

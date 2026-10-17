@@ -2,6 +2,9 @@
   var forms = document.querySelectorAll('form[data-enroll]');
   [].forEach.call(forms, function (form) {
     var box = form.parentNode, notice = box.querySelector('.notice'), err = form.querySelector('.err');
+    // Fill in a partner discount code remembered from a partner's share link
+    var codeField = form.elements.Code;
+    if (codeField && form.dataset.kind === 'enroll' && !codeField.value && window.MP && MP.code) codeField.value = MP.code();
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var bad = [];

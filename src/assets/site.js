@@ -1,5 +1,22 @@
 (function () {
   var d = document;
+
+  // Partner share links: ?code=XYZ on any page remembers the discount code for MP.cd days, and
+  // MP.code() hands it to the checkout and enrollment forms to fill in.
+  var MP = window.MP = window.MP || {};
+  var CODE_KEY = 'cei-partner-code';
+  try {
+    var linkCode = new URLSearchParams(location.search).get('code');
+    if (linkCode && /^[A-Za-z0-9_-]{2,40}$/.test(linkCode)) localStorage.setItem(CODE_KEY, JSON.stringify({ c: linkCode, t: Date.now() }));
+  } catch (e) {}
+  MP.code = function () {
+    try {
+      var saved = JSON.parse(localStorage.getItem(CODE_KEY) || 'null');
+      if (saved && Date.now() - saved.t < (MP.cd || 30) * 864e5) return saved.c;
+      localStorage.removeItem(CODE_KEY);
+    } catch (e) {}
+    return '';
+  };
   // Menu: mobile toggle + dropdown panels (click, keyboard, outside click, Escape)
   var btn = d.querySelector('.menu-btn'), nav = d.getElementById('nav');
   var items = [].slice.call(d.querySelectorAll('.mi'));

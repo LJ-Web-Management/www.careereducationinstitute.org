@@ -73,8 +73,9 @@ export default {
   },
 
   // Partner discount program (/partners/): learners who use a partner's code get `discount`
-  // off, and the partner earns `share` of the sale price after that discount.
-  partnerProgram: { discount: 0.1, share: 0.05 },
+  // off, and the partner earns `share` of the sale price after that discount. A partner's
+  // share link (any page with ?code=XYZ) keeps the code filled in for `linkDays` days.
+  partnerProgram: { discount: 0.1, share: 0.05, linkDays: 30 },
 
   // Optional integrations — leave empty to keep the site cookie-free and fastest.
   analytics: { ga4: '' },

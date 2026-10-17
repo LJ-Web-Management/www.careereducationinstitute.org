@@ -28,7 +28,7 @@ guides, employer hiring and onboarding resources, and a blog). Hosted on GitHub 
 |---|---|
 | Publish a blog post | Upload a zip to `blog-uploads/` on GitHub. See **BLOG-UPLOAD-GUIDE.md** |
 | Change the contact, newsletter sign-up or unsubscribe form | Paste the new Typeform live-embed id into `site.config.mjs → forms`. The sign-up popup on the blog home and posts lives in `src/assets/newsletter.js` |
-| Change the partner discount or the partner's share | Edit `site.config.mjs → partnerProgram` (10% off for learners, 5% of the discounted price to the partner). Partner page copy lives in `src/pages/partners.mjs` |
+| Change the partner discount, the partner's share or how long a share link lasts | Edit `site.config.mjs → partnerProgram` (10% off for learners, 5% of the discounted price to the partner, share links kept 30 days). Partner page copy lives in `src/pages/partners.mjs`. The discount actually charged at checkout comes from the code set up in the LMS |
 | Have Codex write and publish a post | Send Codex the one-line prompt at the top of **BLOG-POST-PROMPT.md** |
 | Change phone, emails, legal company, governing state, volume discounts | Edit `site.config.mjs` |
 | Change a job-title training's length | Edit `src/data/course-pricing.mjs` (the price follows the length ladder), then run `npm run course-specs` |
@@ -58,6 +58,12 @@ Volume discounts (2 to 1,000 seats) are set in `site.config.mjs → bulkTiers`.
 2. `POST https://hazwoper-osha.com/api/add_new_user` creates the learner account.
 3. `POST /api/add_order` with the LMS `course_id`, seat count and `order_from: careereducationinstitute.org`.
 4. `stripe.confirmCardPayment` when the order returns a client secret. The learner gets their login by email.
+
+Discount codes: the checkout's code box checks the code with `POST /api/apply_coupon_referral` (LMS coupons, or
+referral codes starting with `R-`), shows the discount and sends `coupon_id` or `ref_code` with the order, the same
+way the provider's own checkout does. If a code is applied but the LMS returns a higher amount than the page shows,
+the card is not charged. Partner share links (`?code=XYZ` on any page) fill the code in at checkout and on enrollment
+forms for `partnerProgram.linkDays` days.
 
 Never put a Stripe secret key in this repository. Card data goes straight to Stripe and never touches this site.
 
