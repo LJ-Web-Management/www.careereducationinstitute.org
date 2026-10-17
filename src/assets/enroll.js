@@ -25,7 +25,7 @@
         : kind === 'employer' ? 'Group training request: ' + (v('Organization') || v('Name'))
         : 'Enrollment request: ' + course + ' (' + v('Name') + ')';
       var lines = [
-        kind === 'contact' ? 'Hello MrPress Education team,' : kind === 'employer' ? 'Hello MrPress Education team, we would like pricing for group training.' : 'Hello MrPress Education team, I would like to enroll.',
+        kind === 'contact' ? 'Hello Career Education Institute team,' : kind === 'employer' ? 'Hello Career Education Institute team, we would like pricing for group training.' : 'Hello Career Education Institute team, I would like to enroll.',
         '',
         'Name: ' + v('Name'),
         'Email: ' + v('Email'),

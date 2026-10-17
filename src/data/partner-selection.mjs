@@ -1,10 +1,10 @@
-// HAZWOPER-OSHA.com courses sold on MrPress Education (checkout sends the LMS course id).
+// HAZWOPER-OSHA.com courses sold on Career Education Institute (checkout sends the LMS course id).
 // Only courses that are the complete training for a job title belong here, the way CDL ELDT Class A
 // is the training for a truck driver. Topic, regulation, supervisor, competent person, endorsement
 // and refresher courses are left out.
 // Run `npm run update-partner-courses` after editing this list to refresh prices and details.
 
-// slug: our page URL (/courses/<slug>/). job: the job title the course trains for. field: career field (categories.mjs). career: matching MrPress career profile, if there is one.
+// slug: our page URL (/courses/<slug>/). job: the job title the course trains for. field: career field (categories.mjs). career: matching career profile, if there is one.
 export const selection = [
   { id: 304, slug: 'cdl-eldt-class-a', job: 'Truck Driver (Class A CDL)', field: 'transportation-and-logistics', career: 'truck-driver' },
   { id: 309, slug: 'cdl-eldt-class-b', job: 'Class B CDL Driver', field: 'transportation-and-logistics', career: 'truck-driver' },

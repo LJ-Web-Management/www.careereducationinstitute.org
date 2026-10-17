@@ -75,11 +75,11 @@
 
   // Privacy choices (opt-out of optional analytics; Global Privacy Control is always honored)
   var opt = d.querySelector('[data-optout]');
-  var getOpt = function () { try { return localStorage.getItem('mp-optout') === '1'; } catch (e) { return false; } };
+  var getOpt = function () { try { return localStorage.getItem('cei-optout') === '1'; } catch (e) { return false; } };
   if (opt) {
     var st = d.querySelector('[data-optout-status]');
     var show = function () { if (st) st.textContent = (getOpt() || navigator.globalPrivacyControl) ? 'You are opted out of optional analytics on this browser.' : 'Optional analytics are allowed on this browser (if enabled on this site).'; };
-    opt.addEventListener('click', function () { try { localStorage.setItem('mp-optout', getOpt() ? '0' : '1'); } catch (e) {} show(); });
+    opt.addEventListener('click', function () { try { localStorage.setItem('cei-optout', getOpt() ? '0' : '1'); } catch (e) {} show(); });
     show();
   }
 

@@ -1,4 +1,4 @@
-// Course length and price for each MrPress job-title training.
+// Course length and price for each job-title training.
 // Price ladder is set against comparable self-paced, non-credit career-prep courses
 // (roughly $7 to $10 per instructional hour) and sits below credential courses such as
 // CDL ELDT. The LMS course should be built to the hours below.

@@ -1,4 +1,4 @@
-# MrPress Education course specs
+# Career Education Institute course specs
 
 Generated 2026-10-16 by `npm run course-specs`. Do not edit by hand: change `src/data/course-pricing.mjs` (hours) or the career data, then run the script again.
 

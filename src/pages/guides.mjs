@@ -14,7 +14,7 @@ export function guidePages(ctx) {
     const words = wordCount(html);
     const related = (g.related || []).map((s) => guideBySlug[s]).filter(Boolean);
     const careerLinks = (g.careers || []).map((s) => byslug[s]).filter(Boolean);
-    const main = `<div class="byline"><span>By the MrPress Education Curriculum Team</span><span>Updated <time datetime="${g.updated || cfg.updated}">${fmtDate(g.updated || cfg.updated)}</time></span><span>${Math.max(2, Math.round(words / 230))} min read</span></div>
+    const main = `<div class="byline"><span>By the Career Education Institute Curriculum Team</span><span>Updated <time datetime="${g.updated || cfg.updated}">${fmtDate(g.updated || cfg.updated)}</time></span><span>${Math.max(2, Math.round(words / 230))} min read</span></div>
 ${g.answer ? `<div class="answer"><span class="label">Quick answer</span><p>${md(g.answer).html.replace(/^<p>|<\/p>$/g, '')}</p></div>` : ''}${html}
 ${g.faq?.length ? faqBlock(g.faq) : ''}
 ${careerLinks.length ? `<h2 id="careers-mentioned">Careers mentioned in this guide</h2><ul>${careerLinks.map((c) => `<li><a href="${href(c.url)}">${esc(c.title)}</a>: ${esc(c.blurb)}</li>`).join('')}</ul>` : ''}
@@ -24,7 +24,7 @@ ${related.length ? `<h2 id="keep-reading">Keep reading</h2><div class="grid-2">$
       path, crumbs, og: g.audience?.includes('employers') ? '/og/training.png' : '/og/guides.png', kind: 'Guide', name: g.title, type: 'article', keywords: g.keywords || '',
       title: fitTitle(g.metaTitle || g.title), desc: clamp(g.desc),
       body: `${pageHero({ crumbs, eyebrow: topics[g.topic] || 'Guide', h1: esc(g.h1 || g.title), lead: esc(g.lead || g.desc), meta: false })}<div class="wrap layout"><article class="prose">${main}</article><aside>${aside}</aside></div>`,
-      schema: [{ '@type': 'Article', headline: g.h1 || g.title, description: g.desc, author: { '@type': 'Organization', name: 'MrPress Education Curriculum Team', url: abs('/editorial-policy/') }, publisher: { '@id': abs('/#org') }, datePublished: cfg.launched, dateModified: g.updated || cfg.updated, mainEntityOfPage: abs(path), image: abs('/og/guides.png'), wordCount: words, inLanguage: 'en-US' }, ...(g.faq?.length ? [faqSchema(g.faq, path)] : [])]
+      schema: [{ '@type': 'Article', headline: g.h1 || g.title, description: g.desc, author: { '@type': 'Organization', name: 'Career Education Institute Curriculum Team', url: abs('/editorial-policy/') }, publisher: { '@id': abs('/#org') }, datePublished: cfg.launched, dateModified: g.updated || cfg.updated, mainEntityOfPage: abs(path), image: abs('/og/guides.png'), wordCount: words, inLanguage: 'en-US' }, ...(g.faq?.length ? [faqSchema(g.faq, path)] : [])]
     });
   }
 

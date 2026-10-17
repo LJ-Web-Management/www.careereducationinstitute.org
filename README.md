@@ -1,6 +1,6 @@
-# MrPress Education: www.mrpress-education.org
+# Career Education Institute: www.mrpress-education.org
 
-Static website for MrPress Education: career training by job title, a few complete job-title courses from
+Static website for Career Education Institute: career training by job title, a few complete job-title courses from
 HAZWOPER-OSHA.com sold through an online checkout, plus free career resources (50 career profiles, salary data, quizzes,
 guides, employer hiring and onboarding resources, and a blog). Hosted on GitHub Pages.
 

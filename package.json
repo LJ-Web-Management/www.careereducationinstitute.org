@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "MrPress Education static website generator: career profiles, trainings, certification courses, checkout, quizzes, guides, employer resources and blog.",
+  "description": "Career Education Institute static website generator: career profiles, trainings, certification courses, checkout, quizzes, guides, employer resources and blog.",
   "scripts": {
     "build": "node scripts/build.mjs",
     "audit": "node scripts/audit.mjs",

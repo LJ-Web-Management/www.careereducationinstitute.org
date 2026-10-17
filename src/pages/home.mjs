@@ -64,7 +64,7 @@ ${band('Ready to find your fit?', 'It takes about four minutes and it’s free.'
 
   return {
     path: '/', crumbs: [], og: '/og/default.png', kind: 'Page', name: 'Home',
-    title: 'MrPress Education: Online Career Training by Job Title',
+    title: 'Career Education Institute: Online Career Training by Job Title',
     desc: clamp(`Find your career and train for it. Free career quizzes, BLS salary data and day-in-the-life guides for ${careers.length} jobs, plus online training by job title for U.S. learners and employers.`),
     body,
     schema: [faqSchema(faqs, '/')]

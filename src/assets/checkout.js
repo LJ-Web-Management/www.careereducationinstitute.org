@@ -139,7 +139,7 @@
 
     form.hidden = true;
     var ok = $('#checkoutSuccess');
-    $('[data-order-ref]').textContent = orderRef || 'MP-' + Date.now().toString().slice(-6);
+    $('[data-order-ref]').textContent = orderRef || 'CEI-' + Date.now().toString().slice(-6);
     $('[data-order-email]').textContent = email;
     ok.hidden = false;
     ok.focus();

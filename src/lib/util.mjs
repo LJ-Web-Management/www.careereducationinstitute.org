@@ -33,8 +33,8 @@ export const clamp = (s, max = 158) => {
 
 // Builds a <title>, adding the brand only when it still fits in ~60 characters.
 export const fitTitle = (main) => {
-  for (const suffix of [' | MrPress Education', ' | MrPress']) if ((main + suffix).length <= 60) return main + suffix;
-  return main;
+  const suffix = ` | ${cfg.name}`;
+  return (main + suffix).length <= 60 ? main + suffix : main;
 };
 
 export const hash = (str) => {

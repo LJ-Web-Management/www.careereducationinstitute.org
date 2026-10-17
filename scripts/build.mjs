@@ -1,4 +1,4 @@
-// Static site generator for MrPress Education. Usage: node scripts/build.mjs
+// Static site generator for Career Education Institute. Usage: node scripts/build.mjs
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -93,9 +93,9 @@ for (const [g, list] of Object.entries(groups)) if (list.length) fs.writeFileSyn
 fs.writeFileSync(path.join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${Object.entries(groups).filter(([, l]) => l.length).map(([g, l]) => `<sitemap><loc>${abs(`/sitemap-${g}.xml`)}</loc><lastmod>${l.map((p) => p.modified || cfg.updated).sort().at(-1)}</lastmod></sitemap>`).join('\n')}\n</sitemapindex>\n`);
 
 const aiBots = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'anthropic-ai', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot', 'Applebot-Extended', 'Bingbot', 'DuckAssistBot', 'Amazonbot', 'meta-externalagent', 'MistralAI-User', 'cohere-ai', 'CCBot', 'YouBot'];
-fs.writeFileSync(path.join(DIST, 'robots.txt'), `# MrPress Education: all search engines and AI assistants are welcome.\nUser-agent: *\nAllow: /\nDisallow: ${cfg.basePath}/search/?\n\n${aiBots.map((b) => `User-agent: ${b}\nAllow: /`).join('\n\n')}\n\nSitemap: ${abs('/sitemap.xml')}\n`);
+fs.writeFileSync(path.join(DIST, 'robots.txt'), `# Career Education Institute: all search engines and AI assistants are welcome.\nUser-agent: *\nAllow: /\nDisallow: ${cfg.basePath}/search/?\n\n${aiBots.map((b) => `User-agent: ${b}\nAllow: /`).join('\n\n')}\n\nSitemap: ${abs('/sitemap.xml')}\n`);
 
-fs.writeFileSync(path.join(DIST, 'site.webmanifest'), JSON.stringify({ name: cfg.name, short_name: cfg.shortName, description: cfg.description, start_url: href('/'), scope: href('/'), display: 'standalone', background_color: '#faf8f3', theme_color: '#13294b', icons: [{ src: href('/icons/icon-192.png'), sizes: '192x192', type: 'image/png' }, { src: href('/icons/icon-512.png'), sizes: '512x512', type: 'image/png' }, { src: href('/icons/icon-maskable-512.png'), sizes: '512x512', type: 'image/png', purpose: 'maskable' }] }, null, 1));
+fs.writeFileSync(path.join(DIST, 'site.webmanifest'), JSON.stringify({ name: cfg.name, short_name: cfg.shortName, description: cfg.description, start_url: href('/'), scope: href('/'), display: 'standalone', background_color: '#faf8f3', theme_color: '#022350', icons: [{ src: href('/icons/icon-192.png'), sizes: '192x192', type: 'image/png' }, { src: href('/icons/icon-512.png'), sizes: '512x512', type: 'image/png' }, { src: href('/icons/icon-maskable-512.png'), sizes: '512x512', type: 'image/png', purpose: 'maskable' }] }, null, 1));
 fs.mkdirSync(path.join(DIST, '.well-known'), { recursive: true });
 fs.writeFileSync(path.join(DIST, '.well-known/security.txt'), `Contact: mailto:${cfg.email}\nExpires: ${Number(cfg.updated.slice(0, 4)) + 1}-12-31T23:59:59.000Z\nPreferred-Languages: en\nCanonical: ${abs('/.well-known/security.txt')}\n`);
 

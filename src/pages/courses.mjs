@@ -116,7 +116,7 @@ ${field('address2', 'Apartment, suite or unit', 'text', false, ' autocomplete="a
 <div class="row2">${field('city', 'City', 'text', true, ' autocomplete="address-level2"')}<div class="field"><label for="state">State <span class="req" aria-hidden="true">*</span></label><select id="state" name="state" required autocomplete="address-level1"><option value="">Select</option>${STATES.slice(0, 51).map((s) => `<option>${s}</option>`).join('')}</select></div></div>
 <div class="row2">${field('zip', 'ZIP code', 'text', true, ' autocomplete="postal-code" inputmode="numeric" maxlength="10"')}<div class="field"><label for="country">Country</label><input id="country" name="country" type="text" value="United States" readonly></div></div>
 <h2>Payment</h2>
-<div class="field"><label for="card-element">Card</label><div id="card-element" class="card-input" aria-live="polite">Loading secure card form…</div><div class="hint">Card details go directly to Stripe and are never stored by MrPress Education.</div></div>
+<div class="field"><label for="card-element">Card</label><div id="card-element" class="card-input" aria-live="polite">Loading secure card form…</div><div class="hint">Card details go directly to Stripe and are never stored by Career Education Institute.</div></div>
 <label class="check"><input type="checkbox" id="agree" required><span>I agree to the <a href="${href('/terms-of-use/')}">Terms of Use</a> and <a href="${href('/refund-policy/')}">Refund Policy</a>, and I understand my order is fulfilled by ${esc(cfg.checkout.provider)}. <span class="req" aria-hidden="true">*</span></span></label>
 <p class="err" role="alert" id="checkoutError" hidden></p>
 <button class="btn btn-primary btn-block" type="submit" id="payBtn">Pay now</button>
@@ -126,7 +126,7 @@ ${field('address2', 'Apartment, suite or unit', 'text', false, ' autocomplete="a
 </div>
 <aside><div class="side-box order-summary"><h2>Order summary</h2><p class="summary-course" data-sum-name>Select a course</p><p class="small muted" data-sum-meta></p><table><tbody><tr><th scope="row" data-sum-qty>1 × $0.00</th><td class="num" data-sum-sub>$0.00</td></tr><tr data-sum-discount-row hidden><th scope="row" data-sum-discount-label>Volume discount</th><td class="num" data-sum-discount>-$0.00</td></tr><tr class="total"><th scope="row">Total</th><td class="num" data-sum-total>$0.00</td></tr></tbody></table><p class="small muted">Prices in U.S. dollars. ${esc(providerLine())}.</p><p class="small"><a data-sum-link href="${href('/courses/')}">View course details</a></p></div></aside></div>
 <script type="application/json" id="checkout-data">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
-    pages.push({ path, crumbs, noindex: true, og: '/og/courses.png', scripts: ['checkout'], title: 'Checkout | MrPress Education', desc: 'Secure card checkout for MrPress Education online job-title courses, with volume pricing from 2 learners.', body, schema: [] });
+    pages.push({ path, crumbs, noindex: true, og: '/og/courses.png', scripts: ['checkout'], title: 'Checkout | Career Education Institute', desc: 'Secure card checkout for Career Education Institute online job-title courses, with volume pricing from 2 learners.', body, schema: [] });
   }
   return pages;
 }

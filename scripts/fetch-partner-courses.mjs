@@ -7,7 +7,7 @@ import { selection } from '../src/data/partner-selection.mjs';
 
 const BASE = 'https://hazwoper-osha.com/';
 const OUT = new URL('../src/data/partner-courses.json', import.meta.url);
-const UA = { 'User-Agent': 'Mozilla/5.0 (MrPress Education catalog sync)' };
+const UA = { 'User-Agent': 'Mozilla/5.0 (Career Education Institute catalog sync)' };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const ENT = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', rsquo: '’', lsquo: '‘', ldquo: '“', rdquo: '”', ndash: '–', mdash: '—', hellip: '…', reg: '®', trade: '™', copy: '©', deg: '°', frac12: '½', bull: '•', middot: '·', eacute: 'é', ntilde: 'ñ' };

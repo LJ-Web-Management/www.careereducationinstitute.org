@@ -22,7 +22,7 @@ const $ = (n) => `$${n.toFixed(2)}`;
 
 const build = careers.filter((c) => !c.replacedBy);
 const replaced = careers.filter((c) => c.replacedBy);
-let md = `# MrPress Education course specs
+let md = `# Career Education Institute course specs
 
 Generated ${new Date().toLocaleDateString('en-CA')} by \`npm run course-specs\`. Do not edit by hand: change \`src/data/course-pricing.mjs\` (hours) or the career data, then run the script again.
 

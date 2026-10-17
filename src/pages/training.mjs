@@ -60,7 +60,7 @@ function courseFaqs(c) {
     ['Who is this course for?', `Students exploring careers, adults changing careers, new hires who want a faster ramp-up, and employers onboarding ${c.pluralLower}.`],
     ['How do I enroll?', `Use the enrollment form on this page. It opens a pre-filled email to our team, and we reply with your payment link or invoice and your LMS access. You can also call ${cfg.phone}.`],
     ['Do you offer group or employer pricing?', `${cfg.course.groupNote}. Choose “My team or employees” on the form or visit our employer training page.`],
-    ['What do I receive when I finish?', `${cfg.course.certificate} from MrPress Education after you pass the final knowledge check.`]
+    ['What do I receive when I finish?', `${cfg.course.certificate} from Career Education Institute after you pass the final knowledge check.`]
   ];
 }
 
@@ -184,12 +184,12 @@ export function trainingCatalog(ctx) {
 <section class="section alt"><div class="wrap"><div class="section-head"><h2>What every training includes</h2></div><div class="grid-3">${[['Role foundations', 'What the job is, where people work, pay and the career ladder.'], ['Day-on-the-job walkthrough', 'A realistic shift so you know what to expect.'], ['Essential vocabulary', 'The terms you’ll hear on day one, with practice drills.'], ['Step-by-step procedures', 'How to perform the common tasks of the role.'], ['Safety & compliance', 'Hazards, standards and professional expectations.'], ['Career launch & final exam', 'Credentials, resumes, interviews and a certificate of completion.']].map(([t, d]) => `<div class="card"><h3>${t}</h3><p>${d}</p></div>`).join('')}</div></div></section>
 <div class="wrap" style="padding-top:20px;padding-bottom:60px">${categories.map((cat) => `<section id="${cat.slug}" style="scroll-margin-top:90px"><h2>${icon(cat.slug, 26)} ${esc(cat.name)} trainings</h2><p class="muted">${esc(cat.blurb)}</p><div class="grid">${careers.filter((c) => c.cat === cat.slug).map((c) => `<article class="card link"><h3><a class="stretch" href="${href(c.trainingUrl)}">${esc(c.title)} Training</a></h3><p>${esc(c.blurb)}</p><ul class="chips"><li class="chip pay">${c.replacedBy && partnerById[c.replacedBy] ? `From ${usd(partnerById[c.replacedBy].price)}` : usd(c.price)}</li><li class="chip">${c.replacedBy && partnerById[c.replacedBy] ? esc(partnerById[c.replacedBy].hours) : `${c.hours} hours`}</li></ul></article>`).join('')}</div></section>`).join('')}
 <section id="buy-online" style="scroll-margin-top:90px;margin-top:34px"><h2>More job titles: buy online</h2><p class="muted">Complete online training for these job titles comes from our affiliated training provider. Buy online and start right away.</p>${partnerTable(partnerCourses.filter((p) => !careers.some((c) => c.replacedBy === p.id)), { caption: 'More job-title courses' })}</section>
-<aside class="callout info" style="margin-top:30px"><p>MrPress Education trainings are general, non-credit career-preparation courses for U.S. learners. They do not replace state-required licensing programs. ${esc(cfg.course.groupNote)}: see <a href="${href('/for-employers/')}">training for employers</a>.</p></aside></div>`;
+<aside class="callout info" style="margin-top:30px"><p>Career Education Institute trainings are general, non-credit career-preparation courses for U.S. learners. They do not replace state-required licensing programs. ${esc(cfg.course.groupNote)}: see <a href="${href('/for-employers/')}">training for employers</a>.</p></aside></div>`;
   return {
     path, crumbs, og: '/og/training.png', kind: 'Training catalog', name: 'All trainings',
     title: fitTitle('Online Career Training by Job Title (50 Courses)'),
     desc: clamp(`Browse ${careers.length} online career trainings by job title: healthcare, skilled trades, safety, logistics, business, tech and public safety. Self-paced, practical and built for U.S. learners.`),
     body,
-    schema: [{ '@type': 'ItemList', name: 'MrPress Education trainings', itemListElement: careers.map((c, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(c.trainingUrl), name: `${c.title} Training` })) }]
+    schema: [{ '@type': 'ItemList', name: 'Career Education Institute trainings', itemListElement: careers.map((c, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(c.trainingUrl), name: `${c.title} Training` })) }]
   };
 }

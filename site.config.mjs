@@ -4,12 +4,12 @@
 const url = (process.env.SITE_URL || 'http://localhost:4173').replace(/\/$/, '');
 
 export default {
-  name: 'MrPress Education',
-  shortName: 'MrPress',
-  legalName: 'MrPress Education',
+  name: 'Career Education Institute',
+  shortName: 'CEI',
+  legalName: 'Career Education Institute',
   tagline: 'Career training by job title',
   description:
-    'MrPress Education offers online career training by job title, plus free career quizzes, salary data, day-in-the-life guides and college and career-change resources for the U.S.',
+    'Career Education Institute offers online career training by job title, plus free career quizzes, salary data, day-in-the-life guides and college and career-change resources for the U.S.',
   url, // absolute origin + base path, no trailing slash
   basePath: new URL(url).pathname.replace(/\/$/, ''), // '' on a custom domain, '/repo' on github.io
   futureDomain: 'https://www.mrpress-education.org',
@@ -30,7 +30,7 @@ export default {
   updated: '2026-10-15',
   launched: '2026-10-15',
 
-  // Defaults for MrPress job-title trainings. Per-course hours and prices live in
+  // Defaults for job-title trainings. Per-course hours and prices live in
   // src/data/course-pricing.mjs.
   course: {
     format: 'Online, self-paced',

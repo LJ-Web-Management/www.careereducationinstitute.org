@@ -7,12 +7,12 @@ const contact = `**${cfg.legalName}**  \nPhone: [${cfg.phone}](tel:${cfg.phoneE1
 const usOnly = `> **U.S.-only notice:** This website and the services offered through it are intended solely for individuals located in the United States. This policy is designed to comply with applicable U.S. federal and state laws only. The website is **not** designed to comply with the laws of any other country or jurisdiction, including the European Union or United Kingdom General Data Protection Regulation (GDPR), Canada’s PIPEDA, Brazil’s LGPD or similar laws. If you access the website from outside the United States, you do so on your own initiative, and any information you provide will be processed in the United States under U.S. law.`;
 
 const docs = [
-  { slug: 'privacy-policy', title: 'Privacy Policy', desc: 'How MrPress Education collects, uses and protects personal information, your U.S. state privacy rights (including California) and how to contact us. U.S.-only service.',
+  { slug: 'privacy-policy', title: 'Privacy Policy', desc: 'How Career Education Institute collects, uses and protects personal information, your U.S. state privacy rights (including California) and how to contact us. U.S.-only service.',
     body: `**Effective date and last updated:** ${D}
 
 ${usOnly}
 
-This Privacy Policy explains how ${cfg.legalName} (“MrPress Education,” “we,” “us”) collects, uses, discloses and protects personal information when you visit our website, use our free tools, request enrollment or take our courses. It also explains the privacy rights available to you under U.S. federal and state law.
+This Privacy Policy explains how ${cfg.legalName} (“Career Education Institute,” “we,” “us”) collects, uses, discloses and protects personal information when you visit our website, use our free tools, request enrollment or take our courses. It also explains the privacy rights available to you under U.S. federal and state law.
 
 ## 1. Information we collect
 ### Information you give us
@@ -111,20 +111,20 @@ We may update this policy. We will post the new version with an updated effectiv
 ## 12. Contact us
 ${contact}` },
 
-  { slug: 'terms-of-use', title: 'Terms of Use', desc: 'The terms that govern use of the MrPress Education website, free career tools and online training courses, including enrollment, payment, licenses and disclaimers.',
+  { slug: 'terms-of-use', title: 'Terms of Use', desc: 'The terms that govern use of the Career Education Institute website, free career tools and online training courses, including enrollment, payment, licenses and disclaimers.',
     body: `**Effective date and last updated:** ${D}
 
-Please read these Terms of Use (“Terms”) carefully. By accessing or using the MrPress Education website, free tools or courses (the “Services”), you agree to these Terms and our [Privacy Policy](/privacy-policy/). If you do not agree, do not use the Services.
+Please read these Terms of Use (“Terms”) carefully. By accessing or using the Career Education Institute website, free tools or courses (the “Services”), you agree to these Terms and our [Privacy Policy](/privacy-policy/). If you do not agree, do not use the Services.
 
 ## 1. Who may use the Services
 The Services are offered only to individuals located in the United States. You must be at least 18 years old, or at least 13 years old with the permission and supervision of a parent or guardian who agrees to these Terms on your behalf. Organizations that enroll learners are responsible for ensuring their learners comply with these Terms.
 
 ## 2. What we offer
-MrPress Education provides free career information (career profiles, salary data, quizzes, guides and worksheets), paid general online career-preparation courses delivered through a learning-management system (LMS), and job-title courses (CDL Entry-Level Driver Training, forklift operator, flagger and mold inspector training) provided by our affiliated training provider, ${cfg.checkout.provider} (${cfg.checkout.providerLegal}).
+Career Education Institute provides free career information (career profiles, salary data, quizzes, guides and worksheets), paid general online career-preparation courses delivered through a learning-management system (LMS), and job-title courses (CDL Entry-Level Driver Training, forklift operator, flagger and mold inspector training) provided by our affiliated training provider, ${cfg.checkout.provider} (${cfg.checkout.providerLegal}).
 
 **Important disclosures about our courses:**
 - Job-title trainings are general, non-credit, professional-development courses. They do not award academic credit, degrees, diplomas, state licenses or industry certifications.
-- MrPress Education is not a degree-granting institution and is not accredited by an agency recognized by the U.S. Department of Education. Courses are not eligible for federal student aid.
+- Career Education Institute is not a degree-granting institution and is not accredited by an agency recognized by the U.S. Department of Education. Courses are not eligible for federal student aid.
 - Job-title trainings do not replace state-approved or employer-required training programs, supervised clinical or apprenticeship hours, or licensing exams.
 - Provider courses cover the regulations stated on each course page. Whether a certificate, card or completion record satisfies a particular employer, state, agency or job site is decided by that party. Some credentials have additional steps, such as behind-the-wheel training for a CDL or hands-on evaluation for forklift operators.
 - We do not guarantee employment, a particular salary, admission to any program or passing any exam.
@@ -146,7 +146,7 @@ You are responsible for keeping your LMS login confidential and for activity und
 You agree not to: use the Services unlawfully; attempt to gain unauthorized access to systems; scrape or harvest content in a way that burdens our systems; introduce malware; impersonate others; or use the Services to harass anyone. We may suspend access for violations.
 
 ## 7. Intellectual property
-The Services, including text, course materials, graphics, logos and the “MrPress Education” name, are owned by or licensed to MrPress Education and protected by U.S. copyright and trademark law. Labor-market data from the U.S. Bureau of Labor Statistics is public information; our compilation and presentation are our own. Other trademarks (such as names of certifications and certifying bodies) belong to their owners and are used for identification only; no affiliation or endorsement is implied.
+The Services, including text, course materials, graphics, logos and the “Career Education Institute” name, are owned by or licensed to Career Education Institute and protected by U.S. copyright and trademark law. Labor-market data from the U.S. Bureau of Labor Statistics is public information; our compilation and presentation are our own. Other trademarks (such as names of certifications and certifying bodies) belong to their owners and are used for identification only; no affiliation or endorsement is implied.
 
 ## 8. Educational information only
 Content on the Services is for general educational and informational purposes. It is not professional, legal, medical, financial or career-counseling advice. Step-by-step guides are general overviews and are not a substitute for hands-on training, supervision, manufacturer instructions or applicable regulations. See our [Disclaimer](/disclaimer/).
@@ -158,10 +158,10 @@ We link to third-party websites and rely on third-party providers (such as hosti
 TO THE FULLEST EXTENT PERMITTED BY LAW, THE SERVICES ARE PROVIDED “AS IS” AND “AS AVAILABLE,” WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT CONTENT IS COMPLETE, CURRENT OR ERROR-FREE.
 
 ## 11. Limitation of liability
-TO THE FULLEST EXTENT PERMITTED BY LAW, MRPRESS EDUCATION WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES, OR LOST PROFITS OR DATA, ARISING FROM YOUR USE OF THE SERVICES. OUR TOTAL LIABILITY FOR ANY CLAIM WILL NOT EXCEED THE AMOUNT YOU PAID US FOR THE SERVICE GIVING RISE TO THE CLAIM IN THE 12 MONTHS BEFORE THE CLAIM, OR $100 IF YOU PAID NOTHING. Some states do not allow certain limitations, so some of these may not apply to you.
+TO THE FULLEST EXTENT PERMITTED BY LAW, CAREER EDUCATION INSTITUTE WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES, OR LOST PROFITS OR DATA, ARISING FROM YOUR USE OF THE SERVICES. OUR TOTAL LIABILITY FOR ANY CLAIM WILL NOT EXCEED THE AMOUNT YOU PAID US FOR THE SERVICE GIVING RISE TO THE CLAIM IN THE 12 MONTHS BEFORE THE CLAIM, OR $100 IF YOU PAID NOTHING. Some states do not allow certain limitations, so some of these may not apply to you.
 
 ## 12. Indemnification
-You agree to indemnify and hold harmless MrPress Education from claims arising from your misuse of the Services or violation of these Terms, to the extent permitted by law.
+You agree to indemnify and hold harmless Career Education Institute from claims arising from your misuse of the Services or violation of these Terms, to the extent permitted by law.
 
 ## 13. Governing law and disputes
 These Terms are governed by the laws of the State of ${cfg.governingState} and applicable U.S. federal law, without regard to conflict-of-law rules. Before filing any claim, you agree to contact us and try to resolve the dispute informally for at least 30 days. Any claim not resolved informally may be brought in the state or federal courts located in ${cfg.governingState}, or in small claims court where you live if it qualifies. Nothing in these Terms limits rights you have under consumer-protection laws that cannot be waived.
@@ -175,16 +175,16 @@ If any provision is unenforceable, the rest remain in effect. These Terms, toget
 ## 16. Contact
 ${contact}` },
 
-  { slug: 'cookie-policy', title: 'Cookie Policy', desc: 'MrPress Education uses no advertising or tracking cookies by default. Learn what browser storage we use, optional analytics and how to control your choices.',
+  { slug: 'cookie-policy', title: 'Cookie Policy', desc: 'Career Education Institute uses no advertising or tracking cookies by default. Learn what browser storage we use, optional analytics and how to control your choices.',
     body: `**Effective date and last updated:** ${D}
 
 ## Our approach
-MrPress Education is built to be fast and private. **By default, our website does not set advertising or tracking cookies.**
+Career Education Institute is built to be fast and private. **By default, our website does not set advertising or tracking cookies.**
 
 ## What we use
 | Technology | Purpose | Duration | Can you opt out? |
 |---|---|---|---|
-| Local storage: \`mp-optout\` | Remembers your choice to opt out of optional analytics | Until you clear it | Yes: clear browser data |
+| Local storage: \`cei-optout\` | Remembers your choice to opt out of optional analytics | Until you clear it | Yes: clear browser data |
 | Hosting logs (GitHub Pages) | Security and reliable delivery; set by our host, not by cookies we control | Per host’s policy | Not applicable |
 | Stripe cookies (for example, \`__stripe_mid\`, \`__stripe_sid\`) | Fraud prevention for card payments, set only on the checkout page | Up to 1 year | Avoid the checkout page; order by phone instead |
 | Optional analytics cookies (for example, \`_ga\`) | Only if we enable analytics: aggregated usage statistics | Up to 13 months | Yes: GPC signal or [Your Privacy Choices](/your-privacy-choices/) |
@@ -203,11 +203,11 @@ ${contact}
 
 This policy applies to U.S. users only. See our [Privacy Policy](/privacy-policy/).` },
 
-  { slug: 'accessibility', title: 'Accessibility Statement', desc: 'MrPress Education is committed to digital accessibility for people with disabilities and aims to conform to WCAG 2.1 Level AA. Learn how to request help or accommodations.',
+  { slug: 'accessibility', title: 'Accessibility Statement', desc: 'Career Education Institute is committed to digital accessibility for people with disabilities and aims to conform to WCAG 2.1 Level AA. Learn how to request help or accommodations.',
     body: `**Last updated:** ${D}
 
 ## Our commitment
-MrPress Education is committed to making our website and courses accessible to everyone, including people with disabilities, consistent with the Americans with Disabilities Act (ADA) and Section 508 principles.
+Career Education Institute is committed to making our website and courses accessible to everyone, including people with disabilities, consistent with the Americans with Disabilities Act (ADA) and Section 508 principles.
 
 ## Conformance goal
 We aim to conform to the **Web Content Accessibility Guidelines (WCAG) 2.1, Level AA**.
@@ -232,10 +232,10 @@ ${contact}
 
 You can also use our [contact form](/contact/) and select “Accessibility request.”` },
 
-  { slug: 'refund-policy', title: 'Refund & Cancellation Policy', desc: 'MrPress Education refund policy: cancel within 30 days for a full refund, a money-back guarantee, account credit after 30 days and how to request a refund.',
+  { slug: 'refund-policy', title: 'Refund & Cancellation Policy', desc: 'Career Education Institute refund policy: cancel within 30 days for a full refund, a money-back guarantee, account credit after 30 days and how to request a refund.',
     body: `**Effective date and last updated:** ${D}
 
-This policy applies to every course purchased from MrPress Education, including our job-title trainings and the job-title courses provided by our affiliated provider, ${cfg.checkout.provider}.
+This policy applies to every course purchased from Career Education Institute, including our job-title trainings and the job-title courses provided by our affiliated provider, ${cfg.checkout.provider}.
 
 ## 30-day full refund
 Not sure whether you or your employees will be able to complete the course you purchased? You can cancel a course within 30 days of purchase and receive a full refund. If you cancel more than 30 days after purchase, you receive a credit for the full amount paid, which can be used to enroll in a different course of equal or lesser value. Organizations can also ask to pay by invoice to make it easier to finalize plans later.
@@ -269,14 +269,14 @@ Nothing in this policy limits any rights you may have under applicable consumer-
 ## Contact
 ${contact}` },
 
-  { slug: 'disclaimer', title: 'Disclaimer', desc: 'Important disclaimers about MrPress Education career information, salary data, how-to guides, quizzes and non-credit training courses. U.S.-focused educational content.',
+  { slug: 'disclaimer', title: 'Disclaimer', desc: 'Important disclaimers about Career Education Institute career information, salary data, how-to guides, quizzes and non-credit training courses. U.S.-focused educational content.',
     body: `**Last updated:** ${D}
 
 ## Educational information only
 All content on this website (career profiles, salary data, quizzes, guides, worksheets and how-to articles) is provided for general educational and informational purposes. It is not professional career counseling, legal, medical, financial, tax or safety-engineering advice.
 
 ## Salary and labor-market data
-Pay and job-outlook figures come from the U.S. Bureau of Labor Statistics (BLS) and represent national estimates for the Standard Occupational Classification categories we match each career to. Actual pay varies by location, employer, experience, credentials and other factors. Data is shown with its source and date and may not reflect current conditions in your area. MrPress Education is not affiliated with or endorsed by the BLS, the U.S. Department of Labor or O*NET.
+Pay and job-outlook figures come from the U.S. Bureau of Labor Statistics (BLS) and represent national estimates for the Standard Occupational Classification categories we match each career to. Actual pay varies by location, employer, experience, credentials and other factors. Data is shown with its source and date and may not reflect current conditions in your area. Career Education Institute is not affiliated with or endorsed by the BLS, the U.S. Department of Labor or O*NET.
 
 ## No guarantees
 We do not guarantee employment, wages, career advancement, admission to any program, or passing any certification or licensing exam.
@@ -299,11 +299,11 @@ Links to other websites are provided for convenience; we are not responsible for
 ## Errors
 We work hard to keep information accurate, but errors can occur. Please report them to [${cfg.email}](mailto:${cfg.email}).` },
 
-  { slug: 'your-privacy-choices', title: 'Your Privacy Choices', desc: 'Exercise your privacy choices: MrPress Education does not sell or share personal information. Opt out of optional analytics, use Global Privacy Control or submit a request.',
+  { slug: 'your-privacy-choices', title: 'Your Privacy Choices', desc: 'Exercise your privacy choices: Career Education Institute does not sell or share personal information. Opt out of optional analytics, use Global Privacy Control or submit a request.',
     body: `**Last updated:** ${D}
 
 ## Do Not Sell or Share My Personal Information
-**MrPress Education does not sell your personal information and does not share it for cross-context behavioral advertising.** We also do not use targeted advertising or profiling that produces legal or similarly significant effects.
+**Career Education Institute does not sell your personal information and does not share it for cross-context behavioral advertising.** We also do not use targeted advertising or profiling that produces legal or similarly significant effects.
 
 Even so, you can record your preference below, and we will honor it if our practices ever change.
 
@@ -322,10 +322,10 @@ To request access, correction, deletion or a copy of your personal information, 
 
 We will not discriminate against you for exercising your privacy rights. See our full [Privacy Policy](/privacy-policy/). This page applies to U.S. residents only.` },
 
-  { slug: 'non-discrimination', title: 'Non-Discrimination Policy', desc: 'MrPress Education does not discriminate in access to its website, courses or services and provides reasonable accommodations for learners with disabilities.',
+  { slug: 'non-discrimination', title: 'Non-Discrimination Policy', desc: 'Career Education Institute does not discriminate in access to its website, courses or services and provides reasonable accommodations for learners with disabilities.',
     body: `**Last updated:** ${D}
 
-MrPress Education welcomes learners of every background. We do not discriminate on the basis of race, color, religion, creed, national origin, ancestry, sex, pregnancy, sexual orientation, gender identity or expression, age, disability, genetic information, marital status, veteran or military status, or any other characteristic protected by applicable federal, state or local law in admission to, access to, or participation in our courses and services.
+Career Education Institute welcomes learners of every background. We do not discriminate on the basis of race, color, religion, creed, national origin, ancestry, sex, pregnancy, sexual orientation, gender identity or expression, age, disability, genetic information, marital status, veteran or military status, or any other characteristic protected by applicable federal, state or local law in admission to, access to, or participation in our courses and services.
 
 ## Accommodations
 We provide reasonable accommodations to learners with disabilities. To request an accommodation (such as alternative formats, additional time on knowledge checks or help navigating our learning platform) contact us. Requests are handled confidentially.
@@ -335,10 +335,10 @@ If you believe you have experienced discrimination or harassment in connection w
 
 ${contact}` },
 
-  { slug: 'copyright-policy', title: 'Copyright & DMCA Policy', desc: 'How to report copyright infringement to MrPress Education under the Digital Millennium Copyright Act (DMCA) and how to submit a counter-notification.',
+  { slug: 'copyright-policy', title: 'Copyright & DMCA Policy', desc: 'How to report copyright infringement to Career Education Institute under the Digital Millennium Copyright Act (DMCA) and how to submit a counter-notification.',
     body: `**Last updated:** ${D}
 
-MrPress Education respects intellectual property rights and expects users to do the same. Our original content and course materials are protected by U.S. copyright law.
+Career Education Institute respects intellectual property rights and expects users to do the same. Our original content and course materials are protected by U.S. copyright law.
 
 ## Reporting infringement (DMCA notice)
 If you believe material on our website infringes your copyright, send a written notice to our copyright contact that includes, as required by 17 U.S.C. § 512(c)(3):

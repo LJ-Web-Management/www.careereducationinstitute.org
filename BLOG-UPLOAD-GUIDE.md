@@ -40,7 +40,7 @@ file becomes the title.
 | Date | Publish date, `YYYY-MM-DD` | The upload date |
 | Category | Groups posts (e.g. Career Advice, Career Trends, For Employers) | Career Advice |
 | Tags | Comma-separated keywords | None |
-| Author | Byline | MrPress Education |
+| Author | Byline | Career Education Institute |
 | Alt | Image description for screen readers and SEO | The title |
 
 ### Formatting you can use in the article
