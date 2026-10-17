@@ -20,6 +20,7 @@ import { blogPages, loadPosts } from '../src/pages/blog.mjs';
 import { utilityPages } from '../src/pages/utility.mjs';
 import { employerPages } from '../src/pages/employers.mjs';
 import { coursePages } from '../src/pages/courses.mjs';
+import { partnerPages } from '../src/pages/partners.mjs';
 import { writeImages } from './images.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -49,7 +50,7 @@ const pairs = new Map();
 for (const c of careers) for (const r of c.related) if (byslug[r]) pairs.set(compareSlug(c.slug, r), [c, byslug[r]]);
 ctx.pairs = [...pairs.values()];
 for (const [a, b] of ctx.pairs) pages.push(comparePage(a, b, ctx));
-pages.push(trainingCatalog(ctx), homePage(ctx), ...hubPages(ctx), ...quizPages(ctx), ...guidePages(ctx), ...companyPages(ctx), ...legalPages(ctx), ...blogPages(ctx), ...employerPages(ctx), ...coursePages(ctx));
+pages.push(trainingCatalog(ctx), homePage(ctx), ...hubPages(ctx), ...quizPages(ctx), ...guidePages(ctx), ...companyPages(ctx), ...legalPages(ctx), ...blogPages(ctx), ...employerPages(ctx), ...coursePages(ctx), ...partnerPages(ctx));
 pages.push(...utilityPages(ctx, pages)); // search, sitemap page, 404 (needs the full list)
 
 // ---------- Write ----------

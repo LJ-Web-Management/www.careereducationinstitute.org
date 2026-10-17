@@ -65,12 +65,16 @@ export default {
     providerHours: '6:00 AM to 5:00 PM Pacific Time'
   },
 
-  // Blog newsletter: Typeform "live embed" ids for the sign-up form (/newsletter/) and the
-  // unsubscribe form (/newsletter/unsubscribe/). Copy them from Typeform → Share → Embed.
-  newsletter: {
-    signupForm: '01M5421ZBBAAEPEEQB6DV7W1B6',
-    unsubscribeForm: '01M54344EYC6CM7DTS0QBXTN4Z'
+  // Typeform "live embed" ids for the embedded forms. Copy them from Typeform → Share → Embed.
+  forms: {
+    contact: '01M544HP0YBQQ0WGMHMXFC933Z', // /contact/
+    newsletterSignup: '01M5421ZBBAAEPEEQB6DV7W1B6', // /newsletter/
+    newsletterUnsubscribe: '01M54344EYC6CM7DTS0QBXTN4Z' // /newsletter/unsubscribe/
   },
+
+  // Partner discount program (/partners/): learners who use a partner's code get `discount`
+  // off, and the partner earns `share` of the sale price after that discount.
+  partnerProgram: { discount: 0.1, share: 0.05 },
 
   // Optional integrations — leave empty to keep the site cookie-free and fastest.
   analytics: { ga4: '' },

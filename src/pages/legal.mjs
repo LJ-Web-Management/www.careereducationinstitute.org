@@ -23,7 +23,8 @@ This Privacy Policy explains how we collect, uses, discloses and protects person
 
 ## 1. Information we collect
 ### Information you give us
-- **Enrollment and contact requests.** Our forms do not send or store your information on this website. When you press the submit button, your own email application opens with a pre-filled message. If you choose to send it, we receive what you include, typically your name, email address, phone number (optional), state, course of interest, number of learners, organization (for group requests) and any message.
+- **Enrollment and partner program requests.** Our enrollment and partner sign-up forms do not send or store your information on this website. When you press the submit button, your own email application opens with a pre-filled message. If you choose to send it, we receive what you include, typically your name, email address, phone number (optional), state, course of interest, number of learners, organization (for group and partner requests), any partner discount code and any message.
+- **Contact and newsletter forms.** Our contact form and our newsletter sign-up and unsubscribe forms are hosted by a third-party form provider. What you enter there (for example, your name, email address, phone number, company and message) is collected by that provider and shared with us so we can reply to you or manage your newsletter subscription.
 - **Course enrollment and payment.** When you enroll, we collect the information needed to create your learning-platform (LMS) account and process payment.
 - **Online checkout.** When you buy a course on our checkout page, the details you enter (name, email, phone, company, billing address and number of learners) are sent to the learning platform of ${sister}, to create your learner account and order. Your card details are entered into a secure form provided by Stripe, Inc. and go directly to Stripe. We never see or store full card numbers.
 - **Communications.** Emails, calls and messages you send us.
@@ -68,7 +69,7 @@ We keep personal information only as long as needed for the purposes above (gene
 We use reasonable administrative, technical and physical safeguards, including encrypted connections (HTTPS). No method of transmission or storage is completely secure, and email is not a fully secure channel, so please don’t email sensitive information.
 
 ## 8. Your privacy choices
-- **Email.** Unsubscribe from marketing emails using the link in any message or by contacting us. We will still send service messages about your enrollment.
+- **Email.** Unsubscribe from marketing emails, including our newsletter, using the link in any message, our [newsletter unsubscribe page](/newsletter/unsubscribe/) or by contacting us. We will still send service messages about your enrollment.
 - **Global Privacy Control.** We honor GPC browser signals as a valid request to opt out of sale, sharing and targeted advertising.
 - **Do Not Track.** Because we do not track users across third-party websites, we do not change our practices in response to Do Not Track signals; we do honor GPC as described above.
 - **Text messages.** We do not send marketing text messages without your prior express written consent.
@@ -197,13 +198,13 @@ Career Education Institute is built to be fast and private. **By default, our we
 |---|---|---|---|
 | Local storage: \`cei-optout\` | Remembers your choice to opt out of optional analytics | Until you clear it | Yes: clear browser data |
 | Local storage: \`cei-newsletter-popup\`, plus a blog service worker that stores nothing | Remembers that you have seen the newsletter sign-up popup on the blog, so it opens only once. The service worker caches no pages or data; it only lets a hard refresh show the popup again | Until you clear it | Yes: clear browser data |
-| Newsletter form provider | Runs the newsletter sign-up and unsubscribe forms, only on those two pages. The provider may set its own cookies under its privacy policy | Per the provider’s policy | Avoid the newsletter pages; email us to subscribe or unsubscribe instead |
+| Form provider (contact and newsletter forms) | Runs the contact form and the newsletter sign-up and unsubscribe forms, only on those three pages. The provider may set its own cookies under its privacy policy | Per the provider’s policy | Avoid those pages; call or email us instead |
 | Hosting logs (GitHub Pages) | Security and reliable delivery; set by our host, not by cookies we control | Per host’s policy | Not applicable |
 | Stripe cookies (for example, \`__stripe_mid\`, \`__stripe_sid\`) | Fraud prevention for card payments, set only on the checkout page | Up to 1 year | Avoid the checkout page; order by phone instead |
 | Optional analytics cookies (for example, \`_ga\`) | Only if we enable analytics: aggregated usage statistics | Up to 13 months | Yes: GPC signal or [Your Privacy Choices](/your-privacy-choices/) |
 
 ## Quizzes and forms
-Quiz answers are processed in your browser and are not stored or sent. Enrollment and contact forms open your own email app, and the website itself does not store what you type. The newsletter sign-up and unsubscribe forms are hosted by a third-party form provider, which receives what you enter there. The checkout page sends your order details to our course provider and your card details to Stripe, as described in our [Privacy Policy](/privacy-policy/).
+Quiz answers are processed in your browser and are not stored or sent. Enrollment and partner sign-up forms open your own email app, and the website itself does not store what you type. The contact form and the newsletter sign-up and unsubscribe forms are hosted by a third-party form provider, which receives what you enter there. The checkout page sends your order details to our course provider and your card details to Stripe, as described in our [Privacy Policy](/privacy-policy/).
 
 ## Third-party sites
 When you follow links to other sites (such as government data sources or our learning platform), those sites may use their own cookies under their own policies.
@@ -245,7 +246,7 @@ If you have difficulty using any part of our website or courses, or need informa
 
 ${contact}
 
-You can also use our [contact form](/contact/) and select “Accessibility request.”` },
+You can also send us a message through our [contact form](/contact/).` },
 
   { slug: 'refund-policy', title: 'Refund & Cancellation Policy', desc: 'Career Education Institute refund policy: cancel within 30 days for a full refund, a money-back guarantee, account credit after 30 days and how to request a refund.',
     body: `**Effective date and last updated:** ${D}

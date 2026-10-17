@@ -1,7 +1,7 @@
 import cfg from '../../site.config.mjs';
 import { esc, href, abs, clamp, fitTitle, md, fmtDate } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, ctaCard, sideLinks, answerBox, band } from '../lib/layout.mjs';
-import { enrollForm } from '../lib/forms.mjs';
+import { typeformEmbed } from '../lib/forms.mjs';
 import { partnerById, partnerCourses, partnerTable } from '../lib/partners.mjs';
 
 export const companyFaqs = [
@@ -77,9 +77,9 @@ Phone: [${cfg.phone}](tel:${cfg.phoneE164}) · Email: [${cfg.email}](mailto:${cf
   {
     const path = '/contact/';
     const crumbs = [['Home', '/'], ['Contact', path]];
-    pages.push({ path, crumbs, og: '/og/default.png', kind: 'Page', name: 'Contact us', scripts: ['enroll'], pageType: 'ContactPage',
+    pages.push({ path, crumbs, og: '/og/default.png', kind: 'Page', name: 'Contact us', pageType: 'ContactPage',
       title: fitTitle('Contact Career Education Institute'), desc: clamp(`Contact Career Education Institute by phone at ${cfg.phone} or email ${cfg.email}. Questions about courses, group training, billing, accessibility or privacy requests are welcome.`),
-      body: `${pageHero({ crumbs, eyebrow: 'We’re here to help', h1: 'Contact Us', lead: 'Questions about a course, group training, billing, accessibility or your privacy? Reach us by phone, email or the form below.' })}<div class="wrap layout"><div class="prose"><div class="cols"><div><h3>Phone</h3><p><a href="tel:${cfg.phoneE164}">${cfg.phone}</a></p></div><div><h3>Email</h3><p><a href="mailto:${cfg.email}">${cfg.email}</a></p></div></div><p style="margin-top:1em">For privacy requests (access, deletion, correction or opt-out), choose “Privacy request” as the topic or see <a href="${href('/your-privacy-choices/')}">Your Privacy Choices</a>. For accessibility help, choose “Accessibility request.”</p>${enrollForm({ kind: 'contact', heading: 'Send us a message', id: 'contact' })}</div><aside>${sideLinks('Quick links', [['Enroll in a training', '/enroll/'], ['FAQ', '/faq/'], ['Employer training', '/for-employers/'], ['Privacy Policy', '/privacy-policy/']])}</aside></div>`, schema: [] });
+      body: `${pageHero({ crumbs, eyebrow: 'We’re here to help', h1: 'Contact Us', lead: 'Questions about a course, group training, billing, accessibility or your privacy? Reach us by phone, email or the form below.' })}<div class="wrap layout"><div class="prose"><div class="cols"><div><h3>Phone</h3><p><a href="tel:${cfg.phoneE164}">${cfg.phone}</a></p></div><div><h3>Email</h3><p><a href="mailto:${cfg.email}">${cfg.email}</a></p></div></div><p style="margin-top:1em">For privacy requests (access, deletion, correction or opt-out), email us with the subject “Privacy Request” or see <a href="${href('/your-privacy-choices/')}">Your Privacy Choices</a>. For accessibility help, call or email us, or mention it in your message.</p><h2 id="message">Send us a message</h2>${typeformEmbed(cfg.forms.contact, 830)}</div><aside>${sideLinks('Quick links', [['Enroll in a training', '/enroll/'], ['FAQ', '/faq/'], ['Employer training', '/for-employers/'], ['Privacy Policy', '/privacy-policy/']])}</aside></div>`, schema: [] });
   }
 
   // FAQ

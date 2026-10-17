@@ -20,13 +20,15 @@ guides, employer hiring and onboarding resources, and a blog). Hosted on GitHub 
 | Guides | 46 guides for students, career changers, professionals and employers |
 | Employers | Buyer pages (employers, staffing agencies, workforce programs, 8 industries), 50 hiring guides, 50 job description templates, 50 onboarding plans, ROI calculator, onboarding assessment |
 | Lists and data | 14 "best careers" lists, salary guide, A to Z glossary |
+| Partner program | `/partners/` plus a page each for school districts, colleges, companies and organizations: a discount code for their people and a share of each sale, with a sign-up form |
 | Students, changers and professionals hubs, worksheets, blog, company and legal pages | |
 
 ## Everyday tasks
 | Task | How |
 |---|---|
 | Publish a blog post | Upload a zip to `blog-uploads/` on GitHub. See **BLOG-UPLOAD-GUIDE.md** |
-| Change the newsletter sign-up or unsubscribe form | Paste the new Typeform live-embed id into `site.config.mjs → newsletter`. The sign-up popup on the blog home and posts lives in `src/assets/newsletter.js` |
+| Change the contact, newsletter sign-up or unsubscribe form | Paste the new Typeform live-embed id into `site.config.mjs → forms`. The sign-up popup on the blog home and posts lives in `src/assets/newsletter.js` |
+| Change the partner discount or the partner's share | Edit `site.config.mjs → partnerProgram` (10% off for learners, 5% of the discounted price to the partner). Partner page copy lives in `src/pages/partners.mjs` |
 | Have Codex write and publish a post | Send Codex the one-line prompt at the top of **BLOG-POST-PROMPT.md** |
 | Change phone, emails, legal company, governing state, volume discounts | Edit `site.config.mjs` |
 | Change a job-title training's length | Edit `src/data/course-pricing.mjs` (the price follows the length ladder), then run `npm run course-specs` |
@@ -60,8 +62,10 @@ Volume discounts (2 to 1,000 seats) are set in `site.config.mjs → bulkTiers`.
 Never put a Stripe secret key in this repository. Card data goes straight to Stripe and never touches this site.
 
 ## Enrollment requests
-Job-title trainings and employer quotes use forms that open a pre-filled email to
-`info@hazwoper-osha.com` (cc `hasan@hazwoper-osha.com`), configured in `site.config.mjs`.
+Job-title trainings, employer quotes and partner program sign-ups use forms that open a pre-filled email to
+`info@hazwoper-osha.com` (cc `hasan@hazwoper-osha.com`), configured in `site.config.mjs`. Learners can enter a
+partner discount code on the enrollment form; it appears in the email so the team can apply it to the invoice.
+The contact form and the newsletter forms are embedded Typeforms (`site.config.mjs → forms`).
 
 ## Run locally
 ```bash

@@ -74,7 +74,8 @@ export async function writeImages({ DIST, ROOT, careers, categories, posts }) {
     ['compare', 'Compare careers side by side', 'Career comparison', 'Pay · Training time · Job growth · Daily duties'],
     ['quiz', 'Free career quizzes', 'Quizzes', 'Career Match · College vs. Trade School · Career Change'],
     ['guides', 'Career guides for every stage', 'Guides', 'Students · Career changers · Working professionals'],
-    ['blog', 'The Career Education Institute Blog', 'Blog', 'Career advice, industry news and training tips']
+    ['blog', 'The Career Education Institute Blog', 'Blog', 'Career advice, industry news and training tips'],
+    ['partners', 'Partner discount program', 'Partners', 'School districts · Colleges · Companies · Organizations']
   ];
   for (const [f, title, kicker, footer] of fixed) jobs.push(render({ title, kicker, footer }, path.join(og, f + '.png')));
   for (const c of careers) jobs.push(render({ title: c.title, kicker: categories.find((x) => x.slug === c.cat).name + ' career', footer: `Median pay $${c.l.wages.median.toLocaleString('en-US')} · Training: ${c.train}` }, path.join(og, c.slug + '.png')));
