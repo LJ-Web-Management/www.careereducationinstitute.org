@@ -1,18 +1,20 @@
 // Central site settings. Change values here, then rebuild (npm run build).
 // SITE_URL is injected by the GitHub Pages workflow. When the custom domain
-// (www.mrpress-education.org) is connected, it switches automatically.
+// (www.careereducationinstitute.org) is connected, it switches automatically.
 const url = (process.env.SITE_URL || 'http://localhost:4173').replace(/\/$/, '');
 
 export default {
   name: 'Career Education Institute',
   shortName: 'CEI',
-  legalName: 'Career Education Institute',
+  // Company that operates the site: named in the legal pages, footer copyright and schema.
+  legalName: 'Industrial Certified Training, LLC',
+  legalUrl: 'https://www.ictraining.us',
   tagline: 'Career training by job title',
   description:
     'Career Education Institute offers online career training by job title, plus free career quizzes, salary data, day-in-the-life guides and college and career-change resources for the U.S.',
   url, // absolute origin + base path, no trailing slash
   basePath: new URL(url).pathname.replace(/\/$/, ''), // '' on a custom domain, '/repo' on github.io
-  futureDomain: 'https://www.mrpress-education.org',
+  futureDomain: 'https://www.careereducationinstitute.org',
   locale: 'en_US',
   lang: 'en-US',
   country: 'US',
@@ -66,5 +68,5 @@ export default {
   // Optional integrations — leave empty to keep the site cookie-free and fastest.
   analytics: { ga4: '' },
   verification: { google: '', bing: '' },
-  social: [] // e.g. ['https://www.linkedin.com/company/mrpress-education']
+  social: [] // e.g. ['https://www.linkedin.com/company/career-education-institute']
 };

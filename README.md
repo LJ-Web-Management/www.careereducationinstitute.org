@@ -1,4 +1,4 @@
-# Career Education Institute: www.mrpress-education.org
+# Career Education Institute: www.careereducationinstitute.org
 
 Static website for Career Education Institute: career training by job title, a few complete job-title courses from
 HAZWOPER-OSHA.com sold through an online checkout, plus free career resources (50 career profiles, salary data, quizzes,
@@ -22,7 +22,7 @@ guides, employer hiring and onboarding resources, and a blog). Hosted on GitHub 
 | Task | How |
 |---|---|
 | Publish a blog post | Upload a zip to `blog-uploads/` on GitHub. See **BLOG-UPLOAD-GUIDE.md** |
-| Change phone, emails, governing state, volume discounts | Edit `site.config.mjs` |
+| Change phone, emails, legal company, governing state, volume discounts | Edit `site.config.mjs` |
 | Change a job-title training's length | Edit `src/data/course-pricing.mjs` (the price follows the length ladder), then run `npm run course-specs` |
 | Add or remove a provider course | Edit `src/data/partner-selection.mjs` (LMS course id, page slug, job title, field), then run `npm run update-partner-courses`. Only list courses that are the complete training for a job title, not topic, refresher or endorsement courses |
 | Refresh provider course prices and details | `npm run update-partner-courses` (reads the provider catalog and rewrites `src/data/partner-courses.json`) |
@@ -63,11 +63,11 @@ npm run dev        # builds to dist/ and serves http://localhost:4173
 npm run audit      # SEO checks: titles, descriptions, H1s, canonicals, broken links, schema, orphans, em dashes
 ```
 
-## Connecting the domain later (www.mrpress-education.org)
+## Connecting the domain later (www.careereducationinstitute.org)
 1. Buy the domain and add DNS records: a `CNAME` record for `www` pointing to `<github-user>.github.io`
-   (and GitHub's apex `A` records if you also want `mrpress-education.org`).
-2. Create `static/CNAME` containing `www.mrpress-education.org` and push.
-3. In the repo: **Settings → Pages → Custom domain** → `www.mrpress-education.org`, then tick **Enforce HTTPS**.
+   (and GitHub's apex `A` records if you also want `careereducationinstitute.org`).
+2. Create `static/CNAME` containing `www.careereducationinstitute.org` and push.
+3. In the repo: **Settings → Pages → Custom domain** → `www.careereducationinstitute.org`, then tick **Enforce HTTPS**.
 4. The next build automatically switches every canonical URL, sitemap and structured-data link to the new domain,
    and GitHub redirects the old github.io address.
 

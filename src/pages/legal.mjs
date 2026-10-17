@@ -3,7 +3,12 @@ import { href, clamp, fitTitle, md, fmtDate } from '../lib/util.mjs';
 import { pageHero, sideLinks } from '../lib/layout.mjs';
 
 const D = fmtDate(cfg.updated);
-const contact = `**${cfg.legalName}**  \nPhone: [${cfg.phone}](tel:${cfg.phoneE164})  \nEmail: [${cfg.email}](mailto:${cfg.email})`;
+const companySite = `[${cfg.legalUrl.replace(/^https?:\/\/(www\.)?/, '')}](${cfg.legalUrl})`;
+// Names the operating company and defines “we” at the top of every legal page.
+const who = (doc) => `${cfg.name} is operated by ${cfg.legalName} (${companySite}). In ${doc}, “${cfg.name},” “we,” “us” and “our” mean ${cfg.legalName}.`;
+// The provider courses come from another training brand of the same company.
+const sister = `${cfg.checkout.provider}, a training brand we also operate`;
+const contact = `**${cfg.legalName}**, operator of ${cfg.name}  \nWebsite: ${companySite}  \nPhone: [${cfg.phone}](tel:${cfg.phoneE164})  \nEmail: [${cfg.email}](mailto:${cfg.email})`;
 const usOnly = `> **U.S.-only notice:** This website and the services offered through it are intended solely for individuals located in the United States. This policy is designed to comply with applicable U.S. federal and state laws only. The website is **not** designed to comply with the laws of any other country or jurisdiction, including the European Union or United Kingdom General Data Protection Regulation (GDPR), Canada’s PIPEDA, Brazil’s LGPD or similar laws. If you access the website from outside the United States, you do so on your own initiative, and any information you provide will be processed in the United States under U.S. law.`;
 
 const docs = [
@@ -12,13 +17,15 @@ const docs = [
 
 ${usOnly}
 
-This Privacy Policy explains how ${cfg.legalName} (“Career Education Institute,” “we,” “us”) collects, uses, discloses and protects personal information when you visit our website, use our free tools, request enrollment or take our courses. It also explains the privacy rights available to you under U.S. federal and state law.
+${who('this policy')}
+
+This Privacy Policy explains how we collect, uses, discloses and protects personal information when you visit our website, use our free tools, request enrollment or take our courses. It also explains the privacy rights available to you under U.S. federal and state law.
 
 ## 1. Information we collect
 ### Information you give us
 - **Enrollment and contact requests.** Our forms do not send or store your information on this website. When you press the submit button, your own email application opens with a pre-filled message. If you choose to send it, we receive what you include, typically your name, email address, phone number (optional), state, course of interest, number of learners, organization (for group requests) and any message.
 - **Course enrollment and payment.** When you enroll, we collect the information needed to create your learning-platform (LMS) account and process payment.
-- **Online checkout.** When you buy a course on our checkout page, the details you enter (name, email, phone, company, billing address and number of learners) are sent to the learning platform of our affiliated provider, ${cfg.checkout.provider}, to create your learner account and order. Your card details are entered into a secure form provided by Stripe, Inc. and go directly to Stripe. We never see or store full card numbers.
+- **Online checkout.** When you buy a course on our checkout page, the details you enter (name, email, phone, company, billing address and number of learners) are sent to the learning platform of ${sister}, to create your learner account and order. Your card details are entered into a secure form provided by Stripe, Inc. and go directly to Stripe. We never see or store full card numbers.
 - **Communications.** Emails, calls and messages you send us.
 
 ### Information collected automatically
@@ -41,7 +48,7 @@ This Privacy Policy explains how ${cfg.legalName} (“Career Education Institute
 ## 3. How we disclose information
 We disclose personal information only as described here:
 - **Service providers** that help us operate, such as website hosting, email, learning-platform, payment processing (Stripe) and customer-support tools, under terms that limit their use of your information.
-- **Affiliated company.** Our affiliated training company, ${cfg.checkout.provider} (${cfg.checkout.providerLegal}), receives our enrollment and contact emails, answers our phone line, and fulfills online course orders, including creating learner accounts and issuing certificates.
+- **Our other training brand.** ${sister}, receives our enrollment and contact emails, answers our phone line, and fulfills online course orders, including creating learner accounts and issuing certificates.
 - **Your organization.** If an employer or program enrolled you, we may share course progress and completion status with that organization.
 - **Legal and safety.** When required by law, subpoena or court order, or to protect rights, property or safety.
 - **Business transfers.** In connection with a merger, acquisition or sale of assets, subject to this policy.
@@ -114,13 +121,15 @@ ${contact}` },
   { slug: 'terms-of-use', title: 'Terms of Use', desc: 'The terms that govern use of the Career Education Institute website, free career tools and online training courses, including enrollment, payment, licenses and disclaimers.',
     body: `**Effective date and last updated:** ${D}
 
-Please read these Terms of Use (“Terms”) carefully. By accessing or using the Career Education Institute website, free tools or courses (the “Services”), you agree to these Terms and our [Privacy Policy](/privacy-policy/). If you do not agree, do not use the Services.
+${who('these Terms')}
+
+Please read these Terms of Use (“Terms”) carefully. They are an agreement between you and us. By accessing or using the Career Education Institute website, free tools or courses (the “Services”), you agree to these Terms and our [Privacy Policy](/privacy-policy/). If you do not agree, do not use the Services.
 
 ## 1. Who may use the Services
 The Services are offered only to individuals located in the United States. You must be at least 18 years old, or at least 13 years old with the permission and supervision of a parent or guardian who agrees to these Terms on your behalf. Organizations that enroll learners are responsible for ensuring their learners comply with these Terms.
 
 ## 2. What we offer
-Career Education Institute provides free career information (career profiles, salary data, quizzes, guides and worksheets), paid general online career-preparation courses delivered through a learning-management system (LMS), and job-title courses (CDL Entry-Level Driver Training, forklift operator, flagger and mold inspector training) provided by our affiliated training provider, ${cfg.checkout.provider} (${cfg.checkout.providerLegal}).
+Career Education Institute provides free career information (career profiles, salary data, quizzes, guides and worksheets), paid general online career-preparation courses delivered through a learning-management system (LMS), and job-title courses (CDL Entry-Level Driver Training, forklift operator, flagger and mold inspector training) provided through ${sister}.
 
 **Important disclosures about our courses:**
 - Job-title trainings are general, non-credit, professional-development courses. They do not award academic credit, degrees, diplomas, state licenses or industry certifications.
@@ -146,7 +155,7 @@ You are responsible for keeping your LMS login confidential and for activity und
 You agree not to: use the Services unlawfully; attempt to gain unauthorized access to systems; scrape or harvest content in a way that burdens our systems; introduce malware; impersonate others; or use the Services to harass anyone. We may suspend access for violations.
 
 ## 7. Intellectual property
-The Services, including text, course materials, graphics, logos and the “Career Education Institute” name, are owned by or licensed to Career Education Institute and protected by U.S. copyright and trademark law. Labor-market data from the U.S. Bureau of Labor Statistics is public information; our compilation and presentation are our own. Other trademarks (such as names of certifications and certifying bodies) belong to their owners and are used for identification only; no affiliation or endorsement is implied.
+The Services, including text, course materials, graphics, logos and the “Career Education Institute” name, are owned by or licensed to ${cfg.legalName} and protected by U.S. copyright and trademark law. Labor-market data from the U.S. Bureau of Labor Statistics is public information; our compilation and presentation are our own. Other trademarks (such as names of certifications and certifying bodies) belong to their owners and are used for identification only; no affiliation or endorsement is implied.
 
 ## 8. Educational information only
 Content on the Services is for general educational and informational purposes. It is not professional, legal, medical, financial or career-counseling advice. Step-by-step guides are general overviews and are not a substitute for hands-on training, supervision, manufacturer instructions or applicable regulations. See our [Disclaimer](/disclaimer/).
@@ -158,10 +167,10 @@ We link to third-party websites and rely on third-party providers (such as hosti
 TO THE FULLEST EXTENT PERMITTED BY LAW, THE SERVICES ARE PROVIDED “AS IS” AND “AS AVAILABLE,” WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT CONTENT IS COMPLETE, CURRENT OR ERROR-FREE.
 
 ## 11. Limitation of liability
-TO THE FULLEST EXTENT PERMITTED BY LAW, CAREER EDUCATION INSTITUTE WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES, OR LOST PROFITS OR DATA, ARISING FROM YOUR USE OF THE SERVICES. OUR TOTAL LIABILITY FOR ANY CLAIM WILL NOT EXCEED THE AMOUNT YOU PAID US FOR THE SERVICE GIVING RISE TO THE CLAIM IN THE 12 MONTHS BEFORE THE CLAIM, OR $100 IF YOU PAID NOTHING. Some states do not allow certain limitations, so some of these may not apply to you.
+TO THE FULLEST EXTENT PERMITTED BY LAW, ${cfg.legalName.toUpperCase()} WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES, OR LOST PROFITS OR DATA, ARISING FROM YOUR USE OF THE SERVICES. OUR TOTAL LIABILITY FOR ANY CLAIM WILL NOT EXCEED THE AMOUNT YOU PAID US FOR THE SERVICE GIVING RISE TO THE CLAIM IN THE 12 MONTHS BEFORE THE CLAIM, OR $100 IF YOU PAID NOTHING. Some states do not allow certain limitations, so some of these may not apply to you.
 
 ## 12. Indemnification
-You agree to indemnify and hold harmless Career Education Institute from claims arising from your misuse of the Services or violation of these Terms, to the extent permitted by law.
+You agree to indemnify and hold harmless ${cfg.legalName} from claims arising from your misuse of the Services or violation of these Terms, to the extent permitted by law.
 
 ## 13. Governing law and disputes
 These Terms are governed by the laws of the State of ${cfg.governingState} and applicable U.S. federal law, without regard to conflict-of-law rules. Before filing any claim, you agree to contact us and try to resolve the dispute informally for at least 30 days. Any claim not resolved informally may be brought in the state or federal courts located in ${cfg.governingState}, or in small claims court where you live if it qualifies. Nothing in these Terms limits rights you have under consumer-protection laws that cannot be waived.
@@ -177,6 +186,8 @@ ${contact}` },
 
   { slug: 'cookie-policy', title: 'Cookie Policy', desc: 'Career Education Institute uses no advertising or tracking cookies by default. Learn what browser storage we use, optional analytics and how to control your choices.',
     body: `**Effective date and last updated:** ${D}
+
+${who('this policy')}
 
 ## Our approach
 Career Education Institute is built to be fast and private. **By default, our website does not set advertising or tracking cookies.**
@@ -205,6 +216,8 @@ This policy applies to U.S. users only. See our [Privacy Policy](/privacy-policy
 
   { slug: 'accessibility', title: 'Accessibility Statement', desc: 'Career Education Institute is committed to digital accessibility for people with disabilities and aims to conform to WCAG 2.1 Level AA. Learn how to request help or accommodations.',
     body: `**Last updated:** ${D}
+
+${who('this statement')}
 
 ## Our commitment
 Career Education Institute is committed to making our website and courses accessible to everyone, including people with disabilities, consistent with the Americans with Disabilities Act (ADA) and Section 508 principles.
@@ -235,7 +248,9 @@ You can also use our [contact form](/contact/) and select “Accessibility reque
   { slug: 'refund-policy', title: 'Refund & Cancellation Policy', desc: 'Career Education Institute refund policy: cancel within 30 days for a full refund, a money-back guarantee, account credit after 30 days and how to request a refund.',
     body: `**Effective date and last updated:** ${D}
 
-This policy applies to every course purchased from Career Education Institute, including our job-title trainings and the job-title courses provided by our affiliated provider, ${cfg.checkout.provider}.
+${who('this policy')}
+
+This policy applies to every course purchased from Career Education Institute, including our job-title trainings and the job-title courses delivered through ${sister}.
 
 ## 30-day full refund
 Not sure whether you or your employees will be able to complete the course you purchased? You can cancel a course within 30 days of purchase and receive a full refund. If you cancel more than 30 days after purchase, you receive a credit for the full amount paid, which can be used to enroll in a different course of equal or lesser value. Organizations can also ask to pay by invoice to make it easier to finalize plans later.
@@ -272,6 +287,8 @@ ${contact}` },
   { slug: 'disclaimer', title: 'Disclaimer', desc: 'Important disclaimers about Career Education Institute career information, salary data, how-to guides, quizzes and non-credit training courses. U.S.-focused educational content.',
     body: `**Last updated:** ${D}
 
+${who('this disclaimer')}
+
 ## Educational information only
 All content on this website (career profiles, salary data, quizzes, guides, worksheets and how-to articles) is provided for general educational and informational purposes. It is not professional career counseling, legal, medical, financial, tax or safety-engineering advice.
 
@@ -282,7 +299,7 @@ Pay and job-outlook figures come from the U.S. Bureau of Labor Statistics (BLS) 
 We do not guarantee employment, wages, career advancement, admission to any program, or passing any certification or licensing exam.
 
 ## Courses
-Our job-title trainings are general, non-credit career-preparation courses. They do not grant licenses, certifications, academic credit or degrees and do not replace state-approved or employer-required training. Provider courses (CDL ELDT, forklift operator, flagger and mold inspector) are provided by our affiliated provider, ${cfg.checkout.provider}, and cover the regulations stated on each course page; whether a certificate or card is accepted is decided by employers, agencies and authorities. Licensing and certification requirements vary by state and change over time; always confirm requirements with the appropriate state board, certifying body or employer.
+Our job-title trainings are general, non-credit career-preparation courses. They do not grant licenses, certifications, academic credit or degrees and do not replace state-approved or employer-required training. Provider courses (CDL ELDT, forklift operator, flagger and mold inspector) are delivered through ${sister}, and cover the regulations stated on each course page; whether a certificate or card is accepted is decided by employers, agencies and authorities. Licensing and certification requirements vary by state and change over time; always confirm requirements with the appropriate state board, certifying body or employer.
 
 ## How-to and safety content
 Step-by-step guides are general overviews. Many tasks (especially in healthcare, electrical, mechanical, hazardous-materials and public-safety work) require formal training, supervision, licensure and compliance with OSHA and other regulations. Never perform a task beyond your training or legal scope of practice. Always follow your employer’s procedures and manufacturer instructions.
@@ -301,6 +318,8 @@ We work hard to keep information accurate, but errors can occur. Please report t
 
   { slug: 'your-privacy-choices', title: 'Your Privacy Choices', desc: 'Exercise your privacy choices: Career Education Institute does not sell or share personal information. Opt out of optional analytics, use Global Privacy Control or submit a request.',
     body: `**Last updated:** ${D}
+
+${who('this page')}
 
 ## Do Not Sell or Share My Personal Information
 **Career Education Institute does not sell your personal information and does not share it for cross-context behavioral advertising.** We also do not use targeted advertising or profiling that produces legal or similarly significant effects.
@@ -325,6 +344,8 @@ We will not discriminate against you for exercising your privacy rights. See our
   { slug: 'non-discrimination', title: 'Non-Discrimination Policy', desc: 'Career Education Institute does not discriminate in access to its website, courses or services and provides reasonable accommodations for learners with disabilities.',
     body: `**Last updated:** ${D}
 
+${who('this policy')}
+
 Career Education Institute welcomes learners of every background. We do not discriminate on the basis of race, color, religion, creed, national origin, ancestry, sex, pregnancy, sexual orientation, gender identity or expression, age, disability, genetic information, marital status, veteran or military status, or any other characteristic protected by applicable federal, state or local law in admission to, access to, or participation in our courses and services.
 
 ## Accommodations
@@ -337,6 +358,8 @@ ${contact}` },
 
   { slug: 'copyright-policy', title: 'Copyright & DMCA Policy', desc: 'How to report copyright infringement to Career Education Institute under the Digital Millennium Copyright Act (DMCA) and how to submit a counter-notification.',
     body: `**Last updated:** ${D}
+
+${who('this policy')}
 
 Career Education Institute respects intellectual property rights and expects users to do the same. Our original content and course materials are protected by U.S. copyright law.
 

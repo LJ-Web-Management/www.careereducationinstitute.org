@@ -85,6 +85,7 @@ export const orgNode = () => ({
   '@type': ['Organization', 'EducationalOrganization'],
   '@id': abs('/#org'),
   name: cfg.name,
+  legalName: cfg.legalName,
   url: abs('/'),
   logo: { '@type': 'ImageObject', url: abs('/icons/icon-512.png'), width: 512, height: 512 },
   email: cfg.email,
