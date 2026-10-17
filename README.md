@@ -26,6 +26,7 @@ guides, employer hiring and onboarding resources, and a blog). Hosted on GitHub 
 | Task | How |
 |---|---|
 | Publish a blog post | Upload a zip to `blog-uploads/` on GitHub. See **BLOG-UPLOAD-GUIDE.md** |
+| Change the newsletter sign-up or unsubscribe form | Paste the new Typeform live-embed id into `site.config.mjs → newsletter`. The sign-up popup on the blog home and posts lives in `src/assets/newsletter.js` |
 | Have Codex write and publish a post | Send Codex the one-line prompt at the top of **BLOG-POST-PROMPT.md** |
 | Change phone, emails, legal company, governing state, volume discounts | Edit `site.config.mjs` |
 | Change a job-title training's length | Edit `src/data/course-pricing.mjs` (the price follows the length ladder), then run `npm run course-specs` |

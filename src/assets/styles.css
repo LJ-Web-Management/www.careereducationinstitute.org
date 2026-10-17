@@ -379,3 +379,21 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--navy);bo
 .order-summary td{padding:6px 0}
 .order-summary tr.total th,.order-summary tr.total td{font-weight:700;font-size:1.05rem;border-top:1px solid var(--line)}
 .summary-course{font:700 1.05rem/1.3 var(--serif);color:var(--navy);margin:0 0 4px}
+
+/* Newsletter: sign-up popup on blog pages, and the Typeform pages (transparent forms on a white card) */
+.nl-pop{width:min(460px,calc(100% - 32px));max-width:none;padding:0;border:2px solid var(--navy);border-radius:var(--r);background:#fff;color:var(--text);box-shadow:8px 8px 0 var(--gold)}
+.nl-pop::backdrop{background:rgba(2,35,80,.55)}
+.nl-pop-in{padding:30px 28px 26px}
+.nl-pop h2{margin:0 0 .45em;font-size:1.6rem}
+.nl-pop p{color:#454e62;font-size:.98rem}
+.nl-pop .btn-row{margin:1.3rem 0 0}
+.nl-pop-x{position:absolute;top:10px;right:10px;display:grid;place-items:center;width:40px;height:40px;padding:0;border:0;border-radius:8px;background:none;color:var(--muted);cursor:pointer}
+.nl-pop-x:hover{background:#f0ece3;color:var(--navy)}
+.nl-pop-x svg{width:18px;height:18px}
+html:has(.nl-pop[open]){overflow:hidden}
+@media (prefers-reduced-motion:no-preference){.nl-pop[open]{animation:nl-in .22s ease-out}}
+@keyframes nl-in{from{opacity:0;transform:translateY(14px)}}
+@media (max-width:480px){.nl-pop-in{padding:26px 20px 22px}.nl-pop .btn{width:100%}}
+.tf-box{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:8px;min-height:538px}
+.tf-box [data-tf-widget]{min-height:520px}
+.nl-list li{padding:7px 0}

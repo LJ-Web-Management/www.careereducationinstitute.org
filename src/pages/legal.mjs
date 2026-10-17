@@ -196,12 +196,14 @@ Career Education Institute is built to be fast and private. **By default, our we
 | Technology | Purpose | Duration | Can you opt out? |
 |---|---|---|---|
 | Local storage: \`cei-optout\` | Remembers your choice to opt out of optional analytics | Until you clear it | Yes: clear browser data |
+| Local storage: \`cei-newsletter-popup\`, plus a blog service worker that stores nothing | Remembers that you have seen the newsletter sign-up popup on the blog, so it opens only once. The service worker caches no pages or data; it only lets a hard refresh show the popup again | Until you clear it | Yes: clear browser data |
+| Typeform (newsletter forms) | Runs the newsletter sign-up and unsubscribe forms, only on those two pages. Typeform may set its own cookies under its privacy policy | Per Typeform’s policy | Avoid the newsletter pages; email us to subscribe or unsubscribe instead |
 | Hosting logs (GitHub Pages) | Security and reliable delivery; set by our host, not by cookies we control | Per host’s policy | Not applicable |
 | Stripe cookies (for example, \`__stripe_mid\`, \`__stripe_sid\`) | Fraud prevention for card payments, set only on the checkout page | Up to 1 year | Avoid the checkout page; order by phone instead |
 | Optional analytics cookies (for example, \`_ga\`) | Only if we enable analytics: aggregated usage statistics | Up to 13 months | Yes: GPC signal or [Your Privacy Choices](/your-privacy-choices/) |
 
 ## Quizzes and forms
-Quiz answers are processed in your browser and are not stored or sent. Enrollment and contact forms open your own email app, and the website itself does not store what you type. The checkout page sends your order details to our course provider and your card details to Stripe, as described in our [Privacy Policy](/privacy-policy/).
+Quiz answers are processed in your browser and are not stored or sent. Enrollment and contact forms open your own email app, and the website itself does not store what you type. The newsletter sign-up and unsubscribe forms are hosted by Typeform, which receives what you enter there. The checkout page sends your order details to our course provider and your card details to Stripe, as described in our [Privacy Policy](/privacy-policy/).
 
 ## Third-party sites
 When you follow links to other sites (such as government data sources or our learning platform), those sites may use their own cookies under their own policies.
