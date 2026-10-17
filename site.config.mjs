@@ -59,7 +59,7 @@ export default {
   checkout: {
     stripePublishableKey: 'pk_live_doCHB0jglD5eISjEmB1vB6mb00xIg51noK',
     apiBase: 'https://hazwoper-osha.com/api',
-    orderFrom: 'mrpress-education.org',
+    orderFrom: 'careereducationinstitute.org',
     provider: 'HAZWOPER-OSHA.com',
     providerLegal: 'Industrial Certified Training, LLC',
     providerHours: '6:00 AM to 5:00 PM Pacific Time'

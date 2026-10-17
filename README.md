@@ -47,7 +47,7 @@ Volume discounts (2 to 1,000 seats) are set in `site.config.mjs → bulkTiers`.
 `src/assets/checkout.js` follows the same flow as datacentertraining.us:
 1. Stripe Elements card, then `stripe.createPaymentMethod` (publishable key only, in `site.config.mjs → checkout`).
 2. `POST https://hazwoper-osha.com/api/add_new_user` creates the learner account.
-3. `POST /api/add_order` with the LMS `course_id`, seat count and `order_from: mrpress-education.org`.
+3. `POST /api/add_order` with the LMS `course_id`, seat count and `order_from: careereducationinstitute.org`.
 4. `stripe.confirmCardPayment` when the order returns a client secret. The learner gets their login by email.
 
 Never put a Stripe secret key in this repository. Card data goes straight to Stripe and never touches this site.
