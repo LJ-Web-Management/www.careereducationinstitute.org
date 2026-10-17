@@ -1,8 +1,8 @@
 # Codex prompt: write, illustrate and publish one blog post
 
 > **How to use:** in Codex, on this repository, send:
-> `Follow BLOG-POST-PROMPT.md to write, illustrate and publish one new blog post. Topic: <your topic, or "your choice">`
-> You can also paste everything below the line as the prompt, filling in the Inputs.
+> `Follow BLOG-POST-PROMPT.md to choose an SEO topic, then write, illustrate and publish one new blog post.`
+> To force a topic, add `Topic: <your topic>`. You can also paste everything below the line as the prompt.
 
 ---
 
@@ -11,20 +11,44 @@ You are publishing one new post to the Career Education Institute blog in this r
 Work through every step in order. Do not skip the checks.
 
 ## Inputs
-- **Topic:** use the topic I gave you. If I wrote "your choice" or nothing, pick one (step 2).
-- **Category:** one of `Career Advice`, `Career Trends`, `For Employers`. Choose the best fit unless I named one.
+- **Topic:** none by default; you choose it in step 2. If I named a topic, use it and only run the overlap check in step 2.2.
+- **Category:** one of `Career Advice`, `Career Trends`, `For Employers`, chosen in step 2 unless I named one.
 
 ## 1. Set up
 1. `git pull` on `main`, then `npm ci`.
 2. Read `BLOG-UPLOAD-GUIDE.md` (article format) and `scripts/import-blog.mjs` (how a post is imported).
 3. Run `npm run build` once so `dist/` exists; you will use it to find real pages to link to.
 
-## 2. Pick the topic
-- Read the `title` of every `src/content/blog/*/post.json`. The new post must not repeat or closely overlap one.
-- Good topics answer a question real people search for: U.S. students choosing a path, adults changing
-  careers, working professionals moving up, or employers hiring and onboarding. Tie it to one or more of
-  the 50 careers on the site (`src/data/labor.json → careers` lists their slugs) whenever you can.
-- Write down the primary search phrase the post targets.
+## 2. Choose a great SEO topic
+1. **Study the last 20 posts** (all of them if there are fewer than 20), newest first:
+   ```
+   node -e "const fs=require('fs'),d='src/content/blog',ps=fs.readdirSync(d).filter(s=>fs.existsSync(d+'/'+s+'/post.json')).map(s=>JSON.parse(fs.readFileSync(d+'/'+s+'/post.json','utf8'))).sort((a,b)=>b.date.localeCompare(a.date));console.log(ps.length+' posts; showing newest '+Math.min(20,ps.length));for(const p of ps.slice(0,20))console.log('\n'+p.date+' | '+p.category+' | '+p.title+'\n  tags: '+(p.tags||[]).join(', ')+'\n  sections: '+(p.body.match(/^## .*/gm)||[]).map(h=>h.slice(3)).join(' / '))"
+   ```
+   Note which categories, career fields, careers, audiences (students, career changers, working
+   professionals, employers) and search phrases they already cover.
+2. **Know what the rest of the site already targets.** Every one of the 50 careers already has pages for its
+   overview, salary, how to become, day in the life, skills, interview questions, FAQ and fit quiz. There are
+   also about 100 "X vs. Y" comparisons, 14 "best careers" lists, 46 guides and, per job, a hiring guide,
+   job description and onboarding plan. List every page with
+   `grep -ho '<loc>[^<]*' dist/sitemap-*.xml | sed 's#<loc>[a-z]*://[^/]*##'`.
+   The new post must not target the same search phrase as any of these pages or any existing post
+   (they would compete for the same ranking). Go after a question they do not answer, then link to them.
+3. **Shortlist 5 candidate topics.** For each, write: the primary search phrase (a specific, natural
+   question or long-tail phrase of 3 to 8 words), the search intent, who searches it, what data or pages on
+   this site let us answer it better than most results, and the closest existing page or post and why it
+   does not compete. Favor topics that:
+   - have real search demand: if you can browse, check Google autocomplete, "People also ask" and related
+     searches, and skim the top results to find what they miss; if you cannot, reason from how people
+     actually phrase the question;
+   - fill a gap in the last 20 posts: an under-covered category, career field or audience. Do not make a
+     career that was the main subject of any of those posts the main subject again. If 2 of the 3 newest
+     posts share a category, use a different one unless the best topic clearly belongs there;
+   - are winnable: a specific long-tail question beats a broad term ("how long does phlebotomy training
+     take" beats "healthcare careers");
+   - lead naturally to a career profile and a training or course page on this site;
+   - suit the time of year when that helps (January career changes, spring graduation, fall BLS
+     projections, back to school, year-end hiring plans).
+4. **Pick the strongest candidate** and keep the shortlist and your reasoning for the final report.
 
 ## 3. Gather facts (no invented numbers)
 - Pay and outlook come only from `src/data/labor.json`: `careers.<career>.wages` (median, p10, p25, p75, p90),
@@ -59,8 +83,9 @@ unique on the site. **Description:** 120 to 155 characters, says what the reader
 - 1,100 to 1,600 words. U.S. audience. Plain, warm, direct, second person, about an 8th to 10th grade
   reading level. Short paragraphs (2 to 4 sentences).
 - Answer the main question within the first 100 words, then go deeper.
+- Use the primary search phrase naturally in the title, the description, the first 100 words and one
+  `##` heading. Phrase other headings the way people ask related questions. Never stuff keywords.
 - 5 to 8 `##` section headings (they build the "On this page" menu); `###` only for sub-points.
-  Do not use a single `#` heading; the page already has its title.
 - At least one bulleted or numbered list, one `> ` tip box, and concrete examples or steps a reader can act on.
   A small Markdown table is fine when it makes a comparison clearer.
 - End with a short "Next steps" section that points to the most relevant pages.
@@ -69,6 +94,27 @@ unique on the site. **Description:** 120 to 155 characters, says what the reader
   Include, where natural: the matching career profile, its salary or how-to-become page, its training page
   (`/training/<career>/`), a related guide (`/guides/...`) and the Career Match Quiz (`/quizzes/career-match/`).
 - Mention Career Education Institute training only where it truly helps the reader, at most twice, never pushy.
+
+**Formatting:** the site uses its own small Markdown renderer. Use only these:
+- `## Heading`, `### Subheading` (`####` also works). Always put a space after the hashes.
+- A blank line between paragraphs. A single line break inside a paragraph is ignored and the lines run
+  together. End a line with two spaces only when you truly need a line break inside a paragraph.
+- `**bold**`, `*italic*` and `` `code` `` for inline styling.
+- `- item` bullets and `1. item` numbered lists, one level only. If an item wraps onto a new line,
+  indent that line 2 spaces.
+- `> text` for the tip box. Consecutive `>` lines merge into one box with one paragraph.
+- Links: `[text](/careers/electrician/)` for this site, `[text](https://www.bls.gov/...)` for others.
+- Tables: `| A | B |` rows with a `|---|---|` row under the first one, which becomes the header.
+  Keep cells short and never put a `|` inside a cell.
+- `---` alone on a line makes a divider (use sparingly). `[x] ` or `[ ] ` at the start of a line
+  renders as ☑ or ☐.
+- Extra images (optional): `![description](file.jpg)`, only if that file is in the zip. A missing file
+  makes the whole line disappear silently.
+
+These do **not** work and show up as raw symbols or broken layout, so never use them: a single `#`
+heading (the title comes from the `Title:` line), `##Heading` with no space, `_italic_` or `__bold__`,
+nested or indented sub-bullets (they flatten into one list), bare URLs (not clickable; always use
+`[text](url)`), code fences (```` ``` ````), footnotes and raw HTML.
 
 **Never:**
 - Use an em dash (—) anywhere, including the header lines. The site bans them, and the build silently turns
@@ -113,14 +159,18 @@ unique on the site. **Description:** 120 to 155 characters, says what the reader
 1. `npm run build`, then `npm run audit` → must report **0 errors**; fix any warning about this post too.
 2. `dist/blog/<slug>/index.html` exists; `src/content/blog/<slug>/cover.jpg` is 1600×900.
 3. Word count is 1,100 to 1,600; no `—` anywhere in `post.json`; every internal link resolves (the audit checks this).
-4. Read the post once more as an editor: facts match `labor.json`, no repetition, every section earns its place.
-5. `git status` shows only the new `src/content/blog/<slug>/` folder (`dist/` is ignored). Nothing else changed.
+4. No formatting leaked through as raw symbols. This must print `No leftover markup`:
+   `node -e "const h=require('fs').readFileSync('dist/blog/'+process.argv[1]+'/index.html','utf8');const t=h.split('<article class=\"prose\">')[1].split('</article>')[0].replace(/<[^>]+>/g,' ');const bad=t.match(/(^|\s)#\s|#{2,}|\*\*|__|\x60|\]\(|(^|\s)_[^_\s][^_]*_(?=[\s.,;:!?]|$)|https?:\/\/\S+/g);console.log(bad?'Leftover markup: '+[...new Set(bad.map(s=>s.trim()))].join('  '):'No leftover markup')" <slug>`
+   Then open the page in a browser if you can (or read the HTML) and confirm the headings, lists, tip box
+   and any table look right.
+5. Read the post once more as an editor: facts match `labor.json`, no repetition, every section earns its place.
+6. `git status` shows only the new `src/content/blog/<slug>/` folder (`dist/` is ignored). Nothing else changed.
 
 ## 8. Publish
 1. Commit only `src/content/blog/<slug>/` with the message `Add blog post: <title>` and push to `main`.
    If you cannot push to `main`, open a pull request into `main` and tell me it must be merged to go live.
 2. The push triggers the "Build and deploy" GitHub Action. If `gh` is available, wait for it and confirm it succeeded.
-3. Report back: the title, description, category, word count, the internal links used, the image prompt
-   you used, and the live URL:
+3. Report back: the topic shortlist and why the winner won, the primary search phrase, the title,
+   description, category, word count, the internal links used, the image prompt you used, and the live URL:
    `https://lj-web-management.github.io/www.careereducationinstitute.org/blog/<slug>/`
    (once the custom domain is connected: `https://www.careereducationinstitute.org/blog/<slug>/`).
