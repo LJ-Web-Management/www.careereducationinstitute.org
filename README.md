@@ -4,6 +4,10 @@ Static website for Career Education Institute: career training by job title, a f
 HAZWOPER-OSHA.com sold through an online checkout, plus free career resources (50 career profiles, salary data, quizzes,
 guides, employer hiring and onboarding resources, and a blog). Hosted on GitHub Pages.
 
+- **Operated by:** Industrial Certified Training, LLC ([ictraining.us](https://www.ictraining.us)), which also runs HAZWOPER-OSHA.com
+- **Preview:** https://lj-web-management.github.io/www.careereducationinstitute.org/ (until the custom domain is connected)
+- **Domain (planned):** https://www.careereducationinstitute.org
+
 ## What's in the site (about 1,180 pages)
 | Section | Pages |
 |---|---|
@@ -31,6 +35,7 @@ guides, employer hiring and onboarding resources, and a blog). Hosted on GitHub 
 | Edit legal pages | `src/pages/legal.mjs` |
 | Refresh BLS pay data (each spring) | `npm run update-salaries -- 2026` (year of the new OEWS release), then rebuild. Projections in `src/data/labor.json` are updated by hand each fall from BLS Table 1.2 |
 | Mark content as reviewed | Change `updated` in `site.config.mjs` |
+| Replace the logo | Swap `src/brand/logo-full.png` (header and footer) or `src/brand/logo-icon.png` (favicons, app icons, social images). Transparent PNGs; the build trims and resizes them |
 
 Every push to `main` rebuilds and deploys automatically (GitHub Actions to Pages), runs the SEO audit and
 publishes any uploaded blog zips.
@@ -64,7 +69,7 @@ npm run audit      # SEO checks: titles, descriptions, H1s, canonicals, broken l
 ```
 
 ## Connecting the domain later (www.careereducationinstitute.org)
-1. Buy the domain and add DNS records: a `CNAME` record for `www` pointing to `<github-user>.github.io`
+1. Buy the domain and add DNS records: a `CNAME` record for `www` pointing to `lj-web-management.github.io`
    (and GitHub's apex `A` records if you also want `careereducationinstitute.org`).
 2. Create `static/CNAME` containing `www.careereducationinstitute.org` and push.
 3. In the repo: **Settings → Pages → Custom domain** → `www.careereducationinstitute.org`, then tick **Enforce HTTPS**.
