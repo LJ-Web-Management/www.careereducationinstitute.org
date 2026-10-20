@@ -1,5 +1,7 @@
 // Refreshes src/data/labor.json from the U.S. Bureau of Labor Statistics public API.
 // Usage: node scripts/fetch-bls.mjs [year]   (OEWS May estimates, released each spring)
+// Set BLS_API_KEY (free at https://data.bls.gov/registrationEngine/) to use API v2: 50 series per request and
+// 500 requests a day. Without a key, v1 allows 25 series per request and 25 requests a day, too few for every career.
 // Projections/education columns come from BLS Employment Projections table 1.2 and are kept as-is.
 import fs from 'node:fs';
 const file = new URL('../src/data/labor.json', import.meta.url);
@@ -10,11 +12,14 @@ const ids = [];
 for (const [slug, o] of Object.entries(labor.careers)) {
   for (const t of Object.keys(types)) ids.push({ slug, t, id: `OEUN0000000000000${o.soc.replace('-', '')}${t}` });
 }
-for (let i = 0; i < ids.length; i += 25) {
-  const chunk = ids.slice(i, i + 25);
-  const res = await fetch('https://api.bls.gov/publicAPI/v1/timeseries/data/', {
+const key = process.env.BLS_API_KEY;
+const per = key ? 50 : 25;
+if (!key && ids.length / per > 25) console.warn(`Warning: ${Math.ceil(ids.length / per)} requests needed but BLS API v1 allows 25 a day. Set BLS_API_KEY to use v2.`);
+for (let i = 0; i < ids.length; i += per) {
+  const chunk = ids.slice(i, i + per);
+  const res = await fetch(`https://api.bls.gov/publicAPI/${key ? 'v2' : 'v1'}/timeseries/data/`, {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ seriesid: chunk.map(c => c.id), startyear: year, endyear: year })
+    body: JSON.stringify({ seriesid: chunk.map(c => c.id), startyear: year, endyear: year, ...(key ? { registrationkey: key } : {}) })
   });
   const json = await res.json();
   if (json.status !== 'REQUEST_SUCCEEDED') { console.error(json.message); process.exit(1); }

@@ -9,12 +9,12 @@ export const selection = [
   { id: 304, slug: 'cdl-eldt-class-a', job: 'Truck Driver (Class A CDL)', field: 'transportation-and-logistics', career: 'truck-driver' },
   { id: 309, slug: 'cdl-eldt-class-b', job: 'Class B CDL Driver', field: 'transportation-and-logistics', career: 'truck-driver' },
   { id: 248, slug: 'forklift-operator-training', job: 'Forklift Operator', field: 'transportation-and-logistics', career: 'forklift-operator' },
-  { id: 535, slug: 'flagger-certification', job: 'Flagger', field: 'skilled-trades' },
+  { id: 535, slug: 'flagger-certification', job: 'Flagger', field: 'skilled-trades', career: 'flagger' },
   { id: 237, slug: 'mold-inspector-certification', job: 'Mold Inspector', field: 'safety-and-environmental' }
 ];
 
 // Careers whose job-title training is the matching provider course.
-export const replaceTraining = { 'truck-driver': 304, 'forklift-operator': 248 };
+export const replaceTraining = { 'truck-driver': 304, 'forklift-operator': 248, flagger: 535 };
 
 // Short display names used in menus, tables, buy boxes and page titles.
 export const shortNames = {

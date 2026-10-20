@@ -27,7 +27,6 @@ code{font-family:var(--mono);font-size:.9em;background:#f0ece3;padding:.1em .35e
 .site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line);backdrop-filter:saturate(1.4) blur(6px)}
 .hdr{display:flex;align-items:center;gap:18px;min-height:68px}
 .logo{display:flex;align-items:center;text-decoration:none;flex:none}
-.logo picture{display:block;flex:none}
 .logo img{display:block;height:54px;width:auto}
 @media (max-width:480px){.logo img{height:42px}}
 .hdr{position:static}
@@ -214,6 +213,8 @@ th button::after{content:" ↕";opacity:.5}
 .glossary dd{margin:.2em 0 0;padding-bottom:.9em;border-bottom:1px solid var(--line)}
 .az{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:0 0 20px}
 .az li{margin:0}.az a{display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--line2);border-radius:8px;text-decoration:none;font-weight:700;background:#fff}
+.az span[aria-current]{display:grid;place-items:center;width:34px;height:34px;border-radius:8px;font-weight:700;background:var(--navy);color:#fff}
+.linklist{columns:3 220px;column-gap:28px;padding-left:18px;margin:0 0 26px}.linklist li{break-inside:avoid;margin:0 0 6px}
 /* Callout */
 .callout{background:var(--gold-soft);border:1px solid #f0d89c;border-radius:12px;padding:14px 18px;margin:0 0 1.4em}
 .callout p:last-child{margin:0}
@@ -324,10 +325,9 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--navy);bo
 .site-footer ul{list-style:none;padding:0;margin:0}
 .site-footer li{margin:0 0 7px}
 .site-footer .logo{display:block;max-width:272px}
-.site-footer .logo picture{background:#fff;border-radius:12px;padding:10px 14px}
-.site-footer .logo img{width:100%;height:auto}
+.site-footer .logo img{width:100%;height:auto;box-sizing:border-box;background:#fff;border-radius:12px;padding:10px 14px}
 .fbottom{border-top:1px solid rgba(255,255,255,.14);margin-top:36px;padding-top:20px;display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;font-size:.83rem;color:#9fb0cc}
-.hide{display:none!important}
+.hide,[hidden]{display:none!important}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 @media print{.site-header,.site-footer,.subnav,.mobile-cta,.layout>aside,.band,.no-print,.crumbs{display:none!important}body{background:#fff;font-size:12pt}.layout{display:block;padding:0}a{color:#000}.page-hero{border:0;padding:0}.print-lines{border-bottom:1px solid #999;height:2.2em}}
 .print-lines{border-bottom:1px solid var(--line2);height:2.4em}

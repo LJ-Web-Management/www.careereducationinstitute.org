@@ -1,13 +1,20 @@
 import cfg from '../../site.config.mjs';
-import { esc, href, abs, clamp, fitTitle, md, wordCount, fmtDate } from '../lib/util.mjs';
+import { esc, href, abs, clamp, fitTitle, md, wordCount, fmtDate, money } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, ctaCard, sideLinks } from '../lib/layout.mjs';
 import { guides, guideBySlug, topics, gp } from '../data/guides/index.mjs';
 import { resources } from '../data/resources.mjs';
 
+// Guide text can write {careers} for the current number of career profiles and {pay:<slug>} for a career's BLS
+// median pay, so counts and figures never go stale.
+const fillCount = (s, n, byslug) => (typeof s === 'string' ? s.replace(/\{careers\}/g, n.toLocaleString('en-US')).replace(/\{pay:([a-z0-9-]+)\}/g, (m, slug) => { if (!byslug[slug]) throw new Error(`Guide token ${m}: no career ${slug}`); return money(byslug[slug].l.wages.median); }) : s);
+
 export function guidePages(ctx) {
   const { byslug } = ctx;
   const pages = [];
-  for (const g of guides) {
+  for (const g0 of guides) {
+    const n = ctx.careers.length;
+    const fill = (s) => fillCount(s, n, byslug);
+    const g = { ...g0, body: fill(g0.body), answer: fill(g0.answer), desc: fill(g0.desc), lead: fill(g0.lead), faq: g0.faq?.map(([q, a]) => [fill(q), fill(a)]) };
     const path = gp(g);
     const crumbs = g.topic === 'employers' ? [['Home', '/'], ['Employers', '/employers/'], [g.crumb || g.title, path]] : [['Home', '/'], ['Guides', '/guides/'], [g.crumb || g.title, path]];
     const { html, toc } = md(g.body);

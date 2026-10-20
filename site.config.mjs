@@ -2,6 +2,9 @@
 // SITE_URL is injected by the GitHub Pages workflow. When the custom domain
 // (www.careereducationinstitute.org) is connected, it switches automatically.
 const url = (process.env.SITE_URL || 'http://localhost:4173').replace(/\/$/, '');
+// The blog is its own site (repo blog.careereducationinstitute.org). BLOG_URL overrides; otherwise it follows this
+// site: the local blog server, the blog repo's github.io address, or blog.careereducationinstitute.org.
+const blogUrl = (process.env.BLOG_URL || (/localhost/.test(url) ? 'http://localhost:4174' : /github\.io/.test(url) ? new URL(url).origin + '/blog.careereducationinstitute.org' : 'https://blog.careereducationinstitute.org')).replace(/\/$/, '');
 
 export default {
   name: 'Career Education Institute',
@@ -14,6 +17,7 @@ export default {
     'Career Education Institute offers online career training by job title, plus free career quizzes, salary data, day-in-the-life guides and college and career-change resources for the U.S.',
   url, // absolute origin + base path, no trailing slash
   basePath: new URL(url).pathname.replace(/\/$/, ''), // '' on a custom domain, '/repo' on github.io
+  blogUrl, // the blog's address, no trailing slash: links written as /blog/... go there
   futureDomain: 'https://www.careereducationinstitute.org',
   locale: 'en_US',
   lang: 'en-US',
@@ -29,7 +33,7 @@ export default {
   governingState: 'Illinois',
 
   // Date shown as "Last updated" on content pages (YYYY-MM-DD). Bump when content is reviewed.
-  updated: '2026-10-15',
+  updated: '2026-10-18',
   launched: '2026-10-15',
 
   // Defaults for job-title trainings. Per-course hours and prices live in
@@ -77,8 +81,9 @@ export default {
   // share link (any page with ?code=XYZ) keeps the code filled in for `linkDays` days.
   partnerProgram: { discount: 0.1, share: 0.05, linkDays: 30 },
 
-  // Optional integrations — leave empty to keep the site cookie-free and fastest.
-  analytics: { ga4: '' },
+  // Google Analytics 4 measurement id. Loads after page load, never with GPC or the opt-out on
+  // /your-privacy-choices/ (see src/assets/site.js). Leave empty to turn analytics off.
+  analytics: { ga4: 'G-FPKWMLEWMG' },
   verification: { google: '', bing: '' },
   social: [] // e.g. ['https://www.linkedin.com/company/career-education-institute']
 };

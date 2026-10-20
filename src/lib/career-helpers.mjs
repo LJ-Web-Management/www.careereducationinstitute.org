@@ -3,7 +3,10 @@ import { esc, href, money, money2, pct, num, article, listJoin, slugify, fmtDate
 import { courseHours, priceForHours } from '../data/course-pricing.mjs';
 import { replaceTraining } from '../data/partner-selection.mjs';
 
-export const EDU_LABEL = ['No formal credential', 'High school diploma', 'Postsecondary certificate', 'Associate degree or apprenticeship', 'Bachelor’s degree'];
+// BLS publishes only annual wages for some salaried occupations (teachers, pilots, coaches).
+export const hr = (w, suffix = '/hr') => (w.hourly != null ? money2(w.hourly) + suffix : '');
+
+export const EDU_LABEL = ['No formal credential', 'High school diploma', 'Postsecondary certificate', 'Associate degree or apprenticeship', 'Bachelor’s degree or higher'];
 
 export const growthWord = (g) =>
   g >= 7 ? 'much faster than average' : g >= 5 ? 'faster than average' : g >= 2.5 ? 'about as fast as average' : g >= 1 ? 'slower than average' : g > -1 ? 'little or no change' : 'a projected decline';
@@ -46,7 +49,7 @@ export const dataNote = (labor) =>
 export function facts(c, labor) {
   const l = c.l;
   return `<ul class="facts">
-<li class="fact"><div class="k">Median pay</div><div class="v">${money(l.wages.median)}</div><div class="n">${money2(l.wages.hourly)}/hour · ${labor.meta.oewsLabel}</div></li>
+<li class="fact"><div class="k">Median pay</div><div class="v">${money(l.wages.median)}</div><div class="n">${hr(l.wages, '/hour') || 'Annual salary'} · ${labor.meta.oewsLabel}</div></li>
 <li class="fact"><div class="k">Job growth</div><div class="v">${pct(l.growthPct)}</div><div class="n">${labor.meta.projections}, ${growthWord(l.growthPct)}</div></li>
 <li class="fact"><div class="k">Openings per year</div><div class="v">${num(l.annualOpenings)}</div><div class="n">Average, ${labor.meta.projections}</div></li>
 <li class="fact"><div class="k">Typical entry education</div><div class="v" style="font-size:1.05rem">${esc(l.entryEducation)}</div><div class="n">BLS classification</div></li>
@@ -92,9 +95,9 @@ export const compareSlug = (a, b) => [a, b].sort().join('-vs-');
 export function genFaqs(c, labor) {
   const w = c.l.wages;
   return [
-    [`How much does ${c.a} ${c.lower} make?`, `The median annual wage for ${c.pluralLower} was ${money(w.median)} (${money2(w.hourly)} per hour) in ${labor.meta.oewsLabel}, according to the U.S. Bureau of Labor Statistics. The lowest 10% earned less than ${money(w.p10)} and the highest 10% earned more than ${money(w.p90)}.`],
+    [`How much does ${c.a} ${c.lower} make?`, `The median annual wage for ${c.pluralLower} was ${money(w.median)}${w.hourly != null ? ` (${money2(w.hourly)} per hour)` : ''} in ${labor.meta.oewsLabel}, according to the U.S. Bureau of Labor Statistics. The lowest 10% earned less than ${money(w.p10)} and the highest 10% earned more than ${money(w.p90)}.`],
     [`How long does it take to become ${c.a} ${c.lower}?`, `Most people need about ${c.train} of training. ${c.edu}`],
-    [`Do you need a degree to be ${c.a} ${c.lower}?`, c.degreeA ? c.degreeA : c.eduLevel >= 4 ? `Usually, yes. BLS lists a ${c.l.entryEducation.toLowerCase()} as the typical entry-level education, although skills, certifications and experience can sometimes substitute.` : `No four-year degree is typically required. BLS lists “${c.l.entryEducation.toLowerCase()}” as the typical entry-level education${c.l.onTheJobTraining !== 'None' ? `, plus ${c.l.onTheJobTraining.toLowerCase()}` : ''}.`],
+    [`Do you need a degree to be ${c.a} ${c.lower}?`, c.degreeA ? c.degreeA : /^(Master|Doctoral)/.test(c.l.entryEducation) ? `Yes. BLS lists a ${c.l.entryEducation.toLowerCase()} as the typical entry-level education${c.license ? ', and you also need a state license to practice' : ''}.` : c.eduLevel >= 4 ? `Usually, yes. BLS lists a ${c.l.entryEducation.toLowerCase()} as the typical entry-level education, although skills, certifications and experience can sometimes substitute.` : `No four-year degree is typically required. BLS lists “${c.l.entryEducation.toLowerCase()}” as the typical entry-level education${c.l.onTheJobTraining !== 'None' ? `, plus ${c.l.onTheJobTraining.toLowerCase()}` : ''}.`],
     [`Is ${c.lower} a good career?`, `It can be, depending on your goals. Employment is projected to change ${pct(c.l.growthPct)} from ${labor.meta.projections} (${growthWord(c.l.growthPct)}), with about ${num(c.l.annualOpenings)} openings each year. Upsides include ${c.pros[0].charAt(0).toLowerCase() + c.pros[0].slice(1)}; a common challenge is that ${c.cons[0].charAt(0).toLowerCase() + c.cons[0].slice(1)}.`],
     [`What skills does ${c.a} ${c.lower} need?`, `Key technical skills include ${listJoin(c.hard.slice(0, 4).map((s) => s.toLowerCase()))}. Employers also value ${listJoin(c.soft.slice(0, 3).map((s) => s.toLowerCase()))}.`],
     [`What certifications are available for ${c.pluralLower}?`, `Common credentials include ${listJoin(c.certs.map((x) => x[0]))}. ${c.license || 'Requirements vary by state and employer.'}`]

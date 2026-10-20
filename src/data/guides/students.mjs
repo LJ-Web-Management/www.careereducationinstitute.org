@@ -75,12 +75,12 @@ Psychologist John Holland proposed that people and work environments can be desc
 
 | Type | Enjoys | Example careers |
 |---|---|---|
-| Realistic (R) | Hands-on work with tools, machines, plants or animals | [Electrician](/careers/electrician/), [welder](/careers/welder/), [diesel mechanic](/careers/diesel-mechanic/) |
-| Investigative (I) | Analyzing, researching, solving problems | [Cybersecurity analyst](/careers/cybersecurity-analyst/), [environmental technician](/careers/environmental-technician/) |
-| Artistic (A) | Creating, designing, expressing ideas | [Web developer](/careers/web-developer/), [digital marketing specialist](/careers/digital-marketing-specialist/) |
-| Social (S) | Helping, teaching, caring for people | [Registered nurse](/careers/registered-nurse/), [medical assistant](/careers/medical-assistant/) |
-| Enterprising (E) | Leading, persuading, selling | [Project manager](/careers/project-manager/), [real estate agent](/careers/real-estate-agent/) |
-| Conventional (C) | Organizing data, following procedures | [Bookkeeper](/careers/bookkeeper/), [paralegal](/careers/paralegal/) |
+| Realistic (R) | Hands-on work with tools, machines, plants or animals | [Electrician](/careers/electrician/), [welder](/careers/welder/), [diesel mechanic](/careers/diesel-mechanic/), [MRI technologist](/careers/mri-technologist/) |
+| Investigative (I) | Analyzing, researching, solving problems | [Cybersecurity analyst](/careers/cybersecurity-analyst/), [environmental technician](/careers/environmental-technician/), [epidemiologist](/careers/epidemiologist/) |
+| Artistic (A) | Creating, designing, expressing ideas | [Web developer](/careers/web-developer/), [digital marketing specialist](/careers/digital-marketing-specialist/), [writer](/careers/writer/) |
+| Social (S) | Helping, teaching, caring for people | [Registered nurse](/careers/registered-nurse/), [medical assistant](/careers/medical-assistant/), [occupational therapy assistant](/careers/occupational-therapy-assistant/) |
+| Enterprising (E) | Leading, persuading, selling | [Project manager](/careers/project-manager/), [real estate agent](/careers/real-estate-agent/), [general and operations manager](/careers/general-and-operations-manager/) |
+| Conventional (C) | Organizing data, following procedures | [Bookkeeper](/careers/bookkeeper/), [paralegal](/careers/paralegal/), [production planner](/careers/production-planner/) |
 
 Your “code” is usually your top two or three letters, for example, SCR or RIC. Our [Career Match Quiz](/quizzes/career-match/) calculates yours and shows matching careers.
 
@@ -158,7 +158,7 @@ Send a thank-you message within 24 hours that mentions one specific piece of adv
   slug: 'college-vs-trade-school', title: 'College vs. Trade School: How to Decide', crumb: 'College vs. trade school', topic: 'education-paths', audience: ['students', 'changers'],
   desc: 'Compare four-year college, community college, trade school and apprenticeships on cost, time, pay and career options, and use a simple framework to decide which path fits you.',
   answer: 'Choose college if your target career requires a degree (such as registered nursing, accounting or engineering) or you want broad options and are comfortable with the time and cost. Choose trade school or an apprenticeship if you want hands-on work, faster entry and less debt in a skilled career such as electrician, HVAC or medical assisting. Start with the career, then pick the path.',
-  careers: ['electrician', 'hvac-technician', 'registered-nurse', 'accountant', 'medical-assistant', 'plumber'],
+  careers: ['electrician', 'hvac-technician', 'registered-nurse', 'accountant', 'medical-assistant', 'plumber', 'construction-foreman'],
   related: ['apprenticeships-guide', 'community-college-guide', 'financial-aid-basics', 'how-to-choose-a-college-major'],
   body: `## Start with the career, not the school
 The biggest mistake is choosing an education path first and hoping a good career follows. Flip it: choose two or three target careers, look up what each requires, then choose the most efficient path to get there.
@@ -172,7 +172,7 @@ The biggest mistake is choosing an education path first and hoping a good career
 | Apprenticeship | 1–5 years | Usually paid | Skilled trades and growing fields; earn while you learn |
 
 ## When college makes the most sense
-- Your target career legally or practically requires a degree, for example, [registered nurse](/careers/registered-nurse/) (ADN or BSN), [accountant](/careers/accountant/) (CPA path) or engineer.
+- Your target career legally or practically requires a degree, for example, [registered nurse](/careers/registered-nurse/) (ADN or BSN), [accountant](/careers/accountant/) (CPA path) or an engineer such as a [chemical engineer](/careers/chemical-engineer/).
 - You want management or professional roles where degrees are standard.
 - You enjoy academic learning and have a realistic plan to pay for it.
 
@@ -183,7 +183,7 @@ Ways to cut the cost: start at community college and transfer, apply for grants 
 - You want to start earning quickly.
 - You want to avoid significant student debt.
 
-Many skilled trades pay well. BLS data shows median pay of about $63,000 for [electricians](/careers/electrician/) and [plumbers](/careers/plumber/), and about $95,000 for [electrical lineworkers](/careers/electrical-lineworker/), without a four-year degree. See the full list of [highest-paying jobs without a degree](/best-careers/highest-paying-jobs-without-a-degree/).
+Many skilled trades pay well. BLS data shows median pay of {pay:electrician} for [electricians](/careers/electrician/), {pay:plumber} for [plumbers](/careers/plumber/) and {pay:electrical-lineworker} for [electrical lineworkers](/careers/electrical-lineworker/), without a four-year degree. Experienced tradespeople who move up to [construction foreman](/careers/construction-foreman/) earn a median of {pay:construction-foreman}. See the full list of [highest-paying jobs without a degree](/best-careers/highest-paying-jobs-without-a-degree/).
 
 ## Questions to ask yourself
 1. What careers am I seriously considering, and what do they require?
@@ -282,7 +282,7 @@ Ask open questions, share your own career story honestly (including detours), he
   slug: 'community-college-guide', title: 'Is Community College Worth It? A Practical Guide', crumb: 'Community college guide', topic: 'education-paths', audience: ['students', 'changers'],
   desc: 'How community college works, what it costs, certificates vs. associate degrees, transferring to a university and how to decide if community college is right for you.',
   answer: 'Community college is often worth it if you want an affordable start, a fast technical certificate or a two-year degree for a specific career, or a cheaper path to a bachelor’s through transfer. It works best when you have a clear plan, a target career or transfer agreement, and meet with an advisor early.',
-  careers: ['registered-nurse', 'paralegal', 'environmental-technician', 'it-support-specialist'],
+  careers: ['registered-nurse', 'paralegal', 'environmental-technician', 'it-support-specialist', 'mri-technologist', 'occupational-therapy-assistant'],
   related: ['college-vs-trade-school', 'financial-aid-basics', 'how-to-choose-a-college-major'],
   body: `## What community colleges offer
 - **Certificates:** Short programs (often a few months to a year) for specific jobs: medical assisting, welding, HVAC, IT support.
@@ -294,7 +294,7 @@ Ask open questions, share your own career story honestly (including detours), he
 - **Lower cost:** Tuition is typically far lower than at four-year universities, and many states offer free or reduced tuition programs.
 - **Flexibility:** Evening, online and part-time options fit around work and family.
 - **Smaller classes:** Many students get more instructor attention.
-- **Direct career paths:** Programs like nursing (ADN), paralegal studies and technical trades lead straight to jobs.
+- **Direct career paths:** Programs like nursing (ADN), paralegal studies, [MRI technology](/careers/mri-technologist/), [occupational therapy assisting](/careers/occupational-therapy-assistant/) and technical trades lead straight to jobs.
 
 ## Watch out for these pitfalls
 - **Credits that don’t transfer:** Confirm transfer agreements in writing and meet with an advisor every term.
@@ -313,7 +313,7 @@ Ask open questions, share your own career story honestly (including detours), he
   slug: 'apprenticeships-guide', title: 'Apprenticeships: How Paid On-the-Job Training Works', crumb: 'Apprenticeships guide', topic: 'education-paths', audience: ['students', 'changers'],
   desc: 'What a registered apprenticeship is, how pay and training work, which careers offer apprenticeships, how to find and apply to one and how to prepare for the entrance test.',
   answer: 'An apprenticeship is a paid job that includes structured on-the-job training plus related classroom instruction, usually lasting one to five years. Registered apprenticeships lead to a nationally recognized credential. You earn wages from day one, often with scheduled raises as your skills grow, and typically finish with little or no student debt.',
-  careers: ['electrician', 'plumber', 'carpenter', 'electrical-lineworker', 'heavy-equipment-operator', 'hvac-technician'],
+  careers: ['electrician', 'plumber', 'carpenter', 'electrical-lineworker', 'heavy-equipment-operator', 'hvac-technician', 'glazier', 'mechanical-insulator'],
   related: ['college-vs-trade-school', 'how-to-change-careers', 'high-school-career-planning'],
   body: `## How apprenticeships work
 - **You’re hired and paid.** Apprentices are employees, earning wages from the start.
@@ -323,7 +323,7 @@ Ask open questions, share your own career story honestly (including detours), he
 - **You earn a credential.** Completing a registered apprenticeship earns a nationally recognized certificate of completion.
 
 ## Which careers offer apprenticeships?
-Traditional trades are the best known: [electricians](/careers/electrician/), [plumbers](/careers/plumber/), [carpenters](/careers/carpenter/), [HVAC technicians](/careers/hvac-technician/), [lineworkers](/careers/electrical-lineworker/) and [heavy equipment operators](/careers/heavy-equipment-operator/). Apprenticeships are expanding into IT, cybersecurity, healthcare, manufacturing and logistics too. See [jobs with paid on-the-job training](/best-careers/jobs-with-paid-on-the-job-training/).
+Traditional trades are the best known: [electricians](/careers/electrician/), [plumbers](/careers/plumber/), [carpenters](/careers/carpenter/), [HVAC technicians](/careers/hvac-technician/), [lineworkers](/careers/electrical-lineworker/), [heavy equipment operators](/careers/heavy-equipment-operator/), [glaziers](/careers/glazier/) and [mechanical insulators](/careers/mechanical-insulator/). Apprenticeships are expanding into IT, cybersecurity, healthcare, manufacturing and logistics too. See [jobs with paid on-the-job training](/best-careers/jobs-with-paid-on-the-job-training/).
 
 ## Types of programs
 - **Union (joint) apprenticeships** run by unions and employer associations.
@@ -399,7 +399,7 @@ If you need loans, use federal student loans before private loans: they typicall
 4. **Decide:** Set a deadline (for example, by February) to choose and apply for your next step.
 
 ## Careers you can start during a gap year
-Many careers can be entered in weeks or months, so a gap year can double as a test drive. See [the fastest careers to train for](/best-careers/fastest-careers-to-train-for/), including [phlebotomist](/careers/phlebotomist/), [certified nursing assistant](/careers/certified-nursing-assistant/), [security guard](/careers/security-guard/) and [warehouse associate](/careers/warehouse-associate/).
+Many careers can be entered in weeks or months, so a gap year can double as a test drive. See [the fastest careers to train for](/best-careers/fastest-careers-to-train-for/), including [phlebotomist](/careers/phlebotomist/), [certified nursing assistant](/careers/certified-nursing-assistant/), [security guard](/careers/security-guard/), [courier](/careers/courier/) and [warehouse associate](/careers/warehouse-associate/).
 
 ## If you plan to go to college afterward
 - Ask colleges about deferring admission before you start your gap year.

@@ -8,9 +8,11 @@ export const slugify = (s) =>
     .replace(/['’]/g, '').replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
 
 // Internal link: prefixes the base path (github.io project sites live under /repo/).
-export const href = (p = '/') => (/^(https?:|mailto:|tel:|#)/.test(p) ? p : cfg.basePath + p);
+// Paths under /blog/ belong to the blog, a separate site at cfg.blogUrl.
+const inBlog = (p) => p === '/blog' || p.startsWith('/blog/');
+export const href = (p = '/') => (/^(https?:|mailto:|tel:|#)/.test(p) ? p : inBlog(p) ? cfg.blogUrl + (p.slice(5) || '/') : cfg.basePath + p);
 // Absolute URL for canonicals, sitemaps and structured data.
-export const abs = (p = '/') => (/^https?:/.test(p) ? p : cfg.url + p);
+export const abs = (p = '/') => (/^https?:/.test(p) ? p : inBlog(p) ? cfg.blogUrl + (p.slice(5) || '/') : cfg.url + p);
 
 export const money = (n) => (n == null ? 'N/A' : '$' + Math.round(n).toLocaleString('en-US'));
 export const money2 = (n) => (n == null ? 'N/A' : '$' + Number(n).toFixed(2));
@@ -55,7 +57,8 @@ export const shuffle = (arr, seed) => {
   return a;
 };
 
-export const article = (word) => (/^[aeiou]/i.test(word) && !/^(uni|use|eu)/i.test(word) ? 'an' : 'a');
+// Acronyms are read letter by letter, so "an MRI technologist", "an HR assistant" but "a CNC operator".
+export const article = (word) => (/^[A-Z]{2,}/.test(word) ? (/^[AEFHILMNORSX]/.test(word) ? 'an' : 'a') : /^[aeiou]/i.test(word) && !/^(uni|use|eu)/i.test(word) ? 'an' : 'a');
 export const lowerFirst = (s) => (/^[A-Z]{2}/.test(s) ? s : s.charAt(0).toLowerCase() + s.slice(1));
 // Title-case task names ("Verify a Circuit Is De-Energized") as an in-sentence phrase; keeps acronyms and proper nouns.
 const KEEP_CASE = new Set(['I', 'Git', 'English', 'Spanish', 'Medicare', 'Medicaid', 'Excel', 'Google', 'Windows', 'Linux', 'Heimlich', 'Miranda']);

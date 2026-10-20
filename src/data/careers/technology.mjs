@@ -125,7 +125,7 @@ export default [
   day: [["8:00 AM", "Review monitoring dashboards: one branch office link is showing packet loss."], ["9:00 AM", "Troubleshoot with ping and traceroute and open a ticket with the ISP."], ["10:30 AM", "Configure a new VLAN for security cameras and update firewall rules."], ["1:00 PM", "Patch servers during the approved maintenance window."], ["2:30 PM", "Test restoring a file server from backup."], ["4:00 PM", "Update network diagrams and the change log."]],
   env: "Network administrators work in offices, data centers and remotely for businesses, schools, hospitals, government and managed service providers. Some work requires lifting equipment or working in server rooms.",
   schedule: "Usually full-time. Maintenance is often scheduled after hours, and on-call rotations for outages are common.",
-  pros: ["High pay: median near $100,000", "Critical, respected role", "Strong certification path (Network+, CCNA)", "Path to cloud, security and architecture roles"],
+  pros: ["High pay: median close to six figures", "Critical, respected role", "Strong certification path (Network+, CCNA)", "Path to cloud, security and architecture roles"],
   cons: ["After-hours maintenance and on-call duty", "Pressure during outages", "BLS projects a slight decline as cloud services grow", "Constant learning"],
   hard: ["Routing and switching", "TCP/IP and subnetting", "Firewalls and VPNs", "Windows and Linux server administration", "Cloud services", "Scripting and automation"],
   soft: ["Methodical troubleshooting", "Documentation", "Calm under pressure", "Communication with users and vendors"],

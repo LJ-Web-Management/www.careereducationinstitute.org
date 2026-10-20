@@ -73,28 +73,28 @@ ${faqBlock(faqs, `${c.title} FAQ`)}<p><a href="${href(c.url + 'faq/')}">More ${e
     const max = Math.max(...rel.map((r) => r.l.wages.median));
     const cat = catBySlug[c.cat];
     const faqs = [
-      [`How much does ${c.a} ${c.lower} make per hour?`, `The median hourly wage for ${c.pluralLower} was ${money2(w.hourly)} in ${labor.meta.oewsLabel} (BLS). Hourly pay for the lowest 10% was about ${money2(w.p10 / 2080)} and the top 10% earned about ${money2(w.p90 / 2080)} or more.`],
+      [`How much does ${c.a} ${c.lower} make per hour?`, w.hourly != null ? `The median hourly wage for ${c.pluralLower} was ${money2(w.hourly)} in ${labor.meta.oewsLabel} (BLS). Hourly pay for the lowest 10% was about ${money2(w.p10 / 2080)} and the top 10% earned about ${money2(w.p90 / 2080)} or more.` : `BLS reports only annual wages for ${c.pluralLower}, because most are paid a yearly salary rather than by the hour. Spread over a standard 2,080-hour work year, the ${labor.meta.oewsLabel} median of ${money(w.median)} works out to about ${money2(w.median / 2080)} an hour.`],
       [`How much does ${c.a} ${c.lower} make a month?`, `At the median annual wage of ${money(w.median)}, that works out to about ${money(w.median / 12)} per month before taxes, or about ${money(w.median / 26)} every two weeks.`],
       [`What is the starting salary for ${c.a} ${c.lower}?`, `New ${c.pluralLower} often start near the lower end of the range. The 10th percentile was ${money(w.p10)} and the 25th percentile was ${money(w.p25)} per year in ${labor.meta.oewsLabel}. Starting pay depends on location, employer and credentials.`],
       [`How can ${c.pluralLower} earn more?`, `Common ways include earning ${listJoin(c.certs.slice(0, 2).map((x) => x[0]))}, gaining specialty experience, taking shifts or roles with premium pay, and moving up the career ladder to roles such as ${c.path[2][0].toLowerCase()}.`]
     ];
-    const main = `${answerBox(`How much does ${c.a} ${c.lower} make?`, `The median ${esc(c.lower)} salary in the U.S. is <strong>${money(w.median)} per year</strong>, or <strong>${money2(w.hourly)} per hour</strong>, based on Bureau of Labor Statistics data for ${labor.meta.oewsLabel}. The lowest-paid 10% earned under ${money(w.p10)}, while the top 10% earned more than ${money(w.p90)}.`)}
+    const main = `${answerBox(`How much does ${c.a} ${c.lower} make?`, `The median ${esc(c.lower)} salary in the U.S. is <strong>${money(w.median)} per year</strong>${w.hourly != null ? `, or <strong>${money2(w.hourly)} per hour</strong>,` : ''} based on Bureau of Labor Statistics data for ${labor.meta.oewsLabel}. The lowest-paid 10% earned under ${money(w.p10)}, while the top 10% earned more than ${money(w.p90)}.`)}
 ${dataNote(labor)}
 <h2 id="pay-scale">${esc(c.title)} pay scale</h2>${rangeBar(w)}
 <div class="table-wrap"><table><caption class="vh">${esc(c.title)} pay by percentile, ${labor.meta.oewsLabel}</caption><thead><tr><th scope="col">Percentile</th><th scope="col" class="num">Annual</th><th scope="col" class="num">Hourly*</th><th scope="col">What it usually reflects</th></tr></thead><tbody>${rows.map(([p, v, t]) => `<tr><th scope="row">${p}</th><td class="num">${money(v)}</td><td class="num">${money2(v / 2080)}</td><td>${t}</td></tr>`).join('')}</tbody></table></div>
-<p class="small muted">*Hourly figures other than the median are annual wages divided by 2,080 hours. Percentile descriptions are general patterns, not guarantees.</p>
+<p class="small muted">*Hourly figures are annual wages divided by 2,080 hours${w.hourly == null ? '; BLS publishes annual wages only for this occupation' : ''}. Percentile descriptions are general patterns, not guarantees.</p>
 <h2 id="monthly">Monthly and biweekly pay</h2><div class="table-wrap"><table><thead><tr><th scope="col">Pay period</th><th scope="col" class="num">At 25th percentile</th><th scope="col" class="num">At median</th><th scope="col" class="num">At 75th percentile</th></tr></thead><tbody>${[['Per year', 1], ['Per month', 12], ['Every two weeks', 26], ['Per week', 52]].map(([n, d]) => `<tr><th scope="row">${n}</th><td class="num">${money(w.p25 / d)}</td><td class="num">${money(w.median / d)}</td><td class="num">${money(w.p75 / d)}</td></tr>`).join('')}</tbody></table></div><p class="small muted">Gross pay before taxes and deductions.</p>
 <h2 id="factors">What affects ${esc(c.lower)} pay</h2><ul>${cat.payFactors.map((f) => `<li>${esc(f)}</li>`).join('')}<li>Geography and cost of living: metropolitan areas and some states pay well above the national median</li></ul>
 <h2 id="earn-more">How to earn more as ${c.a} ${esc(c.lower)}</h2><ol><li><strong>Get credentialed:</strong> ${c.certs.slice(0, 3).map(([n]) => esc(n)).join(', ')}.</li><li><strong>Build specialty experience:</strong> ${esc(c.path[1][1])}</li><li><strong>Move up:</strong> roles such as ${esc(c.path[2][0].toLowerCase())} and ${esc(c.path[3][0].toLowerCase())} typically pay more.</li><li><strong>Negotiate:</strong> research local pay and use our <a href="${href('/guides/how-to-negotiate-salary/')}">salary negotiation guide</a>.</li></ol>
 <h2 id="compare">${esc(c.title)} pay vs. related careers</h2><ul class="bars">${rel.map((r) => `<li class="${r.slug === c.slug ? 'me' : ''}"><a href="${href(r.url + 'salary/')}">${esc(r.title)}</a><span class="b"><i style="width:${((r.l.wages.median / max) * 100).toFixed(1)}%"></i></span><span>${money(r.l.wages.median)}</span></li>`).join('')}</ul>
 <h2 id="outlook">Job outlook</h2><p>BLS projects employment of ${esc(c.pluralLower)} to change by <strong>${pct(c.l.growthPct)}</strong> from ${labor.meta.projections}, ${growthWord(c.l.growthPct)} compared with the 3.5% average for all occupations. About <strong>${num(c.l.annualOpenings)}</strong> openings are projected each year, on average, including openings to replace workers who retire or change occupations.</p>
 <h2 id="methodology">About this data</h2><p>Figures come from the BLS Occupational Employment and Wage Statistics survey (${labor.meta.oewsLabel}), which covers wage and salary workers nationwide under SOC code ${c.l.soc} (“${esc(c.l.blsTitle)}”). Wages exclude self-employment income, overtime and most bonuses unless they are part of regular pay. We refresh these numbers when BLS releases new estimates each spring.</p>
-${faqBlock(faqs, `${c.title} salary FAQ`)}<div class="btn-row"><a class="btn btn-primary" href="${href(c.trainingUrl)}">Start ${esc(c.title)} training</a><a class="btn" href="${href('/salary-guide/')}">Compare all 50 salaries</a></div>${sources(c, labor)}`;
+${faqBlock(faqs, `${c.title} salary FAQ`)}<div class="btn-row"><a class="btn btn-primary" href="${href(c.trainingUrl)}">Start ${esc(c.title)} training</a><a class="btn" href="${href(`/salary-guide/${c.cat}/`)}">Compare ${esc(catBySlug[c.cat].noun)} salaries</a></div>${sources(c, labor)}`;
     const s = shell(c, ctx, { path, h1: `${esc(c.title)} Salary &amp; Pay Scale (${Y})`, lead: `What ${esc(c.pluralLower)} earn per year, per hour and per month, with the full percentile range, the factors that move pay and how to earn more.`, eyebrow: 'Salary guide', crumb: 'Salary', main });
     pages.push({
       path, ...s, og: og(c), mcta: mcta(c), kind: 'Salary', name: `${c.title} salary`,
       title: fitTitle(pick([`${c.title} Salary (${Y}): Pay Scale & Hourly Wage`, `${c.title} Salary (${Y}) & Pay Scale`, `${c.short} Salary (${Y}): Pay Scale & Hourly Wage`, `${c.title} Salary (${Y})`])),
-      desc: clamp(`${c.title} salary: ${money(w.median)} median per year (${money2(w.hourly)}/hr), per BLS ${labor.meta.oewsLabel} data. Full pay scale from ${money(w.p10)} to ${money(w.p90)}, monthly pay and how to earn more.`),
+      desc: clamp(`${c.title} salary: ${money(w.median)} median per year${w.hourly != null ? ` (${money2(w.hourly)}/hr)` : ''}, per BLS ${labor.meta.oewsLabel} data. Full pay scale from ${money(w.p10)} to ${money(w.p90)}, monthly pay and how to earn more.`),
       schema: [occupationSchema(c, labor, abs(path)), faqSchema(faqs, path)]
     });
   }
@@ -287,6 +287,16 @@ ${others.length ? `<h2 id="more">More ${esc(c.lower)} how-to guides</h2><ul>${ot
 }
 
 // ---------- Career comparison pages ----------
+// "Textile Dyeing Machine Operator" and "Textile Knitting Machine Operator" become "Textile Dyeing vs. Knitting Machine
+// Operator": words both titles share at the start or end are written once (only when at least two are shared).
+const sharedVs = (a, b) => {
+  const x = a.split(' '), y = b.split(' ');
+  let p = 0; while (p < x.length - 1 && p < y.length - 1 && x[p] === y[p]) p++;
+  let s = 0; while (s < x.length - p - 1 && s < y.length - p - 1 && x.at(-1 - s) === y.at(-1 - s)) s++;
+  if (p + s < 2) return `${a} vs. ${b}`;
+  return [...x.slice(0, p), x.slice(p, x.length - s).join(' '), 'vs.', y.slice(p, y.length - s).join(' '), ...x.slice(x.length - s)].join(' ');
+};
+
 export function comparePage(a, b, ctx) {
   const { labor } = ctx;
   const path = `/compare/${compareSlug(a.slug, b.slug)}/`;
@@ -299,7 +309,7 @@ export function comparePage(a, b, ctx) {
   const shared = x.traits.filter((t) => y.traits.includes(t) && !['no-degree', 'fast-track'].includes(t));
   const traitWords = { people: 'working with people', 'hands-on': 'hands-on work', data: 'working with information', helping: 'helping others', outdoors: 'working outdoors', indoors: 'indoor work', physical: 'physical work', desk: 'desk work', 'fast-paced': 'a fast pace', steady: 'steady routines', team: 'teamwork', independent: 'working independently', 'shift-work': 'shift work', travel: 'travel', 'remote-friendly': 'remote-friendly work', creative: 'creative work', 'problem-solving': 'problem-solving', 'high-responsibility': 'high responsibility' };
   const pickFor = (c) => c.fit.slice(0, 3).map((f) => `<li>${esc(f)}</li>`).join('');
-  const crumbs = [['Home', '/'], ['Careers', '/careers/'], ['Compare careers', '/compare/'], [`${x.short} vs. ${y.short}`, path]];
+  const crumbs = [['Home', '/'], ['Careers', '/careers/'], ['Compare careers', '/compare/'], [catBySlug[a.cat].name, `/compare/${a.cat}/`], [`${x.short} vs. ${y.short}`, path]];
   const faqs = [
     [`Which pays more, ${x.lower} or ${y.lower}?`, `${higher.plural} earn more at the median: ${money(higher.l.wages.median)} versus ${money(lower.l.wages.median)} for ${lower.pluralLower}, based on BLS ${labor.meta.oewsLabel} data.`],
     [`Which takes less time to train for?`, `${faster.plural} typically train faster (${faster.train}) than ${(faster === x ? y : x).pluralLower} (${(faster === x ? y : x).train}).`],
@@ -309,7 +319,7 @@ export function comparePage(a, b, ctx) {
   const main = `${answerBox(`${x.title} vs. ${y.title}: the short answer`, `${esc(cap(higher.pluralLower))} earn more at the median (${money(higher.l.wages.median)} vs. ${money(lower.l.wages.median)}), while ${esc(faster.pluralLower)} usually get to work faster (${esc(faster.train)} of training). ${esc(cap(x.pluralLower))} ${esc(lowerFirst(x.blurb))} ${esc(cap(y.pluralLower))} ${esc(lowerFirst(y.blurb))}`)}
 ${dataNote(labor)}
 <div class="table-wrap"><table><thead><tr><th scope="col"></th><th scope="col"><a href="${href(x.url)}">${esc(x.title)}</a></th><th scope="col"><a href="${href(y.url)}">${esc(y.title)}</a></th></tr></thead><tbody>
-${row('Median pay', (c) => `${money(c.l.wages.median)} (${money2(c.l.wages.hourly)}/hr)`)}${row('Pay range (10th–90th)', (c) => `${money(c.l.wages.p10)} – ${money(c.l.wages.p90)}`)}${row(`Job growth, ${labor.meta.projections}`, (c) => `${pct(c.l.growthPct)} (${growthWord(c.l.growthPct)})`)}${row('Openings per year', (c) => num(c.l.annualOpenings))}${row('Typical entry education', (c) => esc(c.l.entryEducation))}${row('Training time', (c) => esc(c.train))}${row('Key credential', (c) => esc(c.certs[0][0]))}${row('Work setting', (c) => esc(c.env.split('. ')[0]) + '.')}
+${row('Median pay', (c) => `${money(c.l.wages.median)}${c.l.wages.hourly != null ? ` (${money2(c.l.wages.hourly)}/hr)` : ''}`)}${row('Pay range (10th–90th)', (c) => `${money(c.l.wages.p10)} – ${money(c.l.wages.p90)}`)}${row(`Job growth, ${labor.meta.projections}`, (c) => `${pct(c.l.growthPct)} (${growthWord(c.l.growthPct)})`)}${row('Openings per year', (c) => num(c.l.annualOpenings))}${row('Typical entry education', (c) => esc(c.l.entryEducation))}${row('Training time', (c) => esc(c.train))}${row('Key credential', (c) => esc(c.certs[0][0]))}${row('Work setting', (c) => esc(c.env.split('. ')[0]) + '.')}
 </tbody></table></div>
 <h2 id="duties">What each job does</h2><div class="cols"><div><h3>${esc(x.title)}</h3><ul>${x.duties.slice(0, 5).map((d) => `<li>${esc(d)}</li>`).join('')}</ul></div><div><h3>${esc(y.title)}</h3><ul>${y.duties.slice(0, 5).map((d) => `<li>${esc(d)}</li>`).join('')}</ul></div></div>
 <h2 id="similarities">How they’re similar</h2><p>${shared.length ? `Both careers involve ${listJoin(shared.slice(0, 4).map((t) => traitWords[t] || t))}.` : 'They draw on different strengths, which makes the choice clearer.'} ${x.cat === y.cat ? `Both are part of the ${esc(catBySlug[x.cat].name.toLowerCase())} field, so many skills transfer between them.` : `They sit in different fields, ${esc(catBySlug[x.cat].name.toLowerCase())} and ${esc(catBySlug[y.cat].name.toLowerCase())}, but share transferable skills such as ${esc(listJoin([x.soft[0].toLowerCase(), y.soft[0].toLowerCase()]))}.`}</p>
@@ -320,7 +330,7 @@ ${faqBlock(faqs, 'Quick comparisons')}
   const aside = `${ctaCard({ title: 'Try both before you commit', text: 'Each training gives you a realistic look at the job: duties, vocabulary, procedures and safety.', btn: 'Browse all trainings', link: '/training/' })}${sideLinks('Learn more', [[`${x.title} overview`, x.url], [`${x.title} salary`, x.url + 'salary/'], [`${y.title} overview`, y.url], [`${y.title} salary`, y.url + 'salary/'], ['All career comparisons', '/compare/']])}`;
   return {
     path, crumbs, og: '/og/compare.png', kind: 'Comparison', name: `${x.title} vs. ${y.title}`,
-    title: fitTitle(pick([`${x.title} vs. ${y.title}: Pay & Training`, `${x.title} vs. ${y.title}`, `${x.short} vs. ${y.short}: Pay & Training`, `${x.short} vs. ${y.short}`])),
+    title: fitTitle(pick([`${x.title} vs. ${y.title}: Pay & Training`, `${x.title} vs. ${y.title}`, `${x.short} vs. ${y.short}: Pay & Training`, sharedVs(x.title, y.title), `${x.short} vs. ${y.short}`])),
     desc: clamp(`${x.title} vs. ${y.title}: compare median pay (${money(wx.median)} vs. ${money(wy.median)}), training time, job growth, duties and which career fits you best.`),
     body: `${pageHero({ crumbs, eyebrow: 'Career comparison', h1: `${esc(x.title)} vs. ${esc(y.title)}`, lead: `Side-by-side pay, training, growth and day-to-day duties to help you choose between two related careers.` })}<div class="wrap layout"><div class="prose">${main}</div><aside>${aside}</aside></div>`,
     schema: [faqSchema(faqs, path)]

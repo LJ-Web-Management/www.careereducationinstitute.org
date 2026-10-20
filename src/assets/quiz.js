@@ -3,6 +3,8 @@
   var dataEl = document.getElementById('quiz-data');
   if (!form || !dataEl) return;
   var data = JSON.parse(dataEl.textContent);
+  // Quizzes that score every career load the career list from a shared file while the visitor answers.
+  var careersReady = data.careersUrl ? fetch(data.careersUrl).then(function (r) { return r.json(); }).then(function (c) { data.careers = c; }) : null;
   var out = document.querySelector('.results');
   var sets = [].slice.call(form.querySelectorAll('fieldset'));
   var bar = form.querySelector('.progress i');
@@ -71,6 +73,10 @@
       return;
     }
 
+    if (data.type === 'careers' && !data.careers) {
+      if (careersReady) careersReady.then(function () { form.dispatchEvent(new Event('submit', { cancelable: true })); });
+      return;
+    }
     if (data.type === 'careers') {
       var maxEdu = w.maxEdu != null ? w.maxEdu : 4;
       var scored = data.careers.map(function (c) {
@@ -78,8 +84,11 @@
         'RIASEC'.split('').forEach(function (k) { var pos = c.r.indexOf(k); if (pos > -1 && w[k]) s += w[k] * [3, 2, 1][pos]; });
         c.t.forEach(function (t) { if (w['t_' + t]) s += w['t_' + t] * 2; });
         if (c.e > maxEdu + (data.questions.some(function (q) { return q.eduQ; }) ? 0 : 9)) s -= 25;
+        // Job outlook: annual openings on a log scale (-1.5 to +1.5) plus growth (-1.5 to +1), at most about one matching
+        // answer. It separates near-ties so small or shrinking occupations do not crowd out widely hiring ones.
+        if (c.o != null) s += Math.max(-1.5, Math.min(1.5, Math.log10(Math.max(c.o, 10)) - 3.5)) + Math.max(-1.5, Math.min(1, c.g / 5));
         return { c: c, s: s };
-      }).sort(function (a, z) { return z.s - a.s; });
+      }).sort(function (a, z) { return z.s - a.s || (z.c.o || 0) - (a.c.o || 0); });
       var top = scored.slice(0, data.top || 6), hi = top[0].s, lo = scored[scored.length - 1].s, span = (hi - lo) || 1;
       var html = '<div class="result-card"><p class="eyebrow">Your top matches</p><h2>' + esc(data.resultTitle || 'Careers that fit you') + '</h2><p>' + esc(data.resultText || '') + '</p><ol class="match-list">' + top.map(function (x) {
         var m = Math.round(62 + 36 * (x.s - lo) / span);

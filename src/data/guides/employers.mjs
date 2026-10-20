@@ -64,7 +64,7 @@ Score your current program with our free [onboarding assessment](/employers/onbo
 7. **Share it.** Give the plan to the new hire and their buddy.
 
 ## Make it role-specific
-Generic plans help a little; role-specific plans help a lot. We publish free plans for 50 job titles, for example, [medical assistant](/employers/onboarding-plans/medical-assistant/), [forklift operator](/employers/onboarding-plans/forklift-operator/) and [IT support specialist](/employers/onboarding-plans/it-support-specialist/). There’s also a blank [30-60-90 day plan template](/resources/30-60-90-day-onboarding-plan-template/).
+Generic plans help a little; role-specific plans help a lot. We publish free plans for {careers} job titles, for example, [medical assistant](/employers/onboarding-plans/medical-assistant/), [forklift operator](/employers/onboarding-plans/forklift-operator/) and [IT support specialist](/employers/onboarding-plans/it-support-specialist/). There’s also a blank [30-60-90 day plan template](/resources/30-60-90-day-onboarding-plan-template/).
 
 ## Common mistakes
 - No measurable goals
@@ -137,7 +137,7 @@ Early turnover, people leaving within the first 90 days, is especially costly be
 - Follow fair-chance hiring rules in jurisdictions that limit criminal-history questions on applications.
 
 ## Start from a template
-We publish free, copy-ready [job description templates for 50 roles](/employers/job-descriptions/) with BLS pay guidance: such as [warehouse associate](/employers/job-descriptions/warehouse-associate/) and [pharmacy technician](/employers/job-descriptions/pharmacy-technician/).`,
+We publish free, copy-ready [job description templates for {careers} roles](/employers/job-descriptions/) with BLS pay guidance: such as [warehouse associate](/employers/job-descriptions/warehouse-associate/) and [pharmacy technician](/employers/job-descriptions/pharmacy-technician/).`,
   faq: [['Should job descriptions include salary?', 'Including a pay range generally improves applicant volume and quality, and it is legally required in a growing number of states and cities.'], ['How long should a job description be?', 'Long enough to be clear, usually 300 to 700 words. Put the most important information first.']]
 },
 {
@@ -146,7 +146,7 @@ We publish free, copy-ready [job description templates for 50 roles](/employers/
   answer: 'Structured interviews ask every candidate the same job-related questions in the same order and score answers against a defined rubric. They are fairer and more predictive than unstructured conversations. Combine them with a short practical skills check and consistent reference checks.',
   related: ['how-to-write-a-job-description', 'skills-based-hiring', 'hiring-entry-level-and-career-changers'],
   body: `## Step 1: Define what success looks like
-List the four to six competencies that matter most for the role, for example, safety awareness, customer focus, technical knowledge and reliability. Our [hiring guides](/employers/hiring-guides/) list key skills for 50 roles.
+List the four to six competencies that matter most for the role, for example, safety awareness, customer focus, technical knowledge and reliability. Our [hiring guides](/employers/hiring-guides/) list key skills for {careers} roles.
 
 ## Step 2: Write questions for each competency
 - **Behavioral:** “Tell me about a time you…” (past behavior predicts future behavior)
@@ -224,7 +224,7 @@ Role-based courses, like our [job-title trainings](/for-employers/), reinforce g
 Many roles list degree or experience requirements that don’t actually predict success. Removing unnecessary barriers widens your talent pool (including career changers, veterans and workers with non-traditional backgrounds) while keeping your bar on the skills that matter.
 
 ## Five steps
-1. **List essential skills** for the role (technical and people skills). Our [hiring guides](/employers/hiring-guides/) outline them for 50 jobs.
+1. **List essential skills** for the role (technical and people skills). Our [hiring guides](/employers/hiring-guides/) outline them for {careers} jobs.
 2. **Audit requirements.** For each requirement, ask: is it legally required? Is it truly needed on day one? Could training cover it?
 3. **Rewrite postings** around skills and outcomes.
 4. **Assess skills directly** with structured interviews, practical demonstrations and work samples.
@@ -331,7 +331,7 @@ Use our [training ROI calculator](/employers/training-roi-calculator/) for a qui
 | Verification | Competency sign-offs | Supervisor observes and approves tasks |
 | Growth | Cross-training and credentials | Next-level skills tied to pay increases |
 
-Job-title trainings provide the foundations layer for 50 roles: see [onboarding training for employers](/for-employers/) and industry pages such as [transportation and logistics](/for-employers/transportation-and-logistics/) or [healthcare](/for-employers/healthcare/).
+Job-title trainings provide the foundations layer for {careers} roles: see [onboarding training for employers](/for-employers/) and industry pages such as [transportation and logistics](/for-employers/transportation-and-logistics/) or [healthcare](/for-employers/healthcare/).
 
 ## Build career paths
 Show frontline workers how training leads somewhere: a skills matrix (use our [team skills matrix template](/resources/training-needs-skills-matrix/)), clear criteria for advancement and pay tied to new competencies.
@@ -386,7 +386,7 @@ Clients judge agencies by how quickly placed workers become productive and how o
 - Safety basics and PPE expectations
 - Professional expectations: attendance, communication, reporting
 
-Our [job-title trainings](/for-staffing-agencies/) cover these for 50 roles, including high-volume staffing categories such as [warehouse associate](/training/warehouse-associate/), [forklift operator](/training/forklift-operator/), [CNA](/training/certified-nursing-assistant/) and [customer service representative](/training/customer-service-representative/).
+Our [job-title trainings](/for-staffing-agencies/) cover these for {careers} roles, including high-volume staffing categories such as [warehouse associate](/training/warehouse-associate/), [forklift operator](/training/forklift-operator/), [CNA](/training/certified-nursing-assistant/), [janitor](/training/janitor/), [hand packer](/training/hand-packer/) and [customer service representative](/training/customer-service-representative/).
 
 ## How to build it into your process
 1. Assign training after the initial screen and before placement.

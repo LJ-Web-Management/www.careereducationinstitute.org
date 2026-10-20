@@ -6,7 +6,8 @@ import { lists as allLists } from '../data/lists.mjs';
 import { guides, gp } from '../data/guides/index.mjs';
 import { fieldCourses } from '../lib/partners.mjs';
 
-const cardWithData = (c) => `<article class="card link" data-card data-name="${esc((c.title + ' ' + c.aka.join(' ')).toLowerCase())}" data-cat="${c.cat}" data-edu="${c.eduLevel}" data-median="${c.l.wages.median}" data-growth="${c.l.growthPct}" data-months="${c.months}"><span class="ico">${icon(c.cat)}</span><h3><a class="stretch" href="${href(c.url)}">${esc(c.title)}</a></h3><p>${esc(c.blurb)}</p><ul class="chips"><li class="chip pay">${money(c.l.wages.median)}/yr</li><li class="chip grow">${pct(c.l.growthPct)} growth</li><li class="chip">${esc(c.train)}</li></ul></article>`;
+// Careers directory data for the filter (src/assets/site.js loads it only when someone filters or sorts)
+export const directoryData = (careers) => careers.map((c) => ({ n: c.title, u: c.url, c: c.cat, e: c.eduLevel, m: c.l.wages.median, g: c.l.growthPct, mo: c.months, t: c.train, b: c.blurb, k: (c.title + ' ' + c.aka.join(' ')).toLowerCase() }));
 
 const careerTable = (cs, labor, metric) => `<div class="table-wrap"><table data-sortable><thead><tr><th scope="col">#</th><th scope="col" data-sort="text">Career</th><th scope="col" class="num" data-sort="num">Median pay</th><th scope="col" class="num" data-sort="num">Growth ${labor.meta.projections}</th>${metric === 'openings' ? '<th scope="col" class="num" data-sort="num">Openings/yr</th>' : ''}<th scope="col">Training time</th><th scope="col">Typical entry education</th></tr></thead><tbody>${cs.map((c, i) => `<tr><td>${i + 1}</td><td><a href="${href(c.url)}">${esc(c.title)}</a></td><td class="num" data-v="${c.l.wages.median}">${money(c.l.wages.median)}</td><td class="num" data-v="${c.l.growthPct}">${pct(c.l.growthPct)}</td>${metric === 'openings' ? `<td class="num" data-v="${c.l.annualOpenings}">${num(c.l.annualOpenings)}</td>` : ''}<td>${esc(c.train)}</td><td>${esc(c.l.entryEducation)}</td></tr>`).join('')}</tbody></table></div>`;
 
@@ -21,17 +22,18 @@ export function hubPages(ctx) {
   {
     const path = '/careers/';
     const crumbs = [['Home', '/'], ['Careers', path]];
-    const body = `${pageHero({ crumbs, eyebrow: `${careers.length} career profiles`, h1: 'Explore Careers', lead: 'Pay, training time, job growth and what the work is really like, for 50 in-demand U.S. careers. Filter by field or education, or sort by pay and growth.', meta: true })}
+    const body = `${pageHero({ crumbs, eyebrow: `${careers.length} career profiles`, h1: 'Explore Careers', lead: `Pay, training time, job growth and what the work is really like, for ${careers.length} in-demand U.S. careers. Filter by field or education, or sort by pay and growth.`, meta: true })}
 <div class="wrap" style="padding-top:30px;padding-bottom:60px">${dataNote(labor)}
-<form class="filters" data-filter role="search" aria-label="Filter careers"><div class="field"><label for="f-q">Search</label><input id="f-q" name="q" type="search" placeholder="e.g. nurse, electrician"></div><div class="field"><label for="f-cat">Field</label><select id="f-cat" name="cat"><option value="">All fields</option>${categories.map((c) => `<option value="${c.slug}">${esc(c.name)}</option>`).join('')}</select></div><div class="field"><label for="f-edu">Education I want</label><select id="f-edu" name="edu"><option value="">Any</option><option value="1">High school or less</option><option value="2">Up to a certificate</option><option value="3">Up to associate/apprenticeship</option><option value="4">Up to bachelor’s</option></select></div><div class="field"><label for="f-sort">Sort by</label><select id="f-sort" name="sort"><option value="">Field</option><option value="median">Highest pay</option><option value="growth">Fastest growth</option><option value="train">Fastest training</option><option value="name">A–Z</option></select></div><p class="count" data-count aria-live="polite">${careers.length} careers</p></form>
-<div class="grid" data-cards>${careers.map(cardWithData).join('')}</div>
+<form class="filters" data-filter role="search" aria-label="Filter careers"><div class="field"><label for="f-q">Search</label><input id="f-q" name="q" type="search" placeholder="e.g. nurse, electrician"></div><div class="field"><label for="f-cat">Field</label><select id="f-cat" name="cat"><option value="">All fields</option>${categories.map((c) => `<option value="${c.slug}">${esc(c.name)}</option>`).join('')}</select></div><div class="field"><label for="f-edu">Education I want</label><select id="f-edu" name="edu"><option value="">Any</option><option value="1">High school or less</option><option value="2">Up to a certificate</option><option value="3">Up to associate/apprenticeship</option><option value="4">Bachelor’s or higher</option></select></div><div class="field"><label for="f-sort">Sort by</label><select id="f-sort" name="sort"><option value="">Field</option><option value="median">Highest pay</option><option value="growth">Fastest growth</option><option value="train">Fastest training</option><option value="name">A–Z</option></select></div><p class="count" data-count aria-live="polite">${careers.length} careers</p></form>
+<div class="grid" data-cards hidden></div>
+<div data-dir>${categories.map((cat) => { const cs = careers.filter((c) => c.cat === cat.slug).sort((a, b) => a.title.localeCompare(b.title)); return `<section id="${cat.slug}" style="scroll-margin-top:90px"><h2>${icon(cat.slug, 26)} <a href="${href(`/careers/${cat.slug}/`)}">${esc(cat.name)}</a> <span class="muted small">${cs.length} careers</span></h2><ul class="linklist">${cs.map((c) => `<li><a href="${href(c.url)}">${esc(c.title)}</a> <span class="muted small">${money(c.l.wages.median)}</span></li>`).join('')}</ul></section>`; }).join('')}</div>
 <section class="section" style="padding-bottom:0"><h2>Browse by field</h2><div class="grid">${categories.map((c) => `<article class="card link"><span class="ico">${icon(c.slug)}</span><h3><a class="stretch" href="${href(`/careers/${c.slug}/`)}">${esc(c.name)}</a></h3><p>${esc(c.blurb)}</p></article>`).join('')}</div></section>
 <section class="section" style="padding-bottom:0"><h2>Popular career lists</h2><ul>${lists.map((l) => `<li><a href="${href(`/best-careers/${l.slug}/`)}">${esc(l.title)}</a></li>`).join('')}</ul></section></div>
 ${band('Not sure where to start?', 'Answer 24 quick questions and get matched with careers that fit your interests.', 'Take the Career Match Quiz', '/quizzes/career-match/', 'See all quizzes', '/quizzes/')}`;
     pages.push({ path, crumbs, body, og: '/og/default.png', kind: 'Directory', name: 'All careers',
-      title: fitTitle('Explore 50 Careers: Pay, Training & Outlook'),
+      title: fitTitle(`Explore ${careers.length} Careers: Pay, Training & Outlook`),
       desc: clamp(`Explore ${careers.length} U.S. careers with BLS pay data, job growth, training time and day-in-the-life details. Filter by field and education to find your next career.`),
-      schema: [{ '@type': 'ItemList', name: 'Career profiles', itemListElement: careers.map((c, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(c.url), name: c.title })) }] });
+      schema: [] }); // each field page carries its own ItemList; one list of every career would be very large
   }
 
   // ---------- Category hubs ----------
@@ -63,50 +65,105 @@ ${faqBlock(faqs, `${cat.name} careers FAQ`)}</div>
       schema: [{ '@type': 'ItemList', itemListElement: cs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(c.url), name: c.title })) }, faqSchema(faqs, path)] });
   }
 
-  // ---------- Compare index ----------
+  // ---------- Compare index (one page per field, so each stays small) ----------
   {
     const path = '/compare/';
     const crumbs = [['Home', '/'], ['Careers', '/careers/'], ['Compare careers', path]];
-    const body = `${pageHero({ crumbs, eyebrow: `${pairs.length} comparisons`, h1: 'Compare Careers Side by Side', lead: 'Torn between two careers? Compare median pay, training time, job growth and daily duties for related jobs.' })}
-<div class="wrap" style="padding-top:30px;padding-bottom:60px">${categories.map((cat) => { const ps = pairs.filter(([a, b]) => a.cat === cat.slug || b.cat === cat.slug).filter(([a]) => a.cat === cat.slug); return ps.length ? `<section><h2>${esc(cat.name)}</h2><ul class="grid" style="list-style:none;padding:0">${ps.map(([a, b]) => { const [x, y] = [a, b].sort((p, q) => p.slug.localeCompare(q.slug)); return `<li class="card link" style="margin:0"><a class="stretch" href="${href(`/compare/${compareSlug(a.slug, b.slug)}/`)}"><strong>${esc(x.title)}</strong> vs. <strong>${esc(y.title)}</strong></a><p class="small muted" style="margin:.4em 0 0">${money(x.l.wages.median)} vs. ${money(y.l.wages.median)} median</p></li>`; }).join('')}</ul></section>` : ''; }).join('')}</div>`;
+    const byField = categories.map((cat) => [cat, pairs.filter(([a]) => a.cat === cat.slug)]).filter(([, ps]) => ps.length);
+    const vs = ([a, b]) => { const [x, y] = [a, b].sort((p, q) => p.slug.localeCompare(q.slug)); return [x, y, href(`/compare/${compareSlug(a.slug, b.slug)}/`)]; };
+    const body = `${pageHero({ crumbs, eyebrow: `${pairs.length} comparisons`, h1: 'Compare Careers Side by Side', lead: 'Torn between two careers? Compare median pay, training time, job growth and daily duties for related jobs. Pick a field to see every comparison in it.' })}
+<div class="wrap" style="padding-top:30px;padding-bottom:60px"><div class="grid">${byField.map(([cat, ps]) => `<article class="card link"><span class="ico">${icon(cat.slug)}</span><h3><a class="stretch" href="${href(`/compare/${cat.slug}/`)}">${esc(cat.name)}</a></h3><p>${ps.length} comparisons, such as ${ps.slice(0, 2).map((p) => { const [x, y] = vs(p); return `${esc(x.title)} vs. ${esc(y.title)}`; }).join(' and ')}.</p></article>`).join('')}</div></div>`;
     pages.push({ path, crumbs, body, og: '/og/compare.png', kind: 'Comparison', name: 'Compare careers',
       title: fitTitle('Compare Careers Side by Side: Pay & Training'),
       desc: clamp(`Compare ${pairs.length} pairs of related careers side by side (median pay, training time, job growth, education and daily duties) to choose the right path.`), schema: [] });
+    for (const [cat, ps] of byField) {
+      const p = `/compare/${cat.slug}/`;
+      const fc = [...crumbs, [cat.name, p]];
+      const fbody = `${pageHero({ crumbs: fc, eyebrow: `${ps.length} comparisons`, h1: `Compare ${esc(cat.name)} Careers`, lead: `Side-by-side comparisons of related ${esc(cat.noun)} careers: median pay, training time, job growth and daily duties.` })}
+<div class="wrap" style="padding-top:30px;padding-bottom:60px"><ul class="grid" style="list-style:none;padding:0">${ps.map((pr) => { const [x, y, u] = vs(pr); return `<li class="card link" style="margin:0"><a class="stretch" href="${u}"><strong>${esc(x.title)}</strong> vs. <strong>${esc(y.title)}</strong></a><p class="small muted" style="margin:.4em 0 0">${money(x.l.wages.median)} vs. ${money(y.l.wages.median)} median</p></li>`; }).join('')}</ul>
+<p style="margin-top:24px"><a href="${href(`/careers/${cat.slug}/`)}">All ${esc(cat.noun)} careers</a> · <a href="${href(path)}">Comparisons in other fields</a></p></div>`;
+      pages.push({ path: p, crumbs: fc, body: fbody, og: `/og/cat-${cat.slug}.png`, kind: 'Comparison', name: `Compare ${cat.name} careers`,
+        title: fitTitle(`Compare ${cat.short || cat.name} Careers Side by Side`),
+        desc: clamp(`${ps.length} side-by-side comparisons of ${cat.noun} careers, such as ${vs(ps[0])[0].title.toLowerCase()} vs. ${vs(ps[0])[1].title.toLowerCase()}: median pay, training time, job growth and daily duties.`), schema: [] });
+    }
   }
 
-  // ---------- Salary guide ----------
+
+  // ---------- Salary guide: summary by field, plus one full table per field ----------
   {
     const path = '/salary-guide/';
     const crumbs = [['Home', '/'], ['Salary guide', path]];
     const sorted = [...careers].sort((a, b) => b.l.wages.median - a.l.wages.median);
+    const mid = (xs) => { const v = xs.map((c) => c.l.wages.median).sort((a, b) => a - b); return v.length % 2 ? v[(v.length - 1) / 2] : (v[v.length / 2 - 1] + v[v.length / 2]) / 2; };
+    const head = (field) => `<thead><tr><th scope="col" data-sort="text">Career</th><th scope="col" class="num" data-sort="num">Median/yr</th><th scope="col" class="num" data-sort="num">Median/hr</th><th scope="col" class="num" data-sort="num">10th pct</th><th scope="col" class="num" data-sort="num">90th pct</th><th scope="col" class="num" data-sort="num">Growth</th>${field ? '<th scope="col" data-sort="text">Field</th>' : ''}</tr></thead>`;
+    const row = (c, field) => `<tr><td><a href="${href(c.url + 'salary/')}">${esc(c.title)}</a></td><td class="num" data-v="${c.l.wages.median}">${money(c.l.wages.median)}</td><td class="num" data-v="${c.l.wages.hourly ?? (c.l.wages.median / 2080).toFixed(2)}">${c.l.wages.hourly != null ? money2(c.l.wages.hourly) : 'Annual only'}</td><td class="num" data-v="${c.l.wages.p10}">${money(c.l.wages.p10)}</td><td class="num" data-v="${c.l.wages.p90}">${money(c.l.wages.p90)}</td><td class="num" data-v="${c.l.growthPct}">${pct(c.l.growthPct)}</td>${field ? `<td>${esc(categories.find((x) => x.slug === c.cat).name)}</td>` : ''}</tr>`;
+    const fields = categories.map((cat) => { const cs = sorted.filter((c) => c.cat === cat.slug); return { cat, cs, mid: mid(cs) }; });
     const faqs = [
       ['Where does this salary data come from?', `All figures come from the U.S. Bureau of Labor Statistics ${labor.meta.wageSource} survey, the most comprehensive source of U.S. wage data by occupation. Growth projections come from the ${labor.meta.projectionsSource}.`],
       ['How often is this salary guide updated?', `BLS publishes new wage estimates each spring. We refresh the guide after each release. Data shown was checked on ${fmtDate(labor.meta.fetched)}.`],
       ['Why is my local pay different?', 'These are national figures. Pay varies widely by state, metro area, employer, union status, experience and credentials.']
     ];
-    const body = `${pageHero({ crumbs, eyebrow: `Updated ${fmtDate(labor.meta.fetched)}`, h1: `Salary Guide: Pay for ${careers.length} Careers`, lead: 'Median annual pay, hourly wage, pay range and job growth for every career we profile, from official Bureau of Labor Statistics data. Click a column to sort.' })}
+    const body = `${pageHero({ crumbs, eyebrow: `Updated ${fmtDate(labor.meta.fetched)}`, h1: `Salary Guide: Pay for ${careers.length} Careers`, lead: 'Median annual pay, hourly wage, pay range and job growth for every career we profile, from official Bureau of Labor Statistics data. Pick a field for its full, sortable table.' })}
 <div class="wrap" style="padding-top:30px;padding-bottom:60px">${dataNote(labor)}
-<div class="table-wrap"><table data-sortable><caption class="vh">Pay for ${careers.length} careers, ${labor.meta.oewsLabel}</caption><thead><tr><th scope="col" data-sort="text">Career</th><th scope="col" class="num" data-sort="num">Median/yr</th><th scope="col" class="num" data-sort="num">Median/hr</th><th scope="col" class="num" data-sort="num">10th pct</th><th scope="col" class="num" data-sort="num">90th pct</th><th scope="col" class="num" data-sort="num">Growth</th><th scope="col" data-sort="text">Field</th></tr></thead><tbody>${sorted.map((c) => `<tr><td><a href="${href(c.url + 'salary/')}">${esc(c.title)}</a></td><td class="num" data-v="${c.l.wages.median}">${money(c.l.wages.median)}</td><td class="num" data-v="${c.l.wages.hourly}">${money2(c.l.wages.hourly)}</td><td class="num" data-v="${c.l.wages.p10}">${money(c.l.wages.p10)}</td><td class="num" data-v="${c.l.wages.p90}">${money(c.l.wages.p90)}</td><td class="num" data-v="${c.l.growthPct}">${pct(c.l.growthPct)}</td><td>${esc(categories.find((x) => x.slug === c.cat).name)}</td></tr>`).join('')}</tbody></table></div>
+<h2 id="by-field">Pay by field</h2><div class="table-wrap"><table data-sortable><caption class="vh">Median pay by career field, ${labor.meta.oewsLabel}</caption><thead><tr><th scope="col" data-sort="text">Field</th><th scope="col" class="num" data-sort="num">Careers</th><th scope="col" class="num" data-sort="num">Typical median/yr</th><th scope="col" data-sort="text">Highest-paying career</th></tr></thead><tbody>${fields.map(({ cat, cs, mid: m }) => `<tr><td><a href="${href(`/salary-guide/${cat.slug}/`)}">${esc(cat.name)}</a></td><td class="num" data-v="${cs.length}">${cs.length}</td><td class="num" data-v="${m}">${money(m)}</td><td><a href="${href(cs[0].url + 'salary/')}">${esc(cs[0].title)}</a> (${money(cs[0].l.wages.median)})</td></tr>`).join('')}</tbody></table></div><p class="small muted">Typical median is the middle of the median wages for the careers we profile in that field.</p>
+<h2 id="top">The 25 highest-paying careers we profile</h2><div class="table-wrap"><table data-sortable><caption class="vh">25 highest-paying careers, ${labor.meta.oewsLabel}</caption>${head(true)}<tbody>${sorted.slice(0, 25).map((c) => row(c, true)).join('')}</tbody></table></div>
 <div class="prose">${faqBlock(faqs, 'About this data')}</div></div>`;
     pages.push({ path, crumbs, body, og: '/og/default.png', kind: 'Salary', name: 'Salary guide (all careers)',
       title: fitTitle(`Salary Guide ${cfg.updated.slice(0, 4)}: Pay for ${careers.length} Careers`),
-      desc: clamp(`Median salary, hourly pay and pay ranges for ${careers.length} careers from official BLS ${labor.meta.oewsLabel} data, plus job growth. Sortable table, updated ${fmtDate(labor.meta.fetched)}.`),
+      desc: clamp(`Median salary, hourly pay and pay ranges for ${careers.length} careers from official BLS ${labor.meta.oewsLabel} data, plus job growth, by field. Updated ${fmtDate(labor.meta.fetched)}.`),
       schema: [{ '@type': 'Dataset', name: `Career Education Institute salary guide (${labor.meta.oewsLabel})`, description: `Median and percentile annual wages and projected growth for ${careers.length} U.S. occupations, compiled from BLS OEWS and Employment Projections data.`, url: abs(path), creator: { '@id': abs('/#org') }, isBasedOn: 'https://www.bls.gov/oes/', temporalCoverage: String(labor.meta.oewsYear), spatialCoverage: 'United States', license: 'https://www.bls.gov/opub/copyright-information.htm', dateModified: labor.meta.fetched }, faqSchema(faqs, path)] });
+    for (const { cat, cs, mid: m } of fields) {
+      const p = `/salary-guide/${cat.slug}/`;
+      const fc = [...crumbs, [cat.name, p]];
+      const fbody = `${pageHero({ crumbs: fc, eyebrow: `Updated ${fmtDate(labor.meta.fetched)}`, h1: `${esc(cat.name)} Salary Guide: Pay for ${cs.length} Careers`, lead: `Median annual pay, hourly wage, pay range and job growth for ${cs.length} ${esc(cat.noun)} careers, from official Bureau of Labor Statistics data. Click a column to sort.` })}
+<div class="wrap" style="padding-top:30px;padding-bottom:60px">${dataNote(labor)}<p>The typical median wage across these ${cs.length} careers is <strong>${money(m)}</strong> a year. The highest-paying is <a href="${href(cs[0].url + 'salary/')}">${esc(cs[0].lower)}</a> at ${money(cs[0].l.wages.median)}.</p>
+<div class="table-wrap"><table data-sortable><caption class="vh">Pay for ${cs.length} ${esc(cat.noun)} careers, ${labor.meta.oewsLabel}</caption>${head(false)}<tbody>${cs.map((c) => row(c, false)).join('')}</tbody></table></div>
+<p style="margin-top:24px"><a href="${href(`/careers/${cat.slug}/`)}">All ${esc(cat.noun)} careers</a> · <a href="${href(path)}">Salaries in other fields</a></p></div>`;
+      pages.push({ path: p, crumbs: fc, body: fbody, og: `/og/cat-${cat.slug}.png`, kind: 'Salary', name: `${cat.name} salary guide`,
+        title: fitTitle(`${cat.short || cat.name} Salary Guide ${cfg.updated.slice(0, 4)}: ${cs.length} Careers`),
+        desc: clamp(`${cat.name} salaries for ${cs.length} careers from BLS ${labor.meta.oewsLabel} data: median pay, hourly wage, pay range and growth, led by ${cs[0].lower} (${money(cs[0].l.wages.median)}).`), schema: [] });
+    }
   }
 
-  // ---------- Glossary hub ----------
+
+  // ---------- Glossary hub (A–Z index plus one page per letter) ----------
   {
     const path = '/glossary/';
     const crumbs = [['Home', '/'], ['Career glossary', path]];
     const all = careers.flatMap((c) => c.terms.map(([t, d]) => ({ t, d, c }))).sort((a, b) => a.t.localeCompare(b.t, 'en', { sensitivity: 'base' }));
-    const letters = [...new Set(all.map((x) => x.t[0].toUpperCase().replace(/[^A-Z]/, '#')))];
+    const letterOf = (x) => x.t[0].toUpperCase().replace(/[^A-Z]/, '#');
+    const letters = [...new Set(all.map(letterOf))];
+    const lpath = (l) => `/glossary/${l === '#' ? 'num' : l.toLowerCase()}/`;
+    const lname = (l) => (l === '#' ? 'Numbers' : l);
     const anchor = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-    const body = `${pageHero({ crumbs, eyebrow: `${all.length} terms`, h1: 'Career Glossary: Job Terms A–Z', lead: `Plain-English definitions of ${all.length} terms used across ${careers.length} careers, from healthcare and the trades to tech and logistics.` })}
-<div class="wrap" style="padding-top:30px;padding-bottom:60px"><ul class="az">${letters.map((l) => `<li><a href="#letter-${l === '#' ? 'num' : l}">${l}</a></li>`).join('')}</ul>
-${letters.map((l) => `<section id="letter-${l === '#' ? 'num' : l}" style="scroll-margin-top:90px"><h2>${l}</h2><dl class="glossary">${all.filter((x) => x.t[0].toUpperCase().replace(/[^A-Z]/, '#') === l).map((x) => `<dt>${esc(x.t)} <span class="chip">${esc(x.c.short)}</span></dt><dd>${esc(x.d)} <a href="${href(x.c.url + 'glossary/#' + anchor(x.t))}">More ${esc(x.c.lower)} terms</a></dd>`).join('')}</dl></section>`).join('')}</div>`;
+    const azNav = (cur) => `<ul class="az">${letters.map((l) => (l === cur ? `<li><span aria-current="page">${l}</span></li>` : `<li><a href="${href(lpath(l))}">${l}</a></li>`)).join('')}</ul>`;
+    const body = `${pageHero({ crumbs, eyebrow: `${all.length} terms`, h1: 'Career Glossary: Job Terms A–Z', lead: `Plain-English definitions of ${all.length} terms used across ${careers.length} careers, from healthcare and the trades to tech and logistics. Pick a letter, or open a career’s own glossary.` })}
+<div class="wrap" style="padding-top:30px;padding-bottom:60px">${azNav()}
+<h2>Browse by letter</h2><div class="grid">${letters.map((l) => { const n = all.filter((x) => letterOf(x) === l).length; return `<article class="card link"><h3><a class="stretch" href="${href(lpath(l))}">${esc(lname(l))}</a></h3><p>${n} term${n === 1 ? '' : 's'}</p></article>`; }).join('')}</div>
+${categories.map((cat) => `<section id="${cat.slug}" style="scroll-margin-top:90px"><h2>${esc(cat.name)} glossaries</h2><ul class="linklist">${careers.filter((c) => c.cat === cat.slug).map((c) => `<li><a href="${href(c.url + 'glossary/')}">${esc(c.title)} terms</a></li>`).join('')}</ul></section>`).join('')}</div>`;
     pages.push({ path, crumbs, body, og: '/og/default.png', kind: 'Glossary', name: 'Career glossary A–Z',
       title: fitTitle('Career Glossary: 700+ Job Terms Defined A–Z'.replace('700+', `${Math.floor(all.length / 50) * 50}+`)),
       desc: clamp(`A–Z glossary of ${all.length} job terms from ${careers.length} careers, defined in plain English. Learn the vocabulary of healthcare, skilled trades, safety, logistics, business and tech.`), schema: [] });
+    // Letters with many terms are split into pages of up to PER terms (/glossary/c/, /glossary/c/2/ ...)
+    const PER = 350;
+    for (const l of letters) {
+      const terms = all.filter((x) => letterOf(x) === l);
+      const n = Math.ceil(terms.length / PER);
+      for (let i = 0; i < n; i++) {
+        const chunk = terms.slice(i * PER, (i + 1) * PER);
+        const p = lpath(l) + (i ? `${i + 1}/` : '');
+        const lc = [...crumbs, [lname(l), lpath(l)], ...(i ? [[`Page ${i + 1}`, p]] : [])];
+        const range = n > 1 ? ` (${esc(chunk[0].t)} to ${esc(chunk.at(-1).t)})` : '';
+        const h1 = (l === '#' ? 'Career Glossary: Terms Starting With a Number' : `Career Glossary: Terms Starting With ${l}`) + (n > 1 ? `, Page ${i + 1}` : '');
+        const pager = n > 1 ? `<nav class="pager" aria-label="Pages"><ul class="az">${Array.from({ length: n }, (_, j) => (j === i ? `<li><span aria-current="page">${j + 1}</span></li>` : `<li><a href="${href(lpath(l) + (j ? `${j + 1}/` : ''))}">${j + 1}</a></li>`)).join('')}</ul></nav>` : '';
+        const lbody = `${pageHero({ crumbs: lc, eyebrow: `${terms.length} terms`, h1, lead: `Plain-English definitions of job terms${l === '#' ? ' that start with a number' : ` that start with ${l}`}${range}, each linked to the career that uses it.` })}
+<div class="wrap" style="padding-top:30px;padding-bottom:60px">${azNav(l)}${pager}<dl class="glossary">${chunk.map((x) => `<dt>${esc(x.t)} <span class="chip">${esc(x.c.short)}</span></dt><dd>${esc(x.d)} <a href="${href(x.c.url + 'glossary/#' + anchor(x.t))}">More ${esc(x.c.lower)} terms</a></dd>`).join('')}</dl>${pager}
+<p><a href="${href(path)}">All letters and career glossaries</a></p></div>`;
+        pages.push({ path: p, crumbs: lc, body: lbody, og: '/og/default.png', kind: 'Glossary', name: h1,
+          title: fitTitle((l === '#' ? 'Job Terms Starting With a Number' : `Job Terms Starting With ${l}`) + (n > 1 ? ` (Page ${i + 1})` : '') + ': Career Glossary'),
+          desc: clamp(`${terms.length} career and job terms starting with ${l === '#' ? 'a number' : l}, defined in plain English${chunk.length ? `, from ${chunk.slice(0, 3).map((x) => x.t).join(', ')} and more` : ''}${n > 1 ? ` (page ${i + 1} of ${n})` : ''}. Each links to the career where it’s used.`), schema: [] });
+      }
+    }
   }
 
   // ---------- Best careers lists ----------
@@ -116,7 +173,7 @@ ${letters.map((l) => `<section id="letter-${l === '#' ? 'num' : l}" style="scrol
     pages.push({ path: idx, crumbs: crumbs0, og: '/og/default.png', kind: 'List', name: 'Best careers lists',
       title: fitTitle('Best Careers Lists: Pay, Growth & Fast Training'),
       desc: clamp('Data-driven lists of the best careers: highest-paying jobs without a degree, fastest careers to train for, fastest-growing jobs, outdoor jobs, jobs for introverts and more.'),
-      body: `${pageHero({ crumbs: crumbs0, eyebrow: 'Data-driven lists', h1: 'Best Careers Lists', lead: 'Ranked lists built from official BLS pay and growth data for the 50 careers we profile.' })}<div class="wrap" style="padding-top:30px;padding-bottom:60px"><div class="grid">${lists.map((l) => `<article class="card link"><h3><a class="stretch" href="${href(`/best-careers/${l.slug}/`)}">${esc(l.title)}</a></h3><p>${esc(l.intro.split('. ')[0])}.</p></article>`).join('')}</div></div>`, schema: [] });
+      body: `${pageHero({ crumbs: crumbs0, eyebrow: 'Data-driven lists', h1: 'Best Careers Lists', lead: `Ranked lists built from official BLS pay and growth data for the ${careers.length} careers we profile.` })}<div class="wrap" style="padding-top:30px;padding-bottom:60px"><div class="grid">${lists.map((l) => `<article class="card link"><h3><a class="stretch" href="${href(`/best-careers/${l.slug}/`)}">${esc(l.title)}</a></h3><p>${esc(l.intro.split('. ')[0])}.</p></article>`).join('')}</div></div>`, schema: [] });
     for (const l of lists) {
       const path = `/best-careers/${l.slug}/`;
       const crumbs = [...crumbs0, [l.short, path]];
@@ -124,7 +181,7 @@ ${letters.map((l) => `<section id="letter-${l === '#' ? 'num' : l}" style="scrol
       const faqs = [[`What is #1 on the list of ${l.short.toLowerCase()}?`, `${cs[0].title}, with a median wage of ${money(cs[0].l.wages.median)} per year and about ${cs[0].train} of training.`], ['How was this list made?', `We ranked careers from our ${careers.length} profiles using BLS ${labor.meta.oewsLabel} wage data and ${labor.meta.projections} employment projections, applying the criteria described on this page.`]];
       const body = `${pageHero({ crumbs, eyebrow: `${cs.length} careers`, h1: esc(l.title), lead: esc(l.intro) })}
 <div class="wrap layout"><div class="prose">${dataNote(labor)}${careerTable(cs, labor, l.metric)}
-${cs.map((c, i) => `<h2 id="${c.slug}">${i + 1}. ${esc(c.title)}</h2><p>${esc(c.summary)}</p><ul><li><strong>Median pay:</strong> ${money(c.l.wages.median)} (${money2(c.l.wages.hourly)}/hr)</li><li><strong>Training:</strong> ${esc(c.train)}: ${esc(c.l.entryEducation.toLowerCase())}</li><li><strong>Growth:</strong> ${pct(c.l.growthPct)} (${growthWord(c.l.growthPct)}), ${num(c.l.annualOpenings)} openings/yr</li></ul><p><a href="${href(c.url)}">${esc(c.title)} career guide</a> · <a href="${href(c.trainingUrl)}">${esc(c.title)} training</a></p>`).join('')}
+${cs.map((c, i) => `<h2 id="${c.slug}">${i + 1}. ${esc(c.title)}</h2><p>${esc(c.summary)}</p><ul><li><strong>Median pay:</strong> ${money(c.l.wages.median)}${c.l.wages.hourly != null ? ` (${money2(c.l.wages.hourly)}/hr)` : ''}</li><li><strong>Training:</strong> ${esc(c.train)}: ${esc(c.l.entryEducation.toLowerCase())}</li><li><strong>Growth:</strong> ${pct(c.l.growthPct)} (${growthWord(c.l.growthPct)}), ${num(c.l.annualOpenings)} openings/yr</li></ul><p><a href="${href(c.url)}">${esc(c.title)} career guide</a> · <a href="${href(c.trainingUrl)}">${esc(c.title)} training</a></p>`).join('')}
 <h2 id="method">Methodology</h2><p>Rankings use national data from the U.S. Bureau of Labor Statistics (${esc(labor.meta.wageSource)}; ${esc(labor.meta.projectionsSource)}) for the ${careers.length} careers profiled on Career Education Institute. Lists are not exhaustive of all U.S. occupations. Data checked ${fmtDate(labor.meta.fetched)}.</p>${faqBlock(faqs, 'About this list')}</div>
 <aside>${ctaCard({ title: 'Find your fit', text: 'Answer 24 questions and get careers matched to your interests.', btn: 'Take the Career Match Quiz', link: '/quizzes/career-match/' })}${sideLinks('More lists', lists.filter((x) => x !== l).map((x) => [x.short, `/best-careers/${x.slug}/`]))}</aside></div>`;
       pages.push({ path, crumbs, body, og: '/og/default.png', kind: 'List', name: l.title, type: 'article',
@@ -156,7 +213,7 @@ ${cs.map((c, i) => `<h2 id="${c.slug}">${i + 1}. ${esc(c.title)}</h2><p>${esc(c.
       faqs: [['Is it too late to change careers at 40 or 50?', 'No. Employers value maturity, reliability and transferable experience. Choose a target with reasonable training time, build a financial cushion and lead with the skills you already have.'], ['How do I change careers with no experience in the new field?', 'Use transferable skills, a short credential, volunteer or part-time work, and informational interviews to build relevant experience fast. A career-change resume that leads with skills, not job titles, helps employers see the fit.'], ['How long does a career change take?', 'It depends on the target. Some careers can be entered in weeks (warehouse, security, phlebotomy), others in months (CDL, medical assisting) and some require years (registered nursing, accounting).'], ['Should I quit my job before retraining?', 'Usually not. Most people do better training part-time or evenings while still employed, then switching once they have a credential or offer.']] },
     { path: '/professionals/', key: 'professionals', eyebrow: 'For working professionals', h1: 'Grow in Your Career',
       title: 'Career Growth Tips for Working Professionals',
-      lead: 'Practical advice for getting better at the job you have (earning more, getting promoted, adding credentials and avoiding burnout) plus job-specific tips for 50 careers.',
+      lead: `Practical advice for getting better at the job you have (earning more, getting promoted, adding credentials and avoiding burnout) plus job-specific tips for ${careers.length} careers.`,
       intro: ['Growth doesn’t always mean changing careers. Often the fastest raise comes from becoming the person your team relies on: sharpening core skills, earning the right credential and making your results visible.', 'Use the guides below for general strategies, then jump into your own job’s skills, vocabulary and step-by-step task guides to keep building expertise.'],
       steps: [['Sharpen your core skills', 'Review your role’s skills, tools and how-to guides.', '/careers/'], ['Add a credential', 'Decide whether a certification or degree pays off.', '/guides/certifications-vs-degrees/'], ['Make your case', 'Ask for a raise or promotion with evidence.', '/guides/how-to-ask-for-a-raise/'], ['Protect your energy', 'Prevent burnout so growth is sustainable.', '/guides/avoid-burnout/']],
       quizzes: [['Work Style Quiz', '/quizzes/work-style/'], ['Career Change Readiness Quiz', '/quizzes/career-change-readiness/']],

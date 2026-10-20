@@ -3,13 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Career Education Institute static website generator: career profiles, trainings, certification courses, checkout, quizzes, guides, employer resources and blog.",
+  "description": "Career Education Institute static website generator: career profiles, trainings, certification courses, checkout, quizzes, guides, employer resources and newsletter pages. The blog is a separate repo (blog), published at /blog/.",
   "scripts": {
     "build": "node scripts/build.mjs",
     "audit": "node scripts/audit.mjs",
     "serve": "node scripts/serve.mjs",
     "dev": "node scripts/build.mjs && node scripts/serve.mjs",
-    "import-blog": "node scripts/import-blog.mjs",
     "update-salaries": "node scripts/fetch-bls.mjs",
     "update-partner-courses": "node scripts/fetch-partner-courses.mjs",
     "course-specs": "node scripts/course-specs.mjs"

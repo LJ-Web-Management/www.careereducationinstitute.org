@@ -266,10 +266,10 @@ Ask two or three people (supervisors, instructors or coworkers) for short recomm
   slug: 'how-to-get-a-job-with-no-experience', title: 'How to Get a Job With No Experience', crumb: 'Getting a job with no experience', topic: 'job-search', audience: ['students', 'changers'],
   desc: 'How to get hired with no experience: target entry-level and trainee roles, use transferable skills, earn fast credentials, build experience through volunteering and nail the interview.',
   answer: 'Target roles that train new hires, earn a fast credential that proves commitment, build experience through volunteering, part-time or project work, highlight transferable skills on your resume and show reliability and eagerness to learn in interviews.',
-  careers: ['warehouse-associate', 'security-guard', 'customer-service-representative', 'construction-laborer', 'certified-nursing-assistant', 'forklift-operator'],
+  careers: ['warehouse-associate', 'security-guard', 'customer-service-representative', 'construction-laborer', 'certified-nursing-assistant', 'forklift-operator', 'courier', 'janitor'],
   related: ['first-job-guide', 'transferable-skills', 'how-to-write-a-resume'],
   body: `## Target jobs that train you
-Many employers hire for attitude and train for skill. Look for “trainee,” “entry-level,” “no experience required” and “paid training.” Careers with on-the-job training include [warehouse associate](/careers/warehouse-associate/), [security guard](/careers/security-guard/), [customer service representative](/careers/customer-service-representative/) and [construction laborer](/careers/construction-laborer/).
+Many employers hire for attitude and train for skill. Look for “trainee,” “entry-level,” “no experience required” and “paid training.” Careers with on-the-job training include [warehouse associate](/careers/warehouse-associate/), [security guard](/careers/security-guard/), [customer service representative](/careers/customer-service-representative/), [courier](/careers/courier/), [janitor](/careers/janitor/) and [construction laborer](/careers/construction-laborer/).
 
 ## Earn a fast credential
 A short credential shows commitment and lowers the employer’s risk:

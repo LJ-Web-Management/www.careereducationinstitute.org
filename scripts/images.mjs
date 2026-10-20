@@ -31,7 +31,7 @@ function ico(png32) {
   return Buffer.concat([header, entry, png32]);
 }
 
-export async function writeImages({ DIST, ROOT, careers, categories, posts }) {
+export async function writeImages({ DIST, ROOT, careers, categories }) {
   let sharp;
   try { sharp = (await import('sharp')).default; } catch { console.warn('! sharp not installed — skipping image generation'); return; }
   const og = path.join(DIST, 'og'); const icons = path.join(DIST, 'icons'); const brand = path.join(DIST, 'brand');
@@ -41,9 +41,8 @@ export async function writeImages({ DIST, ROOT, careers, categories, posts }) {
   const icon = await sharp(path.join(ROOT, 'src/brand/logo-icon.png')).trim({ threshold: 10 }).png().toBuffer();
   const iconMeta = await sharp(icon).metadata();
 
-  // Full logo for header/footer (2x of the display height)
-  await sharp(full).resize({ height: LOGO.h * 2 }).webp({ quality: 92, alphaQuality: 100 }).toFile(path.join(brand, 'logo.webp'));
-  await sharp(full).resize({ height: LOGO.h * 2 }).png({ compressionLevel: 9 }).toFile(path.join(brand, 'logo.png'));
+  // Full logo for header/footer (2x of the display height). A palette PNG is smaller than WebP for this artwork.
+  await sharp(full).resize({ height: LOGO.h * 2 }).png({ compressionLevel: 9, palette: true, quality: 90, effort: 10 }).toFile(path.join(brand, 'logo.png'));
 
   // Square icons: book mark centered on a white tile
   const tile = async (size, frac, round = 0) => {
@@ -51,7 +50,7 @@ export async function writeImages({ DIST, ROOT, careers, categories, posts }) {
     const mm = await sharp(mark).metadata();
     const bg = round ? Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}"><rect width="${size}" height="${size}" rx="${round}" fill="#ffffff"/></svg>`) : null;
     const base = bg ? sharp(bg) : sharp({ create: { width: size, height: size, channels: 4, background: '#ffffff' } });
-    return base.composite([{ input: mark, left: Math.round((size - mm.width) / 2), top: Math.round((size - mm.height) / 2) }]).png({ compressionLevel: 9 }).toBuffer();
+    return base.composite([{ input: mark, left: Math.round((size - mm.width) / 2), top: Math.round((size - mm.height) / 2) }]).png(size >= 180 ? { compressionLevel: 9, palette: true, quality: 90, effort: 10 } : { compressionLevel: 9 }).toBuffer();
   };
   fs.writeFileSync(path.join(DIST, 'apple-touch-icon.png'), await tile(180, 0.8));
   fs.writeFileSync(path.join(icons, 'icon-192.png'), await tile(192, 0.8, 36));
@@ -68,7 +67,7 @@ export async function writeImages({ DIST, ROOT, careers, categories, posts }) {
   const render = (o, file) => sharp(Buffer.from(ogSvg({ ...o, iconB64, iconW: iconMeta.width, iconH: iconMeta.height }))).png({ compressionLevel: 9, palette: true, quality: 90 }).toFile(file);
   const jobs = [];
   const fixed = [
-    ['default', 'Find the career that fits, then train for it', 'Career training by job title', '50 careers · Free quizzes · Salary data · U.S.-focused'],
+    ['default', 'Find the career that fits, then train for it', 'Career training by job title', `${careers.length} careers · Free quizzes · Salary data · U.S.-focused`],
     ['training', 'Online career training by job title', 'Training catalog', 'Self-paced · Practical · Certificate of completion'],
     ['courses', 'Job-title courses to buy online', 'CDL ELDT, forklift, flagger, mold inspector', 'Buy online · Self-paced · Volume pricing'],
     ['compare', 'Compare careers side by side', 'Career comparison', 'Pay · Training time · Job growth · Daily duties'],
@@ -80,9 +79,5 @@ export async function writeImages({ DIST, ROOT, careers, categories, posts }) {
   for (const [f, title, kicker, footer] of fixed) jobs.push(render({ title, kicker, footer }, path.join(og, f + '.png')));
   for (const c of careers) jobs.push(render({ title: c.title, kicker: categories.find((x) => x.slug === c.cat).name + ' career', footer: `Median pay $${c.l.wages.median.toLocaleString('en-US')} · Training: ${c.train}` }, path.join(og, c.slug + '.png')));
   for (const cat of categories) jobs.push(render({ title: `${cat.name} careers`, kicker: 'Career category', footer: 'Pay, training time and outlook for every role' }, path.join(og, 'cat-' + cat.slug + '.png')));
-  for (const p of posts) {
-    if (p.cover) jobs.push(sharp(path.join(p.dir, p.cover)).resize(1200, 630, { fit: 'cover' }).jpeg({ quality: 82, mozjpeg: true }).toFile(path.join(og, 'blog-' + p.slug + '.jpg')));
-    else jobs.push(render({ title: p.title, kicker: 'Blog', footer: p.category }, path.join(og, 'blog-' + p.slug + '.png')));
-  }
   await Promise.all(jobs);
 }

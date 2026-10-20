@@ -31,8 +31,8 @@ This Privacy Policy explains how we collect, uses, discloses and protects person
 
 ### Information collected automatically
 - **Hosting logs.** Our website is hosted by a third-party provider (currently GitHub Pages), which may automatically log technical information such as IP address, browser type, pages requested and date/time for security and operations. See GitHub’s privacy statement for details.
-- **Browser storage.** We do not use advertising or tracking cookies by default. On the checkout page only, Stripe’s secure card form may set cookies and collect device information to prevent fraud, under Stripe’s privacy policy. We may store a small preference in your browser’s local storage (for example, your analytics opt-out choice). Quiz answers are processed entirely in your browser and are not transmitted or saved by us.
-- **Optional analytics.** If we enable website analytics (such as Google Analytics) in the future, it will collect pseudonymous usage information (pages viewed, approximate location, device type). Analytics will not load if your browser sends a Global Privacy Control (GPC) signal or if you opt out on our [Your Privacy Choices](/your-privacy-choices/) page.
+- **Browser storage.** We do not use advertising cookies. Google Analytics sets analytics cookies, described below. On the checkout page only, Stripe’s secure card form may set cookies and collect device information to prevent fraud, under Stripe’s privacy policy. We may store a small preference in your browser’s local storage (for example, your analytics opt-out choice). Quiz answers are processed entirely in your browser and are not transmitted or saved by us.
+- **Analytics.** We use Google Analytics to collect pseudonymous usage information (pages viewed, approximate location, device type), with Google signals and ad personalization turned off. Analytics does not load if your browser sends a Global Privacy Control (GPC) signal or if you opt out on our [Your Privacy Choices](/your-privacy-choices/) page.
 
 ### Information from others
 - Employers, staffing agencies or workforce programs that enroll you as part of a group may provide your name, work email and course assignment.
@@ -100,7 +100,7 @@ In the past 12 months we have collected the following categories of personal inf
 | Identifiers | Name, email, phone, IP address | Yes | No |
 | Customer records (Cal. Civ. Code § 1798.80) | Name, contact and billing details (card numbers are handled by Stripe) | Yes | No |
 | Commercial information | Courses requested or purchased | Yes | No |
-| Internet or network activity | Pages visited (hosting logs; analytics if enabled) | Yes | No |
+| Internet or network activity | Pages visited (hosting logs and Google Analytics) | Yes | No |
 | General geolocation | State of residence; approximate location from IP | Yes | No |
 | Professional or employment information | Employer name for group enrollments | Sometimes | No |
 | Education information | Course progress and certificates (not covered by FERPA) | Yes | No |
@@ -185,24 +185,24 @@ If any provision is unenforceable, the rest remain in effect. These Terms, toget
 ## 16. Contact
 ${contact}` },
 
-  { slug: 'cookie-policy', title: 'Cookie Policy', desc: 'Career Education Institute uses no advertising or tracking cookies by default. Learn what browser storage we use, optional analytics and how to control your choices.',
+  { slug: 'cookie-policy', title: 'Cookie Policy', desc: 'Career Education Institute uses no advertising cookies. Learn what browser storage we use, how we use Google Analytics and how to turn it off.',
     body: `**Effective date and last updated:** ${D}
 
 ${who('this policy')}
 
 ## Our approach
-Career Education Institute is built to be fast and private. **By default, our website does not set advertising or tracking cookies.**
+Career Education Institute is built to be fast and private. **Our website does not set advertising cookies.** We use Google Analytics to understand how visitors use the site, and you can turn it off.
 
 ## What we use
 | Technology | Purpose | Duration | Can you opt out? |
 |---|---|---|---|
-| Local storage: \`cei-optout\` | Remembers your choice to opt out of optional analytics | Until you clear it | Yes: clear browser data |
+| Local storage: \`cei-optout\` | Remembers your choice to opt out of Google Analytics | Until you clear it | Yes: clear browser data |
 | Local storage: \`cei-newsletter-popup\`, plus a blog service worker that stores nothing | Remembers that you have seen the newsletter sign-up popup on the blog, so it opens only once. The service worker caches no pages or data; it only lets a hard refresh show the popup again | Until you clear it | Yes: clear browser data |
 | Local storage: \`cei-partner-code\` | Remembers a partner discount code from a partner’s link, so it is filled in at checkout and on enrollment forms | ${cfg.partnerProgram.linkDays} days, or until you clear it | Yes: clear browser data |
 | Form provider (contact and newsletter forms) | Runs the contact form and the newsletter sign-up and unsubscribe forms, only on those three pages. The provider may set its own cookies under its privacy policy | Per the provider’s policy | Avoid those pages; call or email us instead |
 | Hosting logs (GitHub Pages) | Security and reliable delivery; set by our host, not by cookies we control | Per host’s policy | Not applicable |
 | Stripe cookies (for example, \`__stripe_mid\`, \`__stripe_sid\`) | Fraud prevention for card payments, set only on the checkout page | Up to 1 year | Avoid the checkout page; order by phone instead |
-| Optional analytics cookies (for example, \`_ga\`) | Only if we enable analytics: aggregated usage statistics | Up to 13 months | Yes: GPC signal or [Your Privacy Choices](/your-privacy-choices/) |
+| Google Analytics cookies (\`_ga\`, \`_ga_FPKWMLEWMG\`) | Aggregated usage statistics, with Google signals and ad personalization turned off. Not set if your browser sends GPC or you opt out | Up to 13 months | Yes: GPC signal or [Your Privacy Choices](/your-privacy-choices/) |
 
 ## Quizzes and forms
 Quiz answers are processed in your browser and are not stored or sent. Enrollment and partner sign-up forms open your own email app, and the website itself does not store what you type. The contact form and the newsletter sign-up and unsubscribe forms are hosted by a third-party form provider, which receives what you enter there. The checkout page sends your order details to our course provider and your card details to Stripe, as described in our [Privacy Policy](/privacy-policy/).
@@ -330,7 +330,7 @@ ${who('this page')}
 
 Even so, you can record your preference below, and we will honor it if our practices ever change.
 
-## Opt out of optional analytics on this browser
+## Opt out of Google Analytics on this browser
 <button class="btn btn-primary" type="button" data-optout>Toggle analytics opt-out</button>
 
 <p data-optout-status class="small muted" aria-live="polite">Checking your setting…</p>

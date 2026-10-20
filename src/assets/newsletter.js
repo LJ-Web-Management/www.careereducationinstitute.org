@@ -1,7 +1,9 @@
 // Newsletter sign-up popup on the blog home page and blog posts. It opens once per browser,
 // then stays hidden until a hard refresh, a different browser or cleared site data.
 (function () {
-  var d = document, KEY = 'cei-newsletter-popup', base = (window.MP && window.MP.base) || '';
+  var d = document, KEY = 'cei-newsletter-popup', MP = window.MP || {}, base = MP.base || '';
+  // On the blog's own site, MP.main is the main site's address and MP.blogBase the blog's base path.
+  var main = MP.main || base, swBase = MP.blogBase != null ? MP.blogBase : base + '/blog';
   if (!window.HTMLDialogElement) return;
   // If storage is blocked we cannot remember the popup, so never show it rather than nag.
   var seen = function () { try { return !!localStorage.getItem(KEY); } catch (e) { return true; } };
@@ -16,7 +18,7 @@
     var reload = nav ? nav.type === 'reload' : !!(performance.navigation && performance.navigation.type === 1);
     ready = sw.getRegistration().then(function (reg) {
       if (reload && reg && reg.active && !sw.controller) mark(false);
-      if (!reg) return sw.register(base + '/blog/sw.js', { scope: base + '/blog/' });
+      if (!reg) return sw.register(swBase + '/sw.js', { scope: swBase + '/' });
     }).catch(function () {});
   }
 
@@ -28,7 +30,7 @@
     dlg.setAttribute('aria-labelledby', 'nl-pop-h');
     dlg.innerHTML = '<div class="nl-pop-in"><p class="eyebrow">Free newsletter</p><h2 id="nl-pop-h">Get new career articles by email</h2>' +
       '<p>Career advice, salary updates, training tips and hiring insights from our blog, sent to your inbox.</p>' +
-      '<div class="btn-row"><a class="btn btn-primary" href="' + base + '/newsletter/" autofocus>Sign up for the newsletter</a><button class="btn" type="button" data-close>No thanks</button></div></div>' +
+      '<div class="btn-row"><a class="btn btn-primary" href="' + main + '/newsletter/" autofocus>Sign up for the newsletter</a><button class="btn" type="button" data-close>No thanks</button></div></div>' +
       '<button class="nl-pop-x" type="button" aria-label="Close" data-close><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>';
     dlg.addEventListener('click', function (e) {
       if (e.target === dlg || (e.target.closest && e.target.closest('[data-close]'))) dlg.close();

@@ -63,5 +63,77 @@ export const employerCats = {
     sources: ['Licensed security training schools', 'Military and law-enforcement transition programs', 'Community job fairs and workforce centers', 'Referrals from current officers'],
     screening: ['State security license or guard card verification', 'Background checks according to state licensing rules', 'Driving record if patrol vehicles are used', 'A scenario-based interview on judgment and de-escalation'],
     kpis: ['Report quality and completeness', 'Post-order compliance in audits', 'Client complaints or incidents', '90-day retention']
+  },
+  'energy-and-utilities': {
+    audience: 'utilities, power plants, refineries and oilfield service companies',
+    pitch: 'Plants, grids and well sites run around the clock, and a new operator who doesn’t know the vocabulary or the safety rules is a risk to the whole crew. Job-title training gives every new hire the same foundation before qualification on your own systems begins.',
+    pains: ['Long qualification timelines before operators can stand watch alone', 'Retirements taking decades of system knowledge with them', 'New hires who don’t yet recognize energized, pressurized or toxic-gas hazards', 'Uneven grounding in lockout/tagout, permits and procedures'],
+    sources: ['Community college power plant, process technology and line programs', 'Military nuclear and engineering veterans', 'Utility and union apprenticeship programs', 'Referrals and internal transfers from maintenance crews'],
+    screening: ['Aptitude testing such as EEI POSS, MASS or CAST where used', 'Drug and alcohol testing, including DOT rules for covered roles', 'Background checks and site-access requirements', 'Physical capability for climbing, lifting and respirator use where required'],
+    kpis: ['Weeks to first qualification sign-off', 'Procedure compliance and safety observations', 'Recordable incidents and near-misses', 'First-year retention']
+  },
+  'science-and-engineering': {
+    audience: 'labs, engineering firms, manufacturers and research organizations',
+    pitch: 'Technical hires arrive with uneven lab and documentation habits. Job-title training builds shared vocabulary, measurement discipline and good recordkeeping so your senior staff can focus on your methods and your projects.',
+    pains: ['Documentation and data-integrity errors from new staff', 'Senior scientists and engineers pulled into basic training', 'Inconsistent safety and chemical-handling habits', 'Slow ramp-up on instruments, CAD tools and quality systems'],
+    sources: ['Community college and university engineering technology and science programs', 'Co-op and internship programs', 'Professional societies such as ASCE, ASME and IEEE', 'Military technical veterans'],
+    screening: ['Degree, transcript or credential verification (PE, FE, ASCP) where required', 'A practical exercise, lab test or CAD drawing review', 'Background checks for regulated or secure facilities', 'Reference checks focused on accuracy and documentation'],
+    kpis: ['Time to independent work on instruments or projects', 'Documentation or data corrections required', 'Rework, out-of-spec results or failed audits', '90-day retention']
+  },
+  'sales-and-retail': {
+    audience: 'retailers, dealerships, distributors, agencies and B2B sales teams',
+    pitch: 'Sales and retail teams turn over fast, and every new hire needs product knowledge, customer service skills and loss-prevention basics before the first rush. Job-title training gets associates and reps productive faster without pulling your best sellers off the floor.',
+    pains: ['High turnover and constant onboarding', 'New hires who can’t answer basic product or policy questions', 'Inconsistent customer experience across stores and reps', 'Long ramp to quota for new sales reps'],
+    sources: ['Local job fairs, workforce centers and student job boards', 'Internal promotion from part-time and seasonal staff', 'Referrals from top performers', 'Industry associations and licensing schools for insurance and financial sales'],
+    screening: ['A structured interview with role-play or a customer scenario', 'License verification (state insurance, real estate or FINRA) where required', 'Background checks for cash-handling and financial roles', 'Availability for scheduled shifts and peak seasons'],
+    kpis: ['Time to independent shifts or first sale', 'Sales per hour, conversion or quota attainment', 'Customer satisfaction scores', '30- and 90-day retention']
+  },
+  'hospitality-and-food-service': {
+    audience: 'restaurants, hotels, resorts, casinos and caterers',
+    pitch: 'In hospitality, a new hire is in front of guests on the first shift. Job-title training covers service standards, food safety, vocabulary and the realities of the job, so managers spend less time re-teaching and more time running the floor.',
+    pains: ['Turnover that keeps managers in permanent training mode', 'Food safety and sanitation habits that vary by person', 'Guest complaints from new staff who don’t know service standards', 'No-shows and quits from hires who didn’t know what the job involves'],
+    sources: ['Culinary and hospitality school career centers', 'Local job fairs and workforce programs', 'Employee referral bonuses', 'Internal promotion from entry-level roles'],
+    screening: ['Food handler or ServSafe certification where required', 'Responsible alcohol-service certification for bar staff', 'Working interview or stage (trial shift) for kitchen roles', 'Availability for nights, weekends and holidays'],
+    kpis: ['Days to independent shifts', 'Health inspection and audit results', 'Guest satisfaction and review scores', '30- and 90-day retention']
+  },
+  'arts-media-and-design': {
+    audience: 'agencies, studios, publishers, broadcasters and in-house creative teams',
+    pitch: 'Creative and technical media hires bring talent but different habits. Job-title training builds a shared vocabulary, workflow basics and professional standards, so creative leads can focus on the work instead of the fundamentals.',
+    pains: ['Uneven fundamentals across self-taught and degree-trained hires', 'Missed deadlines from unclear workflow and file-handling habits', 'Copyright, licensing and brand-standard mistakes', 'Senior creatives pulled into basic training'],
+    sources: ['Portfolio sites and creative communities', 'Art, design, film and journalism school career centers', 'Freelancers who have already worked with your team', 'Professional associations such as AIGA and PRSA'],
+    screening: ['Portfolio or reel review', 'A short paid test project', 'Software proficiency check', 'References from clients or creative directors'],
+    kpis: ['Time to first independent project', 'Revision rounds per project', 'On-time delivery rate', '90-day retention']
+  },
+  'education-and-childcare': {
+    audience: 'schools, childcare centers, districts and training departments',
+    pitch: 'New teachers, aides and childcare staff need classroom basics, safety rules and child development vocabulary before they can be effective. Job-title training gives every new hire a common foundation so mentors can focus on your curriculum and your students.',
+    pains: ['Staff shortages that leave little time for mentoring', 'New hires unprepared for classroom management', 'Inconsistent knowledge of safety, supervision and mandated-reporter duties', 'Early resignations when the job is harder than expected'],
+    sources: ['College education programs and student-teaching placements', 'Alternative certification and residency programs', 'Substitute and paraprofessional pools', 'Community colleges with early childhood (CDA) programs'],
+    screening: ['State license or certification verification where required', 'Fingerprint background checks and child abuse registry clearances', 'CPR and first aid certification for childcare roles', 'A sample lesson or classroom observation'],
+    kpis: ['Time to independent classroom work', 'Observation and evaluation scores', 'Licensing or compliance findings', 'First-year retention']
+  },
+  'community-and-social-services': {
+    audience: 'nonprofits, agencies, hospitals and government offices',
+    pitch: 'Caseloads are heavy and new staff need to understand programs, documentation rules, confidentiality and boundaries quickly. Job-title training builds that foundation so supervisors can focus on clinical judgment and your agency’s procedures.',
+    pains: ['Large caseloads that leave little time to train new staff', 'Documentation and confidentiality errors', 'Burnout and turnover in the first year', 'Inconsistent knowledge of programs, eligibility rules and referrals'],
+    sources: ['Social work, counseling and human services programs', 'Field placements and internships', 'Community members and peers with lived experience', 'Government job boards and civil service lists'],
+    screening: ['State license verification (LCSW, LPC, LMFT) where required', 'Background checks and abuse registry clearances', 'Valid driver’s license for home visits and outreach', 'A scenario-based interview on ethics and boundaries'],
+    kpis: ['Time to independent caseload', 'Documentation timeliness and audit results', 'Client outcomes and satisfaction', 'First-year retention']
+  },
+  'beauty-fitness-and-personal-care': {
+    audience: 'salons, spas, gyms, studios and funeral homes',
+    pitch: 'Licensed professionals know the techniques, but new hires still need your service standards, sanitation habits and client-retention skills. Job-title training reinforces the fundamentals and professional expectations so they can build a book of clients faster.',
+    pains: ['New stylists and trainers who struggle to rebook clients', 'Sanitation and safety habits that vary by person', 'Turnover when income ramps up slowly', 'Uneven customer service across the team'],
+    sources: ['Cosmetology, barbering and massage school career days', 'Certification bodies and continuing education classes', 'Social media and client referrals', 'Assistants and apprentices already on your team'],
+    screening: ['State license verification with the licensing board', 'A practical skills demonstration or trial service', 'Liability insurance and certification checks where required', 'References focused on reliability and client service'],
+    kpis: ['Rebooking and retention rates', 'Revenue or sessions per week', 'Client reviews and complaints', '90-day retention']
+  },
+  'agriculture-and-animal-care': {
+    audience: 'farms, ranches, nurseries, landscapers and veterinary practices',
+    pitch: 'Seasonal and entry-level hires need equipment safety, chemical-handling basics and animal-handling habits on day one. Job-title training gives every new worker the same foundation, so crew leads can focus on the work instead of the basics.',
+    pains: ['Seasonal hiring that leaves little time for training', 'Equipment and chemical-handling injuries among new workers', 'Animal-handling mistakes and client complaints', 'Language and literacy differences across crews'],
+    sources: ['Agricultural, horticulture and veterinary technology programs', 'FFA, 4-H and community college networks', 'Seasonal worker programs and labor contractors', 'Referrals from current crew members'],
+    screening: ['Driver’s license and CDL where hauling is required', 'Pesticide applicator license or certification where required', 'Practical equipment or animal-handling check', 'Physical ability to work outdoors and lift as required'],
+    kpis: ['Time to independent work', 'Injuries and equipment damage', 'Quality checks, client complaints or animal outcomes', 'Seasonal return rate']
   }
 };

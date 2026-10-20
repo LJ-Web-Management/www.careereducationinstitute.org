@@ -48,30 +48,28 @@
     }
   });
 
-  // Career directory filters
+  // Career directory: the page lists every career by field. Filtering or sorting loads /assets/careers.json
+  // once and shows matching cards instead of the list.
   var f = d.querySelector('[data-filter]');
   if (f) {
-    var cards = [].slice.call(d.querySelectorAll('[data-card]'));
-    var out = d.querySelector('[data-count]');
-    var grid = d.querySelector('[data-cards]');
+    var out = d.querySelector('[data-count]'), grid = d.querySelector('[data-cards]'), dir = d.querySelector('[data-dir]');
+    var all = null, loading = false, total = out ? out.textContent : '', base = (window.MP && window.MP.base) || '';
+    var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+    var card = function (c) { return '<article class="card link"><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-' + c.c + '"/></svg></span><h3><a class="stretch" href="' + base + c.u + '">' + esc(c.n) + '</a></h3><p>' + esc(c.b) + '</p><ul class="chips"><li class="chip pay">$' + Math.round(c.m).toLocaleString('en-US') + '/yr</li><li class="chip grow">' + (c.g > 0 ? '+' : '') + c.g.toFixed(1) + '% growth</li><li class="chip">' + esc(c.t) + '</li></ul></article>'; };
     var run = function () {
-      var q = (f.q.value || '').toLowerCase().trim(), cat = f.cat.value, edu = f.edu.value, sort = f.sort.value, n = 0;
-      cards.forEach(function (c) {
-        var ok = (!q || c.dataset.name.indexOf(q) > -1) && (!cat || c.dataset.cat === cat) && (!edu || +c.dataset.edu <= +edu);
-        c.classList.toggle('hide', !ok); if (ok) n++;
-      });
-      if (sort && grid) {
-        cards.slice().sort(function (a, b) {
-          if (sort === 'name') return a.dataset.name.localeCompare(b.dataset.name);
-          if (sort === 'train') return a.dataset.months - b.dataset.months;
-          return b.dataset[sort] - a.dataset[sort];
-        }).forEach(function (c) { grid.appendChild(c); });
+      var q = (f.q.value || '').toLowerCase().trim(), cat = f.cat.value, edu = f.edu.value, sort = f.sort.value;
+      if (!q && !cat && !edu && !sort) { grid.hidden = true; grid.innerHTML = ''; dir.hidden = false; if (out) out.textContent = total; return; }
+      if (!all) {
+        if (!loading) { loading = true; if (out) out.textContent = 'Loading…'; fetch(base + '/assets/careers.json').then(function (r) { return r.json(); }).then(function (j) { all = j; run(); }); }
+        return;
       }
-      if (out) out.textContent = n + ' career' + (n === 1 ? '' : 's');
+      var res = all.filter(function (c) { return (!q || c.k.indexOf(q) > -1) && (!cat || c.c === cat) && (!edu || c.e <= +edu); });
+      if (sort) res.sort(function (a, b) { return sort === 'name' ? a.n.localeCompare(b.n) : sort === 'train' ? a.mo - b.mo : sort === 'median' ? b.m - a.m : b.g - a.g; });
+      grid.innerHTML = res.map(card).join(''); grid.hidden = false; dir.hidden = true;
+      if (out) out.textContent = res.length + ' career' + (res.length === 1 ? '' : 's');
     };
     f.addEventListener('input', run); f.addEventListener('change', run);
     f.addEventListener('submit', function (e) { e.preventDefault(); run(); });
-    run();
   }
 
   // Sortable tables
@@ -95,7 +93,7 @@
   var getOpt = function () { try { return localStorage.getItem('cei-optout') === '1'; } catch (e) { return false; } };
   if (opt) {
     var st = d.querySelector('[data-optout-status]');
-    var show = function () { if (st) st.textContent = (getOpt() || navigator.globalPrivacyControl) ? 'You are opted out of optional analytics on this browser.' : 'Optional analytics are allowed on this browser (if enabled on this site).'; };
+    var show = function () { if (st) st.textContent = (getOpt() || navigator.globalPrivacyControl) ? 'You are opted out of Google Analytics on this browser.' : 'Google Analytics is allowed on this browser.'; };
     opt.addEventListener('click', function () { try { localStorage.setItem('cei-optout', getOpt() ? '0' : '1'); } catch (e) {} show(); });
     show();
   }
@@ -106,7 +104,7 @@
     var load = function () {
       var s = d.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ga; d.head.appendChild(s);
       window.dataLayer = window.dataLayer || []; window.gtag = function () { dataLayer.push(arguments); };
-      gtag('js', new Date()); gtag('config', ga, { anonymize_ip: true, allow_google_signals: false, allow_ad_personalization_signals: false });
+      gtag('js', new Date()); gtag('config', ga, { allow_google_signals: false, allow_ad_personalization_signals: false, cookie_expires: 34128000 }); // 395 days, the 13 months in the cookie policy
     };
     if ('requestIdleCallback' in window) addEventListener('load', function () { requestIdleCallback(load); }); else addEventListener('load', load);
   }

@@ -50,7 +50,7 @@ Estimate training costs, any income gap and your savings runway. Our [career cha
   slug: 'career-change-at-30-40-50', title: 'Changing Careers at 30, 40 or 50+', crumb: 'Career change at 30, 40, 50', topic: 'career-change', audience: ['changers'],
   desc: 'How to change careers in your 30s, 40s or 50s: advantages you have, common obstacles, the best careers for mid-life changers and strategies to handle money, age bias and retraining.',
   answer: 'It’s not too late. Mid-career changers bring reliability, judgment and transferable skills employers value. The keys are choosing a target with reasonable training time, protecting your finances, leading with your experience and updating your skills and network.',
-  careers: ['occupational-safety-specialist', 'project-manager', 'pharmacy-technician', 'construction-inspector', 'logistics-coordinator', 'real-estate-agent'],
+  careers: ['occupational-safety-specialist', 'project-manager', 'pharmacy-technician', 'construction-inspector', 'logistics-coordinator', 'real-estate-agent', 'cost-estimator', 'postsecondary-cte-instructor'],
   related: ['how-to-change-careers', 'transferable-skills', 'financial-planning-career-change', 'upskilling-vs-reskilling'],
   body: `## Your advantages
 - **Work ethic and reliability** that entry-level candidates may not have proven yet
@@ -70,10 +70,10 @@ Estimate training costs, any income gap and your savings runway. Our [career cha
 You have time to invest in longer training, even a degree, and still enjoy decades in the new field. Consider careers with strong growth such as [cybersecurity](/careers/cybersecurity-analyst/), [nursing](/careers/registered-nurse/) or [skilled trades](/careers/skilled-trades/).
 
 ## In your 40s
-Balance training time with earning years. Careers that build on your experience often work best, for example, moving from a trade into [construction inspection](/careers/construction-inspector/) or [safety](/careers/occupational-safety-specialist/), or from operations into [project management](/careers/project-manager/) or [logistics](/careers/logistics-coordinator/).
+Balance training time with earning years. Careers that build on your experience often work best, for example, moving from a trade into [construction inspection](/careers/construction-inspector/), [cost estimating](/careers/cost-estimator/) or [safety](/careers/occupational-safety-specialist/), or from operations into [project management](/careers/project-manager/) or [logistics](/careers/logistics-coordinator/).
 
 ## In your 50s and beyond
-Prioritize short training paths, physical sustainability and flexibility. Options include roles that value judgment and communication: [real estate](/careers/real-estate-agent/), [pharmacy technician](/careers/pharmacy-technician/), [bookkeeping](/careers/bookkeeper/), consulting in your former industry or training others.
+Prioritize short training paths, physical sustainability and flexibility. Options include roles that value judgment and communication: [real estate](/careers/real-estate-agent/), [pharmacy technician](/careers/pharmacy-technician/), [bookkeeping](/careers/bookkeeper/), consulting in your former industry or training others, for example as a [career and technical education instructor](/careers/postsecondary-cte-instructor/).
 
 ## Five moves that make it work
 1. Run the numbers first with our [budget worksheet](/resources/career-change-budget-worksheet/).
@@ -91,12 +91,12 @@ Prioritize short training paths, physical sustainability and flexibility. Option
   body: `## The most valuable transferable skills
 | Skill | Where it shows up | Careers that value it |
 |---|---|---|
-| Customer service | Retail, food service, call centers | [Medical assistant](/careers/medical-assistant/), [pharmacy technician](/careers/pharmacy-technician/), [real estate agent](/careers/real-estate-agent/) |
-| Problem-solving | Repairs, troubleshooting, operations | [IT support](/careers/it-support-specialist/), [HVAC technician](/careers/hvac-technician/) |
-| Organization and scheduling | Admin work, parenting, event planning | [Logistics coordinator](/careers/logistics-coordinator/), [project manager](/careers/project-manager/) |
+| Customer service | Retail, food service, call centers | [Medical assistant](/careers/medical-assistant/), [pharmacy technician](/careers/pharmacy-technician/), [real estate agent](/careers/real-estate-agent/), [optician](/careers/optician/) |
+| Problem-solving | Repairs, troubleshooting, operations | [IT support](/careers/it-support-specialist/), [HVAC technician](/careers/hvac-technician/), [appliance repair technician](/careers/appliance-repair-technician/) |
+| Organization and scheduling | Admin work, parenting, event planning | [Logistics coordinator](/careers/logistics-coordinator/), [project manager](/careers/project-manager/), [production planner](/careers/production-planner/) |
 | Safety awareness | Construction, warehouses, healthcare | [Safety specialist](/careers/occupational-safety-specialist/), [hazmat technician](/careers/hazmat-technician/) |
-| Leadership | Shift leads, coaching, military service | [Project manager](/careers/project-manager/), supervisors in any field |
-| Accuracy with data | Cash handling, inventory, bookkeeping | [Medical coder](/careers/medical-billing-and-coding-specialist/), [bookkeeper](/careers/bookkeeper/) |
+| Leadership | Shift leads, coaching, military service | [Project manager](/careers/project-manager/), [construction foreman](/careers/construction-foreman/), [maintenance supervisor](/careers/maintenance-supervisor/), supervisors in any field |
+| Accuracy with data | Cash handling, inventory, bookkeeping | [Medical coder](/careers/medical-billing-and-coding-specialist/), [bookkeeper](/careers/bookkeeper/), [cost estimator](/careers/cost-estimator/) |
 | Calm under pressure | Emergency response, hospitality rushes | [EMT](/careers/emt/), [security guard](/careers/security-guard/) |
 
 ## How to find your transferable skills
@@ -174,7 +174,7 @@ Will you keep working full time, go part time or stop working while training? Ca
 - Veterans’ education benefits
 
 ## Step 5: Check the payoff
-Compare your current pay with the new career’s starting pay and pay after two to five years. Our [salary guide](/salary-guide/) shows BLS pay ranges for 50 careers. A short-term pay cut can be worth it if long-term earnings, stability or quality of life improve.
+Compare your current pay with the new career’s starting pay and pay after two to five years. Our [salary guide](/salary-guide/) shows BLS pay ranges for {careers} careers. A short-term pay cut can be worth it if long-term earnings, stability or quality of life improve.
 
 ## Step 6: Reduce risk
 - Train while employed if possible.

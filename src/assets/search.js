@@ -19,12 +19,14 @@
     }).filter(function (r) { return r.s > 0 && r.hit >= Math.ceil(words.length / 2); })
       .sort(function (a, b) { return b.s - a.s; }).slice(0, 40);
     status.textContent = res.length + ' result' + (res.length === 1 ? '' : 's') + ' for “' + input.value + '”';
-    out.innerHTML = res.map(function (r) { return '<li class="card link"><span class="chip">' + esc(r.p.y) + '</span><h3 style="margin-top:8px"><a class="stretch" href="' + base + r.p.u + '">' + esc(r.p.t) + '</a></h3><p>' + esc(r.p.d) + '</p></li>'; }).join('');
+    out.innerHTML = res.map(function (r) { return '<li class="card link"><span class="chip">' + esc(r.p.y) + '</span><h3 style="margin-top:8px"><a class="stretch" href="' + (/^https?:/.test(r.p.u) ? r.p.u : base + r.p.u) + '">' + esc(r.p.t) + '</a></h3><p>' + esc(r.p.d) + '</p></li>'; }).join('');
   };
   var load = function (cb) {
     if (idx) return cb();
     status.textContent = 'Loading…';
-    fetch(base + '/search-index.json').then(function (r) { return r.json(); }).then(function (j) { idx = j; cb(); });
+    // The blog is a separate site (MP.blog) with its own index; results still show if it can't be loaded.
+    var blog = fetch(((window.MP && window.MP.blog) || base + '/blog') + '/search-index.json').then(function (r) { return r.ok ? r.json() : []; }).catch(function () { return []; });
+    Promise.all([fetch(base + '/search-index.json').then(function (r) { return r.json(); }), blog]).then(function (j) { idx = j[0].concat(j[1]); cb(); });
   };
   var q0 = new URLSearchParams(location.search).get('q');
   if (q0) { input.value = q0; load(run); }

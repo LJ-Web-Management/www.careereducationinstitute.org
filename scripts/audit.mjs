@@ -48,6 +48,7 @@ for (const f of htmlFiles) {
     if (!noindex) descs.set(d, [...(descs.get(d) || []), rel]);
   }
   if (html.includes('—')) err(rel, 'contains an em dash');
+  if (/\{(careers|pay:[a-z0-9-]+)\}/.test(html)) err(rel, 'unfilled {careers} or {pay:...} token');
   const h1s = (html.match(/<h1[\s>]/g) || []).length;
   if (h1s !== 1) err(rel, `${h1s} <h1> tags`);
   if (!/<html lang="en-US">/.test(html)) err(rel, 'missing lang');
@@ -73,7 +74,8 @@ for (const f of htmlFiles) {
     if (/^(https?:|mailto:|tel:|#|data:)/.test(u)) continue;
     if (u.startsWith('./')) u = rel + u.slice(2);
     linkCount++;
-    if (!exists(u)) { err(rel, `broken link ${u}`); continue; }
+    const ok = exists(u);
+    if (!ok) { err(rel, `broken link ${u}`); continue; }
     const clean = u.split('#')[0].split('?')[0];
     if (clean.endsWith('/') || !path.extname(clean)) {
       if (!clean.endsWith('/')) warn(rel, `link without trailing slash (redirect): ${u}`);

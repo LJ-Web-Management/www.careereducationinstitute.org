@@ -73,7 +73,7 @@ Get to know leaders and peers in other departments. Decision-makers promote peop
 | Best for | Trades, IT, healthcare support, specialized roles | Licensed professions, management, research |
 
 ## When certifications win
-- The career relies on specific skills: [IT support](/careers/it-support-specialist/) (CompTIA A+), [cybersecurity](/careers/cybersecurity-analyst/) (Security+), [HVAC](/careers/hvac-technician/) (EPA 608), [pharmacy technician](/careers/pharmacy-technician/) (CPhT).
+- The career relies on specific skills: [IT support](/careers/it-support-specialist/) (CompTIA A+), [cybersecurity](/careers/cybersecurity-analyst/) (Security+), [HVAC](/careers/hvac-technician/) (EPA 608), [pharmacy technician](/careers/pharmacy-technician/) (CPhT), [optician](/careers/optician/) (ABO).
 - You need to move fast or keep working while you train.
 - You already have a degree and need practical skills.
 
