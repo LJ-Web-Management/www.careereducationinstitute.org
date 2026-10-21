@@ -1,12 +1,12 @@
 import cfg from '../../site.config.mjs';
-import { esc, href, abs, clamp, fitTitle, md, wordCount, fmtDate, money } from '../lib/util.mjs';
+import { esc, href, abs, clamp, fitTitle, md, wordCount, fmtDate, money, countLabel } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, ctaCard, sideLinks } from '../lib/layout.mjs';
 import { guides, guideBySlug, topics, gp } from '../data/guides/index.mjs';
 import { resources } from '../data/resources.mjs';
 
 // Guide text can write {careers} for the current number of career profiles and {pay:<slug>} for a career's BLS
 // median pay, so counts and figures never go stale.
-const fillCount = (s, n, byslug) => (typeof s === 'string' ? s.replace(/\{careers\}/g, n.toLocaleString('en-US')).replace(/\{pay:([a-z0-9-]+)\}/g, (m, slug) => { if (!byslug[slug]) throw new Error(`Guide token ${m}: no career ${slug}`); return money(byslug[slug].l.wages.median); }) : s);
+const fillCount = (s, n, byslug) => (typeof s === 'string' ? s.replace(/\{careers\}/g, countLabel(n)).replace(/\{pay:([a-z0-9-]+)\}/g, (m, slug) => { if (!byslug[slug]) throw new Error(`Guide token ${m}: no career ${slug}`); return money(byslug[slug].l.wages.median); }) : s);
 
 export function guidePages(ctx) {
   const { byslug } = ctx;

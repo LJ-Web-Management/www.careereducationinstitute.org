@@ -14,6 +14,9 @@ export const href = (p = '/') => (/^(https?:|mailto:|tel:|#)/.test(p) ? p : inBl
 // Absolute URL for canonicals, sitemaps and structured data.
 export const abs = (p = '/') => (/^https?:/.test(p) ? p : inBlog(p) ? cfg.blogUrl + (p.slice(5) || '/') : cfg.url + p);
 
+// How the site states its number of careers: rounded down to the hundred, so 709 reads "700+" (1,250 would read "1,200+").
+export const countLabel = (n) => (n >= 100 ? `${(Math.floor(n / 100) * 100).toLocaleString('en-US')}+` : String(n));
+
 export const money = (n) => (n == null ? 'N/A' : '$' + Math.round(n).toLocaleString('en-US'));
 export const money2 = (n) => (n == null ? 'N/A' : '$' + Number(n).toFixed(2));
 export const num = (n) => Math.round(n).toLocaleString('en-US');

@@ -1,5 +1,5 @@
 import cfg from '../../site.config.mjs';
-import { esc, href, abs, clamp, fitTitle, md } from '../lib/util.mjs';
+import { esc, href, abs, clamp, fitTitle, md, countLabel } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, sideLinks, answerBox } from '../lib/layout.mjs';
 import { STATES, enrollForm } from '../lib/forms.mjs';
 import { partnerCourses, partnerTable, tierTable, providerLine } from '../lib/partners.mjs';
@@ -88,7 +88,7 @@ ${related.length ? `<h2 id="related">Other job-title courses you can buy online<
       body: `${pageHero({ crumbs, eyebrow: `${partnerCourses.length} online courses`, h1: 'Job-Title Courses You Can Buy Online', lead: 'Complete online training for a specific job title, provided by our affiliated training provider. Buy here and start right away.', meta: false })}
 <div class="wrap layout"><div class="prose">${partnerTable(partnerCourses, { caption: 'Job-title courses' })}
 <p class="small muted">All courses are 100% online and self-paced. ${esc(providerLine())}. Prices are per learner; volume pricing applies automatically from 2 learners.</p>
-<p>Looking for something else? Our <a href="${href('/training/')}">job-title trainings</a> cover ${ctx.careers.length} careers, from medical assistant to electrician.</p>
+<p>Looking for something else? Our <a href="${href('/training/')}">job-title trainings</a> cover ${countLabel(ctx.careers.length)} careers, from medical assistant to electrician.</p>
 ${faqBlock(faqs, 'Buying courses')}</div>
 <aside>${sideLinks('Related careers', careerLinks.map((c) => [`${byslug[c.career].title} career`, byslug[c.career].url]).filter((x, i, a) => a.findIndex((y) => y[1] === x[1]) === i).concat([['All job-title trainings', '/training/']]))}</aside></div>`,
       schema: [faqSchema(faqs, path)]

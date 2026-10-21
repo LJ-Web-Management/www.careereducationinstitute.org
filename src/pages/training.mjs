@@ -1,5 +1,5 @@
 import cfg from '../../site.config.mjs';
-import { esc, href, abs, money, clamp, fitTitle, listJoin, lowerFirst, shuffle, hash, taskPhrase } from '../lib/util.mjs';
+import { esc, href, abs, money, clamp, fitTitle, listJoin, lowerFirst, shuffle, hash, taskPhrase, countLabel } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, sideLinks, answerBox, icon } from '../lib/layout.mjs';
 import { enrollForm } from '../lib/forms.mjs';
 import { pick, searchKeywords } from '../lib/career-helpers.mjs';
@@ -184,15 +184,15 @@ export function trainingCatalog(ctx) {
   const { careers, categories } = ctx;
   const path = '/training/';
   const crumbs = [['Home', '/'], ['Training', path]];
-  const body = `${pageHero({ crumbs, eyebrow: `${careers.length} job-title trainings`, h1: 'Career Training by Job Title', lead: `Practical, self-paced online courses that teach you what a job really involves: duties, vocabulary, common procedures, safety and how to get hired. Pick a job title to start.`, extra: `<div class="btn-row"><a class="btn btn-primary" href="${href('/enroll/')}">Enroll</a><a class="btn" href="${href('/quizzes/career-match/')}">Not sure? Take the Career Match Quiz</a></div>`})}
+  const body = `${pageHero({ crumbs, eyebrow: `${countLabel(careers.length)} job-title trainings`, h1: 'Career Training by Job Title', lead: `Practical, self-paced online courses that teach you what a job really involves: duties, vocabulary, common procedures, safety and how to get hired. Pick a job title to start.`, extra: `<div class="btn-row"><a class="btn btn-primary" href="${href('/enroll/')}">Enroll</a><a class="btn" href="${href('/quizzes/career-match/')}">Not sure? Take the Career Match Quiz</a></div>`})}
 <section class="section alt"><div class="wrap"><div class="section-head"><h2>What every training includes</h2></div><div class="grid-3">${[['Role foundations', 'What the job is, where people work, pay and the career ladder.'], ['Day-on-the-job walkthrough', 'A realistic shift so you know what to expect.'], ['Essential vocabulary', 'The terms you’ll hear on day one, with practice drills.'], ['Step-by-step procedures', 'How to perform the common tasks of the role.'], ['Safety & compliance', 'Hazards, standards and professional expectations.'], ['Career launch & final exam', 'Credentials, resumes, interviews and a certificate of completion.']].map(([t, d]) => `<div class="card"><h3>${t}</h3><p>${d}</p></div>`).join('')}</div></div></section>
 <div class="wrap" style="padding-top:20px;padding-bottom:60px"><ul class="az" aria-label="Jump to a field">${categories.map((cat) => `<li><a href="#${cat.slug}" style="width:auto;padding:0 10px">${esc(cat.short || cat.name)}</a></li>`).join('')}</ul>${categories.map((cat) => `<section id="${cat.slug}" style="scroll-margin-top:90px"><h2>${icon(cat.slug, 26)} ${esc(cat.name)} trainings</h2><p class="muted">${esc(cat.blurb)}</p><ul class="linklist">${careers.filter((c) => c.cat === cat.slug).sort((a, b) => a.title.localeCompare(b.title)).map((c) => `<li><a href="${href(c.trainingUrl)}">${esc(c.title)} Training</a> <span class="muted small">${c.replacedBy && partnerById[c.replacedBy] ? `from ${usd(partnerById[c.replacedBy].price)}` : usd(c.price)}</span></li>`).join('')}</ul></section>`).join('')}
 <section id="buy-online" style="scroll-margin-top:90px;margin-top:34px"><h2>More job titles: buy online</h2><p class="muted">Complete online training for these job titles comes from our affiliated training provider. Buy online and start right away.</p>${partnerTable(partnerCourses.filter((p) => !careers.some((c) => c.replacedBy === p.id)), { caption: 'More job-title courses' })}</section>
 <aside class="callout info" style="margin-top:30px"><p>Career Education Institute trainings are general, non-credit career-preparation courses for U.S. learners. They do not replace state-required licensing programs. ${esc(cfg.course.groupNote)}: see <a href="${href('/for-employers/')}">training for employers</a>.</p></aside></div>`;
   return {
     path, crumbs, og: '/og/training.png', kind: 'Training catalog', name: 'All trainings',
-    title: fitTitle(`Online Career Training by Job Title (${careers.length} Courses)`),
-    desc: clamp(`Browse ${careers.length} online career trainings by job title: healthcare, skilled trades, safety, logistics, business, tech and public safety. Self-paced, practical and built for U.S. learners.`),
+    title: fitTitle(`Online Career Training by Job Title (${countLabel(careers.length)} Courses)`),
+    desc: clamp(`Browse ${countLabel(careers.length)} online career trainings by job title: healthcare, skilled trades, safety, logistics, business, tech and public safety. Self-paced, practical and built for U.S. learners.`),
     body,
     schema: []
   };

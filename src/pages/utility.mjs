@@ -1,4 +1,4 @@
-import { esc, href, clamp, fitTitle } from '../lib/util.mjs';
+import { esc, href, clamp, fitTitle, countLabel } from '../lib/util.mjs';
 import { pageHero } from '../lib/layout.mjs';
 
 export function utilityPages(ctx, all) {
@@ -20,7 +20,7 @@ export function utilityPages(ctx, all) {
   pages.push({
     path: '/sitemap/', crumbs: [['Home', '/'], ['Site map', '/sitemap/']], og: '/og/default.png', kind: 'Page', name: 'Site map',
     title: fitTitle('Site Map: All Careers, Trainings & Guides'), desc: clamp('Browse every section of Career Education Institute: career profiles and salaries, trainings, practice tests, quizzes, guides, comparisons, employer resources, blog and policies.'),
-    body: `${pageHero({ crumbs: [['Home', '/'], ['Site map', '/sitemap/']], eyebrow: 'Site map', h1: 'Site Map', lead: `The main sections of Career Education Institute. Each field page lists its careers, and each of our ${ctx.careers.length} careers has subpages for salary, day in the life, how to become, skills, glossary, how-to guides, interview questions, FAQ, a fit quiz, training and a practice test.`, meta: false })}<div class="wrap" style="padding-top:30px;padding-bottom:60px"><div class="cols">${groups.map(([t, f]) => { const ps = list.filter(f); return ps.length ? `<div><h2 style="font-size:1.2rem;margin-top:0">${t}</h2><ul>${ps.map((p) => `<li><a href="${href(p.path)}">${esc(p.name || p.title)}</a></li>`).join('')}</ul></div>` : ''; }).join('')}</div></div>`, schema: []
+    body: `${pageHero({ crumbs: [['Home', '/'], ['Site map', '/sitemap/']], eyebrow: 'Site map', h1: 'Site Map', lead: `The main sections of Career Education Institute. Each field page lists its careers, and each of our ${countLabel(ctx.careers.length)} careers has subpages for salary, day in the life, how to become, skills, glossary, how-to guides, interview questions, FAQ, a fit quiz, training and a practice test.`, meta: false })}<div class="wrap" style="padding-top:30px;padding-bottom:60px"><div class="cols">${groups.map(([t, f]) => { const ps = list.filter(f); return ps.length ? `<div><h2 style="font-size:1.2rem;margin-top:0">${t}</h2><ul>${ps.map((p) => `<li><a href="${href(p.path)}">${esc(p.name || p.title)}</a></li>`).join('')}</ul></div>` : ''; }).join('')}</div></div>`, schema: []
   });
 
   // 404

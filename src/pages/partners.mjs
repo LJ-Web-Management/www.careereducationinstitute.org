@@ -2,7 +2,7 @@
 // that gives their people a discount on job-title trainings, and earn a share of each sale.
 // Rates live in site.config.mjs → partnerProgram.
 import cfg from '../../site.config.mjs';
-import { esc, href, abs, money2, clamp, fitTitle } from '../lib/util.mjs';
+import { esc, href, abs, money2, clamp, fitTitle, countLabel } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, ctaCard, sideLinks, answerBox } from '../lib/layout.mjs';
 import { partnerForm } from '../lib/forms.mjs';
 import { priceForHours } from '../data/course-pricing.mjs';
@@ -65,7 +65,7 @@ const entities = [
 ];
 
 const faqs = (n) => [
-  ['How does the partner discount program work?', `We give your school district, college, company or organization its own discount code. Anyone you share it with saves ${D} on our ${n} job-title trainings, and you earn ${S} of the sale price after the discount on every enrollment that uses your code.`],
+  ['How does the partner discount program work?', `We give your school district, college, company or organization its own discount code. Anyone you share it with saves ${D} on our ${countLabel(n)} job-title trainings, and you earn ${S} of the sale price after the discount on every enrollment that uses your code.`],
   ['Does it cost anything to join?', 'No. Joining the partner program is free.'],
   ['How much do we earn?', `${S} of the price the learner pays after the ${D} discount. For example, on a training listed at ${money2(PRICES[1])}, the learner pays ${money2(withCode(PRICES[1]))} with your code and you earn ${money2(earned(PRICES[1]))}.`],
   ['How do learners use the code?', `The easiest way is your share link, which fills the code in for them. They can also type it in: in the “Discount code” box at checkout for courses bought online, or in the “Partner discount code” field of the enrollment form for other trainings. The ${D} discount is applied at checkout, or to their payment link or invoice.`],
@@ -99,7 +99,7 @@ export function partnerPages(ctx) {
       title: fitTitle('Partner Discount Program'), desc: clamp(`Partner discount program for school districts, colleges, companies and organizations: share a code worth ${D} off career training and earn ${S} of every sale.`),
       mcta: `<a class="btn btn-primary" href="#signup">Get your discount code</a>`,
       body: `${pageHero({ crumbs, eyebrow: 'Partner program', h1: 'Partner Discount Program', lead: `School districts, colleges, companies and organizations can share a code that gives their people ${D} off career training by job title, and earn ${S} of every sale made with it.`, meta: false, extra: '<div class="btn-row"><a class="btn btn-primary" href="#signup">Get your discount code</a><a class="btn" href="#earnings">See what you earn</a></div>' })}<div class="wrap layout"><div class="prose">
-${answerBox('The short version', `Sign up and we email you a unique discount code. Anyone who uses it saves ${D} on our ${n} job-title trainings, and you earn ${S} of each sale price after the discount. Joining is free.`)}
+${answerBox('The short version', `Sign up and we email you a unique discount code. Anyone who uses it saves ${D} on our ${countLabel(n)} job-title trainings, and you earn ${S} of each sale price after the discount. Joining is free.`)}
 <h2 id="partner-types">Choose your partner type</h2><div class="grid-2">${entities.map((e) => `<article class="card link"><h3><a class="stretch" href="${href(`${HUB}${e.slug}/`)}">${esc(e.name)}</a></h3><p>${esc(e.card)}</p></article>`).join('')}</div>
 <h2 id="how">How the program works</h2>${steps('students, employees, members or customers')}
 ${shareLink('students, employees, members or customers')}
@@ -120,14 +120,14 @@ ${faqBlock(common, 'Partner program questions')}${note}</div>
       title: fitTitle(e.title), desc: clamp(`Partner program for ${e.name.toLowerCase()}: give your ${e.people} ${D} off online career training and earn ${S} of every sale.`),
       mcta: `<a class="btn btn-primary" href="#signup">Get your discount code</a>`,
       body: `${pageHero({ crumbs, eyebrow: `Partner program for ${e.name.toLowerCase()}`, h1: esc(e.h1), lead: e.lead, meta: false, extra: '<div class="btn-row"><a class="btn btn-primary" href="#signup">Get your discount code</a><a class="btn" href="#earnings">See what you earn</a></div>' })}<div class="wrap layout"><div class="prose">
-${answerBox('How it works', `Your ${e.owner} gets its own discount code to share with your ${esc(e.people)}. They save ${D} on any of our ${n} job-title trainings, and your ${e.owner} earns ${S} of each sale price after the discount. Joining is free.`)}
+${answerBox('How it works', `Your ${e.owner} gets its own discount code to share with your ${esc(e.people)}. They save ${D} on any of our ${countLabel(n)} job-title trainings, and your ${e.owner} earns ${S} of each sale price after the discount. Joining is free.`)}
 <h2 id="who">Who can use your code</h2><ul class="checks">${e.who.map((w) => `<li>${esc(w)}</li>`).join('')}</ul>
 <h2 id="how">How the program works</h2>${steps(e.people)}
 <h2 id="earnings">What your people save and what you earn</h2>${earningsTable()}
 <h2 id="share">Ways to share your code</h2><ul class="checks">${e.ways.map((w) => `<li>${esc(w)}</li>`).join('')}</ul>
 ${shareLink(e.people)}
 <h2 id="popular">Popular trainings for your ${esc(e.people)}</h2><div class="grid-2">${courses.map((c) => `<article class="card link"><h3><a class="stretch" href="${href(c.trainingUrl)}">${esc(c.title)} Training</a></h3><p class="small">${money2(withCode(c.price))} with your code (list ${money2(c.price)})</p></article>`).join('')}</div>
-<p><a href="${href('/training/')}">Browse all ${n} job-title trainings</a></p>
+<p><a href="${href('/training/')}">Browse all ${countLabel(n)} job-title trainings</a></p>
 ${partnerForm({ type: e.type })}
 ${faqBlock(list, 'Partner program questions')}${note}</div>
 <aside>${aside(path)}</aside></div>`,

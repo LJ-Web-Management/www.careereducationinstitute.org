@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import cfg from '../../site.config.mjs';
-import { esc, href, abs, fmtDate, money, pct } from './util.mjs';
+import { esc, href, abs, fmtDate, money, pct, countLabel } from './util.mjs';
 import { icons } from '../data/categories.mjs';
 
 const cssRaw = fs.readFileSync(new URL('../assets/styles.css', import.meta.url), 'utf8');
@@ -36,10 +36,10 @@ function menu() {
   return [
     { label: 'Careers', match: ['/careers/', '/compare/', '/best-careers/', '/salary-guide/', '/glossary/'], cols: [
       { h: 'Career fields', links: G.categories.map((c) => [c.name, `/careers/${c.slug}/`]) },
-      { h: 'Explore', links: [[`All ${G.careers.length} careers`, '/careers/'], ['Salary guide', '/salary-guide/'], ['Best careers lists', '/best-careers/'], ['Compare careers', '/compare/'], ['Career glossary', '/glossary/'], ['Career Match Quiz', '/quizzes/career-match/']] },
+      { h: 'Explore', links: [[`All ${countLabel(G.careers.length)} careers`, '/careers/'], ['Salary guide', '/salary-guide/'], ['Best careers lists', '/best-careers/'], ['Compare careers', '/compare/'], ['Career glossary', '/glossary/'], ['Career Match Quiz', '/quizzes/career-match/']] },
       { h: 'Popular careers', links: popularCareers.map((c) => [c.title, c.url]) }] },
     { label: 'Training', match: ['/training/', '/enroll/', '/courses/', '/checkout/'], cols: [
-      { h: 'Job-title training', links: [[`All ${G.careers.length} trainings by field`, '/training/'], ['How it works', '/how-it-works/'], ['Enroll', '/enroll/'], ['Not sure? Career Match Quiz', '/quizzes/career-match/']] },
+      { h: 'Job-title training', links: [[`All ${countLabel(G.careers.length)} trainings by field`, '/training/'], ['How it works', '/how-it-works/'], ['Enroll', '/enroll/'], ['Not sure? Career Match Quiz', '/quizzes/career-match/']] },
       { h: 'Popular trainings', links: popularTraining.map((c) => [`${c.title} Training`, c.trainingUrl]) },
       { h: 'Buy online now', links: buyOnline.map((c) => [c.short, c.url]).concat([['All online courses', '/courses/']]) }] },
     { label: 'Quizzes', match: ['/quizzes/'], cols: [
@@ -75,7 +75,7 @@ export function footer() {
     .map(([t, p]) => `<a href="${href(p)}">${t}</a>`).join(' · ');
   return `<footer class="site-footer"><div class="wrap"><div class="fgrid">
 <div>${logo()}<p style="margin-top:14px">Career training by job title, plus free tools to help students and working adults choose and change careers.</p><p><a href="tel:${cfg.phoneE164}">${cfg.phone}</a><br><a href="mailto:${cfg.email}">${cfg.email}</a></p></div>
-${col('Careers', G.categories.map((c) => [c.name, `/careers/${c.slug}/`]).concat([[`All ${G.careers.length} careers`, '/careers/'], ['Salary guide', '/salary-guide/']]))}
+${col('Careers', G.categories.map((c) => [c.name, `/careers/${c.slug}/`]).concat([[`All ${countLabel(G.careers.length)} careers`, '/careers/'], ['Salary guide', '/salary-guide/']]))}
 ${col('Training and courses', [['All job-title trainings', '/training/'], ...pick(['electrician', 'hvac-technician', 'medical-assistant', 'telecommunications-technician']).map((c) => [`${c.title} Training`, c.trainingUrl]), ['Courses to buy online', '/courses/'], ...(G.partners || []).slice(0, 3).map((c) => [c.short, c.url]), ['Enroll', '/enroll/']])}
 ${col('Resources', [['Career Match Quiz', '/quizzes/career-match/'], ['All quizzes', '/quizzes/'], ['Career guides', '/guides/'], ['For students', '/students/'], ['For career changers', '/career-changers/'], ['For working professionals', '/professionals/'], ['Best careers lists', '/best-careers/'], ['Career glossary', '/glossary/'], ['Free worksheets', '/resources/'], ['Blog', '/blog/'], ['Newsletter', '/newsletter/']])}
 <div><h2>Employers</h2><ul>${[['Onboarding training', '/for-employers/'], ['Recruiters and staffing agencies', '/for-staffing-agencies/'], ['Schools and workforce programs', '/for-workforce-programs/'], ['Partner discount program', '/partners/'], ['Employer resource center', '/employers/'], ['Hiring guides by job', '/employers/hiring-guides/'], ['Training ROI calculator', '/employers/training-roi-calculator/']].map(([t, l]) => `<li><a href="${href(l)}">${t}</a></li>`).join('')}</ul><h2 style="margin-top:22px">Company</h2><ul>${[['About us', '/about/'], ['How it works', '/how-it-works/'], ['Contact', '/contact/'], ['FAQ', '/faq/'], ['Editorial policy', '/editorial-policy/'], ['Site map', '/sitemap/']].map(([t, l]) => `<li><a href="${href(l)}">${t}</a></li>`).join('')}</ul></div>
@@ -129,7 +129,8 @@ export const shell = () => ({
   header: header('/blog/'),
   footer: footer(),
   mp: { base: cfg.basePath, blog: cfg.blogUrl, ga: cfg.analytics.ga4 || '', cd: cfg.partnerProgram.linkDays },
-  careers: G.careers.length // blog posts can write {careers} for the current number of career profiles
+  careers: G.careers.length, // blog posts can write {careers} for the current number of career profiles
+  careersLabel: countLabel(G.careers.length) // how that number is written ("700+")
 });
 
 // ---------- Shared components ----------

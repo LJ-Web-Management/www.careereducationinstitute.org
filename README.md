@@ -1,7 +1,7 @@
 # Career Education Institute: www.careereducationinstitute.org
 
 Static website for Career Education Institute: career training by job title, a few complete job-title courses from
-HAZWOPER-OSHA.com sold through an online checkout, plus free career resources (709 career profiles, salary data, quizzes,
+HAZWOPER-OSHA.com sold through an online checkout, plus free career resources (700+ career profiles, salary data, quizzes,
 guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The blog is its own site in a separate repository
 (`blog.careereducationinstitute.org`): see **The blog** below.
 
@@ -12,14 +12,14 @@ guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The b
 ## What's in the site (about 15,200 pages)
 | Section | Pages |
 |---|---|
-| 709 career hubs in 17 fields | Overview, day in the life, salary, how to become, skills, glossary, how-to index plus 3 step-by-step task pages, interview questions, FAQ, fit quiz |
-| 709 job-title trainings | Course page with price, length, timed syllabus and enrollment form, plus a free practice test. Truck driver, forklift operator and flagger point to the matching provider course instead |
+| 700+ career hubs in 17 fields | Overview, day in the life, salary, how to become, skills, glossary, how-to index plus 3 step-by-step task pages, interview questions, FAQ, fit quiz |
+| 700+ job-title trainings | Course page with price, length, timed syllabus and enrollment form, plus a free practice test. Truck driver, forklift operator and flagger point to the matching provider course instead |
 | 5 provider courses | Complete job-title training from HAZWOPER-OSHA.com: CDL ELDT Class A and Class B, forklift operator, flagger and mold inspector, each with a buy button, listed at `/courses/` |
 | Checkout | `/checkout/?course=<slug>`: Stripe card payment and enrollment in the provider LMS |
 | Comparisons | About 2,200 "X vs. Y" career comparisons, plus a comparison hub for each field |
 | Quizzes | Career Match, College vs. Trade School, Career Change Readiness, Work Style, 17 field quizzes |
 | Guides | 46 guides for students, career changers, professionals and employers |
-| Employers | Buyer pages (employers, staffing agencies, workforce programs, 17 industries), 709 hiring guides, 709 job description templates, 709 onboarding plans, ROI calculator, onboarding assessment |
+| Employers | Buyer pages (employers, staffing agencies, workforce programs, 17 industries), 700+ hiring guides, 700+ job description templates, 700+ onboarding plans, ROI calculator, onboarding assessment |
 | Lists and data | 14 "best careers" lists, salary guide, A to Z glossary |
 | Partner program | `/partners/` plus a page each for school districts, colleges, companies and organizations: a discount code for their people and a share of each sale, with a sign-up form |
 | Students, changers and professionals hubs, worksheets, newsletter sign-up, company and legal pages | |
@@ -38,7 +38,7 @@ guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The b
 | Edit a career | `src/data/careers/*.mjs` |
 | Edit a guide | `src/data/guides/*.mjs` (Markdown in the `body` field) |
 | Edit legal pages | `src/pages/legal.mjs` |
-| Refresh BLS pay data (each spring) | `BLS_API_KEY=<your key> npm run update-salaries -- 2026` (year of the new OEWS release), then rebuild. A free key from data.bls.gov/registrationEngine is needed now that there are 709 careers (the keyless API allows only 25 requests a day). Projections in `src/data/labor.json` are updated by hand each fall from BLS Table 1.2 |
+| Refresh BLS pay data (each spring) | `BLS_API_KEY=<your key> npm run update-salaries -- 2026` (year of the new OEWS release), then rebuild. A free key from data.bls.gov/registrationEngine is needed now that there are 700+ careers (the keyless API allows only 25 requests a day). Projections in `src/data/labor.json` are updated by hand each fall from BLS Table 1.2 |
 | Mark content as reviewed | Change `updated` in `site.config.mjs` |
 | Replace the logo | Swap `src/brand/logo-full.png` (header and footer) or `src/brand/logo-icon.png` (favicons, app icons, social images). Transparent PNGs; the build trims and resizes them |
 

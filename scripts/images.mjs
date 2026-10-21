@@ -5,6 +5,7 @@
 // If sharp is unavailable the build still succeeds without images.
 import fs from 'node:fs';
 import path from 'node:path';
+import { countLabel } from '../src/lib/util.mjs';
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const wrap = (text, max) => {
@@ -96,7 +97,7 @@ export async function writeImages({ DIST, ROOT, careers, categories }) {
   const render = (o, file) => sharp(Buffer.from(ogSvg({ ...o, iconB64, iconW: iconMeta.width, iconH: iconMeta.height }))).png({ compressionLevel: 9, palette: true, quality: 90 }).toFile(file);
   const jobs = [];
   const fixed = [
-    ['default', 'Find the career that fits, then train for it', 'Career training by job title', `${careers.length} careers · Free quizzes · Salary data · U.S.-focused`],
+    ['default', 'Find the career that fits, then train for it', 'Career training by job title', `${countLabel(careers.length)} careers · Free quizzes · Salary data · U.S.-focused`],
     ['training', 'Online career training by job title', 'Training catalog', 'Self-paced · Practical · Certificate of completion'],
     ['courses', 'Job-title courses to buy online', 'CDL ELDT, forklift, flagger, mold inspector', 'Buy online · Self-paced · Volume pricing'],
     ['compare', 'Compare careers side by side', 'Career comparison', 'Pay · Training time · Job growth · Daily duties'],

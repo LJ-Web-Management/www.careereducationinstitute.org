@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import cfg from '../site.config.mjs';
-import { abs, esc, href, wordCount } from '../src/lib/util.mjs';
+import { abs, esc, href, wordCount, countLabel } from '../src/lib/util.mjs';
 import { layout, setGlobals, CSS, shell } from '../src/lib/layout.mjs';
 import { partnerCourses } from '../src/lib/partners.mjs';
 import { categories } from '../src/data/categories.mjs';
@@ -124,12 +124,12 @@ const llms = `# ${cfg.name}
 
 > ${cfg.description} Pay data comes from the U.S. Bureau of Labor Statistics (${labor.meta.wageSource}); outlook from ${labor.meta.projectionsSource}. Content last reviewed ${cfg.updated}.
 
-${cfg.name} publishes free, plain-language career information for ${careers.length} job titles (what the job is, a day in the life, salary percentiles, how to become one, skills, vocabulary, step-by-step tasks, interview questions and FAQs), career quizzes, and college and career-change guides. It also sells general, non-credit online training courses by job title for U.S. learners. Enrollment: ${abs('/enroll/')} · Phone ${cfg.phone} · ${cfg.email}
+${cfg.name} publishes free, plain-language career information for ${countLabel(careers.length)} job titles (what the job is, a day in the life, salary percentiles, how to become one, skills, vocabulary, step-by-step tasks, interview questions and FAQs), career quizzes, and college and career-change guides. It also sells general, non-credit online training courses by job title for U.S. learners. Enrollment: ${abs('/enroll/')} · Phone ${cfg.phone} · ${cfg.email}
 
 ## Start here
-- [Career Match Quiz](${abs('/quizzes/career-match/')}): free interest-based quiz that recommends careers from our ${careers.length} profiles
+- [Career Match Quiz](${abs('/quizzes/career-match/')}): free interest-based quiz that recommends careers from our ${countLabel(careers.length)} profiles
 - [All careers](${abs('/careers/')}): directory with pay, growth and training time
-- [Salary guide](${abs('/salary-guide/')}): BLS median pay for all ${careers.length} careers
+- [Salary guide](${abs('/salary-guide/')}): BLS median pay for all ${countLabel(careers.length)} careers
 - [All trainings](${abs('/training/')}): online courses by job title
 - [Job-title courses to buy online](${abs('/courses/')}): CDL Entry-Level Driver Training (Class A and B), forklift operator, flagger and mold inspector, bought online
 - [Guides](${abs('/guides/')}): choosing a career, college vs. trade school, changing careers, resumes, interviews
@@ -149,7 +149,7 @@ ${pages.filter((p) => p.path.startsWith('/guides/') && p.path !== '/guides/').ma
 - [Editorial policy and data sources](${abs('/editorial-policy/')})
 `;
 fs.writeFileSync(path.join(DIST, 'llms.txt'), llms);
-const full = `# ${cfg.name}: career facts (${careers.length} careers)\n\nSource of pay data: ${labor.meta.wageSource}. Projections: ${labor.meta.projectionsSource}. Reviewed ${cfg.updated}. National U.S. figures.\n\n${careers.map((c) => `## ${c.title}\nURL: ${abs(c.url)}\nAlso called: ${c.aka.join(', ')}\nSOC: ${c.l.soc} (${c.l.blsTitle})\nSummary: ${c.summary}\nMedian annual pay: ${money(c.l.wages.median)}${c.l.wages.hourly != null ? ` (${'$' + c.l.wages.hourly.toFixed(2)}/hour)` : ' (annual wages only)'}. 10th percentile ${money(c.l.wages.p10)}; 90th percentile ${money(c.l.wages.p90)}.\nProjected growth ${labor.meta.projections}: ${c.l.growthPct}%; about ${c.l.annualOpenings.toLocaleString('en-US')} openings per year.\nTypical entry education (BLS): ${c.l.entryEducation}. Typical training time: ${c.train}.\nKey duties: ${c.duties.join('; ')}.\nCertifications: ${c.certs.map((x) => x[0]).join('; ')}.\nSkills: ${[...c.hard, ...c.soft].join('; ')}.\nHow to become: ${c.steps.map((s, i) => `${i + 1}) ${s[0]}`).join(' ')}\nTraining course: ${abs(c.trainingUrl)}\n`).join('\n')}`;
+const full = `# ${cfg.name}: career facts (${countLabel(careers.length)} careers)\n\nSource of pay data: ${labor.meta.wageSource}. Projections: ${labor.meta.projectionsSource}. Reviewed ${cfg.updated}. National U.S. figures.\n\n${careers.map((c) => `## ${c.title}\nURL: ${abs(c.url)}\nAlso called: ${c.aka.join(', ')}\nSOC: ${c.l.soc} (${c.l.blsTitle})\nSummary: ${c.summary}\nMedian annual pay: ${money(c.l.wages.median)}${c.l.wages.hourly != null ? ` (${'$' + c.l.wages.hourly.toFixed(2)}/hour)` : ' (annual wages only)'}. 10th percentile ${money(c.l.wages.p10)}; 90th percentile ${money(c.l.wages.p90)}.\nProjected growth ${labor.meta.projections}: ${c.l.growthPct}%; about ${c.l.annualOpenings.toLocaleString('en-US')} openings per year.\nTypical entry education (BLS): ${c.l.entryEducation}. Typical training time: ${c.train}.\nKey duties: ${c.duties.join('; ')}.\nCertifications: ${c.certs.map((x) => x[0]).join('; ')}.\nSkills: ${[...c.hard, ...c.soft].join('; ')}.\nHow to become: ${c.steps.map((s, i) => `${i + 1}) ${s[0]}`).join(' ')}\nTraining course: ${abs(c.trainingUrl)}\n`).join('\n')}`;
 fs.writeFileSync(path.join(DIST, 'llms-full.txt'), full);
 
 await writeImages({ DIST, careers, categories: cats, ROOT });

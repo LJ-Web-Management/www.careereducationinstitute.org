@@ -1,5 +1,5 @@
 import cfg from '../../site.config.mjs';
-import { esc, href, abs, money, pct, clamp, fmtDate } from '../lib/util.mjs';
+import { esc, href, abs, money, pct, clamp, fmtDate, countLabel } from '../lib/util.mjs';
 import { faqBlock, faqSchema, icon, band } from '../lib/layout.mjs';
 import { companyFaqs } from './company.mjs';
 import { guides, gp } from '../data/guides/index.mjs';
@@ -19,9 +19,9 @@ export function homePage(ctx) {
   const body = `<section class="hero"><div class="wrap"><div>
 <p class="eyebrow">Career training by job title</p>
 <h1>Find the career that fits. <em>Then learn how the job is really done.</em></h1>
-<p class="lead">Free career quizzes, official pay data and day-in-the-life guides for ${careers.length} in-demand careers, plus practical online training for every job title. Built for U.S. students, career changers and employers.</p>
-<div class="btn-row"><a class="btn btn-primary" href="${href('/quizzes/career-match/')}">Take the free Career Match Quiz</a><a class="btn" href="${href('/training/')}">Browse ${careers.length} trainings</a></div>
-<ul class="trust"><li>${careers.length} job-title trainings</li><li>BLS pay data, ${labor.meta.oewsLabel}</li><li>Self-paced online</li><li>Free tools, no sign-up</li></ul>
+<p class="lead">Free career quizzes, official pay data and day-in-the-life guides for ${countLabel(careers.length)} in-demand careers, plus practical online training for every job title. Built for U.S. students, career changers and employers.</p>
+<div class="btn-row"><a class="btn btn-primary" href="${href('/quizzes/career-match/')}">Take the free Career Match Quiz</a><a class="btn" href="${href('/training/')}">Browse ${countLabel(careers.length)} trainings</a></div>
+<ul class="trust"><li>${countLabel(careers.length)} job-title trainings</li><li>BLS pay data, ${labor.meta.oewsLabel}</li><li>Self-paced online</li><li>Free tools, no sign-up</li></ul>
 </div><div class="stack" aria-hidden="true">${stack.map((c) => `<div class="scard"><b>${esc(c.title)}</b><div class="row"><span>Median pay</span><strong>${money(c.l.wages.median)}</strong></div><div class="row"><span>Growth ${labor.meta.projections}</span><strong>${pct(c.l.growthPct)}</strong></div><div class="row"><span>Time to train</span><strong>${esc(c.train)}</strong></div></div>`).join('')}</div></div></section>
 
 <section class="section"><div class="wrap"><div class="section-head"><p class="eyebrow">Start where you are</p><h2>Who are you here for?</h2><p>Pick your starting point. Every path leads to real career information and a practical next step.</p></div>
@@ -32,9 +32,9 @@ export function homePage(ctx) {
 <article class="card link aud" style="border-top-color:#b8860b"><h3><a class="stretch" href="${href('/for-employers/')}">I hire &amp; train people</a></h3><p>Onboard new hires faster with consistent training for every job title on your team.</p><ul><li>Onboarding training</li><li>Hiring guides by job</li><li>ROI calculator</li></ul></article>
 </div></div></section>
 
-<section class="section alt"><div class="wrap"><div class="section-head"><p class="eyebrow">Explore by field</p><h2>${categories.length} career fields, ${careers.length} careers</h2><p>Every career includes pay, training time, a day in the life, skills, vocabulary, how-to guides, interview questions and a matching training.</p></div>
+<section class="section alt"><div class="wrap"><div class="section-head"><p class="eyebrow">Explore by field</p><h2>${categories.length} career fields, ${countLabel(careers.length)} careers</h2><p>Every career includes pay, training time, a day in the life, skills, vocabulary, how-to guides, interview questions and a matching training.</p></div>
 <div class="grid">${categories.map((cat) => { const cs = careers.filter((c) => c.cat === cat.slug); const meds = cs.map((c) => c.l.wages.median); return `<article class="card link"><span class="ico">${icon(cat.slug)}</span><h3><a class="stretch" href="${href(`/careers/${cat.slug}/`)}">${esc(cat.name)}</a></h3><p>${esc(cat.blurb)}</p><ul class="chips"><li class="chip">${cs.length} careers</li><li class="chip pay">${money(Math.min(...meds))}–${money(Math.max(...meds))}</li></ul></article>`; }).join('')}</div>
-<p style="margin-top:20px"><a class="btn" href="${href('/careers/')}">See all ${careers.length} careers</a></p></div></section>
+<p style="margin-top:20px"><a class="btn" href="${href('/careers/')}">See all ${countLabel(careers.length)} careers</a></p></div></section>
 
 <section class="section"><div class="wrap"><div class="section-head"><p class="eyebrow">Popular trainings</p><h2>Learn the job before your first day</h2><p>Each training covers the role, a realistic day, key vocabulary, step-by-step procedures, safety and how to land the job: self-paced and online.</p></div>
 <div class="grid">${popular.map((c) => `<article class="card link"><span class="ico">${icon(c.cat)}</span><h3><a class="stretch" href="${href(c.trainingUrl)}">${esc(c.title)} Training</a></h3><p>${esc(c.blurb)}</p><ul class="chips train-chips"><li class="chip pay">Median ${money(c.l.wages.median)}</li><li class="chip">${esc(c.train)} to enter</li></ul></article>`).join('')}</div>
@@ -65,7 +65,7 @@ ${band('Ready to find your fit?', 'It takes about four minutes and it’s free.'
   return {
     path: '/', crumbs: [], og: '/og/default.png', kind: 'Page', name: 'Home',
     title: 'Career Education Institute: Online Career Training by Job Title',
-    desc: clamp(`Find your career and train for it. Free career quizzes, BLS salary data and day-in-the-life guides for ${careers.length} jobs, plus online training by job title for U.S. learners and employers.`),
+    desc: clamp(`Find your career and train for it. Free career quizzes, BLS salary data and day-in-the-life guides for ${countLabel(careers.length)} jobs, plus online training by job title for U.S. learners and employers.`),
     body,
     schema: [faqSchema(faqs, '/')]
   };
