@@ -56,5 +56,5 @@ for (const c of build) {
   md += `\n### ${c.title} Training: ${c.hours} hours, ${$(c.price)}\n\n| # | Module | Time | Lessons |\n|---|---|---|---|\n`;
   md += modules(c).map(([t, ls, mins], i) => `| ${i + 1} | ${t} | ${minutesLabel(mins)} | ${ls.join('; ').replace(/\|/g, '/')} |`).join('\n') + '\n';
 }
-fs.writeFileSync(path.join(ROOT, 'COURSE-SPECS.md'), md.replace(/[ \t]*—[ \t]*/g, ', '));
+fs.writeFileSync(path.join(ROOT, 'COURSE-SPECS.md'), md.replace(/[ \t]*\u2014[ \t]*/g, ', '));
 console.log(`Wrote COURSE-SPECS.md (${build.length} trainings to build, ${partnerCourses.length} provider courses)`);

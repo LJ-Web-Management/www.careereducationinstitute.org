@@ -1,8 +1,9 @@
 import cfg from '../../site.config.mjs';
 import { esc, href, abs, clamp, fitTitle, md } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, sideLinks, answerBox } from '../lib/layout.mjs';
-import { STATES } from '../lib/forms.mjs';
+import { STATES, enrollForm } from '../lib/forms.mjs';
 import { partnerCourses, partnerTable, tierTable, providerLine } from '../lib/partners.mjs';
+import { cartItem } from './training.mjs';
 
 const price = (p) => '$' + Number(p).toFixed(2);
 
@@ -45,7 +46,7 @@ ${c.requirements.length ? `<h2 id="requirements">Requirements to know</h2><ul>${
 ${c.syllabus.modules.length ? `<h2 id="syllabus">Course syllabus</h2>${c.syllabus.intro ? `<p>${esc(c.syllabus.intro)}</p>` : ''}<div class="modules">${c.syllabus.modules.map((m, i) => `<details${i === 0 ? ' open' : ''}><summary><span>${esc(m.title)}</span></summary><div class="mod-body">${m.desc ? `<p>${esc(m.desc)}</p>` : ''}${m.lessons.length ? `<ul>${m.lessons.map((l) => `<li>${esc(l)}</li>`).join('')}</ul>` : ''}</div></details>`).join('')}</div>` : ''}
 ${c.objectives.length ? `<h2 id="objectives">What you will be able to do</h2><ul class="checks">${c.objectives.map((o) => `<li>${esc(o)}</li>`).join('')}</ul>` : ''}
 <h2 id="provider">About the course provider</h2><p>${esc(providerNote(c))}</p>
-<h2 id="buy">Enroll</h2><p>Buy online with a credit or debit card. Buying for a team? Enter the number of learners at checkout and volume pricing is applied automatically.</p><div class="btn-row"><a class="btn btn-primary" href="${href(`/checkout/?course=${c.slug}`)}">Buy now for ${price(c.price)}</a></div>
+<h2 id="buy">Enroll</h2><p>Buy online with a credit or debit card. Buying for a team? Enter the number of learners at checkout and volume pricing is applied automatically.</p><div class="btn-row"><a class="btn btn-primary" href="${href(`/checkout/?course=${c.slug}`)}">Buy now for ${price(c.price)}</a><button class="btn" type="button" data-add-cart="${cartItem({ k: 'course', s: c.slug, t: c.title, p: c.price, u: href(c.url) })}">Add to cart</button></div>
 <details class="more-info"><summary>Volume pricing</summary>${tierTable()}</details>
 ${faqs.length ? faqBlock(faqs, 'Frequently asked questions') : ''}
 ${career ? `<h2 id="career">The ${esc(career.lower)} career</h2><p>${esc(career.blurb)} <a href="${href(career.url)}">Read the ${esc(career.lower)} career profile</a>, including <a href="${href(career.url + 'salary/')}">pay</a> and <a href="${href(career.url + 'day-in-the-life/')}">a day in the life</a>.</p>` : ''}
@@ -56,7 +57,7 @@ ${related.length ? `<h2 id="related">Other job-title courses you can buy online<
       mcta: `<a class="btn btn-primary" href="${href(`/checkout/?course=${c.slug}`)}">Buy now · ${price(c.price)}</a>`,
       title: fitTitle(c.short.length <= 44 ? `${c.short} (Online)` : c.short),
       desc: clamp(`${c.title}: ${c.hoursAdj} online course${c.regulation ? ` aligned with ${c.regulation}` : ''}. ${c.langLabel}, ${price(c.price)} per learner, certificate of completion. Buy online today.`),
-      body: `${pageHero({ crumbs, eyebrow: `Job-title training: ${c.job}`, h1: esc(c.title), lead: esc(`${c.hours} · ${c.langLabel} · ${price(c.price)} per learner`), meta: false, extra: `<div class="btn-row"><a class="btn btn-primary" href="${href(`/checkout/?course=${c.slug}`)}">Buy now</a>${c.syllabus.modules.length ? `<a class="btn" href="#syllabus">View syllabus</a>` : ''}</div>` })}<div class="wrap layout"><div class="prose">${main}</div><aside>${aside}</aside></div>`,
+      body: `${pageHero({ crumbs, eyebrow: `Job-title training: ${c.job}`, h1: esc(c.title), lead: esc(`${c.hours} · ${c.langLabel} · ${price(c.price)} per learner`), meta: false, extra: `<div class="btn-row"><a class="btn btn-primary" href="${href(`/checkout/?course=${c.slug}`)}">Buy now</a><button class="btn" type="button" data-add-cart="${cartItem({ k: 'course', s: c.slug, t: c.title, p: c.price, u: href(c.url) })}">Add to cart</button>${c.syllabus.modules.length ? `<a class="btn" href="#syllabus">View syllabus</a>` : ''}</div>` })}<div class="wrap layout"><div class="prose">${main}</div><aside>${aside}</aside></div>`,
       schema: [{
         '@type': 'Course', '@id': abs(path) + '#course', name: c.title, description: summary,
         provider: { '@type': 'Organization', name: cfg.checkout.provider, legalName: cfg.checkout.providerLegal },
@@ -128,6 +129,24 @@ ${field('address2', 'Apartment, suite or unit', 'text', false, ' autocomplete="a
 <aside><div class="side-box order-summary"><h2>Order summary</h2><p class="summary-course" data-sum-name>Select a course</p><p class="small muted" data-sum-meta></p><table><tbody><tr><th scope="row" data-sum-qty>1 × $0.00</th><td class="num" data-sum-sub>$0.00</td></tr><tr data-sum-discount-row hidden><th scope="row" data-sum-discount-label>Volume discount</th><td class="num" data-sum-discount>-$0.00</td></tr><tr data-sum-code-row hidden><th scope="row" data-sum-code-label>Discount code</th><td class="num" data-sum-code>-$0.00</td></tr><tr class="total"><th scope="row">Total</th><td class="num" data-sum-total>$0.00</td></tr></tbody></table><p class="small muted">Prices in U.S. dollars. ${esc(providerLine())}.</p><p class="small"><a data-sum-link href="${href('/courses/')}">View course details</a></p></div></aside></div>
 <script type="application/json" id="checkout-data">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
     pages.push({ path, crumbs, noindex: true, og: '/og/courses.png', scripts: ['checkout'], title: 'Checkout | Career Education Institute', desc: 'Secure card checkout for Career Education Institute online job-title courses, with volume pricing from 2 learners.', body, schema: [] });
-  }
+
+  // Cart (saved in the visitor's browser by site.js): online courses go to card checkout together; job-title trainings
+  // go to one enrollment request. The page data carries current prices so a saved cart never shows stale ones.
+  {
+    const path = '/cart/';
+    const crumbs = [['Home', '/'], ['Cart', path]];
+    const data = { tiers: cfg.bulkTiers, courses: Object.fromEntries(partnerCourses.map((c) => [c.slug, { t: c.title, p: c.price, u: href(c.url) }])), trainings: Object.fromEntries(ctx.careers.filter((c) => !c.replacedBy).map((c) => [c.slug, c.price])), checkout: href('/checkout/?cart=1') };
+    const body = `${pageHero({ crumbs, eyebrow: 'Your cart', h1: 'Cart', lead: 'Your cart is saved in this browser only. Online courses check out together by card; job-title trainings are requested in one enrollment email.', meta: false })}
+<div class="wrap layout cart-page" data-cart><div>
+<noscript><p class="callout">The cart needs JavaScript. You can still buy any online course from its page, or call ${cfg.phone}.</p></noscript>
+<div data-cart-empty hidden><p class="lead" style="margin-top:0">Your cart is empty.</p><div class="btn-row"><a class="btn btn-primary" href="${href('/training/')}">Browse trainings</a><a class="btn" href="${href('/courses/')}">Online courses</a></div></div>
+<section data-cart-group="course" hidden><h2 style="margin-top:0">Online courses: buy now</h2><p class="muted small">Complete job-title courses from our affiliated training provider. Your login is emailed right after checkout.</p><ul class="cart-lines" data-lines></ul></section>
+<section data-cart-group="training" hidden><h2>Job-title trainings: enrollment by request</h2><p class="muted small">Send one request for every training below. We reply with a payment link or invoice and your learning-platform login. Prices with volume discounts are estimates until your invoice.</p><ul class="cart-lines" data-lines></ul>
+${enrollForm({ kind: 'cart', id: 'cart-enroll', heading: 'Request enrollment for these trainings' })}</section>
+</div>
+<aside><div class="side-box cart-sum" data-cart-summary hidden><h2>Summary</h2><div data-sum-course hidden><p class="small" style="margin:0"><strong>Online courses</strong></p><table><tbody data-sum-rows></tbody></table><a class="btn btn-primary btn-block" data-checkout href="${data.checkout}">Check out online</a></div><div data-sum-training hidden style="margin-top:16px"><p class="small" style="margin:0"><strong>Job-title trainings</strong> <span class="muted">(estimate)</span></p><table><tbody data-sum-rows></tbody></table><a class="btn btn-block" href="#cart-enroll">Request enrollment</a></div><p class="small muted" style="margin:12px 0 0">Volume pricing applies from 2 learners per course. Prices in U.S. dollars.</p></div>${sideLinks('Keep browsing', [['All job-title trainings', '/training/'], ['Online courses', '/courses/'], ['Training for employers', '/for-employers/']])}</aside></div>
+<script type="application/json" id="cart-data">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
+    pages.push({ path, crumbs, noindex: true, og: '/og/courses.png', scripts: ['cart', 'enroll'], title: 'Cart | Career Education Institute', desc: 'Your Career Education Institute cart: online courses to buy together and job-title trainings to request in one enrollment email.', body, schema: [] });
+  }  }
   return pages;
 }

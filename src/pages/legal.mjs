@@ -31,7 +31,7 @@ This Privacy Policy explains how we collect, uses, discloses and protects person
 
 ### Information collected automatically
 - **Hosting logs.** Our website is hosted by a third-party provider (currently GitHub Pages), which may automatically log technical information such as IP address, browser type, pages requested and date/time for security and operations. See GitHub’s privacy statement for details.
-- **Browser storage.** We do not use advertising cookies. Google Analytics sets analytics cookies, described below. On the checkout page only, Stripe’s secure card form may set cookies and collect device information to prevent fraud, under Stripe’s privacy policy. We may store a small preference in your browser’s local storage (for example, your analytics opt-out choice). Quiz answers are processed entirely in your browser and are not transmitted or saved by us.
+- **Browser storage.** We do not use advertising cookies. Google Analytics sets analytics cookies, described below. On the checkout page only, Stripe’s secure card form may set cookies and collect device information to prevent fraud, under Stripe’s privacy policy. We may store small preferences and your cart in your browser’s local storage (for example, your analytics opt-out choice or the courses you added to your cart). Your cart stays in your browser and is not sent to us until you check out or send an enrollment request. Quiz answers are processed entirely in your browser and are not transmitted or saved by us.
 - **Analytics.** We use Google Analytics to collect pseudonymous usage information (pages viewed, approximate location, device type), with Google signals and ad personalization turned off. Analytics does not load if your browser sends a Global Privacy Control (GPC) signal or if you opt out on our [Your Privacy Choices](/your-privacy-choices/) page.
 
 ### Information from others
@@ -198,6 +198,8 @@ Career Education Institute is built to be fast and private. **Our website does n
 |---|---|---|---|
 | Local storage: \`cei-optout\` | Remembers your choice to opt out of Google Analytics | Until you clear it | Yes: clear browser data |
 | Local storage: \`cei-newsletter-popup\`, plus a blog service worker that stores nothing | Remembers that you have seen the newsletter sign-up popup on the blog, so it opens only once. The service worker caches no pages or data; it only lets a hard refresh show the popup again | Until you clear it | Yes: clear browser data |
+| Local storage: \`cei-cart\` | Keeps the courses and trainings you add to your cart, with learner numbers, so they are still there when you come back | Until you remove them, check out or clear it | Yes: empty your cart or clear browser data |
+| Local storage: \`cei-search-view\` | Remembers whether you prefer site search results as a list or a grid | Until you clear it | Yes: clear browser data |
 | Local storage: \`cei-partner-code\` | Remembers a partner discount code from a partner’s link, so it is filled in at checkout and on enrollment forms | ${cfg.partnerProgram.linkDays} days, or until you clear it | Yes: clear browser data |
 | Form provider (contact and newsletter forms) | Runs the contact form and the newsletter sign-up and unsubscribe forms, only on those three pages. The provider may set its own cookies under its privacy policy | Per the provider’s policy | Avoid those pages; call or email us instead |
 | Hosting logs (GitHub Pages) | Security and reliable delivery; set by our host, not by cookies we control | Per host’s policy | Not applicable |

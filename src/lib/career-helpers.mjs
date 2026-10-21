@@ -90,6 +90,11 @@ export function relatedCards(cs, byslug) {
   return `<div class="grid">${cs.map((s) => byslug[s]).filter(Boolean).map((r) => `<article class="card link"><h3><a class="stretch" href="${href(r.url)}">${esc(r.title)}</a></h3><p>${esc(r.blurb)}</p><ul class="chips"><li class="chip pay">${money(r.l.wages.median)}</li><li class="chip">${esc(r.train)}</li></ul></article>`).join('')}</div>`;
 }
 
+// Site-search keywords for a career's overview and training pages: its other names, plus "data center" for the
+// hands-on roles that build, power, cool, wire and secure data centers.
+const DATA_CENTER = new Set(['electrician', 'hvac-technician', 'building-maintenance-technician', 'industrial-maintenance-technician', 'stationary-engineer', 'telecommunications-technician', 'network-technician', 'network-administrator', 'electronics-technician', 'fire-alarm-technician', 'security-guard', 'construction-manager', 'construction-laborer']);
+export const searchKeywords = (c) => [...c.aka, ...(DATA_CENTER.has(c.slug) ? ['data center'] : [])].join(', ');
+
 export const compareSlug = (a, b) => [a, b].sort().join('-vs-');
 
 export function genFaqs(c, labor) {

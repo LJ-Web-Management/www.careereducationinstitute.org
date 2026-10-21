@@ -2,10 +2,13 @@ import cfg from '../../site.config.mjs';
 import { esc, href, abs, money, clamp, fitTitle, listJoin, lowerFirst, shuffle, hash, taskPhrase } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, sideLinks, answerBox, icon } from '../lib/layout.mjs';
 import { enrollForm } from '../lib/forms.mjs';
-import { pick } from '../lib/career-helpers.mjs';
+import { pick, searchKeywords } from '../lib/career-helpers.mjs';
 import { catBySlug } from '../data/categories.mjs';
 import { moduleWeights, minutesLabel } from '../data/course-pricing.mjs';
 import { partnerById, partnerCourses, partnerTable, tierTable, providerLine } from '../lib/partners.mjs';
+
+// An item for the browser cart (site.js reads data-add-cart)
+export const cartItem = (o) => esc(JSON.stringify(o));
 
 const usd = (n) => '$' + Number(n).toFixed(2);
 
@@ -102,7 +105,7 @@ ${faqBlock(faqs, `${c.title} training FAQ`)}`;
     mcta: `<a class="btn btn-primary" href="${buy}">Buy now · ${usd(m.price)}</a>`,
     title: fitTitle(pick([`${c.title} Training: ${m.short}`, `${c.title} Training (Online)`])),
     desc: clamp(`${c.title} training online: ${m.title}, ${m.hours.toLowerCase()}, ${usd(m.price)}. ${p1}`),
-    body: `${pageHero({ crumbs, eyebrow: `${cat.name} training`, h1: `${esc(c.title)} Training`, lead: esc(`Start with the training the job requires: ${m.title}. ${m.hours}, online, ${usd(m.price)}.`), extra: `<div class="btn-row"><a class="btn btn-primary" href="${buy}">Buy now</a><a class="btn" href="${href(m.url)}">Course details</a></div>` })}<div class="wrap layout"><div class="prose">${main}</div><aside>${aside}</aside></div>`,
+    body: `${pageHero({ crumbs, eyebrow: `${cat.name} training`, h1: `${esc(c.title)} Training`, lead: esc(`Start with the training the job requires: ${m.title}. ${m.hours}, online, ${usd(m.price)}.`), extra: `<div class="btn-row"><a class="btn btn-primary" href="${buy}">Buy now</a><button class="btn" type="button" data-add-cart="${cartItem({ k: 'course', s: m.slug, t: m.title, p: m.price, u: href(m.url) })}">Add to cart</button><a class="btn" href="${href(m.url)}">Course details</a></div>` })}<div class="wrap layout"><div class="prose">${main}</div><aside>${aside}</aside></div>`,
     schema: [faqSchema(faqs, path)]
   };
 }
@@ -135,9 +138,9 @@ export function trainingPages(c, ctx) {
 ${enrollForm({ course: c, heading: `Enroll in ${c.title} Training` })}
 ${faqBlock(faqs, `${c.title} training FAQ`)}
 <h2 id="related">Related trainings</h2><div class="grid">${c.related.map((s) => byslug[s]).filter(Boolean).map((r) => `<article class="card link"><h3><a class="stretch" href="${href(r.trainingUrl)}">${esc(r.title)} Training</a></h3><p>${esc(r.blurb)}</p></article>`).join('')}</div>`;
-    const aside = `<div class="cta-card"><h2>${esc(c.title)} Training</h2><p class="buy-price">${price}<span> per learner</span></p><p>${esc(cfg.course.format)} · about ${c.hours} hours · ${esc(cfg.course.certificate)}</p><ul><li>${mods.length} modules</li><li>${c.terms.length}+ key terms</li><li>${qs.length}-question practice exam</li></ul><a class="btn btn-primary" href="#enroll">Enroll now</a></div>${sideLinks(`Explore the ${c.lower} career`, [['Career overview', c.url], ['Salary & pay scale', c.url + 'salary/'], ['How to become one', c.url + 'how-to-become/'], ['Interview questions', c.url + 'interview-questions/'], ['Is it right for me? (quiz)', c.url + 'is-it-right-for-me/']])}`;
+    const aside = `<div class="cta-card"><h2>${esc(c.title)} Training</h2><p class="buy-price">${price}<span> per learner</span></p><p>${esc(cfg.course.format)} · about ${c.hours} hours · ${esc(cfg.course.certificate)}</p><ul><li>${mods.length} modules</li><li>${c.terms.length}+ key terms</li><li>${qs.length}-question practice exam</li></ul><a class="btn btn-primary" href="#enroll">Enroll now</a><button class="btn btn-light" type="button" data-add-cart="${cartItem({ k: 'training', s: c.slug, t: `${c.title} Training`, p: c.price, u: href(c.trainingUrl) })}">Add to cart</button></div>${sideLinks(`Explore the ${c.lower} career`, [['Career overview', c.url], ['Salary & pay scale', c.url + 'salary/'], ['How to become one', c.url + 'how-to-become/'], ['Interview questions', c.url + 'interview-questions/'], ['Is it right for me? (quiz)', c.url + 'is-it-right-for-me/']])}`;
     pages.push({
-      path, crumbs, og, kind: 'Training', name: `${c.title} Training`, scripts: ['enroll'],
+      path, crumbs, og, kind: 'Training', name: `${c.title} Training`, keywords: searchKeywords(c), scripts: ['enroll'],
       mcta: `<a class="btn btn-primary" href="#enroll">Enroll now</a><a class="btn" href="${href(path + 'practice-test/')}">Free practice test</a>`,
       title: fitTitle(pick([`${c.title} Training Course (Online)`, `${c.title} Training (Online)`, `${c.short} Training Course (Online)`])),
       desc: clamp(`Online ${c.lower} training: ${c.hours} hours, ${price}. Learn the duties, ${c.terms.length}+ key terms, step-by-step tasks, safety and how to get hired. Self-paced, with a certificate.`),

@@ -10,7 +10,7 @@ const OUT = new URL('../src/data/partner-courses.json', import.meta.url);
 const UA = { 'User-Agent': 'Mozilla/5.0 (Career Education Institute catalog sync)' };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-const ENT = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', rsquo: '’', lsquo: '‘', ldquo: '“', rdquo: '”', ndash: '–', mdash: '—', hellip: '…', reg: '®', trade: '™', copy: '©', deg: '°', frac12: '½', bull: '•', middot: '·', eacute: 'é', ntilde: 'ñ' };
+const ENT = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', rsquo: '’', lsquo: '‘', ldquo: '“', rdquo: '”', ndash: '–', mdash: '\u2014', hellip: '…', reg: '®', trade: '™', copy: '©', deg: '°', frac12: '½', bull: '•', middot: '·', eacute: 'é', ntilde: 'ñ' };
 const decode = (s) => s.replace(/&(#x?[0-9a-f]+|[a-z]+);/gi, (m, e) => (e[0] === '#' ? String.fromCodePoint(e[1].toLowerCase() === 'x' ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10)) : ENT[e.toLowerCase()] ?? m));
 const text = (h) => decode(h.replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').replace(/\s+([.,;:!?)])/g, '$1').replace(/([(])\s+/g, '$1').trim();
 const firstPerson = /\b(we|we're|we've|we'll|our|ours|us)\b/i;

@@ -88,6 +88,43 @@
     });
   });
 
+  // Cart: saved only in this browser (localStorage), never sent anywhere until checkout or an enrollment request.
+  // Items: { k: 'course' (bought online) or 'training' (enrollment by request), s: slug, t: title, p: price, u: url, n: learners }
+  var CART_KEY = 'cei-cart';
+  // On the blog's own site (another address once custom domains are connected) the cart lives on the main site, so
+  // the header link still works there but the count is only shown on the main site.
+  var cartHere = !MP.main || location.origin === new URL(MP.main, location.href).origin;
+  MP.cart = {
+    get: function () { try { var c = JSON.parse(localStorage.getItem(CART_KEY) || '[]'); return Array.isArray(c) ? c.filter(function (i) { return i && i.s && i.k; }) : []; } catch (e) { return []; } },
+    set: function (list) { try { localStorage.setItem(CART_KEY, JSON.stringify(list)); } catch (e) {} MP.cart.badge(); d.dispatchEvent(new CustomEvent('cart:change')); },
+    add: function (item) {
+      var list = MP.cart.get(), found = null;
+      list.forEach(function (i) { if (i.k === item.k && i.s === item.s) found = i; });
+      if (found) found.n = Math.min(1000, (found.n || 1) + (item.n || 1)); else list.push({ k: item.k, s: item.s, t: item.t, p: item.p, u: item.u, n: item.n || 1 });
+      MP.cart.set(list);
+    },
+    badge: function () {
+      var n = cartHere ? MP.cart.get().length : 0;
+      [].forEach.call(d.querySelectorAll('[data-cart-count]'), function (b) { b.textContent = n; b.hidden = !n; });
+      [].forEach.call(d.querySelectorAll('[data-cart-link]'), function (a) { a.setAttribute('aria-label', n ? 'Cart, ' + n + (n === 1 ? ' item' : ' items') : 'Cart'); });
+    }
+  };
+  MP.cart.badge();
+  addEventListener('storage', function (e) { if (e.key === CART_KEY) { MP.cart.badge(); d.dispatchEvent(new CustomEvent('cart:change')); } });
+  // "Add to cart" buttons carry the item as JSON in data-add-cart
+  d.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-add-cart]');
+    if (!b) return;
+    try { MP.cart.add(JSON.parse(b.getAttribute('data-add-cart'))); } catch (x) { return; }
+    b.textContent = 'Added to cart';
+    var next = b.nextElementSibling;
+    if (!next || !next.hasAttribute('data-view-cart')) {
+      var v = d.createElement('a');
+      v.href = (MP.base || '') + '/cart/'; v.className = 'view-cart'; v.setAttribute('data-view-cart', ''); v.textContent = 'View cart';
+      b.insertAdjacentElement('afterend', v);
+    }
+  });
+
   // Privacy choices (opt-out of optional analytics; Global Privacy Control is always honored)
   var opt = d.querySelector('[data-optout]');
   var getOpt = function () { try { return localStorage.getItem('cei-optout') === '1'; } catch (e) { return false; } };

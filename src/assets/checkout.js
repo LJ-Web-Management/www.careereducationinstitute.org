@@ -11,55 +11,77 @@
   var fmt = function (n) { return '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
 
   var params = new URLSearchParams(location.search);
+  // Two ways in: ?course=<slug> buys one course (learners set below), ?cart=1 buys every online course in the
+  // browser cart in one order (learners per course come from the cart).
   var slug = params.get('course');
-  var course = D.courses[slug];
-  if (!course) {
+  var fromCart = !slug && window.MP && MP.cart;
+  var lines = slug && D.courses[slug] ? [{ s: slug, c: D.courses[slug], n: 1 }]
+    : fromCart ? MP.cart.get().filter(function (i) { return i.k === 'course' && D.courses[i.s]; }).map(function (i) { return { s: i.s, c: D.courses[i.s], n: Math.max(1, Math.min(1000, parseInt(i.n, 10) || 1)) }; }) : [];
+  if (!lines.length) {
     form.hidden = true;
     var p = document.createElement('div');
     p.className = 'callout';
-    p.innerHTML = 'Please choose a course first. <a href="' + (window.MP ? window.MP.base : '') + '/courses/">Browse courses</a>.';
+    var b = window.MP ? window.MP.base : '';
+    p.innerHTML = 'Please choose a course first. <a href="' + b + '/courses/">Browse online courses</a> or <a href="' + b + '/cart/">open your cart</a>.';
     form.parentNode.insertBefore(p, form);
     return;
   }
+  var single = lines.length === 1 && !!slug;
+  var course = lines[0].c;
   var seatsEl = $('#seats');
-  if (parseInt(params.get('seats'), 10) > 0) seatsEl.value = params.get('seats');
+  if (single) { if (parseInt(params.get('seats'), 10) > 0) seatsEl.value = params.get('seats'); }
+  else {
+    // Learner counts are set per course in the cart
+    var seatsField = seatsEl.closest('.field');
+    seatsField.innerHTML = '<p class="small" style="margin:0">Learner numbers come from your cart: ' + lines.map(function (l) { return l.n + ' × ' + l.c.t; }).join('; ') + '. <a href="' + (window.MP ? MP.base : '') + '/cart/">Change them in your cart</a>.</p>';
+  }
   var seats = function () { var n = parseInt(seatsEl.value, 10); return n > 0 ? Math.min(n, 1000) : 1; };
   // Discount code checked with the provider LMS: a coupon (percentage or fixed amount) or an
-  // "R-" referral code (percentage). Applied to the price after any volume discount.
+  // "R-" referral code (percentage). Applied after any volume discount, to the courses it covers.
   var applied = null;
-  var codeOff = function (base) {
-    if (!applied) return 0;
-    var off = applied.fixed ? applied.amount : base * applied.amount / 100;
-    return Math.min(base, Math.round(off * 100) / 100);
-  };
   var tierFor = function (n) { for (var i = D.tiers.length - 1; i >= 0; i--) if (n >= D.tiers[i].min) return D.tiers[i]; return D.tiers[0]; };
+  var r2 = function (n) { return Math.round(n * 100) / 100; };
   var totals = function () {
-    var n = seats(), t = tierFor(n);
-    var sub = Math.round(course.p * n * 100) / 100;
-    var unit = Math.round(course.p * (1 - t.discount) * 100) / 100;
-    var total = Math.round(unit * n * 100) / 100;
-    var off = codeOff(total);
-    return { n: n, t: t, sub: sub, total: total, disc: Math.round((sub - total) * 100) / 100, off: off, pay: Math.round((total - off) * 100) / 100 };
+    var ls = lines.map(function (l) {
+      var n = single ? seats() : l.n, t = tierFor(n);
+      var sub = r2(l.c.p * n), total = r2(r2(l.c.p * (1 - t.discount)) * n);
+      return { l: l, n: n, t: t, sub: sub, total: total };
+    });
+    var sub = r2(ls.reduce(function (a, x) { return a + x.sub; }, 0)), total = r2(ls.reduce(function (a, x) { return a + x.total; }, 0));
+    var off = 0;
+    if (applied) {
+      var base = r2(ls.filter(function (x) { return !applied.ids || !applied.ids.length || applied.ids.indexOf(String(x.l.c.id)) > -1; }).reduce(function (a, x) { return a + x.total; }, 0));
+      off = Math.min(base, r2(applied.fixed ? applied.amount : base * applied.amount / 100));
+    }
+    return { ls: ls, n: ls[0].n, t: ls[0].t, sub: sub, total: total, disc: r2(sub - total), off: off, pay: r2(total - off) };
   };
   var set = function (sel, t) { var el = $('[' + sel + ']'); if (el) el.textContent = t; };
   var render = function () {
     var r = totals();
-    set('data-sum-name', course.t);
-    set('data-sum-meta', course.h + ' · online, self-paced');
-    set('data-sum-qty', r.n + (r.n === 1 ? ' learner' : ' learners') + ' × ' + fmt(course.p));
+    if (single) {
+      set('data-sum-name', course.t);
+      set('data-sum-meta', course.h + ' · online, self-paced');
+      set('data-sum-qty', r.n + (r.n === 1 ? ' learner' : ' learners') + ' × ' + fmt(course.p));
+      set('data-sum-discount-label', 'Volume discount (' + Math.round(r.t.discount * 100) + '%)');
+    } else {
+      set('data-sum-name', lines.length + (lines.length === 1 ? ' online course' : ' online courses'));
+      var meta = $('[data-sum-meta]');
+      meta.innerHTML = '<ul class="sum-lines">' + r.ls.map(function (x) { return '<li><span>' + x.n + ' × ' + fmt(x.l.c.p) + ' ' + x.l.c.t.replace(/[&<>]/g, '') + '</span><span>' + fmt(x.sub) + '</span></li>'; }).join('') + '</ul>';
+      set('data-sum-qty', 'Subtotal');
+      set('data-sum-discount-label', 'Volume discount');
+    }
     set('data-sum-sub', fmt(r.sub));
-    set('data-sum-discount-label', 'Volume discount (' + Math.round(r.t.discount * 100) + '%)');
     set('data-sum-discount', '-' + fmt(r.disc));
     var row = $('[data-sum-discount-row]'); if (row) row.hidden = !(r.disc > 0);
     set('data-sum-code-label', applied ? 'Discount code ' + applied.code : 'Discount code');
     set('data-sum-code', '-' + fmt(r.off));
     var codeRow = $('[data-sum-code-row]'); if (codeRow) codeRow.hidden = !(r.off > 0);
     set('data-sum-total', fmt(r.pay));
-    var link = $('[data-sum-link]'); if (link) link.href = course.u;
+    var link = $('[data-sum-link]'); if (link) { link.href = single ? course.u : (window.MP ? MP.base : '') + '/cart/'; link.textContent = single ? 'View course details' : 'Back to your cart'; }
     payBtn.textContent = 'Pay ' + fmt(r.pay);
     return r;
   };
-  seatsEl.addEventListener('input', render);
+  if (single) seatsEl.addEventListener('input', render);
   render();
 
 
@@ -108,9 +130,9 @@
       if (!ok) throw new Error(msgOf(data) || 'This code could not be applied.');
       var next = null;
       if (ok.type === 'coupon') {
-        var ids = ok.product_ids ? String(ok.product_ids).split(',') : [];
-        if (ids.length && ids.indexOf(String(course.id)) < 0) throw new Error('This code does not apply to this course.');
-        next = { code: code, ref: false, id: ok.coupon_id, fixed: ok.coupon_type === 'fixed', amount: parseFloat(ok.coupon_amount) || 0 };
+        var ids = ok.product_ids ? String(ok.product_ids).split(',').map(function (x) { return x.trim(); }) : [];
+        if (ids.length && !lines.some(function (l) { return ids.indexOf(String(l.c.id)) > -1; })) throw new Error(single ? 'This code does not apply to this course.' : 'This code does not apply to the courses in your order.');
+        next = { code: code, ref: false, id: ok.coupon_id, ids: ids, fixed: ok.coupon_type === 'fixed', amount: parseFloat(ok.coupon_amount) || 0 };
       } else if (ok.type === 'referal' || ok.type === 'referral') {
         next = { code: code, ref: true, fixed: false, amount: parseFloat(ok.referral_discount) || 0 };
       }
@@ -176,7 +198,7 @@
         billing_address_1: addr.line1, billing_address_2: addr.line2, billing_city: addr.city, billing_state: addr.state, billing_postcode: addr.postal_code, billing_country: 'US',
         shipping_address_1: addr.line1, shipping_address_2: addr.line2, shipping_city: addr.city, shipping_state: addr.state, shipping_postcode: addr.postal_code, shipping_country: 'US',
         coupon_id: applied && !applied.ref ? applied.id : '', ref_code: applied && applied.ref ? applied.code : '',
-        courses: [{ course_id: course.id, quantity: r.n, users: [{ first_name: first, last_name: last, email: email, user_name: '' }] }]
+        courses: r.ls.map(function (x) { return { course_id: x.l.c.id, quantity: x.n, users: [{ first_name: first, last_name: last, email: email, user_name: '' }] }; })
       };
       var res = await fetch(D.api + '/add_order', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(order) });
       var od = await res.json().catch(function () { return {}; });
@@ -196,6 +218,8 @@
       return fail('We could not reach the enrollment system. Please try again or call ' + D.phone + '.');
     }
 
+    // Bought: take these courses out of the browser cart
+    if (window.MP && MP.cart) MP.cart.set(MP.cart.get().filter(function (i) { return !(i.k === 'course' && lines.some(function (l) { return l.s === i.s; })); }));
     form.hidden = true;
     var ok = $('#checkoutSuccess');
     $('[data-order-ref]').textContent = orderRef || 'CEI-' + Date.now().toString().slice(-6);

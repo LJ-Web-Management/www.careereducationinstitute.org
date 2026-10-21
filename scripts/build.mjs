@@ -70,7 +70,7 @@ for (const p of pages) {
   if (seen.has(p.path)) throw new Error('Duplicate path ' + p.path);
   seen.add(p.path);
   // No em dashes anywhere in published pages (style rule); convert any that slip through.
-  const html = (p.raw ? p.content : layout(p)).replace(/[ \t]*—[ \t]*/g, ', ');
+  const html = (p.raw ? p.content : layout(p)).replace(/[ \t]*\u2014[ \t]*/g, ', ');
   const file = p.file ? path.join(DIST, p.file) : path.join(DIST, p.path, 'index.html');
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, html);

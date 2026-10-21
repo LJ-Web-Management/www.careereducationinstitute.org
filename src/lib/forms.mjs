@@ -19,7 +19,7 @@ const noscript = (what) => `<noscript><p class="callout">JavaScript is turned of
 // Enrollment form. Submitting opens a pre-filled email (no data is stored by the website).
 // kind 'enroll' needs the course (a career) of the page it sits on; 'employer' is a team quote.
 export function enrollForm({ course = null, kind = 'enroll', heading = 'Request enrollment', id = 'enroll' } = {}) {
-  const isEmployer = kind === 'employer';
+  const isEmployer = kind === 'employer', isCart = kind === 'cart'; // cart: the trainings and learner counts come from the cart page
   return `<section class="form-box" id="${id}" aria-labelledby="${id}-h"><h2 id="${id}-h">${esc(heading)}</h2>
 <p class="small muted">Fill this out and press the button: your email app will open with a pre-filled message to our enrollment team (${esc(cfg.enrollTo)}). We reply with ${isEmployer ? 'volume pricing, invoicing options and setup details' : 'a payment link or invoice and your learning-platform login'}. Nothing you type is stored on this website.</p>
 ${noscript('enroll')}
@@ -32,7 +32,7 @@ ${stateField(id)}</div>
 ${isEmployer ? `<div class="row2"><div class="field"><label for="${id}-org">Organization</label><input id="${id}-org" name="Organization" type="text" autocomplete="organization"></div>
 <div class="field"><label for="${id}-roles">Roles or trainings of interest ${opt}</label><input id="${id}-roles" name="Trainings" type="text" placeholder="For example: new CNAs and pharmacy techs"></div></div>` : ''}
 <div class="row2"><div class="field"><label for="${id}-who">Enrolling</label><select id="${id}-who" name="Enrolling"><option${isEmployer ? '' : ' selected'}>Myself</option><option${isEmployer ? ' selected' : ''}>My team or employees</option><option>My student or child (I am the parent/guardian)</option></select></div>
-<div class="field"><label for="${id}-seats">Number of learners</label><input id="${id}-seats" name="Learners" type="number" min="1" max="5000" value="${isEmployer ? 5 : 1}" inputmode="numeric"></div></div>
+${isCart ? '<input type="hidden" name="Cart" value=""><input type="hidden" name="CartCount" value="0">' : `<div class="field"><label for="${id}-seats">Number of learners</label><input id="${id}-seats" name="Learners" type="number" min="1" max="5000" value="${isEmployer ? 5 : 1}" inputmode="numeric"></div>`}</div>
 ${isEmployer ? '' : `<div class="field"><label for="${id}-code">Partner discount code ${opt}</label><input id="${id}-code" name="Code" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false"><div class="hint">Got a code from your school, college, employer or organization? Enter it to save ${Math.round(cfg.partnerProgram.discount * 100)}%.</div></div>`}
 <div class="field"><label for="${id}-msg">Questions or notes ${opt}</label><textarea id="${id}-msg" name="Message"></textarea></div>
 <label class="check"><input type="checkbox" name="Age" value="Confirmed" required><span>I am 18 or older, or I am a parent/guardian submitting for a minor. ${req}</span></label>

@@ -5,7 +5,7 @@ import { selection, shortNames } from '../data/partner-selection.mjs';
 
 // Text from the provider catalog: tidy spacing and punctuation for our pages.
 export const tidy = (s = '') => String(s)
-  .replace(/\s*—\s*/g, ', ').replace(/\s+–\s+/g, ', ').replace(/,\s*,/g, ',')
+  .replace(/\s*\u2014\s*/g, ', ').replace(/\s+–\s+/g, ', ').replace(/,\s*,/g, ',')
   .replace(/\s+([.,;:!?)])/g, '$1').replace(/\s{2,}/g, ' ').trim();
 
 const cleanTitle = (t) => tidy(t).replace(/\s+[-–]\s+\d+\s*CFR[\s\S]*$/i, '').replace(/\b(\d+) Hour\b/g, '$1-Hour').replace(/\s+-\s+/g, ': ');

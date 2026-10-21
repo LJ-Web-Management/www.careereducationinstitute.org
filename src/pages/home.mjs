@@ -1,5 +1,5 @@
 import cfg from '../../site.config.mjs';
-import { esc, href, abs, money, pct, clamp } from '../lib/util.mjs';
+import { esc, href, abs, money, pct, clamp, fmtDate } from '../lib/util.mjs';
 import { faqBlock, faqSchema, icon, band } from '../lib/layout.mjs';
 import { companyFaqs } from './company.mjs';
 import { guides, gp } from '../data/guides/index.mjs';
@@ -8,8 +8,8 @@ import { partnerCourses, partnerTable } from '../lib/partners.mjs';
 export function homePage(ctx) {
   const { careers, categories, labor, posts, byslug } = ctx;
   const pick = (s) => byslug[s] || careers[0];
-  const stack = ['electrician', 'medical-assistant', 'cybersecurity-analyst'].map(pick);
-  const popular = ['medical-assistant', 'electrician', 'hvac-technician', 'pharmacy-technician', 'truck-driver', 'phlebotomist', 'cybersecurity-analyst', 'occupational-safety-specialist', 'certified-nursing-assistant', 'welder', 'it-support-specialist', 'project-manager'].map((s) => byslug[s]).filter(Boolean);
+  const stack = ['electrician', 'hvac-technician', 'medical-assistant'].map(pick);
+  const popular = ['electrician', 'hvac-technician', 'medical-assistant', 'construction-laborer', 'telecommunications-technician', 'heavy-equipment-operator', 'building-maintenance-technician', 'welder', 'truck-driver', 'phlebotomist', 'industrial-maintenance-technician', 'occupational-safety-specialist'].map((s) => byslug[s]).filter(Boolean);
   const noDegree = careers.filter((c) => c.eduLevel < 4).sort((a, b) => b.l.wages.median - a.l.wages.median).slice(0, 6);
   const fastest = careers.filter((c) => c.months <= 6).sort((a, b) => b.l.wages.median - a.l.wages.median).slice(0, 6);
   const featuredGuides = ['how-to-choose-a-career', 'college-vs-trade-school', 'how-to-change-careers', 'transferable-skills', 'how-to-ask-for-a-raise', 'how-to-write-a-resume'].map((s) => guides.find((g) => g.slug === s)).filter(Boolean);
@@ -37,7 +37,7 @@ export function homePage(ctx) {
 <p style="margin-top:20px"><a class="btn" href="${href('/careers/')}">See all ${careers.length} careers</a></p></div></section>
 
 <section class="section"><div class="wrap"><div class="section-head"><p class="eyebrow">Popular trainings</p><h2>Learn the job before your first day</h2><p>Each training covers the role, a realistic day, key vocabulary, step-by-step procedures, safety and how to land the job: self-paced and online.</p></div>
-<div class="grid">${popular.map((c) => `<article class="card link"><span class="ico">${icon(c.cat)}</span><h3><a class="stretch" href="${href(c.trainingUrl)}">${esc(c.title)} Training</a></h3><p>${esc(c.blurb)}</p><ul class="chips"><li class="chip pay">Median ${money(c.l.wages.median)}</li><li class="chip">${esc(c.train)} to enter</li></ul></article>`).join('')}</div>
+<div class="grid">${popular.map((c) => `<article class="card link"><span class="ico">${icon(c.cat)}</span><h3><a class="stretch" href="${href(c.trainingUrl)}">${esc(c.title)} Training</a></h3><p>${esc(c.blurb)}</p><ul class="chips train-chips"><li class="chip pay">Median ${money(c.l.wages.median)}</li><li class="chip">${esc(c.train)} to enter</li></ul></article>`).join('')}</div>
 <p style="margin-top:20px"><a class="btn btn-primary" href="${href('/training/')}">View all trainings</a></p></div></section>
 
 <section class="section dark"><div class="wrap"><div class="section-head"><p class="eyebrow" style="color:#7fd1c4">How it works</p><h2>From “what should I do?” to day one</h2></div>
@@ -55,9 +55,9 @@ export function homePage(ctx) {
 
 ${band('Training new hires? Give every one the same strong start.', 'Onboarding training by job title for employers, staffing agencies and workforce programs, with group pricing.', 'See employer training', '/for-employers/', 'Hiring guides', '/employers/hiring-guides/')}
 
-${featuredGuides.length ? `<section class="section"><div class="wrap"><div class="section-head"><p class="eyebrow">Guides</p><h2>Plain-English career guides</h2></div><div class="grid">${featuredGuides.map((g) => `<article class="card link"><h3><a class="stretch" href="${href(gp(g))}">${esc(g.title)}</a></h3><p>${esc(g.desc)}</p></article>`).join('')}</div><p style="margin-top:20px"><a class="btn" href="${href('/guides/')}">All guides</a></p></div></section>` : ''}
+${featuredGuides.length ? `<section class="section"><div class="wrap"><div class="section-head"><p class="eyebrow">Guides</p><h2>Plain-English career guides</h2></div><ul class="list-view">${featuredGuides.map((g) => `<li><h3><a href="${href(gp(g))}">${esc(g.title)}</a></h3><p>${esc(g.desc)}</p></li>`).join('')}</ul><p style="margin-top:20px"><a class="btn" href="${href('/guides/')}">All guides</a></p></div></section>` : ''}
 
-${posts.length ? `<section class="section alt"><div class="wrap"><div class="section-head"><p class="eyebrow">From the blog</p><h2>Latest articles</h2></div><div class="grid">${posts.slice(0, 3).map((p) => `<article class="card link"><span class="chip">${esc(p.category)}</span><h3 style="margin-top:8px"><a class="stretch" href="${href(`/blog/${p.slug}/`)}">${esc(p.title)}</a></h3><p>${esc(p.description)}</p></article>`).join('')}</div></div></section>` : ''}
+${posts.length ? `<section class="section alt"><div class="wrap"><div class="section-head"><p class="eyebrow">From the blog</p><h2>Latest articles</h2></div><ul class="list-view">${posts.slice(0, 3).map((p) => `<li><p class="lv-k">${esc(p.category)} · <time datetime="${p.date}">${fmtDate(p.date)}</time></p><h3><a href="${href(`/blog/${p.slug}/`)}">${esc(p.title)}</a></h3><p>${esc(p.description)}</p></li>`).join('')}</ul><p style="margin-top:20px"><a class="btn" href="${href('/blog/')}">All articles</a></p></div></section>` : ''}
 
 <section class="section"><div class="wrap" style="max-width:860px">${faqBlock(faqs, 'Questions, answered')}</div></section>
 ${band('Ready to find your fit?', 'It takes about four minutes and it’s free.', 'Take the Career Match Quiz', '/quizzes/career-match/', 'Browse trainings', '/training/')}`;

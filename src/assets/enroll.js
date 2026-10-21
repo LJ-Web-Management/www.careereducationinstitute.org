@@ -48,7 +48,7 @@
           consent
         ];
       } else {
-        subject = kind === 'employer' ? 'Group training request: ' + (v('Organization') || v('Name')) : 'Enrollment request: ' + course + ' (' + v('Name') + ')';
+        subject = kind === 'employer' ? 'Group training request: ' + (v('Organization') || v('Name')) : kind === 'cart' ? 'Enrollment request: ' + v('CartCount') + (v('CartCount') === '1' ? ' training (' : ' trainings (') + v('Name') + ')' : 'Enrollment request: ' + course + ' (' + v('Name') + ')';
         lines = [
           kind === 'employer' ? 'Hello Career Education Institute team, we would like pricing for group training.' : 'Hello Career Education Institute team, I would like to enroll.',
           '',
@@ -62,7 +62,9 @@
         if (course) lines.push('Course: ' + course + (listPrice ? ' (list price $' + Number(listPrice).toFixed(2) + ' per learner)' : ''));
         if (v('Organization')) lines.push('Organization: ' + v('Organization'));
         if (v('Trainings')) lines.push('Roles or trainings of interest: ' + v('Trainings'));
-        lines.push('Enrolling: ' + v('Enrolling'), 'Number of learners: ' + (v('Learners') || '1'));
+        if (kind === 'cart') lines.push('', 'Trainings in my cart:', v('Cart'), '');
+        lines.push('Enrolling: ' + v('Enrolling'));
+        if (kind !== 'cart') lines.push('Number of learners: ' + (v('Learners') || '1'));
         if (v('Code')) lines.push('Partner discount code: ' + v('Code').toUpperCase());
         lines.push('', 'Notes: ' + (v('Message') || 'None'), '', 'Age confirmation: 18 or older, or parent/guardian (confirmed)', consent);
       }

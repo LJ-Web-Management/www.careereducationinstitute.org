@@ -1,7 +1,7 @@
 import cfg from '../../site.config.mjs';
 import { esc, href, abs, money, money2, pct, num, fmtDate, clamp, fitTitle, listJoin, lowerFirst, year, taskPhrase } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, ctaCard, sideLinks, answerBox, icon } from '../lib/layout.mjs';
-import { subnav, pick, dataNote, facts, rangeBar, occupationSchema, relatedCards, compareSlug, genFaqs, stateNote, growthWord, SUB } from '../lib/career-helpers.mjs';
+import { subnav, pick, dataNote, facts, rangeBar, occupationSchema, relatedCards, compareSlug, genFaqs, stateNote, growthWord, SUB, searchKeywords } from '../lib/career-helpers.mjs';
 import { catBySlug } from '../data/categories.mjs';
 import { partnerById, partnerCourses, partnerTable } from '../lib/partners.mjs';
 
@@ -58,7 +58,7 @@ ${partnerCourses.some((p) => p.career === c.slug) ? `<h2 id="buy-online">Online 
 ${faqBlock(faqs, `${c.title} FAQ`)}<p><a href="${href(c.url + 'faq/')}">More ${esc(c.lower)} questions →</a></p>${sources(c, labor)}`;
     const s = shell(c, ctx, { path, h1: esc(c.title), lead: `What ${esc(c.pluralLower)} do, what they earn, how long training takes and how to get started, with official BLS pay data and practical, job-level detail.`, eyebrow: `${catBySlug[c.cat].name} career`, main, showAka: true });
     pages.push({
-      path, ...s, og: og(c), mcta: mcta(c), kind: 'Career', name: c.title,
+      path, ...s, og: og(c), mcta: mcta(c), kind: 'Career', name: c.title, keywords: searchKeywords(c),
       title: fitTitle(pick([`What Does ${c.a === 'an' ? 'an' : 'a'} ${c.title} Do? Duties, Pay & Outlook`, `${c.title}: Job Description, Pay & Outlook`, `${c.title} Career Guide`, c.title])),
       desc: clamp(`What does ${c.a} ${c.lower} do? Duties, a typical day, ${money(w.median)} median pay (BLS ${labor.meta.oewsLabel}), ${c.train} of training, skills, certifications and how to start.`),
       schema: [occupationSchema(c, labor, abs(path)), faqSchema(faqs, path)]

@@ -24,16 +24,21 @@ export function ogSvg({ title, kicker, footer, iconB64, iconW, iconH }) {
   return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630"><rect width="1200" height="630" fill="#022350"/>${grid}<rect x="0" y="600" width="1200" height="30" fill="#cc9628"/><rect x="70" y="52" width="${t}" height="${t}" rx="22" fill="#ffffff"/><image x="${70 + (t - iw) / 2}" y="${52 + (t - ih) / 2}" width="${iw}" height="${ih}" preserveAspectRatio="xMidYMid meet" xlink:href="data:image/png;base64,${iconB64}"/><text x="206" y="106" font-family="Georgia, 'DejaVu Serif', serif" font-size="44" font-weight="700" fill="#ffffff">Career Education</text><text x="208" y="146" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="18" font-weight="700" letter-spacing="10" fill="#cc9628">INSTITUTE</text><text x="70" y="250" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="24" font-weight="700" letter-spacing="3" fill="#7fd3e0">${esc(kicker.toUpperCase())}</text>${lines.map((l, i) => `<text x="68" y="${330 + i * (size + 8)}" font-family="Georgia, 'DejaVu Serif', serif" font-size="${size}" font-weight="700" fill="#ffffff">${esc(l)}</text>`).join('')}<text x="70" y="568" font-family="Helvetica, Arial, 'DejaVu Sans', sans-serif" font-size="26" fill="#c9d5ec">${esc(footer)}</text></svg>`;
 }
 
-function ico(png32) {
-  const header = Buffer.alloc(6); header.writeUInt16LE(0, 0); header.writeUInt16LE(1, 2); header.writeUInt16LE(1, 4);
-  const entry = Buffer.alloc(16); entry.writeUInt8(32, 0); entry.writeUInt8(32, 1); entry.writeUInt8(0, 2); entry.writeUInt8(0, 3);
-  entry.writeUInt16LE(1, 4); entry.writeUInt16LE(32, 6); entry.writeUInt32LE(png32.length, 8); entry.writeUInt32LE(22, 12);
-  return Buffer.concat([header, entry, png32]);
+// favicon.ico holding PNG images: [[size, png], ...]
+function ico(images) {
+  const header = Buffer.alloc(6); header.writeUInt16LE(0, 0); header.writeUInt16LE(1, 2); header.writeUInt16LE(images.length, 4);
+  let offset = 6 + 16 * images.length;
+  const entries = images.map(([size, png]) => {
+    const e = Buffer.alloc(16); e.writeUInt8(size % 256, 0); e.writeUInt8(size % 256, 1);
+    e.writeUInt16LE(1, 4); e.writeUInt16LE(32, 6); e.writeUInt32LE(png.length, 8); e.writeUInt32LE(offset, 12);
+    offset += png.length; return e;
+  });
+  return Buffer.concat([header, ...entries, ...images.map(([, png]) => png)]);
 }
 
 export async function writeImages({ DIST, ROOT, careers, categories }) {
   let sharp;
-  try { sharp = (await import('sharp')).default; } catch { console.warn('! sharp not installed — skipping image generation'); return; }
+  try { sharp = (await import('sharp')).default; } catch { console.warn('! sharp not installed: skipping image generation'); return; }
   const og = path.join(DIST, 'og'); const icons = path.join(DIST, 'icons'); const brand = path.join(DIST, 'brand');
   [og, icons, brand].forEach((d) => fs.mkdirSync(d, { recursive: true }));
   // Crop the transparent margins so sizes below refer to the artwork itself
@@ -56,11 +61,35 @@ export async function writeImages({ DIST, ROOT, careers, categories }) {
   fs.writeFileSync(path.join(icons, 'icon-192.png'), await tile(192, 0.8, 36));
   fs.writeFileSync(path.join(icons, 'icon-512.png'), await tile(512, 0.8, 96));
   fs.writeFileSync(path.join(icons, 'icon-maskable-512.png'), await tile(512, 0.6));
-  // Favicons: a rounded white tile keeps the navy mark visible on dark browser tabs
-  const fav32 = await tile(32, 0.9, 7);
-  fs.writeFileSync(path.join(DIST, 'favicon-32.png'), fav32);
-  fs.writeFileSync(path.join(DIST, 'favicon-48.png'), await tile(48, 0.9, 10));
-  fs.writeFileSync(path.join(DIST, 'favicon.ico'), ico(fav32));
+  // Favicons (browser tabs): transparent, the mark centered between its box center and its visual center (the book
+  // is heavier than the thin arc), with a white outline so it stands out on light and dark tab bars alike.
+  // Drawn at 8x, then scaled down.
+  const favicon = async (size, frac = 0.82, stroke = 0.075) => {
+    const k = 8, S = size * k;
+    const mark = await sharp(icon).resize({ width: Math.round(S * frac) }).png().toBuffer({ resolveWithObject: true });
+    const { data, info } = await sharp(mark.data).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+    let sy = 0, n = 0;
+    for (let y = 0; y < info.height; y++) for (let x = 0; x < info.width; x++) if (data[(y * info.width + x) * 4 + 3] > 128) { sy += y; n++; }
+    const top = Math.round(((S - info.height) / 2 + (S / 2 - sy / n)) / 2), left = Math.round((S - info.width) / 2);
+    const placed = await sharp({ create: { width: S, height: S, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } } }).composite([{ input: mark.data, left, top }]).png().toBuffer();
+    // Outline: grow the alpha (blur, then threshold; sharp needs two passes for that order), fill enclosed holes, paint white
+    const soft = await sharp(placed).extractChannel(3).blur((stroke * S) / 2).png().toBuffer();
+    const grown0 = await sharp(soft).threshold(6).toColourspace('b-w').raw().toBuffer();
+    const grown = Buffer.alloc(S * S, 255), seen = new Uint8Array(S * S), todo = [];
+    for (let i = 0; i < S; i++) todo.push(i, (S - 1) * S + i, i * S, i * S + S - 1);
+    while (todo.length) {
+      const p = todo.pop(); if (seen[p] || grown0[p] > 127) continue;
+      seen[p] = 1; grown[p] = 0; const x = p % S, y = (p - x) / S;
+      if (x > 0) todo.push(p - 1); if (x < S - 1) todo.push(p + 1); if (y > 0) todo.push(p - S); if (y < S - 1) todo.push(p + S);
+    }
+    const white = await sharp({ create: { width: S, height: S, channels: 3, background: '#ffffff' } }).joinChannel(grown, { raw: { width: S, height: S, channels: 1 } }).png().toBuffer();
+    const big = await sharp(white).composite([{ input: placed }]).png().toBuffer();
+    return sharp(big).resize(size, size, { kernel: 'lanczos3' }).png({ compressionLevel: 9 }).toBuffer();
+  };
+  const fav = { 16: await favicon(16), 32: await favicon(32), 48: await favicon(48) };
+  fs.writeFileSync(path.join(DIST, 'favicon-32.png'), fav[32]);
+  fs.writeFileSync(path.join(DIST, 'favicon-48.png'), fav[48]);
+  fs.writeFileSync(path.join(DIST, 'favicon.ico'), ico([[16, fav[16]], [32, fav[32]], [48, fav[48]]]));
 
   // Open Graph images
   const iconB64 = (await sharp(icon).resize({ width: 276 }).png().toBuffer()).toString('base64');
