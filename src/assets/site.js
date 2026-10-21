@@ -125,6 +125,33 @@
     }
   });
 
+  // FAQ blocks marked data-faq-hover: an answer opens while the pointer is over its question and closes when the
+  // pointer leaves; a click anywhere on the question or answer keeps it open, and another click closes it. On touch
+  // screens and with the keyboard, a click or Enter simply opens and closes it.
+  var canHover = window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches;
+  [].forEach.call(d.querySelectorAll('[data-faq-hover] details'), function (dt) {
+    dt.addEventListener('mouseenter', function () { if (canHover && !dt.open) { dt.open = true; dt.setAttribute('data-peek', ''); } });
+    dt.addEventListener('mouseleave', function () { if (dt.hasAttribute('data-peek')) { dt.open = false; dt.removeAttribute('data-peek'); } });
+    dt.addEventListener('click', function (e) {
+      if (e.target.closest('a')) return; // links in an answer work as usual
+      e.preventDefault();
+      if (dt.hasAttribute('data-peek')) dt.removeAttribute('data-peek'); // open from hovering: now stays open
+      else dt.open = !dt.open;
+    });
+  });
+  // FAQ "View more": extra questions stay hidden until asked for, then the full FAQ page is offered
+  [].forEach.call(d.querySelectorAll('[data-faq-more]'), function (b) {
+    var sec = b.closest('.faq'), extra = sec.querySelectorAll('[data-faq-extra]'), all = sec.querySelector('[data-faq-all]');
+    [].forEach.call(extra, function (x) { x.hidden = true; });
+    b.parentNode.hidden = false;
+    b.addEventListener('click', function () {
+      [].forEach.call(extra, function (x) { x.hidden = false; });
+      b.hidden = true;
+      if (all) { all.hidden = false; } else b.parentNode.hidden = true;
+      if (extra[0]) extra[0].querySelector('summary').focus();
+    });
+  });
+
   // Privacy choices (opt-out of optional analytics; Global Privacy Control is always honored)
   var opt = d.querySelector('[data-optout]');
   var getOpt = function () { try { return localStorage.getItem('cei-optout') === '1'; } catch (e) { return false; } };

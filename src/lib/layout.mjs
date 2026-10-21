@@ -140,8 +140,11 @@ export const careerCard = (c, l) =>
 export const trainingCard = (c, l) =>
   `<article class="card link"><span class="ico">${icon(c.cat)}</span><h3><a class="stretch" href="${href(`/training/${c.slug}/`)}">${esc(c.title)} Training</a></h3><p>${esc(c.blurb || c.summary)}</p><ul class="chips"><li class="chip">${esc(cfg.course.format)}</li><li class="chip pay">Career median ${money(l.wages.median)}</li></ul></article>`;
 
-export const faqBlock = (faqs, heading = 'Frequently asked questions', id = 'faq') =>
-  `<section class="faq" id="${id}"><h2>${esc(heading)}</h2>${faqs.map(([q, a]) => `<details><summary>${esc(q)}</summary><div><p>${a}</p></div></details>`).join('')}</section>`;
+// hover: answers open while the pointer is over them and stay open after a click (site.js). show: how many questions
+// to show before a "View more" button (site.js hides the rest; without JavaScript every question shows). more: a page
+// with every question, offered once all are shown.
+export const faqBlock = (faqs, heading = 'Frequently asked questions', id = 'faq', { hover = false, show = 0, more = '' } = {}) =>
+  `<section class="faq" id="${id}"${hover ? ' data-faq-hover' : ''}><h2>${esc(heading)}</h2>${faqs.map(([q, a], i) => `<details${show && i >= show ? ' data-faq-extra' : ''}><summary>${esc(q)}</summary><div><p>${a}</p></div></details>`).join('')}${show && faqs.length > show ? `<p class="faq-more" hidden><button class="btn" type="button" data-faq-more>View more questions</button>${more ? `<a class="btn" href="${href(more)}" data-faq-all hidden>See all FAQs</a>` : ''}</p>` : ''}</section>`;
 
 export const faqSchema = (faqs, url) => ({
   '@type': 'FAQPage', '@id': abs(url) + '#faq',

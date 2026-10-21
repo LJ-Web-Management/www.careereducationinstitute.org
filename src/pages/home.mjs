@@ -14,6 +14,8 @@ export function homePage(ctx) {
   const fastest = careers.filter((c) => c.months <= 6).sort((a, b) => b.l.wages.median - a.l.wages.median).slice(0, 6);
   const featuredGuides = ['how-to-choose-a-career', 'college-vs-trade-school', 'how-to-change-careers', 'transferable-skills', 'how-to-ask-for-a-raise', 'how-to-write-a-resume'].map((s) => guides.find((g) => g.slug === s)).filter(Boolean);
   const faqs = companyFaqs.slice(0, 7);
+  // Eight fields on the homepage; the directory has all of them
+  const homeFields = ['healthcare', 'skilled-trades', 'mechanics-and-manufacturing', 'energy-and-utilities', 'technology', 'transportation-and-logistics', 'safety-and-environmental', 'business-and-office'].map((s) => categories.find((c) => c.slug === s)).filter(Boolean);
   const mini = (cs, metric) => `<ol class="bars" style="margin:0">${cs.map((c) => `<li><a href="${href(c.url)}">${esc(c.title)}</a><span class="b"><i style="width:${(c.l.wages.median / cs[0].l.wages.median * 100).toFixed(0)}%"></i></span><span>${metric(c)}</span></li>`).join('')}</ol>`;
 
   const body = `<section class="hero"><div class="wrap"><div>
@@ -33,8 +35,8 @@ export function homePage(ctx) {
 </div></div></section>
 
 <section class="section alt"><div class="wrap"><div class="section-head"><p class="eyebrow">Explore by field</p><h2>${categories.length} career fields, ${countLabel(careers.length)} careers</h2><p>Every career includes pay, training time, a day in the life, skills, vocabulary, how-to guides, interview questions and a matching training.</p></div>
-<div class="grid">${categories.map((cat) => { const cs = careers.filter((c) => c.cat === cat.slug); const meds = cs.map((c) => c.l.wages.median); return `<article class="card link"><span class="ico">${icon(cat.slug)}</span><h3><a class="stretch" href="${href(`/careers/${cat.slug}/`)}">${esc(cat.name)}</a></h3><p>${esc(cat.blurb)}</p><ul class="chips"><li class="chip">${cs.length} careers</li><li class="chip pay">${money(Math.min(...meds))}–${money(Math.max(...meds))}</li></ul></article>`; }).join('')}</div>
-<p style="margin-top:20px"><a class="btn" href="${href('/careers/')}">See all ${countLabel(careers.length)} careers</a></p></div></section>
+<div class="grid">${homeFields.map((cat) => { const cs = careers.filter((c) => c.cat === cat.slug); const meds = cs.map((c) => c.l.wages.median); return `<article class="card link"><span class="ico">${icon(cat.slug)}</span><h3><a class="stretch" href="${href(`/careers/${cat.slug}/`)}">${esc(cat.name)}</a></h3><p>${esc(cat.blurb)}</p><ul class="chips"><li class="chip">${cs.length} careers</li><li class="chip pay">${money(Math.min(...meds))}–${money(Math.max(...meds))}</li></ul></article>`; }).join('')}</div>
+<p style="margin-top:20px"><a class="btn" href="${href('/careers/')}">See all ${categories.length} fields and ${countLabel(careers.length)} careers</a></p></div></section>
 
 <section class="section"><div class="wrap"><div class="section-head"><p class="eyebrow">Popular trainings</p><h2>Learn the job before your first day</h2><p>Each training covers the role, a realistic day, key vocabulary, step-by-step procedures, safety and how to land the job: self-paced and online.</p></div>
 <div class="grid">${popular.map((c) => `<article class="card link"><span class="ico">${icon(c.cat)}</span><h3><a class="stretch" href="${href(c.trainingUrl)}">${esc(c.title)} Training</a></h3><p>${esc(c.blurb)}</p><ul class="chips train-chips"><li class="chip pay">Median ${money(c.l.wages.median)}</li><li class="chip">${esc(c.train)} to enter</li></ul></article>`).join('')}</div>
@@ -55,11 +57,11 @@ export function homePage(ctx) {
 
 ${band('Training new hires? Give every one the same strong start.', 'Onboarding training by job title for employers, staffing agencies and workforce programs, with group pricing.', 'See employer training', '/for-employers/', 'Hiring guides', '/employers/hiring-guides/')}
 
-${featuredGuides.length ? `<section class="section"><div class="wrap"><div class="section-head"><p class="eyebrow">Guides</p><h2>Plain-English career guides</h2></div><ul class="list-view">${featuredGuides.map((g) => `<li><h3><a href="${href(gp(g))}">${esc(g.title)}</a></h3><p>${esc(g.desc)}</p></li>`).join('')}</ul><p style="margin-top:20px"><a class="btn" href="${href('/guides/')}">All guides</a></p></div></section>` : ''}
+${featuredGuides.length ? `<section class="section centered"><div class="wrap"><div class="section-head"><p class="eyebrow">Guides</p><h2>Plain-English career guides</h2></div><ul class="list-view">${featuredGuides.map((g) => `<li><h3><a href="${href(gp(g))}">${esc(g.title)}</a></h3><p>${esc(g.desc)}</p></li>`).join('')}</ul><p style="margin-top:20px"><a class="btn" href="${href('/guides/')}">All guides</a></p></div></section>` : ''}
 
-${posts.length ? `<section class="section alt"><div class="wrap"><div class="section-head"><p class="eyebrow">From the blog</p><h2>Latest articles</h2></div><ul class="list-view">${posts.slice(0, 3).map((p) => `<li><p class="lv-k">${esc(p.category)} · <time datetime="${p.date}">${fmtDate(p.date)}</time></p><h3><a href="${href(`/blog/${p.slug}/`)}">${esc(p.title)}</a></h3><p>${esc(p.description)}</p></li>`).join('')}</ul><p style="margin-top:20px"><a class="btn" href="${href('/blog/')}">All articles</a></p></div></section>` : ''}
+${posts.length ? `<section class="section alt centered"><div class="wrap"><div class="section-head"><p class="eyebrow">From the blog</p><h2>Latest articles</h2></div><ul class="list-view">${posts.slice(0, 3).map((p) => `<li><p class="lv-k">${esc(p.category)} · <time datetime="${p.date}">${fmtDate(p.date)}</time></p><h3><a href="${href(`/blog/${p.slug}/`)}">${esc(p.title)}</a></h3><p>${esc(p.description)}</p></li>`).join('')}</ul><p style="margin-top:20px"><a class="btn" href="${href('/blog/')}">All articles</a></p></div></section>` : ''}
 
-<section class="section"><div class="wrap" style="max-width:860px">${faqBlock(faqs, 'Questions, answered')}</div></section>
+<section class="section"><div class="wrap" style="max-width:860px">${faqBlock(faqs, 'Questions, answered', 'faq', { hover: true, show: 4, more: '/faq/' })}</div></section>
 ${band('Ready to find your fit?', 'It takes about four minutes and it’s free.', 'Take the Career Match Quiz', '/quizzes/career-match/', 'Browse trainings', '/training/')}`;
 
   return {
