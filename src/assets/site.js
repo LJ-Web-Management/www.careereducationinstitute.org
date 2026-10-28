@@ -157,18 +157,24 @@
   var getOpt = function () { try { return localStorage.getItem('cei-optout') === '1'; } catch (e) { return false; } };
   if (opt) {
     var st = d.querySelector('[data-optout-status]');
-    var show = function () { if (st) st.textContent = (getOpt() || navigator.globalPrivacyControl) ? 'You are opted out of Google Analytics on this browser.' : 'Google Analytics is allowed on this browser.'; };
+    var show = function () { if (st) st.textContent = (getOpt() || navigator.globalPrivacyControl) ? 'You are opted out of Google Analytics and Microsoft Clarity on this browser.' : 'Google Analytics and Microsoft Clarity are allowed on this browser.'; };
     opt.addEventListener('click', function () { try { localStorage.setItem('cei-optout', getOpt() ? '0' : '1'); } catch (e) {} show(); });
     show();
   }
 
   // Optional analytics: only loads if configured, never with GPC or opt-out
-  var ga = window.MP && window.MP.ga;
-  if (ga && !navigator.globalPrivacyControl && !getOpt()) {
+  var ga = window.MP && window.MP.ga, clarity = window.MP && window.MP.clarity;
+  if ((ga || clarity) && !navigator.globalPrivacyControl && !getOpt()) {
     var load = function () {
-      var s = d.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ga; d.head.appendChild(s);
-      window.dataLayer = window.dataLayer || []; window.gtag = function () { dataLayer.push(arguments); };
-      gtag('js', new Date()); gtag('config', ga, { allow_google_signals: false, allow_ad_personalization_signals: false, cookie_expires: 34128000 }); // 395 days, the 13 months in the cookie policy
+      if (ga) {
+        var s = d.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ga; d.head.appendChild(s);
+        window.dataLayer = window.dataLayer || []; window.gtag = function () { dataLayer.push(arguments); };
+        gtag('js', new Date()); gtag('config', ga, { allow_google_signals: false, allow_ad_personalization_signals: false, cookie_expires: 34128000 }); // 395 days, the 13 months in the cookie policy
+      }
+      if (clarity) {
+        window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
+        var c = d.createElement('script'); c.async = true; c.src = 'https://www.clarity.ms/tag/' + clarity; d.head.appendChild(c);
+      }
     };
     if ('requestIdleCallback' in window) addEventListener('load', function () { requestIdleCallback(load); }); else addEventListener('load', load);
   }

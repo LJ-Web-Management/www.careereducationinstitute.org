@@ -31,8 +31,8 @@ This Privacy Policy explains how we collect, uses, discloses and protects person
 
 ### Information collected automatically
 - **Hosting logs.** Our website is hosted by a third-party provider (currently GitHub Pages), which may automatically log technical information such as IP address, browser type, pages requested and date/time for security and operations. See GitHub’s privacy statement for details.
-- **Browser storage.** We do not use advertising cookies. Google Analytics sets analytics cookies, described below. On the checkout page only, Stripe’s secure card form may set cookies and collect device information to prevent fraud, under Stripe’s privacy policy. We may store small preferences and your cart in your browser’s local storage (for example, your analytics opt-out choice or the courses you added to your cart). Your cart stays in your browser and is not sent to us until you check out or send an enrollment request. Quiz answers are processed entirely in your browser and are not transmitted or saved by us.
-- **Analytics.** We use Google Analytics to collect pseudonymous usage information (pages viewed, approximate location, device type), with Google signals and ad personalization turned off. Analytics does not load if your browser sends a Global Privacy Control (GPC) signal or if you opt out on our [Your Privacy Choices](/your-privacy-choices/) page.
+- **Browser storage.** We do not use advertising cookies. Google Analytics and Microsoft Clarity set analytics cookies, described below. On the checkout page only, Stripe’s secure card form may set cookies and collect device information to prevent fraud, under Stripe’s privacy policy. We may store small preferences and your cart in your browser’s local storage (for example, your analytics opt-out choice or the courses you added to your cart). Your cart stays in your browser and is not sent to us until you check out or send an enrollment request. Quiz answers are processed entirely in your browser and are not transmitted or saved by us.
+- **Analytics.** We use Google Analytics to collect pseudonymous usage information (pages viewed, approximate location, device type), with Google signals and ad personalization turned off. We also use Microsoft Clarity to see how visitors use our pages through heatmaps and session replays (clicks, scrolling and mouse movement); Clarity masks text you type into forms. Analytics does not load if your browser sends a Global Privacy Control (GPC) signal or if you opt out on our [Your Privacy Choices](/your-privacy-choices/) page.
 
 ### Information from others
 - Employers, staffing agencies or workforce programs that enroll you as part of a group may provide your name, work email and course assignment.
@@ -100,7 +100,7 @@ In the past 12 months we have collected the following categories of personal inf
 | Identifiers | Name, email, phone, IP address | Yes | No |
 | Customer records (Cal. Civ. Code § 1798.80) | Name, contact and billing details (card numbers are handled by Stripe) | Yes | No |
 | Commercial information | Courses requested or purchased | Yes | No |
-| Internet or network activity | Pages visited (hosting logs and Google Analytics) | Yes | No |
+| Internet or network activity | Pages visited (hosting logs, Google Analytics and Microsoft Clarity) | Yes | No |
 | General geolocation | State of residence; approximate location from IP | Yes | No |
 | Professional or employment information | Employer name for group enrollments | Sometimes | No |
 | Education information | Course progress and certificates (not covered by FERPA) | Yes | No |
@@ -185,18 +185,18 @@ If any provision is unenforceable, the rest remain in effect. These Terms, toget
 ## 16. Contact
 ${contact}` },
 
-  { slug: 'cookie-policy', title: 'Cookie Policy', desc: 'Career Education Institute uses no advertising cookies. Learn what browser storage we use, how we use Google Analytics and how to turn it off.',
+  { slug: 'cookie-policy', title: 'Cookie Policy', desc: 'Career Education Institute uses no advertising cookies. Learn what browser storage we use, how we use Google Analytics and Microsoft Clarity and how to turn them off.',
     body: `**Effective date and last updated:** ${D}
 
 ${who('this policy')}
 
 ## Our approach
-Career Education Institute is built to be fast and private. **Our website does not set advertising cookies.** We use Google Analytics to understand how visitors use the site, and you can turn it off.
+Career Education Institute is built to be fast and private. **Our website does not set advertising cookies.** We use Google Analytics and Microsoft Clarity to understand how visitors use the site, and you can turn them off.
 
 ## What we use
 | Technology | Purpose | Duration | Can you opt out? |
 |---|---|---|---|
-| Local storage: \`cei-optout\` | Remembers your choice to opt out of Google Analytics | Until you clear it | Yes: clear browser data |
+| Local storage: \`cei-optout\` | Remembers your choice to opt out of Google Analytics and Microsoft Clarity | Until you clear it | Yes: clear browser data |
 | Local storage: \`cei-newsletter-popup\`, plus a blog service worker that stores nothing | Remembers that you have seen the newsletter sign-up popup on the blog, so it opens only once. The service worker caches no pages or data; it only lets a hard refresh show the popup again | Until you clear it | Yes: clear browser data |
 | Local storage: \`cei-cart\` | Keeps the courses and trainings you add to your cart, with learner numbers, so they are still there when you come back | Until you remove them, check out or clear it | Yes: empty your cart or clear browser data |
 | Local storage: \`cei-search-view\` | Remembers whether you prefer site search results as a list or a grid | Until you clear it | Yes: clear browser data |
@@ -205,6 +205,7 @@ Career Education Institute is built to be fast and private. **Our website does n
 | Hosting logs (GitHub Pages) | Security and reliable delivery; set by our host, not by cookies we control | Per host’s policy | Not applicable |
 | Stripe cookies (for example, \`__stripe_mid\`, \`__stripe_sid\`) | Fraud prevention for card payments, set only on the checkout page | Up to 1 year | Avoid the checkout page; order by phone instead |
 | Google Analytics cookies (\`_ga\`, \`_ga_FPKWMLEWMG\`) | Aggregated usage statistics, with Google signals and ad personalization turned off. Not set if your browser sends GPC or you opt out | Up to 13 months | Yes: GPC signal or [Your Privacy Choices](/your-privacy-choices/) |
+| Microsoft Clarity cookies (for example, \`_clck\`, \`_clsk\`) | Heatmaps and session replays of clicks, scrolling and mouse movement, with form input masked. Not set if your browser sends GPC or you opt out | Up to 1 year | Yes: GPC signal or [Your Privacy Choices](/your-privacy-choices/) |
 
 ## Quizzes and forms
 Quiz answers are processed in your browser and are not stored or sent. Enrollment and partner sign-up forms open your own email app, and the website itself does not store what you type. The contact form and the newsletter sign-up and unsubscribe forms are hosted by a third-party form provider, which receives what you enter there. The checkout page sends your order details to our course provider and your card details to Stripe, as described in our [Privacy Policy](/privacy-policy/).
@@ -332,7 +333,7 @@ ${who('this page')}
 
 Even so, you can record your preference below, and we will honor it if our practices ever change.
 
-## Opt out of Google Analytics on this browser
+## Opt out of Google Analytics and Microsoft Clarity on this browser
 <button class="btn btn-primary" type="button" data-optout>Toggle analytics opt-out</button>
 
 <p data-optout-status class="small muted" aria-live="polite">Checking your setting…</p>

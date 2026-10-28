@@ -81,9 +81,10 @@ export default {
   // share link (any page with ?code=XYZ) keeps the code filled in for `linkDays` days.
   partnerProgram: { discount: 0.1, share: 0.05, linkDays: 30 },
 
-  // Google Analytics 4 measurement id. Loads after page load, never with GPC or the opt-out on
-  // /your-privacy-choices/ (see src/assets/site.js). Leave empty to turn analytics off.
-  analytics: { ga4: 'G-FPKWMLEWMG' },
+  // Google Analytics 4 measurement id and Microsoft Clarity project id. Both load after page load,
+  // never with GPC or the opt-out on /your-privacy-choices/ (see src/assets/site.js).
+  // Leave one empty to turn it off.
+  analytics: { ga4: 'G-FPKWMLEWMG', clarity: 'z4kntlcpgn' },
   verification: { google: '', bing: '' },
   social: [] // e.g. ['https://www.linkedin.com/company/career-education-institute']
 };
