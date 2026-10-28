@@ -2,7 +2,7 @@
 // Price ladder is set against comparable self-paced, non-credit career-prep courses
 // (roughly $7 to $10 per instructional hour) and sits below credential courses such as
 // CDL ELDT. The LMS course should be built to the hours below.
-export const priceForHours = { 6: 59.99, 8: 74.99, 10: 89.99, 12: 109.99, 14: 129.99 };
+export const priceForHours = { 6: 49.99, 8: 59.99, 10: 74.99, 12: 89.99, 14: 99.99 };
 
 export const courseHours = {
   // 6 hours: entry-level roles that train mostly on the job

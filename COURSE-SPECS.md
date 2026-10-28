@@ -1,6 +1,6 @@
 # Career Education Institute course specs
 
-Generated 2026-10-20 by `npm run course-specs`. Do not edit by hand: change `src/data/course-pricing.mjs` (hours) or the career data, then run the script again.
+Generated 2026-10-28 by `npm run course-specs`. Do not edit by hand: change `src/data/course-pricing.mjs` (hours) or the career data, then run the script again.
 
 Each job-title training is self-paced online with 12 months of LMS access, ends with a final knowledge check and awards a certificate of completion. Seat time below is the target the website advertises, so build each course to that length.
 
@@ -8,11 +8,11 @@ Each job-title training is self-paced online with 12 months of LMS access, ends 
 
 | Length | Price per learner |
 |---|---|
-| 6 hours | $59.99 |
-| 8 hours | $74.99 |
-| 10 hours | $89.99 |
-| 12 hours | $109.99 |
-| 14 hours | $129.99 |
+| 6 hours | $49.99 |
+| 8 hours | $59.99 |
+| 10 hours | $74.99 |
+| 12 hours | $89.99 |
+| 14 hours | $99.99 |
 
 Volume discounts at checkout and on quotes: 2 to 10 seats 1%, 11 to 20 seats 2%, 21 to 50 seats 3%, 51 to 100 seats 5%, 101 to 250 seats 7%, 251 to 500 seats 8%, 501 to 1000 seats 10%.
 
@@ -20,712 +20,712 @@ Volume discounts at checkout and on quotes: 2 to 10 seats 1%, 11 to 20 seats 2%,
 
 | Training | Category | Hours | Price |
 |---|---|---|---|
-| Acupuncturist | Healthcare | 12 | $109.99 |
-| Anesthesiologist | Healthcare | 12 | $109.99 |
-| Audiologist | Healthcare | 12 | $109.99 |
-| Cardiologist | Healthcare | 12 | $109.99 |
-| Cardiovascular Technologist | Healthcare | 12 | $109.99 |
-| Certified Nursing Assistant | Healthcare | 8 | $74.99 |
-| Chiropractor | Healthcare | 12 | $109.99 |
-| Dental Assistant | Healthcare | 8 | $74.99 |
-| Dental Hygienist | Healthcare | 12 | $109.99 |
-| Dental Lab Technician | Healthcare | 10 | $89.99 |
-| Dentist | Healthcare | 12 | $109.99 |
-| Dermatologist | Healthcare | 12 | $109.99 |
-| Diagnostic Medical Sonographer | Healthcare | 12 | $109.99 |
-| Dietetic Technician | Healthcare | 10 | $89.99 |
-| Emergency Medical Technician | Healthcare | 10 | $89.99 |
-| Emergency Medicine Physician | Healthcare | 12 | $109.99 |
-| Family Medicine Physician | Healthcare | 12 | $109.99 |
-| Genetic Counselor | Healthcare | 12 | $109.99 |
-| Health Information Technologist | Healthcare | 10 | $89.99 |
-| Hearing Aid Specialist | Healthcare | 10 | $89.99 |
-| Home Health Aide | Healthcare | 8 | $74.99 |
-| Internist | Healthcare | 12 | $109.99 |
-| Licensed Practical Nurse | Healthcare | 12 | $109.99 |
-| Medical Administrative Assistant | Healthcare | 10 | $89.99 |
-| Medical and Health Services Manager | Healthcare | 12 | $109.99 |
-| Medical Appliance Technician | Healthcare | 10 | $89.99 |
-| Medical Assistant | Healthcare | 10 | $89.99 |
-| Medical Billing and Coding Specialist | Healthcare | 10 | $89.99 |
-| Medical Dosimetrist | Healthcare | 10 | $89.99 |
-| Medical Transcriptionist | Healthcare | 10 | $89.99 |
-| MRI Technologist | Healthcare | 12 | $109.99 |
-| Neurologist | Healthcare | 12 | $109.99 |
-| Nuclear Medicine Technologist | Healthcare | 12 | $109.99 |
-| Nurse Anesthetist | Healthcare | 12 | $109.99 |
-| Nurse Midwife | Healthcare | 12 | $109.99 |
-| Nurse Practitioner | Healthcare | 12 | $109.99 |
-| Obstetrician-Gynecologist | Healthcare | 12 | $109.99 |
-| Occupational Therapist | Healthcare | 12 | $109.99 |
-| Occupational Therapy Aide | Healthcare | 8 | $74.99 |
-| Occupational Therapy Assistant | Healthcare | 10 | $89.99 |
-| Ophthalmic Lab Technician | Healthcare | 10 | $89.99 |
-| Ophthalmic Technician | Healthcare | 10 | $89.99 |
-| Ophthalmologist | Healthcare | 12 | $109.99 |
-| Optician | Healthcare | 10 | $89.99 |
-| Optometrist | Healthcare | 12 | $109.99 |
-| Oral and Maxillofacial Surgeon | Healthcare | 12 | $109.99 |
-| Orderly | Healthcare | 8 | $74.99 |
-| Orthodontist | Healthcare | 12 | $109.99 |
-| Orthopedic Surgeon | Healthcare | 12 | $109.99 |
-| Orthotist and Prosthetist | Healthcare | 12 | $109.99 |
-| Paramedic | Healthcare | 12 | $109.99 |
-| Pathologist | Healthcare | 12 | $109.99 |
-| Pediatric Surgeon | Healthcare | 12 | $109.99 |
-| Pediatrician | Healthcare | 12 | $109.99 |
-| Pharmacist | Healthcare | 12 | $109.99 |
-| Pharmacy Aide | Healthcare | 8 | $74.99 |
-| Pharmacy Technician | Healthcare | 8 | $74.99 |
-| Phlebotomist | Healthcare | 8 | $74.99 |
-| Physical Therapist | Healthcare | 12 | $109.99 |
-| Physical Therapist Aide | Healthcare | 8 | $74.99 |
-| Physical Therapist Assistant | Healthcare | 12 | $109.99 |
-| Physician Assistant | Healthcare | 12 | $109.99 |
-| Podiatrist | Healthcare | 12 | $109.99 |
-| Prosthodontist | Healthcare | 12 | $109.99 |
-| Psychiatric Aide | Healthcare | 8 | $74.99 |
-| Psychiatrist | Healthcare | 12 | $109.99 |
-| Radiation Therapist | Healthcare | 12 | $109.99 |
-| Radiologic Technologist | Healthcare | 12 | $109.99 |
-| Radiologist | Healthcare | 12 | $109.99 |
-| Registered Nurse | Healthcare | 14 | $129.99 |
-| Respiratory Therapist | Healthcare | 12 | $109.99 |
-| Speech-Language Pathologist | Healthcare | 12 | $109.99 |
-| Sterile Processing Technician | Healthcare | 10 | $89.99 |
-| Surgical Assistant | Healthcare | 12 | $109.99 |
-| Surgical Technologist | Healthcare | 12 | $109.99 |
-| Boilermaker | Skilled Trades & Construction | 12 | $109.99 |
-| Brickmason | Skilled Trades & Construction | 10 | $89.99 |
-| Cabinetmaker | Skilled Trades & Construction | 10 | $89.99 |
-| Carpenter | Skilled Trades & Construction | 10 | $89.99 |
-| Carpenter Helper | Skilled Trades & Construction | 6 | $59.99 |
-| Carpet Installer | Skilled Trades & Construction | 6 | $59.99 |
-| Commercial Diver | Skilled Trades & Construction | 12 | $109.99 |
-| Concrete Finisher | Skilled Trades & Construction | 8 | $74.99 |
-| Construction Foreman | Skilled Trades & Construction | 10 | $89.99 |
-| Construction Laborer | Skilled Trades & Construction | 6 | $59.99 |
-| Construction Manager | Skilled Trades & Construction | 12 | $109.99 |
-| Cost Estimator | Skilled Trades & Construction | 10 | $89.99 |
-| Drywall Installer | Skilled Trades & Construction | 8 | $74.99 |
-| Drywall Taper | Skilled Trades & Construction | 8 | $74.99 |
-| Electrical Lineworker | Skilled Trades & Construction | 12 | $109.99 |
-| Electrician | Skilled Trades & Construction | 12 | $109.99 |
-| Electrician Helper | Skilled Trades & Construction | 8 | $74.99 |
-| Elevator Technician | Skilled Trades & Construction | 12 | $109.99 |
-| Fence Installer | Skilled Trades & Construction | 6 | $59.99 |
-| Floor Layer | Skilled Trades & Construction | 8 | $74.99 |
-| Floor Sander | Skilled Trades & Construction | 8 | $74.99 |
-| Furniture Finisher | Skilled Trades & Construction | 10 | $89.99 |
-| Garage Door Technician | Skilled Trades & Construction | 10 | $89.99 |
-| Glazier | Skilled Trades & Construction | 10 | $89.99 |
-| Heavy Equipment Operator | Skilled Trades & Construction | 10 | $89.99 |
-| Highway Maintenance Worker | Skilled Trades & Construction | 10 | $89.99 |
-| HVAC Technician | Skilled Trades & Construction | 10 | $89.99 |
-| Insulation Installer | Skilled Trades & Construction | 6 | $59.99 |
-| Ironworker | Skilled Trades & Construction | 12 | $109.99 |
-| Locksmith | Skilled Trades & Construction | 10 | $89.99 |
-| Manufactured Home Installer | Skilled Trades & Construction | 8 | $74.99 |
-| Mason Helper | Skilled Trades & Construction | 6 | $59.99 |
-| Mechanical Insulator | Skilled Trades & Construction | 10 | $89.99 |
-| Painter | Skilled Trades & Construction | 6 | $59.99 |
-| Painter Helper | Skilled Trades & Construction | 6 | $59.99 |
-| Paperhanger | Skilled Trades & Construction | 8 | $74.99 |
-| Paving Equipment Operator | Skilled Trades & Construction | 10 | $89.99 |
-| Pile Driver Operator | Skilled Trades & Construction | 10 | $89.99 |
-| Pipelayer | Skilled Trades & Construction | 6 | $59.99 |
-| Plasterer | Skilled Trades & Construction | 8 | $74.99 |
-| Plumber | Skilled Trades & Construction | 12 | $109.99 |
-| Plumber Helper | Skilled Trades & Construction | 8 | $74.99 |
-| Rebar Worker | Skilled Trades & Construction | 10 | $89.99 |
-| Rigger | Skilled Trades & Construction | 10 | $89.99 |
-| Roofer | Skilled Trades & Construction | 10 | $89.99 |
-| Roofer Helper | Skilled Trades & Construction | 6 | $59.99 |
-| Sheet Metal Worker | Skilled Trades & Construction | 10 | $89.99 |
-| Solar Panel Installer | Skilled Trades & Construction | 8 | $74.99 |
-| Stonemason | Skilled Trades & Construction | 10 | $89.99 |
-| Terrazzo Worker | Skilled Trades & Construction | 10 | $89.99 |
-| Tile Setter | Skilled Trades & Construction | 8 | $74.99 |
-| Upholsterer | Skilled Trades & Construction | 10 | $89.99 |
-| Welder | Skilled Trades & Construction | 10 | $89.99 |
-| Wind Turbine Technician | Skilled Trades & Construction | 10 | $89.99 |
-| Adhesive Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Aircraft Assembler | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Aircraft Mechanic | Mechanics, Maintenance & Manufacturing | 12 | $109.99 |
-| Appliance Repair Technician | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Auto Body Technician | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Auto Glass Technician | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Automotive Service Technician | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Avionics Technician | Mechanics, Maintenance & Manufacturing | 12 | $109.99 |
-| Bicycle Mechanic | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Bindery Worker | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Biomedical Equipment Technician | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Building Maintenance Technician | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Camera Repairer | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Car Electronics Installer | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| CNC Machinist | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| CNC Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| CNC Programmer | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Coil Winder | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Crushing Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Diesel Mechanic | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Drilling Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Electric Motor Repairer | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Electronics Assembler | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Engine Assembler | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Extruding Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Fiber Extruding Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Fiberglass Laminator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Food Batchmaker | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Food Cooking Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Food Roasting Machine Operator | Mechanics, Maintenance & Manufacturing | 6 | $59.99 |
-| Forging Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Forming Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Foundry Moldmaker | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Freezing Equipment Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Furnace and Kiln Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Garment Presser | Mechanics, Maintenance & Manufacturing | 6 | $59.99 |
-| Grinding Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Hand Cutter | Mechanics, Maintenance & Manufacturing | 6 | $59.99 |
-| Hand Grinder | Mechanics, Maintenance & Manufacturing | 6 | $59.99 |
-| Hand Sewer | Mechanics, Maintenance & Manufacturing | 8 | $74.99 |
-| Heat Treating Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Heavy Equipment Mechanic | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Industrial Cleaning Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Industrial Electronics Repairer | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Industrial Engineer | Mechanics, Maintenance & Manufacturing | 12 | $109.99 |
-| Industrial Engineering Technician | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Industrial Maintenance Technician | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Industrial Painter | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Industrial Production Manager | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Lathe Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Machine Feeder | Mechanics, Maintenance & Manufacturing | 6 | $59.99 |
-| Machinery Maintenance Worker | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Maintenance Helper | Mechanics, Maintenance & Manufacturing | 8 | $74.99 |
-| Maintenance Supervisor | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Marine Mechanic | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Meat Packer | Mechanics, Maintenance & Manufacturing | 6 | $59.99 |
-| Meat Trimmer | Mechanics, Maintenance & Manufacturing | 6 | $59.99 |
-| Metal Fabricator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Metal Furnace Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Metal Layout Worker | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Metal Model Maker | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Metal Patternmaker | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Metal Pourer | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Milling Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Millwright | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Mixing Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Molder and Caster | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Molding Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Motorcycle Mechanic | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Multiple Machine Tool Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Packaging Machine Operator | Mechanics, Maintenance & Manufacturing | 8 | $74.99 |
-| Paper Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Plating Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Prepress Technician | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Press Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Printing Press Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Product Decorator | Mechanics, Maintenance & Manufacturing | 6 | $59.99 |
-| Production Assembler | Mechanics, Maintenance & Manufacturing | 8 | $74.99 |
-| Production Helper | Mechanics, Maintenance & Manufacturing | 8 | $74.99 |
-| Production Planner | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Production Supervisor | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Quality Control Inspector | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Rail Car Repairer | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Refractory Repairer | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Rolling Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| RV Technician | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Sawmill Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Sewing Machine Operator | Mechanics, Maintenance & Manufacturing | 6 | $59.99 |
-| Shoe Machine Operator | Mechanics, Maintenance & Manufacturing | 8 | $74.99 |
-| Slicing Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Small Engine Mechanic | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Textile Cutting Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Textile Dyeing Machine Operator | Mechanics, Maintenance & Manufacturing | 8 | $74.99 |
-| Textile Knitting Machine Operator | Mechanics, Maintenance & Manufacturing | 8 | $74.99 |
-| Textile Winding Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Timing Device Assembler | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Tire Builder | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Tire Technician | Mechanics, Maintenance & Manufacturing | 8 | $74.99 |
-| Tool and Die Maker | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Tool Grinder | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Transportation Equipment Electrician | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Vending Machine Technician | Mechanics, Maintenance & Manufacturing | 8 | $74.99 |
-| Watch Repairer | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Welding Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Wood Model Maker | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Wood Patternmaker | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Woodworking Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $89.99 |
-| Conservation Technician | Safety & Environmental | 10 | $89.99 |
-| Construction and Building Inspector | Safety & Environmental | 12 | $109.99 |
-| Environmental Engineering Technician | Safety & Environmental | 10 | $89.99 |
-| Environmental Health Specialist | Safety & Environmental | 12 | $109.99 |
-| Environmental Technician | Safety & Environmental | 10 | $89.99 |
-| Fire Alarm Technician | Safety & Environmental | 10 | $89.99 |
-| Fire Inspector | Safety & Environmental | 10 | $89.99 |
-| Forest Fire Prevention Specialist | Safety & Environmental | 10 | $89.99 |
-| Hazardous Materials Technician | Safety & Environmental | 12 | $109.99 |
-| Occupational Safety Specialist | Safety & Environmental | 12 | $109.99 |
-| Pest Control Technician | Safety & Environmental | 8 | $74.99 |
-| Refuse Collector | Safety & Environmental | 6 | $59.99 |
-| Safety Engineer | Safety & Environmental | 12 | $109.99 |
-| Safety Technician | Safety & Environmental | 10 | $89.99 |
-| Septic Tank Technician | Safety & Environmental | 10 | $89.99 |
-| Transportation Inspector | Safety & Environmental | 10 | $89.99 |
-| Water Treatment Plant Operator | Safety & Environmental | 10 | $89.99 |
-| Air Traffic Controller | Transportation & Logistics | 12 | $109.99 |
-| Aircraft Cargo Supervisor | Transportation & Logistics | 10 | $89.99 |
-| Aircraft Service Attendant | Transportation & Logistics | 8 | $74.99 |
-| Airfield Operations Specialist | Transportation & Logistics | 10 | $89.99 |
-| Airline Pilot | Transportation & Logistics | 12 | $109.99 |
-| Ambulance Driver | Transportation & Logistics | 8 | $74.99 |
-| Bridge Tender | Transportation & Logistics | 8 | $74.99 |
-| Cargo Agent | Transportation & Logistics | 8 | $74.99 |
-| Commercial Pilot | Transportation & Logistics | 12 | $109.99 |
-| Conveyor Operator | Transportation & Logistics | 6 | $59.99 |
-| Courier | Transportation & Logistics | 8 | $74.99 |
-| Crane Operator | Transportation & Logistics | 12 | $109.99 |
-| Deckhand | Transportation & Logistics | 6 | $59.99 |
-| Delivery Driver | Transportation & Logistics | 8 | $74.99 |
-| Dredge Operator | Transportation & Logistics | 10 | $89.99 |
-| Flight Attendant | Transportation & Logistics | 8 | $74.99 |
-| Freight Dispatcher | Transportation & Logistics | 8 | $74.99 |
-| Gas Station Attendant | Transportation & Logistics | 6 | $59.99 |
-| Hand Packer | Transportation & Logistics | 6 | $59.99 |
-| Hoist Operator | Transportation & Logistics | 10 | $89.99 |
-| Locomotive Engineer | Transportation & Logistics | 12 | $109.99 |
-| Logistics Coordinator | Transportation & Logistics | 10 | $89.99 |
-| Logistics Manager | Transportation & Logistics | 10 | $89.99 |
-| Mail Sorter | Transportation & Logistics | 6 | $59.99 |
-| Motorboat Operator | Transportation & Logistics | 10 | $89.99 |
-| Parking Attendant | Transportation & Logistics | 6 | $59.99 |
-| Passenger Attendant | Transportation & Logistics | 8 | $74.99 |
-| Postal Clerk | Transportation & Logistics | 6 | $59.99 |
-| Postal Mail Carrier | Transportation & Logistics | 6 | $59.99 |
-| Postmaster | Transportation & Logistics | 10 | $89.99 |
-| Rail Yard Engineer | Transportation & Logistics | 10 | $89.99 |
-| Railroad Conductor | Transportation & Logistics | 10 | $89.99 |
-| Railroad Signal Technician | Transportation & Logistics | 10 | $89.99 |
-| Railroad Switch Operator | Transportation & Logistics | 10 | $89.99 |
-| Railroad Track Equipment Operator | Transportation & Logistics | 10 | $89.99 |
-| Reservation Agent | Transportation & Logistics | 8 | $74.99 |
-| Route Sales Driver | Transportation & Logistics | 8 | $74.99 |
-| School Bus Driver | Transportation & Logistics | 8 | $74.99 |
-| School Bus Monitor | Transportation & Logistics | 8 | $74.99 |
-| Ship Captain | Transportation & Logistics | 12 | $109.99 |
-| Ship Engineer | Transportation & Logistics | 12 | $109.99 |
-| Shipping and Receiving Clerk | Transportation & Logistics | 8 | $74.99 |
-| Shuttle Driver | Transportation & Logistics | 6 | $59.99 |
-| Subway Operator | Transportation & Logistics | 10 | $89.99 |
-| Tank Loader | Transportation & Logistics | 6 | $59.99 |
-| Taxi Driver | Transportation & Logistics | 6 | $59.99 |
-| Traffic Technician | Transportation & Logistics | 10 | $89.99 |
-| Transit Bus Driver | Transportation & Logistics | 8 | $74.99 |
-| Transportation Supervisor | Transportation & Logistics | 10 | $89.99 |
-| Vehicle Cleaner | Transportation & Logistics | 6 | $59.99 |
-| Warehouse Associate | Transportation & Logistics | 6 | $59.99 |
-| Weigher and Checker | Transportation & Logistics | 8 | $74.99 |
-| Accountant | Business & Office | 12 | $109.99 |
-| Actuary | Business & Office | 10 | $89.99 |
-| Administrative Assistant | Business & Office | 6 | $59.99 |
-| Administrative Services Manager | Business & Office | 10 | $89.99 |
-| Auto Damage Appraiser | Business & Office | 10 | $89.99 |
-| Bank Teller | Business & Office | 8 | $74.99 |
-| Billing Clerk | Business & Office | 10 | $89.99 |
-| Bookkeeper | Business & Office | 8 | $74.99 |
-| Brokerage Clerk | Business & Office | 10 | $89.99 |
-| Budget Analyst | Business & Office | 10 | $89.99 |
-| Chief Executive | Business & Office | 10 | $89.99 |
-| Claims Adjuster | Business & Office | 10 | $89.99 |
-| Compensation and Benefits Manager | Business & Office | 10 | $89.99 |
-| Compensation and Benefits Specialist | Business & Office | 10 | $89.99 |
-| Compliance Officer | Business & Office | 10 | $89.99 |
-| Correspondence Clerk | Business & Office | 8 | $74.99 |
-| Credit Analyst | Business & Office | 10 | $89.99 |
-| Credit Authorizer | Business & Office | 10 | $89.99 |
-| Credit Counselor | Business & Office | 10 | $89.99 |
-| Customer Service Representative | Business & Office | 6 | $59.99 |
-| Data Entry Clerk | Business & Office | 8 | $74.99 |
-| Debt Collector | Business & Office | 10 | $89.99 |
-| Economist | Business & Office | 10 | $89.99 |
-| Executive Assistant | Business & Office | 10 | $89.99 |
-| Facilities Manager | Business & Office | 10 | $89.99 |
-| File Clerk | Business & Office | 8 | $74.99 |
-| Financial Advisor | Business & Office | 12 | $109.99 |
-| Financial Analyst | Business & Office | 12 | $109.99 |
-| Financial Examiner | Business & Office | 10 | $89.99 |
-| Financial Manager | Business & Office | 10 | $89.99 |
-| Financial Risk Specialist | Business & Office | 10 | $89.99 |
-| General and Operations Manager | Business & Office | 10 | $89.99 |
-| HR Assistant | Business & Office | 10 | $89.99 |
-| Human Resources Manager | Business & Office | 10 | $89.99 |
-| Human Resources Specialist | Business & Office | 10 | $89.99 |
-| Industrial-Organizational Psychologist | Business & Office | 12 | $109.99 |
-| Insurance Claims Clerk | Business & Office | 10 | $89.99 |
-| Insurance Underwriter | Business & Office | 10 | $89.99 |
-| Intake Interviewer | Business & Office | 8 | $74.99 |
-| Judicial Law Clerk | Business & Office | 10 | $89.99 |
-| Labor Relations Specialist | Business & Office | 10 | $89.99 |
-| Lawyer | Business & Office | 12 | $109.99 |
-| Legal Secretary | Business & Office | 10 | $89.99 |
-| Loan Officer | Business & Office | 10 | $89.99 |
-| Loan Processor | Business & Office | 8 | $74.99 |
-| Mail Clerk | Business & Office | 8 | $74.99 |
-| Management Analyst | Business & Office | 10 | $89.99 |
-| New Accounts Clerk | Business & Office | 10 | $89.99 |
-| Office Clerk | Business & Office | 8 | $74.99 |
-| Office Machine Operator | Business & Office | 8 | $74.99 |
-| Office Manager | Business & Office | 10 | $89.99 |
-| Operations Research Analyst | Business & Office | 10 | $89.99 |
-| Order Clerk | Business & Office | 8 | $74.99 |
-| Paralegal | Business & Office | 10 | $89.99 |
-| Payroll Clerk | Business & Office | 10 | $89.99 |
-| Procurement Clerk | Business & Office | 10 | $89.99 |
-| Project Manager | Business & Office | 12 | $109.99 |
-| Property Manager | Business & Office | 10 | $89.99 |
-| Purchasing Agent | Business & Office | 10 | $89.99 |
-| Purchasing Manager | Business & Office | 10 | $89.99 |
-| Real Estate Agent | Business & Office | 8 | $74.99 |
-| Receptionist | Business & Office | 8 | $74.99 |
-| Statistical Assistant | Business & Office | 10 | $89.99 |
-| Survey Researcher | Business & Office | 10 | $89.99 |
-| Switchboard Operator | Business & Office | 8 | $74.99 |
-| Tax Preparer | Business & Office | 10 | $89.99 |
-| Telephone Operator | Business & Office | 8 | $74.99 |
-| Title Examiner | Business & Office | 10 | $89.99 |
-| Training and Development Manager | Business & Office | 10 | $89.99 |
-| Typist | Business & Office | 8 | $74.99 |
-| Cell Tower Technician | Technology | 10 | $89.99 |
-| Computer Repair Technician | Technology | 10 | $89.99 |
-| Computer Systems Analyst | Technology | 12 | $109.99 |
-| Cybersecurity Analyst | Technology | 12 | $109.99 |
-| Data Scientist | Technology | 12 | $109.99 |
-| Database Administrator | Technology | 12 | $109.99 |
-| Digital Marketing Specialist | Technology | 10 | $89.99 |
-| Electronics Technician | Technology | 10 | $89.99 |
-| IT Manager | Technology | 12 | $109.99 |
-| IT Support Specialist | Technology | 8 | $74.99 |
-| Network Administrator | Technology | 12 | $109.99 |
-| Network Technician | Technology | 10 | $89.99 |
-| Software Developer | Technology | 12 | $109.99 |
-| Software QA Tester | Technology | 10 | $89.99 |
-| Telecommunications Technician | Technology | 10 | $89.99 |
-| UX/UI Designer | Technology | 10 | $89.99 |
-| Web Developer | Technology | 10 | $89.99 |
-| 911 Dispatcher | Public Safety & Security | 10 | $89.99 |
-| Animal Control Officer | Public Safety & Security | 8 | $74.99 |
-| Bailiff | Public Safety & Security | 10 | $89.99 |
-| Correctional Officer | Public Safety & Security | 10 | $89.99 |
-| Detective | Public Safety & Security | 12 | $109.99 |
-| Emergency Management Director | Public Safety & Security | 12 | $109.99 |
-| Firefighter | Public Safety & Security | 10 | $89.99 |
-| Fish and Game Warden | Public Safety & Security | 12 | $109.99 |
-| Lifeguard | Public Safety & Security | 6 | $59.99 |
-| Police Officer | Public Safety & Security | 10 | $89.99 |
-| Private Investigator | Public Safety & Security | 10 | $89.99 |
-| Probation Officer | Public Safety & Security | 12 | $109.99 |
-| Security Guard | Public Safety & Security | 6 | $59.99 |
-| Security Supervisor | Public Safety & Security | 10 | $89.99 |
-| Transportation Security Officer | Public Safety & Security | 8 | $74.99 |
-| Blaster | Energy & Utilities | 12 | $109.99 |
-| Chemical Equipment Operator | Energy & Utilities | 10 | $89.99 |
-| Chemical Plant Operator | Energy & Utilities | 10 | $89.99 |
-| Control Valve Technician | Energy & Utilities | 10 | $89.99 |
-| Derrick Operator | Energy & Utilities | 10 | $89.99 |
-| Extraction Helper | Energy & Utilities | 10 | $89.99 |
-| Gas Compressor Operator | Energy & Utilities | 10 | $89.99 |
-| Gas Plant Operator | Energy & Utilities | 10 | $89.99 |
-| Geological Technician | Energy & Utilities | 10 | $89.99 |
-| Meter Reader | Energy & Utilities | 8 | $74.99 |
-| Mining Engineer | Energy & Utilities | 12 | $109.99 |
-| Mining Machine Operator | Energy & Utilities | 10 | $89.99 |
-| Nuclear Engineer | Energy & Utilities | 12 | $109.99 |
-| Nuclear Reactor Operator | Energy & Utilities | 12 | $109.99 |
-| Nuclear Technician | Energy & Utilities | 10 | $89.99 |
-| Oilfield Service Operator | Energy & Utilities | 10 | $89.99 |
-| Petroleum Engineer | Energy & Utilities | 12 | $109.99 |
-| Power Dispatcher | Energy & Utilities | 12 | $109.99 |
-| Power Plant Operator | Energy & Utilities | 12 | $109.99 |
-| Pump Operator | Energy & Utilities | 10 | $89.99 |
-| Quarry Rock Splitter | Energy & Utilities | 6 | $59.99 |
-| Refinery Operator | Energy & Utilities | 10 | $89.99 |
-| Roof Bolter | Energy & Utilities | 10 | $89.99 |
-| Rotary Drill Operator | Energy & Utilities | 10 | $89.99 |
-| Roustabout | Energy & Utilities | 6 | $59.99 |
-| Separating Machine Operator | Energy & Utilities | 10 | $89.99 |
-| Stationary Engineer | Energy & Utilities | 10 | $89.99 |
-| Substation Technician | Energy & Utilities | 12 | $109.99 |
-| Surface Mining Equipment Operator | Energy & Utilities | 10 | $89.99 |
-| Telecommunications Lineworker | Energy & Utilities | 10 | $89.99 |
-| Underground Mining Loader Operator | Energy & Utilities | 10 | $89.99 |
-| Water Well Driller | Energy & Utilities | 10 | $89.99 |
-| Wellhead Pumper | Energy & Utilities | 10 | $89.99 |
-| Aerospace Engineer | Science, Engineering & Lab | 12 | $109.99 |
-| Aerospace Engineering Technician | Science, Engineering & Lab | 10 | $89.99 |
-| Archaeologist | Science, Engineering & Lab | 10 | $89.99 |
-| Architect | Science, Engineering & Lab | 12 | $109.99 |
-| Astronomer | Science, Engineering & Lab | 10 | $89.99 |
-| Biochemist | Science, Engineering & Lab | 10 | $89.99 |
-| Biological Technician | Science, Engineering & Lab | 10 | $89.99 |
-| Biomedical Engineer | Science, Engineering & Lab | 12 | $109.99 |
-| CAD Drafter | Science, Engineering & Lab | 10 | $89.99 |
-| Calibration Technician | Science, Engineering & Lab | 10 | $89.99 |
-| Cartographer | Science, Engineering & Lab | 12 | $109.99 |
-| Chemical Engineer | Science, Engineering & Lab | 12 | $109.99 |
-| Chemical Technician | Science, Engineering & Lab | 10 | $89.99 |
-| Chemist | Science, Engineering & Lab | 12 | $109.99 |
-| Civil Engineer | Science, Engineering & Lab | 12 | $109.99 |
-| Civil Engineering Technician | Science, Engineering & Lab | 10 | $89.99 |
-| Electrical Drafter | Science, Engineering & Lab | 10 | $89.99 |
-| Electrical Engineer | Science, Engineering & Lab | 12 | $109.99 |
-| Electronics Engineer | Science, Engineering & Lab | 12 | $109.99 |
-| Engineering Manager | Science, Engineering & Lab | 12 | $109.99 |
-| Epidemiologist | Science, Engineering & Lab | 10 | $89.99 |
-| Food Science Technician | Science, Engineering & Lab | 10 | $89.99 |
-| Food Scientist | Science, Engineering & Lab | 10 | $89.99 |
-| Forensic Science Technician | Science, Engineering & Lab | 12 | $109.99 |
-| Geographer | Science, Engineering & Lab | 10 | $89.99 |
-| Geoscientist | Science, Engineering & Lab | 12 | $109.99 |
-| Historian | Science, Engineering & Lab | 10 | $89.99 |
-| Marine Engineer | Science, Engineering & Lab | 12 | $109.99 |
-| Materials Engineer | Science, Engineering & Lab | 12 | $109.99 |
-| Materials Scientist | Science, Engineering & Lab | 10 | $89.99 |
-| Mathematician | Science, Engineering & Lab | 10 | $89.99 |
-| Mechanical Drafter | Science, Engineering & Lab | 10 | $89.99 |
-| Mechanical Engineer | Science, Engineering & Lab | 12 | $109.99 |
-| Mechanical Engineering Technician | Science, Engineering & Lab | 10 | $89.99 |
-| Mechatronics Technician | Science, Engineering & Lab | 10 | $89.99 |
-| Medical Laboratory Technician | Science, Engineering & Lab | 10 | $89.99 |
-| Medical Scientist | Science, Engineering & Lab | 10 | $89.99 |
-| Meteorologist | Science, Engineering & Lab | 10 | $89.99 |
-| Microbiologist | Science, Engineering & Lab | 12 | $109.99 |
-| Natural Sciences Manager | Science, Engineering & Lab | 10 | $89.99 |
-| Physicist | Science, Engineering & Lab | 10 | $89.99 |
-| Semiconductor Processing Technician | Science, Engineering & Lab | 10 | $89.99 |
-| Social Science Research Assistant | Science, Engineering & Lab | 10 | $89.99 |
-| Sociologist | Science, Engineering & Lab | 10 | $89.99 |
-| Statistician | Science, Engineering & Lab | 10 | $89.99 |
-| Surveying Technician | Science, Engineering & Lab | 10 | $89.99 |
-| Surveyor | Science, Engineering & Lab | 12 | $109.99 |
-| Account Executive | Sales & Retail | 10 | $89.99 |
-| Advertising Sales Agent | Sales & Retail | 10 | $89.99 |
-| Cashier | Sales & Retail | 6 | $59.99 |
-| Financial Services Sales Agent | Sales & Retail | 12 | $109.99 |
-| Insurance Agent | Sales & Retail | 8 | $74.99 |
-| Marketing Manager | Sales & Retail | 12 | $109.99 |
-| Parts Salesperson | Sales & Retail | 6 | $59.99 |
-| Real Estate Broker | Sales & Retail | 12 | $109.99 |
-| Rental Agent | Sales & Retail | 6 | $59.99 |
-| Retail Sales Associate | Sales & Retail | 6 | $59.99 |
-| Retail Store Manager | Sales & Retail | 10 | $89.99 |
-| Sales Engineer | Sales & Retail | 12 | $109.99 |
-| Sales Manager | Sales & Retail | 12 | $109.99 |
-| Stock Associate | Sales & Retail | 6 | $59.99 |
-| Technical Sales Representative | Sales & Retail | 10 | $89.99 |
-| Travel Agent | Sales & Retail | 8 | $74.99 |
-| Visual Merchandiser | Sales & Retail | 10 | $89.99 |
-| Wholesale Sales Representative | Sales & Retail | 10 | $89.99 |
-| Amusement Park Attendant | Hospitality, Food & Tourism | 6 | $59.99 |
-| Baker | Hospitality, Food & Tourism | 8 | $74.99 |
-| Banquet Server | Hospitality, Food & Tourism | 6 | $59.99 |
-| Barista | Hospitality, Food & Tourism | 6 | $59.99 |
-| Bartender | Hospitality, Food & Tourism | 6 | $59.99 |
-| Bellhop | Hospitality, Food & Tourism | 8 | $74.99 |
-| Busser | Hospitality, Food & Tourism | 6 | $59.99 |
-| Butcher | Hospitality, Food & Tourism | 8 | $74.99 |
-| Cafeteria Cook | Hospitality, Food & Tourism | 6 | $59.99 |
-| Casino Cage Cashier | Hospitality, Food & Tourism | 8 | $74.99 |
-| Casino Cashier | Hospitality, Food & Tourism | 6 | $59.99 |
-| Casino Dealer | Hospitality, Food & Tourism | 8 | $74.99 |
-| Casino Floor Supervisor | Hospitality, Food & Tourism | 10 | $89.99 |
-| Casino Manager | Hospitality, Food & Tourism | 10 | $89.99 |
-| Chef | Hospitality, Food & Tourism | 10 | $89.99 |
-| Concierge | Hospitality, Food & Tourism | 10 | $89.99 |
-| Custodial Supervisor | Hospitality, Food & Tourism | 10 | $89.99 |
-| Dishwasher | Hospitality, Food & Tourism | 6 | $59.99 |
-| Event Planner | Hospitality, Food & Tourism | 10 | $89.99 |
-| Fast Food Cook | Hospitality, Food & Tourism | 6 | $59.99 |
-| Food Service Supervisor | Hospitality, Food & Tourism | 10 | $89.99 |
-| Hotel Front Desk Agent | Hospitality, Food & Tourism | 8 | $74.99 |
-| Hotel Housekeeper | Hospitality, Food & Tourism | 6 | $59.99 |
-| Hotel Manager | Hospitality, Food & Tourism | 10 | $89.99 |
-| Janitor | Hospitality, Food & Tourism | 6 | $59.99 |
-| Line Cook | Hospitality, Food & Tourism | 6 | $59.99 |
-| Prep Cook | Hospitality, Food & Tourism | 6 | $59.99 |
-| Private Chef | Hospitality, Food & Tourism | 10 | $89.99 |
-| Recreation Manager | Hospitality, Food & Tourism | 10 | $89.99 |
-| Restaurant Host | Hospitality, Food & Tourism | 6 | $59.99 |
-| Restaurant Manager | Hospitality, Food & Tourism | 10 | $89.99 |
-| Server | Hospitality, Food & Tourism | 6 | $59.99 |
-| Short-Order Cook | Hospitality, Food & Tourism | 6 | $59.99 |
-| Sportsbook Writer | Hospitality, Food & Tourism | 8 | $74.99 |
-| Tour Guide | Hospitality, Food & Tourism | 8 | $74.99 |
-| Usher | Hospitality, Food & Tourism | 6 | $59.99 |
-| Animator | Arts, Media & Design | 10 | $89.99 |
-| Apparel Patternmaker | Arts, Media & Design | 10 | $89.99 |
-| Art Director | Arts, Media & Design | 10 | $89.99 |
-| Audio and Video Technician | Arts, Media & Design | 10 | $89.99 |
-| Broadcast Announcer | Arts, Media & Design | 10 | $89.99 |
-| Broadcast Technician | Arts, Media & Design | 10 | $89.99 |
-| Camera Operator | Arts, Media & Design | 10 | $89.99 |
-| Choreographer | Arts, Media & Design | 10 | $89.99 |
-| Costume Attendant | Arts, Media & Design | 8 | $74.99 |
-| Court Reporter | Arts, Media & Design | 10 | $89.99 |
-| Craft Artist | Arts, Media & Design | 8 | $74.99 |
-| Curator | Arts, Media & Design | 10 | $89.99 |
-| Desktop Publisher | Arts, Media & Design | 10 | $89.99 |
-| Editor | Arts, Media & Design | 10 | $89.99 |
-| Engraver | Arts, Media & Design | 10 | $89.99 |
-| Fashion Designer | Arts, Media & Design | 10 | $89.99 |
-| Fine Artist | Arts, Media & Design | 10 | $89.99 |
-| Florist | Arts, Media & Design | 10 | $89.99 |
-| Graphic Designer | Arts, Media & Design | 10 | $89.99 |
-| Industrial Designer | Arts, Media & Design | 10 | $89.99 |
-| Interior Designer | Arts, Media & Design | 10 | $89.99 |
-| Interpreter | Arts, Media & Design | 10 | $89.99 |
-| Jeweler | Arts, Media & Design | 10 | $89.99 |
-| Journalist | Arts, Media & Design | 10 | $89.99 |
-| Lighting Technician | Arts, Media & Design | 10 | $89.99 |
-| Model | Arts, Media & Design | 6 | $59.99 |
-| Movie Projectionist | Arts, Media & Design | 6 | $59.99 |
-| Museum Technician | Arts, Media & Design | 10 | $89.99 |
-| Music Director | Arts, Media & Design | 10 | $89.99 |
-| Musical Instrument Repairer | Arts, Media & Design | 10 | $89.99 |
-| Photo Lab Technician | Arts, Media & Design | 8 | $74.99 |
-| Photographer | Arts, Media & Design | 10 | $89.99 |
-| Producer and Director | Arts, Media & Design | 10 | $89.99 |
-| Proofreader | Arts, Media & Design | 10 | $89.99 |
-| Public Relations Manager | Arts, Media & Design | 10 | $89.99 |
-| Public Relations Specialist | Arts, Media & Design | 10 | $89.99 |
-| Set Designer | Arts, Media & Design | 10 | $89.99 |
-| Sound Engineer | Arts, Media & Design | 10 | $89.99 |
-| Talent Agent | Arts, Media & Design | 12 | $109.99 |
-| Technical Writer | Arts, Media & Design | 10 | $89.99 |
-| Video Editor | Arts, Media & Design | 10 | $89.99 |
-| Writer | Arts, Media & Design | 10 | $89.99 |
-| Adult Education Teacher | Education & Childcare | 10 | $89.99 |
-| Agricultural Sciences Professor | Education & Childcare | 10 | $89.99 |
-| Anthropology Professor | Education & Childcare | 10 | $89.99 |
-| Architecture Professor | Education & Childcare | 10 | $89.99 |
-| Archivist | Education & Childcare | 10 | $89.99 |
-| Art, Drama and Music Professor | Education & Childcare | 10 | $89.99 |
-| Biology Professor | Education & Childcare | 10 | $89.99 |
-| Business Professor | Education & Childcare | 10 | $89.99 |
-| Career and Technical Education Teacher | Education & Childcare | 12 | $109.99 |
-| Chemistry Professor | Education & Childcare | 10 | $89.99 |
-| Childcare Center Director | Education & Childcare | 10 | $89.99 |
-| Childcare Worker | Education & Childcare | 8 | $74.99 |
-| College Administrator | Education & Childcare | 10 | $89.99 |
-| Communications Professor | Education & Childcare | 10 | $89.99 |
-| Computer Science Professor | Education & Childcare | 10 | $89.99 |
-| Corporate Trainer | Education & Childcare | 10 | $89.99 |
-| Criminal Justice Professor | Education & Childcare | 10 | $89.99 |
-| Cultural Studies Professor | Education & Childcare | 10 | $89.99 |
-| Earth Sciences Professor | Education & Childcare | 10 | $89.99 |
-| Economics Professor | Education & Childcare | 10 | $89.99 |
-| Education Professor | Education & Childcare | 10 | $89.99 |
-| Elementary School Teacher | Education & Childcare | 12 | $109.99 |
-| Engineering Professor | Education & Childcare | 10 | $89.99 |
-| English Professor | Education & Childcare | 10 | $89.99 |
-| Environmental Science Professor | Education & Childcare | 10 | $89.99 |
-| Family and Consumer Sciences Professor | Education & Childcare | 10 | $89.99 |
-| Foreign Language Professor | Education & Childcare | 10 | $89.99 |
-| Forestry and Conservation Professor | Education & Childcare | 10 | $89.99 |
-| Geography Professor | Education & Childcare | 10 | $89.99 |
-| Graduate Teaching Assistant | Education & Childcare | 10 | $89.99 |
-| Health Sciences Professor | Education & Childcare | 12 | $109.99 |
-| High School Special Education Teacher | Education & Childcare | 12 | $109.99 |
-| High School Teacher | Education & Childcare | 12 | $109.99 |
-| History Professor | Education & Childcare | 10 | $89.99 |
-| Instructional Coordinator | Education & Childcare | 10 | $89.99 |
-| Kindergarten Teacher | Education & Childcare | 12 | $109.99 |
-| Law Professor | Education & Childcare | 12 | $109.99 |
-| Librarian | Education & Childcare | 10 | $89.99 |
-| Library Assistant | Education & Childcare | 8 | $74.99 |
-| Library Science Professor | Education & Childcare | 10 | $89.99 |
-| Library Technician | Education & Childcare | 10 | $89.99 |
-| Math Professor | Education & Childcare | 10 | $89.99 |
-| Middle School CTE Teacher | Education & Childcare | 12 | $109.99 |
-| Middle School Special Education Teacher | Education & Childcare | 12 | $109.99 |
-| Middle School Teacher | Education & Childcare | 12 | $109.99 |
-| Nursing Instructor | Education & Childcare | 12 | $109.99 |
-| Philosophy and Religion Professor | Education & Childcare | 10 | $89.99 |
-| Physics Professor | Education & Childcare | 10 | $89.99 |
-| Political Science Professor | Education & Childcare | 10 | $89.99 |
-| Postsecondary CTE Instructor | Education & Childcare | 10 | $89.99 |
-| Preschool Special Education Teacher | Education & Childcare | 12 | $109.99 |
-| Preschool Teacher | Education & Childcare | 10 | $89.99 |
-| Psychology Professor | Education & Childcare | 10 | $89.99 |
-| Recreation and Fitness Professor | Education & Childcare | 10 | $89.99 |
-| School Counselor | Education & Childcare | 12 | $109.99 |
-| School Principal | Education & Childcare | 12 | $109.99 |
-| School Psychologist | Education & Childcare | 12 | $109.99 |
-| Self-Enrichment Teacher | Education & Childcare | 10 | $89.99 |
-| Social Work Professor | Education & Childcare | 10 | $89.99 |
-| Sociology Professor | Education & Childcare | 10 | $89.99 |
-| Special Education Teacher | Education & Childcare | 12 | $109.99 |
-| Substitute Teacher | Education & Childcare | 10 | $89.99 |
-| Teacher Assistant | Education & Childcare | 10 | $89.99 |
-| Tutor | Education & Childcare | 10 | $89.99 |
-| Community Health Worker | Community, Social & Government Services | 8 | $74.99 |
-| Court Clerk | Community, Social & Government Services | 10 | $89.99 |
-| Eligibility Interviewer | Community, Social & Government Services | 10 | $89.99 |
-| Fundraiser | Community, Social & Government Services | 10 | $89.99 |
-| Health Educator | Community, Social & Government Services | 10 | $89.99 |
-| Healthcare Social Worker | Community, Social & Government Services | 12 | $109.99 |
-| Human Services Assistant | Community, Social & Government Services | 8 | $74.99 |
-| Marriage and Family Therapist | Community, Social & Government Services | 12 | $109.99 |
-| Mediator | Community, Social & Government Services | 10 | $89.99 |
-| Psychiatric Technician | Community, Social & Government Services | 10 | $89.99 |
-| Rehabilitation Counselor | Community, Social & Government Services | 10 | $89.99 |
-| Residential Advisor | Community, Social & Government Services | 8 | $74.99 |
-| Social and Community Service Manager | Community, Social & Government Services | 10 | $89.99 |
-| Social Worker | Community, Social & Government Services | 12 | $109.99 |
-| Substance Abuse Counselor | Community, Social & Government Services | 12 | $109.99 |
-| Tax Examiner | Community, Social & Government Services | 10 | $89.99 |
-| Urban Planner | Community, Social & Government Services | 12 | $109.99 |
-| Athletic Trainer | Beauty, Fitness & Personal Care | 12 | $109.99 |
-| Barber | Beauty, Fitness & Personal Care | 10 | $89.99 |
-| Cosmetologist | Beauty, Fitness & Personal Care | 10 | $89.99 |
-| Dietitian | Beauty, Fitness & Personal Care | 12 | $109.99 |
-| Embalmer | Beauty, Fitness & Personal Care | 10 | $89.99 |
-| Esthetician | Beauty, Fitness & Personal Care | 10 | $89.99 |
-| Exercise Physiologist | Beauty, Fitness & Personal Care | 10 | $89.99 |
-| Funeral Director | Beauty, Fitness & Personal Care | 10 | $89.99 |
-| Makeup Artist | Beauty, Fitness & Personal Care | 10 | $89.99 |
-| Massage Therapist | Beauty, Fitness & Personal Care | 10 | $89.99 |
-| Nail Technician | Beauty, Fitness & Personal Care | 10 | $89.99 |
-| Personal Trainer | Beauty, Fitness & Personal Care | 10 | $89.99 |
-| Recreation Worker | Beauty, Fitness & Personal Care | 8 | $74.99 |
-| Recreational Therapist | Beauty, Fitness & Personal Care | 12 | $109.99 |
-| Salon Manager | Beauty, Fitness & Personal Care | 10 | $89.99 |
-| Sports Coach | Beauty, Fitness & Personal Care | 10 | $89.99 |
-| Sports Official | Beauty, Fitness & Personal Care | 8 | $74.99 |
-| Tailor | Beauty, Fitness & Personal Care | 8 | $74.99 |
-| Agricultural Engineer | Agriculture, Landscaping & Animal Care | 10 | $89.99 |
-| Agricultural Equipment Operator | Agriculture, Landscaping & Animal Care | 6 | $59.99 |
-| Agricultural Inspector | Agriculture, Landscaping & Animal Care | 10 | $89.99 |
-| Agricultural Technician | Agriculture, Landscaping & Animal Care | 10 | $89.99 |
-| Animal Caretaker | Agriculture, Landscaping & Animal Care | 8 | $74.99 |
-| Animal Scientist | Agriculture, Landscaping & Animal Care | 10 | $89.99 |
-| Animal Trainer | Agriculture, Landscaping & Animal Care | 10 | $89.99 |
-| Arborist | Agriculture, Landscaping & Animal Care | 8 | $74.99 |
-| Extension Educator | Agriculture, Landscaping & Animal Care | 10 | $89.99 |
-| Farm Equipment Mechanic | Agriculture, Landscaping & Animal Care | 10 | $89.99 |
-| Farm Labor Contractor | Agriculture, Landscaping & Animal Care | 8 | $74.99 |
-| Farm Manager | Agriculture, Landscaping & Animal Care | 10 | $89.99 |
-| Farmworker | Agriculture, Landscaping & Animal Care | 6 | $59.99 |
-| Forest and Conservation Worker | Agriculture, Landscaping & Animal Care | 8 | $74.99 |
-| Forester | Agriculture, Landscaping & Animal Care | 12 | $109.99 |
-| Landscape Architect | Agriculture, Landscaping & Animal Care | 12 | $109.99 |
-| Landscaper | Agriculture, Landscaping & Animal Care | 6 | $59.99 |
-| Landscaping Supervisor | Agriculture, Landscaping & Animal Care | 10 | $89.99 |
-| Logging Equipment Operator | Agriculture, Landscaping & Animal Care | 10 | $89.99 |
-| Pesticide Applicator | Agriculture, Landscaping & Animal Care | 8 | $74.99 |
-| Ranch Hand | Agriculture, Landscaping & Animal Care | 6 | $59.99 |
-| Soil and Plant Scientist | Agriculture, Landscaping & Animal Care | 10 | $89.99 |
-| Veterinary Assistant | Agriculture, Landscaping & Animal Care | 8 | $74.99 |
-| Veterinary Technician | Agriculture, Landscaping & Animal Care | 10 | $89.99 |
+| Acupuncturist | Healthcare | 12 | $89.99 |
+| Anesthesiologist | Healthcare | 12 | $89.99 |
+| Audiologist | Healthcare | 12 | $89.99 |
+| Cardiologist | Healthcare | 12 | $89.99 |
+| Cardiovascular Technologist | Healthcare | 12 | $89.99 |
+| Certified Nursing Assistant | Healthcare | 8 | $59.99 |
+| Chiropractor | Healthcare | 12 | $89.99 |
+| Dental Assistant | Healthcare | 8 | $59.99 |
+| Dental Hygienist | Healthcare | 12 | $89.99 |
+| Dental Lab Technician | Healthcare | 10 | $74.99 |
+| Dentist | Healthcare | 12 | $89.99 |
+| Dermatologist | Healthcare | 12 | $89.99 |
+| Diagnostic Medical Sonographer | Healthcare | 12 | $89.99 |
+| Dietetic Technician | Healthcare | 10 | $74.99 |
+| Emergency Medical Technician | Healthcare | 10 | $74.99 |
+| Emergency Medicine Physician | Healthcare | 12 | $89.99 |
+| Family Medicine Physician | Healthcare | 12 | $89.99 |
+| Genetic Counselor | Healthcare | 12 | $89.99 |
+| Health Information Technologist | Healthcare | 10 | $74.99 |
+| Hearing Aid Specialist | Healthcare | 10 | $74.99 |
+| Home Health Aide | Healthcare | 8 | $59.99 |
+| Internist | Healthcare | 12 | $89.99 |
+| Licensed Practical Nurse | Healthcare | 12 | $89.99 |
+| Medical Administrative Assistant | Healthcare | 10 | $74.99 |
+| Medical and Health Services Manager | Healthcare | 12 | $89.99 |
+| Medical Appliance Technician | Healthcare | 10 | $74.99 |
+| Medical Assistant | Healthcare | 10 | $74.99 |
+| Medical Billing and Coding Specialist | Healthcare | 10 | $74.99 |
+| Medical Dosimetrist | Healthcare | 10 | $74.99 |
+| Medical Transcriptionist | Healthcare | 10 | $74.99 |
+| MRI Technologist | Healthcare | 12 | $89.99 |
+| Neurologist | Healthcare | 12 | $89.99 |
+| Nuclear Medicine Technologist | Healthcare | 12 | $89.99 |
+| Nurse Anesthetist | Healthcare | 12 | $89.99 |
+| Nurse Midwife | Healthcare | 12 | $89.99 |
+| Nurse Practitioner | Healthcare | 12 | $89.99 |
+| Obstetrician-Gynecologist | Healthcare | 12 | $89.99 |
+| Occupational Therapist | Healthcare | 12 | $89.99 |
+| Occupational Therapy Aide | Healthcare | 8 | $59.99 |
+| Occupational Therapy Assistant | Healthcare | 10 | $74.99 |
+| Ophthalmic Lab Technician | Healthcare | 10 | $74.99 |
+| Ophthalmic Technician | Healthcare | 10 | $74.99 |
+| Ophthalmologist | Healthcare | 12 | $89.99 |
+| Optician | Healthcare | 10 | $74.99 |
+| Optometrist | Healthcare | 12 | $89.99 |
+| Oral and Maxillofacial Surgeon | Healthcare | 12 | $89.99 |
+| Orderly | Healthcare | 8 | $59.99 |
+| Orthodontist | Healthcare | 12 | $89.99 |
+| Orthopedic Surgeon | Healthcare | 12 | $89.99 |
+| Orthotist and Prosthetist | Healthcare | 12 | $89.99 |
+| Paramedic | Healthcare | 12 | $89.99 |
+| Pathologist | Healthcare | 12 | $89.99 |
+| Pediatric Surgeon | Healthcare | 12 | $89.99 |
+| Pediatrician | Healthcare | 12 | $89.99 |
+| Pharmacist | Healthcare | 12 | $89.99 |
+| Pharmacy Aide | Healthcare | 8 | $59.99 |
+| Pharmacy Technician | Healthcare | 8 | $59.99 |
+| Phlebotomist | Healthcare | 8 | $59.99 |
+| Physical Therapist | Healthcare | 12 | $89.99 |
+| Physical Therapist Aide | Healthcare | 8 | $59.99 |
+| Physical Therapist Assistant | Healthcare | 12 | $89.99 |
+| Physician Assistant | Healthcare | 12 | $89.99 |
+| Podiatrist | Healthcare | 12 | $89.99 |
+| Prosthodontist | Healthcare | 12 | $89.99 |
+| Psychiatric Aide | Healthcare | 8 | $59.99 |
+| Psychiatrist | Healthcare | 12 | $89.99 |
+| Radiation Therapist | Healthcare | 12 | $89.99 |
+| Radiologic Technologist | Healthcare | 12 | $89.99 |
+| Radiologist | Healthcare | 12 | $89.99 |
+| Registered Nurse | Healthcare | 14 | $99.99 |
+| Respiratory Therapist | Healthcare | 12 | $89.99 |
+| Speech-Language Pathologist | Healthcare | 12 | $89.99 |
+| Sterile Processing Technician | Healthcare | 10 | $74.99 |
+| Surgical Assistant | Healthcare | 12 | $89.99 |
+| Surgical Technologist | Healthcare | 12 | $89.99 |
+| Boilermaker | Skilled Trades & Construction | 12 | $89.99 |
+| Brickmason | Skilled Trades & Construction | 10 | $74.99 |
+| Cabinetmaker | Skilled Trades & Construction | 10 | $74.99 |
+| Carpenter | Skilled Trades & Construction | 10 | $74.99 |
+| Carpenter Helper | Skilled Trades & Construction | 6 | $49.99 |
+| Carpet Installer | Skilled Trades & Construction | 6 | $49.99 |
+| Commercial Diver | Skilled Trades & Construction | 12 | $89.99 |
+| Concrete Finisher | Skilled Trades & Construction | 8 | $59.99 |
+| Construction Foreman | Skilled Trades & Construction | 10 | $74.99 |
+| Construction Laborer | Skilled Trades & Construction | 6 | $49.99 |
+| Construction Manager | Skilled Trades & Construction | 12 | $89.99 |
+| Cost Estimator | Skilled Trades & Construction | 10 | $74.99 |
+| Drywall Installer | Skilled Trades & Construction | 8 | $59.99 |
+| Drywall Taper | Skilled Trades & Construction | 8 | $59.99 |
+| Electrical Lineworker | Skilled Trades & Construction | 12 | $89.99 |
+| Electrician | Skilled Trades & Construction | 12 | $89.99 |
+| Electrician Helper | Skilled Trades & Construction | 8 | $59.99 |
+| Elevator Technician | Skilled Trades & Construction | 12 | $89.99 |
+| Fence Installer | Skilled Trades & Construction | 6 | $49.99 |
+| Floor Layer | Skilled Trades & Construction | 8 | $59.99 |
+| Floor Sander | Skilled Trades & Construction | 8 | $59.99 |
+| Furniture Finisher | Skilled Trades & Construction | 10 | $74.99 |
+| Garage Door Technician | Skilled Trades & Construction | 10 | $74.99 |
+| Glazier | Skilled Trades & Construction | 10 | $74.99 |
+| Heavy Equipment Operator | Skilled Trades & Construction | 10 | $74.99 |
+| Highway Maintenance Worker | Skilled Trades & Construction | 10 | $74.99 |
+| HVAC Technician | Skilled Trades & Construction | 10 | $74.99 |
+| Insulation Installer | Skilled Trades & Construction | 6 | $49.99 |
+| Ironworker | Skilled Trades & Construction | 12 | $89.99 |
+| Locksmith | Skilled Trades & Construction | 10 | $74.99 |
+| Manufactured Home Installer | Skilled Trades & Construction | 8 | $59.99 |
+| Mason Helper | Skilled Trades & Construction | 6 | $49.99 |
+| Mechanical Insulator | Skilled Trades & Construction | 10 | $74.99 |
+| Painter | Skilled Trades & Construction | 6 | $49.99 |
+| Painter Helper | Skilled Trades & Construction | 6 | $49.99 |
+| Paperhanger | Skilled Trades & Construction | 8 | $59.99 |
+| Paving Equipment Operator | Skilled Trades & Construction | 10 | $74.99 |
+| Pile Driver Operator | Skilled Trades & Construction | 10 | $74.99 |
+| Pipelayer | Skilled Trades & Construction | 6 | $49.99 |
+| Plasterer | Skilled Trades & Construction | 8 | $59.99 |
+| Plumber | Skilled Trades & Construction | 12 | $89.99 |
+| Plumber Helper | Skilled Trades & Construction | 8 | $59.99 |
+| Rebar Worker | Skilled Trades & Construction | 10 | $74.99 |
+| Rigger | Skilled Trades & Construction | 10 | $74.99 |
+| Roofer | Skilled Trades & Construction | 10 | $74.99 |
+| Roofer Helper | Skilled Trades & Construction | 6 | $49.99 |
+| Sheet Metal Worker | Skilled Trades & Construction | 10 | $74.99 |
+| Solar Panel Installer | Skilled Trades & Construction | 8 | $59.99 |
+| Stonemason | Skilled Trades & Construction | 10 | $74.99 |
+| Terrazzo Worker | Skilled Trades & Construction | 10 | $74.99 |
+| Tile Setter | Skilled Trades & Construction | 8 | $59.99 |
+| Upholsterer | Skilled Trades & Construction | 10 | $74.99 |
+| Welder | Skilled Trades & Construction | 10 | $74.99 |
+| Wind Turbine Technician | Skilled Trades & Construction | 10 | $74.99 |
+| Adhesive Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Aircraft Assembler | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Aircraft Mechanic | Mechanics, Maintenance & Manufacturing | 12 | $89.99 |
+| Appliance Repair Technician | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Auto Body Technician | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Auto Glass Technician | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Automotive Service Technician | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Avionics Technician | Mechanics, Maintenance & Manufacturing | 12 | $89.99 |
+| Bicycle Mechanic | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Bindery Worker | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Biomedical Equipment Technician | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Building Maintenance Technician | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Camera Repairer | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Car Electronics Installer | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| CNC Machinist | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| CNC Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| CNC Programmer | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Coil Winder | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Crushing Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Diesel Mechanic | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Drilling Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Electric Motor Repairer | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Electronics Assembler | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Engine Assembler | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Extruding Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Fiber Extruding Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Fiberglass Laminator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Food Batchmaker | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Food Cooking Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Food Roasting Machine Operator | Mechanics, Maintenance & Manufacturing | 6 | $49.99 |
+| Forging Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Forming Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Foundry Moldmaker | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Freezing Equipment Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Furnace and Kiln Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Garment Presser | Mechanics, Maintenance & Manufacturing | 6 | $49.99 |
+| Grinding Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Hand Cutter | Mechanics, Maintenance & Manufacturing | 6 | $49.99 |
+| Hand Grinder | Mechanics, Maintenance & Manufacturing | 6 | $49.99 |
+| Hand Sewer | Mechanics, Maintenance & Manufacturing | 8 | $59.99 |
+| Heat Treating Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Heavy Equipment Mechanic | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Industrial Cleaning Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Industrial Electronics Repairer | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Industrial Engineer | Mechanics, Maintenance & Manufacturing | 12 | $89.99 |
+| Industrial Engineering Technician | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Industrial Maintenance Technician | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Industrial Painter | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Industrial Production Manager | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Lathe Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Machine Feeder | Mechanics, Maintenance & Manufacturing | 6 | $49.99 |
+| Machinery Maintenance Worker | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Maintenance Helper | Mechanics, Maintenance & Manufacturing | 8 | $59.99 |
+| Maintenance Supervisor | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Marine Mechanic | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Meat Packer | Mechanics, Maintenance & Manufacturing | 6 | $49.99 |
+| Meat Trimmer | Mechanics, Maintenance & Manufacturing | 6 | $49.99 |
+| Metal Fabricator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Metal Furnace Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Metal Layout Worker | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Metal Model Maker | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Metal Patternmaker | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Metal Pourer | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Milling Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Millwright | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Mixing Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Molder and Caster | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Molding Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Motorcycle Mechanic | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Multiple Machine Tool Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Packaging Machine Operator | Mechanics, Maintenance & Manufacturing | 8 | $59.99 |
+| Paper Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Plating Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Prepress Technician | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Press Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Printing Press Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Product Decorator | Mechanics, Maintenance & Manufacturing | 6 | $49.99 |
+| Production Assembler | Mechanics, Maintenance & Manufacturing | 8 | $59.99 |
+| Production Helper | Mechanics, Maintenance & Manufacturing | 8 | $59.99 |
+| Production Planner | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Production Supervisor | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Quality Control Inspector | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Rail Car Repairer | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Refractory Repairer | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Rolling Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| RV Technician | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Sawmill Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Sewing Machine Operator | Mechanics, Maintenance & Manufacturing | 6 | $49.99 |
+| Shoe Machine Operator | Mechanics, Maintenance & Manufacturing | 8 | $59.99 |
+| Slicing Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Small Engine Mechanic | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Textile Cutting Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Textile Dyeing Machine Operator | Mechanics, Maintenance & Manufacturing | 8 | $59.99 |
+| Textile Knitting Machine Operator | Mechanics, Maintenance & Manufacturing | 8 | $59.99 |
+| Textile Winding Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Timing Device Assembler | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Tire Builder | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Tire Technician | Mechanics, Maintenance & Manufacturing | 8 | $59.99 |
+| Tool and Die Maker | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Tool Grinder | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Transportation Equipment Electrician | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Vending Machine Technician | Mechanics, Maintenance & Manufacturing | 8 | $59.99 |
+| Watch Repairer | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Welding Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Wood Model Maker | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Wood Patternmaker | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Woodworking Machine Operator | Mechanics, Maintenance & Manufacturing | 10 | $74.99 |
+| Conservation Technician | Safety & Environmental | 10 | $74.99 |
+| Construction and Building Inspector | Safety & Environmental | 12 | $89.99 |
+| Environmental Engineering Technician | Safety & Environmental | 10 | $74.99 |
+| Environmental Health Specialist | Safety & Environmental | 12 | $89.99 |
+| Environmental Technician | Safety & Environmental | 10 | $74.99 |
+| Fire Alarm Technician | Safety & Environmental | 10 | $74.99 |
+| Fire Inspector | Safety & Environmental | 10 | $74.99 |
+| Forest Fire Prevention Specialist | Safety & Environmental | 10 | $74.99 |
+| Hazardous Materials Technician | Safety & Environmental | 12 | $89.99 |
+| Occupational Safety Specialist | Safety & Environmental | 12 | $89.99 |
+| Pest Control Technician | Safety & Environmental | 8 | $59.99 |
+| Refuse Collector | Safety & Environmental | 6 | $49.99 |
+| Safety Engineer | Safety & Environmental | 12 | $89.99 |
+| Safety Technician | Safety & Environmental | 10 | $74.99 |
+| Septic Tank Technician | Safety & Environmental | 10 | $74.99 |
+| Transportation Inspector | Safety & Environmental | 10 | $74.99 |
+| Water Treatment Plant Operator | Safety & Environmental | 10 | $74.99 |
+| Air Traffic Controller | Transportation & Logistics | 12 | $89.99 |
+| Aircraft Cargo Supervisor | Transportation & Logistics | 10 | $74.99 |
+| Aircraft Service Attendant | Transportation & Logistics | 8 | $59.99 |
+| Airfield Operations Specialist | Transportation & Logistics | 10 | $74.99 |
+| Airline Pilot | Transportation & Logistics | 12 | $89.99 |
+| Ambulance Driver | Transportation & Logistics | 8 | $59.99 |
+| Bridge Tender | Transportation & Logistics | 8 | $59.99 |
+| Cargo Agent | Transportation & Logistics | 8 | $59.99 |
+| Commercial Pilot | Transportation & Logistics | 12 | $89.99 |
+| Conveyor Operator | Transportation & Logistics | 6 | $49.99 |
+| Courier | Transportation & Logistics | 8 | $59.99 |
+| Crane Operator | Transportation & Logistics | 12 | $89.99 |
+| Deckhand | Transportation & Logistics | 6 | $49.99 |
+| Delivery Driver | Transportation & Logistics | 8 | $59.99 |
+| Dredge Operator | Transportation & Logistics | 10 | $74.99 |
+| Flight Attendant | Transportation & Logistics | 8 | $59.99 |
+| Freight Dispatcher | Transportation & Logistics | 8 | $59.99 |
+| Gas Station Attendant | Transportation & Logistics | 6 | $49.99 |
+| Hand Packer | Transportation & Logistics | 6 | $49.99 |
+| Hoist Operator | Transportation & Logistics | 10 | $74.99 |
+| Locomotive Engineer | Transportation & Logistics | 12 | $89.99 |
+| Logistics Coordinator | Transportation & Logistics | 10 | $74.99 |
+| Logistics Manager | Transportation & Logistics | 10 | $74.99 |
+| Mail Sorter | Transportation & Logistics | 6 | $49.99 |
+| Motorboat Operator | Transportation & Logistics | 10 | $74.99 |
+| Parking Attendant | Transportation & Logistics | 6 | $49.99 |
+| Passenger Attendant | Transportation & Logistics | 8 | $59.99 |
+| Postal Clerk | Transportation & Logistics | 6 | $49.99 |
+| Postal Mail Carrier | Transportation & Logistics | 6 | $49.99 |
+| Postmaster | Transportation & Logistics | 10 | $74.99 |
+| Rail Yard Engineer | Transportation & Logistics | 10 | $74.99 |
+| Railroad Conductor | Transportation & Logistics | 10 | $74.99 |
+| Railroad Signal Technician | Transportation & Logistics | 10 | $74.99 |
+| Railroad Switch Operator | Transportation & Logistics | 10 | $74.99 |
+| Railroad Track Equipment Operator | Transportation & Logistics | 10 | $74.99 |
+| Reservation Agent | Transportation & Logistics | 8 | $59.99 |
+| Route Sales Driver | Transportation & Logistics | 8 | $59.99 |
+| School Bus Driver | Transportation & Logistics | 8 | $59.99 |
+| School Bus Monitor | Transportation & Logistics | 8 | $59.99 |
+| Ship Captain | Transportation & Logistics | 12 | $89.99 |
+| Ship Engineer | Transportation & Logistics | 12 | $89.99 |
+| Shipping and Receiving Clerk | Transportation & Logistics | 8 | $59.99 |
+| Shuttle Driver | Transportation & Logistics | 6 | $49.99 |
+| Subway Operator | Transportation & Logistics | 10 | $74.99 |
+| Tank Loader | Transportation & Logistics | 6 | $49.99 |
+| Taxi Driver | Transportation & Logistics | 6 | $49.99 |
+| Traffic Technician | Transportation & Logistics | 10 | $74.99 |
+| Transit Bus Driver | Transportation & Logistics | 8 | $59.99 |
+| Transportation Supervisor | Transportation & Logistics | 10 | $74.99 |
+| Vehicle Cleaner | Transportation & Logistics | 6 | $49.99 |
+| Warehouse Associate | Transportation & Logistics | 6 | $49.99 |
+| Weigher and Checker | Transportation & Logistics | 8 | $59.99 |
+| Accountant | Business & Office | 12 | $89.99 |
+| Actuary | Business & Office | 10 | $74.99 |
+| Administrative Assistant | Business & Office | 6 | $49.99 |
+| Administrative Services Manager | Business & Office | 10 | $74.99 |
+| Auto Damage Appraiser | Business & Office | 10 | $74.99 |
+| Bank Teller | Business & Office | 8 | $59.99 |
+| Billing Clerk | Business & Office | 10 | $74.99 |
+| Bookkeeper | Business & Office | 8 | $59.99 |
+| Brokerage Clerk | Business & Office | 10 | $74.99 |
+| Budget Analyst | Business & Office | 10 | $74.99 |
+| Chief Executive | Business & Office | 10 | $74.99 |
+| Claims Adjuster | Business & Office | 10 | $74.99 |
+| Compensation and Benefits Manager | Business & Office | 10 | $74.99 |
+| Compensation and Benefits Specialist | Business & Office | 10 | $74.99 |
+| Compliance Officer | Business & Office | 10 | $74.99 |
+| Correspondence Clerk | Business & Office | 8 | $59.99 |
+| Credit Analyst | Business & Office | 10 | $74.99 |
+| Credit Authorizer | Business & Office | 10 | $74.99 |
+| Credit Counselor | Business & Office | 10 | $74.99 |
+| Customer Service Representative | Business & Office | 6 | $49.99 |
+| Data Entry Clerk | Business & Office | 8 | $59.99 |
+| Debt Collector | Business & Office | 10 | $74.99 |
+| Economist | Business & Office | 10 | $74.99 |
+| Executive Assistant | Business & Office | 10 | $74.99 |
+| Facilities Manager | Business & Office | 10 | $74.99 |
+| File Clerk | Business & Office | 8 | $59.99 |
+| Financial Advisor | Business & Office | 12 | $89.99 |
+| Financial Analyst | Business & Office | 12 | $89.99 |
+| Financial Examiner | Business & Office | 10 | $74.99 |
+| Financial Manager | Business & Office | 10 | $74.99 |
+| Financial Risk Specialist | Business & Office | 10 | $74.99 |
+| General and Operations Manager | Business & Office | 10 | $74.99 |
+| HR Assistant | Business & Office | 10 | $74.99 |
+| Human Resources Manager | Business & Office | 10 | $74.99 |
+| Human Resources Specialist | Business & Office | 10 | $74.99 |
+| Industrial-Organizational Psychologist | Business & Office | 12 | $89.99 |
+| Insurance Claims Clerk | Business & Office | 10 | $74.99 |
+| Insurance Underwriter | Business & Office | 10 | $74.99 |
+| Intake Interviewer | Business & Office | 8 | $59.99 |
+| Judicial Law Clerk | Business & Office | 10 | $74.99 |
+| Labor Relations Specialist | Business & Office | 10 | $74.99 |
+| Lawyer | Business & Office | 12 | $89.99 |
+| Legal Secretary | Business & Office | 10 | $74.99 |
+| Loan Officer | Business & Office | 10 | $74.99 |
+| Loan Processor | Business & Office | 8 | $59.99 |
+| Mail Clerk | Business & Office | 8 | $59.99 |
+| Management Analyst | Business & Office | 10 | $74.99 |
+| New Accounts Clerk | Business & Office | 10 | $74.99 |
+| Office Clerk | Business & Office | 8 | $59.99 |
+| Office Machine Operator | Business & Office | 8 | $59.99 |
+| Office Manager | Business & Office | 10 | $74.99 |
+| Operations Research Analyst | Business & Office | 10 | $74.99 |
+| Order Clerk | Business & Office | 8 | $59.99 |
+| Paralegal | Business & Office | 10 | $74.99 |
+| Payroll Clerk | Business & Office | 10 | $74.99 |
+| Procurement Clerk | Business & Office | 10 | $74.99 |
+| Project Manager | Business & Office | 12 | $89.99 |
+| Property Manager | Business & Office | 10 | $74.99 |
+| Purchasing Agent | Business & Office | 10 | $74.99 |
+| Purchasing Manager | Business & Office | 10 | $74.99 |
+| Real Estate Agent | Business & Office | 8 | $59.99 |
+| Receptionist | Business & Office | 8 | $59.99 |
+| Statistical Assistant | Business & Office | 10 | $74.99 |
+| Survey Researcher | Business & Office | 10 | $74.99 |
+| Switchboard Operator | Business & Office | 8 | $59.99 |
+| Tax Preparer | Business & Office | 10 | $74.99 |
+| Telephone Operator | Business & Office | 8 | $59.99 |
+| Title Examiner | Business & Office | 10 | $74.99 |
+| Training and Development Manager | Business & Office | 10 | $74.99 |
+| Typist | Business & Office | 8 | $59.99 |
+| Cell Tower Technician | Technology | 10 | $74.99 |
+| Computer Repair Technician | Technology | 10 | $74.99 |
+| Computer Systems Analyst | Technology | 12 | $89.99 |
+| Cybersecurity Analyst | Technology | 12 | $89.99 |
+| Data Scientist | Technology | 12 | $89.99 |
+| Database Administrator | Technology | 12 | $89.99 |
+| Digital Marketing Specialist | Technology | 10 | $74.99 |
+| Electronics Technician | Technology | 10 | $74.99 |
+| IT Manager | Technology | 12 | $89.99 |
+| IT Support Specialist | Technology | 8 | $59.99 |
+| Network Administrator | Technology | 12 | $89.99 |
+| Network Technician | Technology | 10 | $74.99 |
+| Software Developer | Technology | 12 | $89.99 |
+| Software QA Tester | Technology | 10 | $74.99 |
+| Telecommunications Technician | Technology | 10 | $74.99 |
+| UX/UI Designer | Technology | 10 | $74.99 |
+| Web Developer | Technology | 10 | $74.99 |
+| 911 Dispatcher | Public Safety & Security | 10 | $74.99 |
+| Animal Control Officer | Public Safety & Security | 8 | $59.99 |
+| Bailiff | Public Safety & Security | 10 | $74.99 |
+| Correctional Officer | Public Safety & Security | 10 | $74.99 |
+| Detective | Public Safety & Security | 12 | $89.99 |
+| Emergency Management Director | Public Safety & Security | 12 | $89.99 |
+| Firefighter | Public Safety & Security | 10 | $74.99 |
+| Fish and Game Warden | Public Safety & Security | 12 | $89.99 |
+| Lifeguard | Public Safety & Security | 6 | $49.99 |
+| Police Officer | Public Safety & Security | 10 | $74.99 |
+| Private Investigator | Public Safety & Security | 10 | $74.99 |
+| Probation Officer | Public Safety & Security | 12 | $89.99 |
+| Security Guard | Public Safety & Security | 6 | $49.99 |
+| Security Supervisor | Public Safety & Security | 10 | $74.99 |
+| Transportation Security Officer | Public Safety & Security | 8 | $59.99 |
+| Blaster | Energy & Utilities | 12 | $89.99 |
+| Chemical Equipment Operator | Energy & Utilities | 10 | $74.99 |
+| Chemical Plant Operator | Energy & Utilities | 10 | $74.99 |
+| Control Valve Technician | Energy & Utilities | 10 | $74.99 |
+| Derrick Operator | Energy & Utilities | 10 | $74.99 |
+| Extraction Helper | Energy & Utilities | 10 | $74.99 |
+| Gas Compressor Operator | Energy & Utilities | 10 | $74.99 |
+| Gas Plant Operator | Energy & Utilities | 10 | $74.99 |
+| Geological Technician | Energy & Utilities | 10 | $74.99 |
+| Meter Reader | Energy & Utilities | 8 | $59.99 |
+| Mining Engineer | Energy & Utilities | 12 | $89.99 |
+| Mining Machine Operator | Energy & Utilities | 10 | $74.99 |
+| Nuclear Engineer | Energy & Utilities | 12 | $89.99 |
+| Nuclear Reactor Operator | Energy & Utilities | 12 | $89.99 |
+| Nuclear Technician | Energy & Utilities | 10 | $74.99 |
+| Oilfield Service Operator | Energy & Utilities | 10 | $74.99 |
+| Petroleum Engineer | Energy & Utilities | 12 | $89.99 |
+| Power Dispatcher | Energy & Utilities | 12 | $89.99 |
+| Power Plant Operator | Energy & Utilities | 12 | $89.99 |
+| Pump Operator | Energy & Utilities | 10 | $74.99 |
+| Quarry Rock Splitter | Energy & Utilities | 6 | $49.99 |
+| Refinery Operator | Energy & Utilities | 10 | $74.99 |
+| Roof Bolter | Energy & Utilities | 10 | $74.99 |
+| Rotary Drill Operator | Energy & Utilities | 10 | $74.99 |
+| Roustabout | Energy & Utilities | 6 | $49.99 |
+| Separating Machine Operator | Energy & Utilities | 10 | $74.99 |
+| Stationary Engineer | Energy & Utilities | 10 | $74.99 |
+| Substation Technician | Energy & Utilities | 12 | $89.99 |
+| Surface Mining Equipment Operator | Energy & Utilities | 10 | $74.99 |
+| Telecommunications Lineworker | Energy & Utilities | 10 | $74.99 |
+| Underground Mining Loader Operator | Energy & Utilities | 10 | $74.99 |
+| Water Well Driller | Energy & Utilities | 10 | $74.99 |
+| Wellhead Pumper | Energy & Utilities | 10 | $74.99 |
+| Aerospace Engineer | Science, Engineering & Lab | 12 | $89.99 |
+| Aerospace Engineering Technician | Science, Engineering & Lab | 10 | $74.99 |
+| Archaeologist | Science, Engineering & Lab | 10 | $74.99 |
+| Architect | Science, Engineering & Lab | 12 | $89.99 |
+| Astronomer | Science, Engineering & Lab | 10 | $74.99 |
+| Biochemist | Science, Engineering & Lab | 10 | $74.99 |
+| Biological Technician | Science, Engineering & Lab | 10 | $74.99 |
+| Biomedical Engineer | Science, Engineering & Lab | 12 | $89.99 |
+| CAD Drafter | Science, Engineering & Lab | 10 | $74.99 |
+| Calibration Technician | Science, Engineering & Lab | 10 | $74.99 |
+| Cartographer | Science, Engineering & Lab | 12 | $89.99 |
+| Chemical Engineer | Science, Engineering & Lab | 12 | $89.99 |
+| Chemical Technician | Science, Engineering & Lab | 10 | $74.99 |
+| Chemist | Science, Engineering & Lab | 12 | $89.99 |
+| Civil Engineer | Science, Engineering & Lab | 12 | $89.99 |
+| Civil Engineering Technician | Science, Engineering & Lab | 10 | $74.99 |
+| Electrical Drafter | Science, Engineering & Lab | 10 | $74.99 |
+| Electrical Engineer | Science, Engineering & Lab | 12 | $89.99 |
+| Electronics Engineer | Science, Engineering & Lab | 12 | $89.99 |
+| Engineering Manager | Science, Engineering & Lab | 12 | $89.99 |
+| Epidemiologist | Science, Engineering & Lab | 10 | $74.99 |
+| Food Science Technician | Science, Engineering & Lab | 10 | $74.99 |
+| Food Scientist | Science, Engineering & Lab | 10 | $74.99 |
+| Forensic Science Technician | Science, Engineering & Lab | 12 | $89.99 |
+| Geographer | Science, Engineering & Lab | 10 | $74.99 |
+| Geoscientist | Science, Engineering & Lab | 12 | $89.99 |
+| Historian | Science, Engineering & Lab | 10 | $74.99 |
+| Marine Engineer | Science, Engineering & Lab | 12 | $89.99 |
+| Materials Engineer | Science, Engineering & Lab | 12 | $89.99 |
+| Materials Scientist | Science, Engineering & Lab | 10 | $74.99 |
+| Mathematician | Science, Engineering & Lab | 10 | $74.99 |
+| Mechanical Drafter | Science, Engineering & Lab | 10 | $74.99 |
+| Mechanical Engineer | Science, Engineering & Lab | 12 | $89.99 |
+| Mechanical Engineering Technician | Science, Engineering & Lab | 10 | $74.99 |
+| Mechatronics Technician | Science, Engineering & Lab | 10 | $74.99 |
+| Medical Laboratory Technician | Science, Engineering & Lab | 10 | $74.99 |
+| Medical Scientist | Science, Engineering & Lab | 10 | $74.99 |
+| Meteorologist | Science, Engineering & Lab | 10 | $74.99 |
+| Microbiologist | Science, Engineering & Lab | 12 | $89.99 |
+| Natural Sciences Manager | Science, Engineering & Lab | 10 | $74.99 |
+| Physicist | Science, Engineering & Lab | 10 | $74.99 |
+| Semiconductor Processing Technician | Science, Engineering & Lab | 10 | $74.99 |
+| Social Science Research Assistant | Science, Engineering & Lab | 10 | $74.99 |
+| Sociologist | Science, Engineering & Lab | 10 | $74.99 |
+| Statistician | Science, Engineering & Lab | 10 | $74.99 |
+| Surveying Technician | Science, Engineering & Lab | 10 | $74.99 |
+| Surveyor | Science, Engineering & Lab | 12 | $89.99 |
+| Account Executive | Sales & Retail | 10 | $74.99 |
+| Advertising Sales Agent | Sales & Retail | 10 | $74.99 |
+| Cashier | Sales & Retail | 6 | $49.99 |
+| Financial Services Sales Agent | Sales & Retail | 12 | $89.99 |
+| Insurance Agent | Sales & Retail | 8 | $59.99 |
+| Marketing Manager | Sales & Retail | 12 | $89.99 |
+| Parts Salesperson | Sales & Retail | 6 | $49.99 |
+| Real Estate Broker | Sales & Retail | 12 | $89.99 |
+| Rental Agent | Sales & Retail | 6 | $49.99 |
+| Retail Sales Associate | Sales & Retail | 6 | $49.99 |
+| Retail Store Manager | Sales & Retail | 10 | $74.99 |
+| Sales Engineer | Sales & Retail | 12 | $89.99 |
+| Sales Manager | Sales & Retail | 12 | $89.99 |
+| Stock Associate | Sales & Retail | 6 | $49.99 |
+| Technical Sales Representative | Sales & Retail | 10 | $74.99 |
+| Travel Agent | Sales & Retail | 8 | $59.99 |
+| Visual Merchandiser | Sales & Retail | 10 | $74.99 |
+| Wholesale Sales Representative | Sales & Retail | 10 | $74.99 |
+| Amusement Park Attendant | Hospitality, Food & Tourism | 6 | $49.99 |
+| Baker | Hospitality, Food & Tourism | 8 | $59.99 |
+| Banquet Server | Hospitality, Food & Tourism | 6 | $49.99 |
+| Barista | Hospitality, Food & Tourism | 6 | $49.99 |
+| Bartender | Hospitality, Food & Tourism | 6 | $49.99 |
+| Bellhop | Hospitality, Food & Tourism | 8 | $59.99 |
+| Busser | Hospitality, Food & Tourism | 6 | $49.99 |
+| Butcher | Hospitality, Food & Tourism | 8 | $59.99 |
+| Cafeteria Cook | Hospitality, Food & Tourism | 6 | $49.99 |
+| Casino Cage Cashier | Hospitality, Food & Tourism | 8 | $59.99 |
+| Casino Cashier | Hospitality, Food & Tourism | 6 | $49.99 |
+| Casino Dealer | Hospitality, Food & Tourism | 8 | $59.99 |
+| Casino Floor Supervisor | Hospitality, Food & Tourism | 10 | $74.99 |
+| Casino Manager | Hospitality, Food & Tourism | 10 | $74.99 |
+| Chef | Hospitality, Food & Tourism | 10 | $74.99 |
+| Concierge | Hospitality, Food & Tourism | 10 | $74.99 |
+| Custodial Supervisor | Hospitality, Food & Tourism | 10 | $74.99 |
+| Dishwasher | Hospitality, Food & Tourism | 6 | $49.99 |
+| Event Planner | Hospitality, Food & Tourism | 10 | $74.99 |
+| Fast Food Cook | Hospitality, Food & Tourism | 6 | $49.99 |
+| Food Service Supervisor | Hospitality, Food & Tourism | 10 | $74.99 |
+| Hotel Front Desk Agent | Hospitality, Food & Tourism | 8 | $59.99 |
+| Hotel Housekeeper | Hospitality, Food & Tourism | 6 | $49.99 |
+| Hotel Manager | Hospitality, Food & Tourism | 10 | $74.99 |
+| Janitor | Hospitality, Food & Tourism | 6 | $49.99 |
+| Line Cook | Hospitality, Food & Tourism | 6 | $49.99 |
+| Prep Cook | Hospitality, Food & Tourism | 6 | $49.99 |
+| Private Chef | Hospitality, Food & Tourism | 10 | $74.99 |
+| Recreation Manager | Hospitality, Food & Tourism | 10 | $74.99 |
+| Restaurant Host | Hospitality, Food & Tourism | 6 | $49.99 |
+| Restaurant Manager | Hospitality, Food & Tourism | 10 | $74.99 |
+| Server | Hospitality, Food & Tourism | 6 | $49.99 |
+| Short-Order Cook | Hospitality, Food & Tourism | 6 | $49.99 |
+| Sportsbook Writer | Hospitality, Food & Tourism | 8 | $59.99 |
+| Tour Guide | Hospitality, Food & Tourism | 8 | $59.99 |
+| Usher | Hospitality, Food & Tourism | 6 | $49.99 |
+| Animator | Arts, Media & Design | 10 | $74.99 |
+| Apparel Patternmaker | Arts, Media & Design | 10 | $74.99 |
+| Art Director | Arts, Media & Design | 10 | $74.99 |
+| Audio and Video Technician | Arts, Media & Design | 10 | $74.99 |
+| Broadcast Announcer | Arts, Media & Design | 10 | $74.99 |
+| Broadcast Technician | Arts, Media & Design | 10 | $74.99 |
+| Camera Operator | Arts, Media & Design | 10 | $74.99 |
+| Choreographer | Arts, Media & Design | 10 | $74.99 |
+| Costume Attendant | Arts, Media & Design | 8 | $59.99 |
+| Court Reporter | Arts, Media & Design | 10 | $74.99 |
+| Craft Artist | Arts, Media & Design | 8 | $59.99 |
+| Curator | Arts, Media & Design | 10 | $74.99 |
+| Desktop Publisher | Arts, Media & Design | 10 | $74.99 |
+| Editor | Arts, Media & Design | 10 | $74.99 |
+| Engraver | Arts, Media & Design | 10 | $74.99 |
+| Fashion Designer | Arts, Media & Design | 10 | $74.99 |
+| Fine Artist | Arts, Media & Design | 10 | $74.99 |
+| Florist | Arts, Media & Design | 10 | $74.99 |
+| Graphic Designer | Arts, Media & Design | 10 | $74.99 |
+| Industrial Designer | Arts, Media & Design | 10 | $74.99 |
+| Interior Designer | Arts, Media & Design | 10 | $74.99 |
+| Interpreter | Arts, Media & Design | 10 | $74.99 |
+| Jeweler | Arts, Media & Design | 10 | $74.99 |
+| Journalist | Arts, Media & Design | 10 | $74.99 |
+| Lighting Technician | Arts, Media & Design | 10 | $74.99 |
+| Model | Arts, Media & Design | 6 | $49.99 |
+| Movie Projectionist | Arts, Media & Design | 6 | $49.99 |
+| Museum Technician | Arts, Media & Design | 10 | $74.99 |
+| Music Director | Arts, Media & Design | 10 | $74.99 |
+| Musical Instrument Repairer | Arts, Media & Design | 10 | $74.99 |
+| Photo Lab Technician | Arts, Media & Design | 8 | $59.99 |
+| Photographer | Arts, Media & Design | 10 | $74.99 |
+| Producer and Director | Arts, Media & Design | 10 | $74.99 |
+| Proofreader | Arts, Media & Design | 10 | $74.99 |
+| Public Relations Manager | Arts, Media & Design | 10 | $74.99 |
+| Public Relations Specialist | Arts, Media & Design | 10 | $74.99 |
+| Set Designer | Arts, Media & Design | 10 | $74.99 |
+| Sound Engineer | Arts, Media & Design | 10 | $74.99 |
+| Talent Agent | Arts, Media & Design | 12 | $89.99 |
+| Technical Writer | Arts, Media & Design | 10 | $74.99 |
+| Video Editor | Arts, Media & Design | 10 | $74.99 |
+| Writer | Arts, Media & Design | 10 | $74.99 |
+| Adult Education Teacher | Education & Childcare | 10 | $74.99 |
+| Agricultural Sciences Professor | Education & Childcare | 10 | $74.99 |
+| Anthropology Professor | Education & Childcare | 10 | $74.99 |
+| Architecture Professor | Education & Childcare | 10 | $74.99 |
+| Archivist | Education & Childcare | 10 | $74.99 |
+| Art, Drama and Music Professor | Education & Childcare | 10 | $74.99 |
+| Biology Professor | Education & Childcare | 10 | $74.99 |
+| Business Professor | Education & Childcare | 10 | $74.99 |
+| Career and Technical Education Teacher | Education & Childcare | 12 | $89.99 |
+| Chemistry Professor | Education & Childcare | 10 | $74.99 |
+| Childcare Center Director | Education & Childcare | 10 | $74.99 |
+| Childcare Worker | Education & Childcare | 8 | $59.99 |
+| College Administrator | Education & Childcare | 10 | $74.99 |
+| Communications Professor | Education & Childcare | 10 | $74.99 |
+| Computer Science Professor | Education & Childcare | 10 | $74.99 |
+| Corporate Trainer | Education & Childcare | 10 | $74.99 |
+| Criminal Justice Professor | Education & Childcare | 10 | $74.99 |
+| Cultural Studies Professor | Education & Childcare | 10 | $74.99 |
+| Earth Sciences Professor | Education & Childcare | 10 | $74.99 |
+| Economics Professor | Education & Childcare | 10 | $74.99 |
+| Education Professor | Education & Childcare | 10 | $74.99 |
+| Elementary School Teacher | Education & Childcare | 12 | $89.99 |
+| Engineering Professor | Education & Childcare | 10 | $74.99 |
+| English Professor | Education & Childcare | 10 | $74.99 |
+| Environmental Science Professor | Education & Childcare | 10 | $74.99 |
+| Family and Consumer Sciences Professor | Education & Childcare | 10 | $74.99 |
+| Foreign Language Professor | Education & Childcare | 10 | $74.99 |
+| Forestry and Conservation Professor | Education & Childcare | 10 | $74.99 |
+| Geography Professor | Education & Childcare | 10 | $74.99 |
+| Graduate Teaching Assistant | Education & Childcare | 10 | $74.99 |
+| Health Sciences Professor | Education & Childcare | 12 | $89.99 |
+| High School Special Education Teacher | Education & Childcare | 12 | $89.99 |
+| High School Teacher | Education & Childcare | 12 | $89.99 |
+| History Professor | Education & Childcare | 10 | $74.99 |
+| Instructional Coordinator | Education & Childcare | 10 | $74.99 |
+| Kindergarten Teacher | Education & Childcare | 12 | $89.99 |
+| Law Professor | Education & Childcare | 12 | $89.99 |
+| Librarian | Education & Childcare | 10 | $74.99 |
+| Library Assistant | Education & Childcare | 8 | $59.99 |
+| Library Science Professor | Education & Childcare | 10 | $74.99 |
+| Library Technician | Education & Childcare | 10 | $74.99 |
+| Math Professor | Education & Childcare | 10 | $74.99 |
+| Middle School CTE Teacher | Education & Childcare | 12 | $89.99 |
+| Middle School Special Education Teacher | Education & Childcare | 12 | $89.99 |
+| Middle School Teacher | Education & Childcare | 12 | $89.99 |
+| Nursing Instructor | Education & Childcare | 12 | $89.99 |
+| Philosophy and Religion Professor | Education & Childcare | 10 | $74.99 |
+| Physics Professor | Education & Childcare | 10 | $74.99 |
+| Political Science Professor | Education & Childcare | 10 | $74.99 |
+| Postsecondary CTE Instructor | Education & Childcare | 10 | $74.99 |
+| Preschool Special Education Teacher | Education & Childcare | 12 | $89.99 |
+| Preschool Teacher | Education & Childcare | 10 | $74.99 |
+| Psychology Professor | Education & Childcare | 10 | $74.99 |
+| Recreation and Fitness Professor | Education & Childcare | 10 | $74.99 |
+| School Counselor | Education & Childcare | 12 | $89.99 |
+| School Principal | Education & Childcare | 12 | $89.99 |
+| School Psychologist | Education & Childcare | 12 | $89.99 |
+| Self-Enrichment Teacher | Education & Childcare | 10 | $74.99 |
+| Social Work Professor | Education & Childcare | 10 | $74.99 |
+| Sociology Professor | Education & Childcare | 10 | $74.99 |
+| Special Education Teacher | Education & Childcare | 12 | $89.99 |
+| Substitute Teacher | Education & Childcare | 10 | $74.99 |
+| Teacher Assistant | Education & Childcare | 10 | $74.99 |
+| Tutor | Education & Childcare | 10 | $74.99 |
+| Community Health Worker | Community, Social & Government Services | 8 | $59.99 |
+| Court Clerk | Community, Social & Government Services | 10 | $74.99 |
+| Eligibility Interviewer | Community, Social & Government Services | 10 | $74.99 |
+| Fundraiser | Community, Social & Government Services | 10 | $74.99 |
+| Health Educator | Community, Social & Government Services | 10 | $74.99 |
+| Healthcare Social Worker | Community, Social & Government Services | 12 | $89.99 |
+| Human Services Assistant | Community, Social & Government Services | 8 | $59.99 |
+| Marriage and Family Therapist | Community, Social & Government Services | 12 | $89.99 |
+| Mediator | Community, Social & Government Services | 10 | $74.99 |
+| Psychiatric Technician | Community, Social & Government Services | 10 | $74.99 |
+| Rehabilitation Counselor | Community, Social & Government Services | 10 | $74.99 |
+| Residential Advisor | Community, Social & Government Services | 8 | $59.99 |
+| Social and Community Service Manager | Community, Social & Government Services | 10 | $74.99 |
+| Social Worker | Community, Social & Government Services | 12 | $89.99 |
+| Substance Abuse Counselor | Community, Social & Government Services | 12 | $89.99 |
+| Tax Examiner | Community, Social & Government Services | 10 | $74.99 |
+| Urban Planner | Community, Social & Government Services | 12 | $89.99 |
+| Athletic Trainer | Beauty, Fitness & Personal Care | 12 | $89.99 |
+| Barber | Beauty, Fitness & Personal Care | 10 | $74.99 |
+| Cosmetologist | Beauty, Fitness & Personal Care | 10 | $74.99 |
+| Dietitian | Beauty, Fitness & Personal Care | 12 | $89.99 |
+| Embalmer | Beauty, Fitness & Personal Care | 10 | $74.99 |
+| Esthetician | Beauty, Fitness & Personal Care | 10 | $74.99 |
+| Exercise Physiologist | Beauty, Fitness & Personal Care | 10 | $74.99 |
+| Funeral Director | Beauty, Fitness & Personal Care | 10 | $74.99 |
+| Makeup Artist | Beauty, Fitness & Personal Care | 10 | $74.99 |
+| Massage Therapist | Beauty, Fitness & Personal Care | 10 | $74.99 |
+| Nail Technician | Beauty, Fitness & Personal Care | 10 | $74.99 |
+| Personal Trainer | Beauty, Fitness & Personal Care | 10 | $74.99 |
+| Recreation Worker | Beauty, Fitness & Personal Care | 8 | $59.99 |
+| Recreational Therapist | Beauty, Fitness & Personal Care | 12 | $89.99 |
+| Salon Manager | Beauty, Fitness & Personal Care | 10 | $74.99 |
+| Sports Coach | Beauty, Fitness & Personal Care | 10 | $74.99 |
+| Sports Official | Beauty, Fitness & Personal Care | 8 | $59.99 |
+| Tailor | Beauty, Fitness & Personal Care | 8 | $59.99 |
+| Agricultural Engineer | Agriculture, Landscaping & Animal Care | 10 | $74.99 |
+| Agricultural Equipment Operator | Agriculture, Landscaping & Animal Care | 6 | $49.99 |
+| Agricultural Inspector | Agriculture, Landscaping & Animal Care | 10 | $74.99 |
+| Agricultural Technician | Agriculture, Landscaping & Animal Care | 10 | $74.99 |
+| Animal Caretaker | Agriculture, Landscaping & Animal Care | 8 | $59.99 |
+| Animal Scientist | Agriculture, Landscaping & Animal Care | 10 | $74.99 |
+| Animal Trainer | Agriculture, Landscaping & Animal Care | 10 | $74.99 |
+| Arborist | Agriculture, Landscaping & Animal Care | 8 | $59.99 |
+| Extension Educator | Agriculture, Landscaping & Animal Care | 10 | $74.99 |
+| Farm Equipment Mechanic | Agriculture, Landscaping & Animal Care | 10 | $74.99 |
+| Farm Labor Contractor | Agriculture, Landscaping & Animal Care | 8 | $59.99 |
+| Farm Manager | Agriculture, Landscaping & Animal Care | 10 | $74.99 |
+| Farmworker | Agriculture, Landscaping & Animal Care | 6 | $49.99 |
+| Forest and Conservation Worker | Agriculture, Landscaping & Animal Care | 8 | $59.99 |
+| Forester | Agriculture, Landscaping & Animal Care | 12 | $89.99 |
+| Landscape Architect | Agriculture, Landscaping & Animal Care | 12 | $89.99 |
+| Landscaper | Agriculture, Landscaping & Animal Care | 6 | $49.99 |
+| Landscaping Supervisor | Agriculture, Landscaping & Animal Care | 10 | $74.99 |
+| Logging Equipment Operator | Agriculture, Landscaping & Animal Care | 10 | $74.99 |
+| Pesticide Applicator | Agriculture, Landscaping & Animal Care | 8 | $59.99 |
+| Ranch Hand | Agriculture, Landscaping & Animal Care | 6 | $49.99 |
+| Soil and Plant Scientist | Agriculture, Landscaping & Animal Care | 10 | $74.99 |
+| Veterinary Assistant | Agriculture, Landscaping & Animal Care | 8 | $59.99 |
+| Veterinary Technician | Agriculture, Landscaping & Animal Care | 10 | $74.99 |
 
 ## Sold as provider courses (no build needed)
 
@@ -741,7 +741,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 
 ## Module plans
 
-### Acupuncturist Training: 12 hours, $109.99
+### Acupuncturist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -756,7 +756,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Acupuncturist Career | 1 hr | Education and training pathways; Credential overview: NCCAOM certification; Credential overview: State acupuncture license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Anesthesiologist Training: 12 hours, $109.99
+### Anesthesiologist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -771,7 +771,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Anesthesiologist Career | 1 hr | Education and training pathways; Credential overview: Board certification (ABA); Credential overview: State medical license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Audiologist Training: 12 hours, $109.99
+### Audiologist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -786,7 +786,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Audiologist Career | 1 hr | Education and training pathways; Credential overview: State audiology license; Credential overview: CCC-A (ASHA); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Cardiologist Training: 12 hours, $109.99
+### Cardiologist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -801,7 +801,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Cardiologist Career | 1 hr | Education and training pathways; Credential overview: ABIM cardiovascular disease certification; Credential overview: State medical license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Cardiovascular Technologist Training: 12 hours, $109.99
+### Cardiovascular Technologist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -816,7 +816,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Cardiovascular Technologist Career | 1 hr | Education and training pathways; Credential overview: RDCS; Credential overview: RCIS; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Certified Nursing Assistant Training: 8 hours, $74.99
+### Certified Nursing Assistant Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -831,7 +831,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Certified Nursing Assistant Career | 40 min | Education and training pathways; Credential overview: State CNA certification; Credential overview: CPR / BLS; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Chiropractor Training: 12 hours, $109.99
+### Chiropractor Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -846,7 +846,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Chiropractor Career | 1 hr | Education and training pathways; Credential overview: NBCE exams; Credential overview: State chiropractic license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Dental Assistant Training: 8 hours, $74.99
+### Dental Assistant Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -861,7 +861,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Dental Assistant Career | 40 min | Education and training pathways; Credential overview: CDA (DANB); Credential overview: RHS and ICE (DANB); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Dental Hygienist Training: 12 hours, $109.99
+### Dental Hygienist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -876,7 +876,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Dental Hygienist Career | 1 hr | Education and training pathways; Credential overview: State dental hygiene license (RDH); Credential overview: National Board Dental Hygiene Examination (NBDHE); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Dental Lab Technician Training: 10 hours, $89.99
+### Dental Lab Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -891,7 +891,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Dental Lab Technician Career | 50 min | Education and training pathways; Credential overview: Certified Dental Technician (CDT); Credential overview: Recognized Graduate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Dentist Training: 12 hours, $109.99
+### Dentist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -906,7 +906,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Dentist Career | 1 hr | Education and training pathways; Credential overview: State dental license; Credential overview: INBDE; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Dermatologist Training: 12 hours, $109.99
+### Dermatologist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -921,7 +921,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Dermatologist Career | 1 hr | Education and training pathways; Credential overview: American Board of Dermatology certification; Credential overview: State medical license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Diagnostic Medical Sonographer Training: 12 hours, $109.99
+### Diagnostic Medical Sonographer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -936,7 +936,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Diagnostic Medical Sonographer Career | 1 hr | Education and training pathways; Credential overview: RDMS (ARDMS); Credential overview: RVT (ARDMS); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Dietetic Technician Training: 10 hours, $89.99
+### Dietetic Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -951,7 +951,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Dietetic Technician Career | 50 min | Education and training pathways; Credential overview: NDTR (CDR); Credential overview: ServSafe Manager; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Emergency Medical Technician Training: 10 hours, $89.99
+### Emergency Medical Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -966,7 +966,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Emergency Medical Technician Career | 50 min | Education and training pathways; Credential overview: NREMT EMT certification; Credential overview: State EMT license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Emergency Medicine Physician Training: 12 hours, $109.99
+### Emergency Medicine Physician Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -981,7 +981,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Emergency Medicine Physician Career | 1 hr | Education and training pathways; Credential overview: ABEM board certification; Credential overview: State medical license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Family Medicine Physician Training: 12 hours, $109.99
+### Family Medicine Physician Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -996,7 +996,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Family Medicine Physician Career | 1 hr | Education and training pathways; Credential overview: ABFM board certification; Credential overview: State medical license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Genetic Counselor Training: 12 hours, $109.99
+### Genetic Counselor Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1011,7 +1011,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Genetic Counselor Career | 1 hr | Education and training pathways; Credential overview: CGC (ABGC); Credential overview: State license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Health Information Technologist Training: 10 hours, $89.99
+### Health Information Technologist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1026,7 +1026,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Health Information Technologist Career | 50 min | Education and training pathways; Credential overview: RHIT (AHIMA); Credential overview: CTR (NCRA); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Hearing Aid Specialist Training: 10 hours, $89.99
+### Hearing Aid Specialist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1041,7 +1041,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Hearing Aid Specialist Career | 50 min | Education and training pathways; Credential overview: State hearing aid dispenser license; Credential overview: NBC-HIS certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Home Health Aide Training: 8 hours, $74.99
+### Home Health Aide Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1056,7 +1056,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Home Health Aide Career | 40 min | Education and training pathways; Credential overview: Home health aide certificate; Credential overview: CPR and first aid; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Internist Training: 12 hours, $109.99
+### Internist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1071,7 +1071,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Internist Career | 1 hr | Education and training pathways; Credential overview: ABIM board certification; Credential overview: State medical license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Licensed Practical Nurse Training: 12 hours, $109.99
+### Licensed Practical Nurse Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1086,7 +1086,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Licensed Practical Nurse Career | 1 hr | Education and training pathways; Credential overview: NCLEX-PN license; Credential overview: IV therapy certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Medical Administrative Assistant Training: 10 hours, $89.99
+### Medical Administrative Assistant Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1101,7 +1101,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Medical Administrative Assistant Career | 50 min | Education and training pathways; Credential overview: Certified Medical Administrative Assistant (CMAA); Credential overview: Certified Electronic Health Records Specialist (CEHRS); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Medical and Health Services Manager Training: 12 hours, $109.99
+### Medical and Health Services Manager Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1116,7 +1116,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Medical and Health Services Manager Career | 1 hr | Education and training pathways; Credential overview: Fellow of the American College of Healthcare Executives (FACHE); Credential overview: Certified Medical Practice Executive (CMPE); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Medical Appliance Technician Training: 10 hours, $89.99
+### Medical Appliance Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1131,7 +1131,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Medical Appliance Technician Career | 50 min | Education and training pathways; Credential overview: Registered Orthotic Technician (RTO); Credential overview: Registered Prosthetic Technician (RTP); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Medical Assistant Training: 10 hours, $89.99
+### Medical Assistant Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1146,7 +1146,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Medical Assistant Career | 50 min | Education and training pathways; Credential overview: CMA (AAMA); Credential overview: RMA (AMT); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Medical Billing and Coding Specialist Training: 10 hours, $89.99
+### Medical Billing and Coding Specialist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1161,7 +1161,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Medical Billing and Coding Specialist Career | 50 min | Education and training pathways; Credential overview: CPC (AAPC); Credential overview: CCA or CCS (AHIMA); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Medical Dosimetrist Training: 10 hours, $89.99
+### Medical Dosimetrist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1176,7 +1176,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Medical Dosimetrist Career | 50 min | Education and training pathways; Credential overview: Certified Medical Dosimetrist (CMD); Credential overview: ARRT Radiation Therapy; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Medical Transcriptionist Training: 10 hours, $89.99
+### Medical Transcriptionist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1191,7 +1191,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Medical Transcriptionist Career | 50 min | Education and training pathways; Credential overview: RHDS (AHDI); Credential overview: CHDS (AHDI); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### MRI Technologist Training: 12 hours, $109.99
+### MRI Technologist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1206,7 +1206,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your MRI Technologist Career | 1 hr | Education and training pathways; Credential overview: ARRT (MR); Credential overview: ARMRIT certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Neurologist Training: 12 hours, $109.99
+### Neurologist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1221,7 +1221,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Neurologist Career | 1 hr | Education and training pathways; Credential overview: ABPN neurology certification; Credential overview: State medical license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Nuclear Medicine Technologist Training: 12 hours, $109.99
+### Nuclear Medicine Technologist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1236,7 +1236,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Nuclear Medicine Technologist Career | 1 hr | Education and training pathways; Credential overview: CNMT (NMTCB); Credential overview: ARRT Nuclear Medicine; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Nurse Anesthetist Training: 12 hours, $109.99
+### Nurse Anesthetist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1251,7 +1251,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Nurse Anesthetist Career | 1 hr | Education and training pathways; Credential overview: CRNA (NBCRNA certification); Credential overview: State APRN license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Nurse Midwife Training: 12 hours, $109.99
+### Nurse Midwife Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1266,7 +1266,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Nurse Midwife Career | 1 hr | Education and training pathways; Credential overview: Certified Nurse-Midwife (AMCB); Credential overview: State APRN license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Nurse Practitioner Training: 12 hours, $109.99
+### Nurse Practitioner Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1281,7 +1281,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Nurse Practitioner Career | 1 hr | Education and training pathways; Credential overview: FNP-BC or FNP-C; Credential overview: PMHNP-BC; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Obstetrician-Gynecologist Training: 12 hours, $109.99
+### Obstetrician-Gynecologist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1296,7 +1296,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Obstetrician-Gynecologist Career | 1 hr | Education and training pathways; Credential overview: ABOG board certification; Credential overview: State medical license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Occupational Therapist Training: 12 hours, $109.99
+### Occupational Therapist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1311,7 +1311,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Occupational Therapist Career | 1 hr | Education and training pathways; Credential overview: NBCOT certification (OTR); Credential overview: State OT license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Occupational Therapy Aide Training: 8 hours, $74.99
+### Occupational Therapy Aide Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1326,7 +1326,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Occupational Therapy Aide Career | 40 min | Education and training pathways; Credential overview: CPR; Credential overview: Safe patient handling; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Occupational Therapy Assistant Training: 10 hours, $89.99
+### Occupational Therapy Assistant Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1341,7 +1341,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Occupational Therapy Assistant Career | 50 min | Education and training pathways; Credential overview: COTA (NBCOT); Credential overview: State license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Ophthalmic Lab Technician Training: 10 hours, $89.99
+### Ophthalmic Lab Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1356,7 +1356,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Ophthalmic Lab Technician Career | 50 min | Education and training pathways; Credential overview: ABO Certification; Credential overview: NAOLT certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Ophthalmic Technician Training: 10 hours, $89.99
+### Ophthalmic Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1371,7 +1371,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Ophthalmic Technician Career | 50 min | Education and training pathways; Credential overview: Certified Ophthalmic Assistant (COA); Credential overview: Certified Ophthalmic Technician (COT); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Ophthalmologist Training: 12 hours, $109.99
+### Ophthalmologist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1386,7 +1386,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Ophthalmologist Career | 1 hr | Education and training pathways; Credential overview: ABO board certification; Credential overview: State medical license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Optician Training: 10 hours, $89.99
+### Optician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1401,7 +1401,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Optician Career | 50 min | Education and training pathways; Credential overview: ABO Certification; Credential overview: NCLE Certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Optometrist Training: 12 hours, $109.99
+### Optometrist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1416,7 +1416,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Optometrist Career | 1 hr | Education and training pathways; Credential overview: NBEO exams; Credential overview: State optometry license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Oral and Maxillofacial Surgeon Training: 12 hours, $109.99
+### Oral and Maxillofacial Surgeon Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1431,7 +1431,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Oral and Maxillofacial Surgeon Career | 1 hr | Education and training pathways; Credential overview: Board certification (ABOMS); Credential overview: State dental license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Orderly Training: 8 hours, $74.99
+### Orderly Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1446,7 +1446,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Orderly Career | 40 min | Education and training pathways; Credential overview: BLS CPR; Credential overview: Safe patient handling training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Orthodontist Training: 12 hours, $109.99
+### Orthodontist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1461,7 +1461,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Orthodontist Career | 1 hr | Education and training pathways; Credential overview: American Board of Orthodontics certification; Credential overview: State dental license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Orthopedic Surgeon Training: 12 hours, $109.99
+### Orthopedic Surgeon Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1476,7 +1476,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Orthopedic Surgeon Career | 1 hr | Education and training pathways; Credential overview: ABOS board certification; Credential overview: State medical license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Orthotist and Prosthetist Training: 12 hours, $109.99
+### Orthotist and Prosthetist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1491,7 +1491,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Orthotist and Prosthetist Career | 1 hr | Education and training pathways; Credential overview: Certified Prosthetist Orthotist (CPO); Credential overview: Certified Orthotist (CO); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Paramedic Training: 12 hours, $109.99
+### Paramedic Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1506,7 +1506,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Paramedic Career | 1 hr | Education and training pathways; Credential overview: National Registry Paramedic (NRP); Credential overview: State paramedic license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Pathologist Training: 12 hours, $109.99
+### Pathologist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1521,7 +1521,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Pathologist Career | 1 hr | Education and training pathways; Credential overview: ABPath board certification; Credential overview: State medical license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Pediatric Surgeon Training: 12 hours, $109.99
+### Pediatric Surgeon Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1536,7 +1536,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Pediatric Surgeon Career | 1 hr | Education and training pathways; Credential overview: ABS pediatric surgery certification; Credential overview: General surgery board certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Pediatrician Training: 12 hours, $109.99
+### Pediatrician Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1551,7 +1551,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Pediatrician Career | 1 hr | Education and training pathways; Credential overview: ABP board certification; Credential overview: State medical license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Pharmacist Training: 12 hours, $109.99
+### Pharmacist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1566,7 +1566,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Pharmacist Career | 1 hr | Education and training pathways; Credential overview: NAPLEX; Credential overview: MPJE; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Pharmacy Aide Training: 8 hours, $74.99
+### Pharmacy Aide Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1581,7 +1581,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Pharmacy Aide Career | 40 min | Education and training pathways; Credential overview: Pharmacy technician certification (PTCB); Credential overview: State registration; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Pharmacy Technician Training: 8 hours, $74.99
+### Pharmacy Technician Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1596,7 +1596,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Pharmacy Technician Career | 40 min | Education and training pathways; Credential overview: CPhT (PTCB); Credential overview: ExCPT (NHA); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Phlebotomist Training: 8 hours, $74.99
+### Phlebotomist Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1611,7 +1611,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Phlebotomist Career | 40 min | Education and training pathways; Credential overview: CPT (NHA); Credential overview: PBT (ASCP); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Physical Therapist Training: 12 hours, $109.99
+### Physical Therapist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1626,7 +1626,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Physical Therapist Career | 1 hr | Education and training pathways; Credential overview: NPTE; Credential overview: State PT license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Physical Therapist Aide Training: 8 hours, $74.99
+### Physical Therapist Aide Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1641,7 +1641,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Physical Therapist Aide Career | 40 min | Education and training pathways; Credential overview: CPR; Credential overview: Safe patient handling; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Physical Therapist Assistant Training: 12 hours, $109.99
+### Physical Therapist Assistant Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1656,7 +1656,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Physical Therapist Assistant Career | 1 hr | Education and training pathways; Credential overview: State PTA license or certification; Credential overview: National Physical Therapy Examination for PTAs; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Physician Assistant Training: 12 hours, $109.99
+### Physician Assistant Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1671,7 +1671,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Physician Assistant Career | 1 hr | Education and training pathways; Credential overview: PA-C (NCCPA certification); Credential overview: State PA license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Podiatrist Training: 12 hours, $109.99
+### Podiatrist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1686,7 +1686,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Podiatrist Career | 1 hr | Education and training pathways; Credential overview: APMLE exams; Credential overview: State podiatry license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Prosthodontist Training: 12 hours, $109.99
+### Prosthodontist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1701,7 +1701,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Prosthodontist Career | 1 hr | Education and training pathways; Credential overview: American Board of Prosthodontics certification; Credential overview: State dental license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Psychiatric Aide Training: 8 hours, $74.99
+### Psychiatric Aide Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1716,7 +1716,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Psychiatric Aide Career | 40 min | Education and training pathways; Credential overview: CPI de-escalation training; Credential overview: CPR and first aid; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Psychiatrist Training: 12 hours, $109.99
+### Psychiatrist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1731,7 +1731,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Psychiatrist Career | 1 hr | Education and training pathways; Credential overview: ABPN psychiatry certification; Credential overview: State medical license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Radiation Therapist Training: 12 hours, $109.99
+### Radiation Therapist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1746,7 +1746,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Radiation Therapist Career | 1 hr | Education and training pathways; Credential overview: ARRT Radiation Therapy certification; Credential overview: State license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Radiologic Technologist Training: 12 hours, $109.99
+### Radiologic Technologist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1761,7 +1761,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Radiologic Technologist Career | 1 hr | Education and training pathways; Credential overview: ARRT Radiography (R); Credential overview: State radiologic technologist license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Radiologist Training: 12 hours, $109.99
+### Radiologist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1776,7 +1776,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Radiologist Career | 1 hr | Education and training pathways; Credential overview: ABR board certification; Credential overview: State medical license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Registered Nurse Training: 14 hours, $129.99
+### Registered Nurse Training: 14 hours, $99.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1791,7 +1791,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Registered Nurse Career | 1 hr 5 min | Education and training pathways; Credential overview: NCLEX-RN license; Credential overview: BLS, ACLS and PALS; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr 5 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Respiratory Therapist Training: 12 hours, $109.99
+### Respiratory Therapist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1806,7 +1806,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Respiratory Therapist Career | 1 hr | Education and training pathways; Credential overview: Registered Respiratory Therapist (RRT); Credential overview: Certified Respiratory Therapist (CRT); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Speech-Language Pathologist Training: 12 hours, $109.99
+### Speech-Language Pathologist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1821,7 +1821,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Speech-Language Pathologist Career | 1 hr | Education and training pathways; Credential overview: CCC-SLP (ASHA); Credential overview: State SLP license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Sterile Processing Technician Training: 10 hours, $89.99
+### Sterile Processing Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1836,7 +1836,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Sterile Processing Technician Career | 50 min | Education and training pathways; Credential overview: Certified Registered Central Service Technician (CRCST); Credential overview: Certified Sterile Processing and Distribution Technician (CSPDT); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Surgical Assistant Training: 12 hours, $109.99
+### Surgical Assistant Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1851,7 +1851,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Surgical Assistant Career | 1 hr | Education and training pathways; Credential overview: Certified Surgical First Assistant (CSFA); Credential overview: Certified Surgical Assistant (CSA); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Surgical Technologist Training: 12 hours, $109.99
+### Surgical Technologist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1866,7 +1866,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Surgical Technologist Career | 1 hr | Education and training pathways; Credential overview: CST (NBSTSA); Credential overview: TS-C (NCCT); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Boilermaker Training: 12 hours, $109.99
+### Boilermaker Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1881,7 +1881,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Boilermaker Career | 1 hr | Education and training pathways; Credential overview: Boilermaker apprenticeship; Credential overview: AWS or ASME welding certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Brickmason Training: 10 hours, $89.99
+### Brickmason Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1896,7 +1896,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Brickmason Career | 50 min | Education and training pathways; Credential overview: Apprenticeship completion; Credential overview: OSHA 10 or 30-Hour Construction; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Cabinetmaker Training: 10 hours, $89.99
+### Cabinetmaker Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1911,7 +1911,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Cabinetmaker Career | 50 min | Education and training pathways; Credential overview: WCA credentials; Credential overview: AWI training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Carpenter Training: 10 hours, $89.99
+### Carpenter Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1926,7 +1926,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Carpenter Career | 50 min | Education and training pathways; Credential overview: Journeyman carpenter (apprenticeship completion); Credential overview: OSHA 10 / OSHA 30; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Carpenter Helper Training: 6 hours, $59.99
+### Carpenter Helper Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1941,7 +1941,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Carpenter Helper Career | 30 min | Education and training pathways; Credential overview: OSHA 10; Credential overview: Pre-apprenticeship; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Carpet Installer Training: 6 hours, $59.99
+### Carpet Installer Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1956,7 +1956,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Carpet Installer Career | 30 min | Education and training pathways; Credential overview: CFI certification; Credential overview: Manufacturer training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Commercial Diver Training: 12 hours, $109.99
+### Commercial Diver Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1971,7 +1971,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Commercial Diver Career | 1 hr | Education and training pathways; Credential overview: ADCI certification; Credential overview: AWS underwater welding (D3.6); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Concrete Finisher Training: 8 hours, $74.99
+### Concrete Finisher Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -1986,7 +1986,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Concrete Finisher Career | 40 min | Education and training pathways; Credential overview: ACI Concrete Flatwork Finisher; Credential overview: ACI Concrete Field Testing Technician Grade I; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Construction Foreman Training: 10 hours, $89.99
+### Construction Foreman Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2001,7 +2001,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Construction Foreman Career | 50 min | Education and training pathways; Credential overview: OSHA 30; Credential overview: Trade license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Construction Laborer Training: 6 hours, $59.99
+### Construction Laborer Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2016,7 +2016,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Construction Laborer Career | 30 min | Education and training pathways; Credential overview: OSHA 10-Hour Construction; Credential overview: Flagger certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Construction Manager Training: 12 hours, $109.99
+### Construction Manager Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2031,7 +2031,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Construction Manager Career | 1 hr | Education and training pathways; Credential overview: Certified Construction Manager (CCM); Credential overview: Project Management Professional (PMP); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Cost Estimator Training: 10 hours, $89.99
+### Cost Estimator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2046,7 +2046,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Cost Estimator Career | 50 min | Education and training pathways; Credential overview: CPE; Credential overview: CCE; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Drywall Installer Training: 8 hours, $74.99
+### Drywall Installer Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2061,7 +2061,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Drywall Installer Career | 40 min | Education and training pathways; Credential overview: OSHA 10-Hour Construction; Credential overview: Scaffold and aerial lift training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Drywall Taper Training: 8 hours, $74.99
+### Drywall Taper Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2076,7 +2076,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Drywall Taper Career | 40 min | Education and training pathways; Credential overview: Finisher apprenticeship; Credential overview: OSHA 10; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Electrical Lineworker Training: 12 hours, $109.99
+### Electrical Lineworker Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2091,7 +2091,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Electrical Lineworker Career | 1 hr | Education and training pathways; Credential overview: Journeyman lineworker; Credential overview: CDL Class A; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Electrician Training: 12 hours, $109.99
+### Electrician Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2106,7 +2106,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Electrician Career | 1 hr | Education and training pathways; Credential overview: Journeyman electrician license; Credential overview: Master electrician license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Electrician Helper Training: 8 hours, $74.99
+### Electrician Helper Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2121,7 +2121,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Electrician Helper Career | 40 min | Education and training pathways; Credential overview: OSHA 10; Credential overview: Electrical trainee registration; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Elevator Technician Training: 12 hours, $109.99
+### Elevator Technician Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2136,7 +2136,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Elevator Technician Career | 1 hr | Education and training pathways; Credential overview: State elevator mechanic license; Credential overview: Certified Elevator Technician (CET); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Fence Installer Training: 6 hours, $59.99
+### Fence Installer Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2151,7 +2151,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Fence Installer Career | 30 min | Education and training pathways; Credential overview: AFA training; Credential overview: OSHA 10; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Floor Layer Training: 8 hours, $74.99
+### Floor Layer Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2166,7 +2166,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Floor Layer Career | 40 min | Education and training pathways; Credential overview: CFI certification; Credential overview: Manufacturer certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Floor Sander Training: 8 hours, $74.99
+### Floor Sander Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2181,7 +2181,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Floor Sander Career | 40 min | Education and training pathways; Credential overview: NWFA certification; Credential overview: Finish manufacturer training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Furniture Finisher Training: 10 hours, $89.99
+### Furniture Finisher Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2196,7 +2196,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Furniture Finisher Career | 50 min | Education and training pathways; Credential overview: Finishing course; Credential overview: Respirator fit test; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Garage Door Technician Training: 10 hours, $89.99
+### Garage Door Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2211,7 +2211,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Garage Door Technician Career | 50 min | Education and training pathways; Credential overview: IDEA door dealer certification; Credential overview: Manufacturer training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Glazier Training: 10 hours, $89.99
+### Glazier Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2226,7 +2226,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Glazier Career | 50 min | Education and training pathways; Credential overview: Glazier apprenticeship; Credential overview: NGA certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Heavy Equipment Operator Training: 10 hours, $89.99
+### Heavy Equipment Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2241,7 +2241,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Heavy Equipment Operator Career | 50 min | Education and training pathways; Credential overview: Apprenticeship completion; Credential overview: NCCCO crane operator certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Highway Maintenance Worker Training: 10 hours, $89.99
+### Highway Maintenance Worker Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2256,7 +2256,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Highway Maintenance Worker Career | 50 min | Education and training pathways; Credential overview: CDL; Credential overview: Flagger certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### HVAC Technician Training: 10 hours, $89.99
+### HVAC Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2271,7 +2271,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your HVAC Technician Career | 50 min | Education and training pathways; Credential overview: EPA Section 608; Credential overview: NATE certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Insulation Installer Training: 6 hours, $59.99
+### Insulation Installer Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2286,7 +2286,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Insulation Installer Career | 30 min | Education and training pathways; Credential overview: BPI certification; Credential overview: Spray foam certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Ironworker Training: 12 hours, $109.99
+### Ironworker Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2301,7 +2301,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Ironworker Career | 1 hr | Education and training pathways; Credential overview: Apprenticeship completion; Credential overview: AWS structural welding certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Locksmith Training: 10 hours, $89.99
+### Locksmith Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2316,7 +2316,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Locksmith Career | 50 min | Education and training pathways; Credential overview: ALOA certifications; Credential overview: State locksmith license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Manufactured Home Installer Training: 8 hours, $74.99
+### Manufactured Home Installer Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2331,7 +2331,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Manufactured Home Installer Career | 40 min | Education and training pathways; Credential overview: State installer license; Credential overview: HUD installation training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Mason Helper Training: 6 hours, $59.99
+### Mason Helper Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2346,7 +2346,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Mason Helper Career | 30 min | Education and training pathways; Credential overview: Scaffold training; Credential overview: OSHA 10; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Mechanical Insulator Training: 10 hours, $89.99
+### Mechanical Insulator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2361,7 +2361,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Mechanical Insulator Career | 50 min | Education and training pathways; Credential overview: Heat and Frost Insulators apprenticeship; Credential overview: Asbestos abatement certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Painter Training: 6 hours, $59.99
+### Painter Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2376,7 +2376,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Painter Career | 30 min | Education and training pathways; Credential overview: EPA RRP Certified Renovator; Credential overview: OSHA 10-Hour Construction; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Painter Helper Training: 6 hours, $59.99
+### Painter Helper Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2391,7 +2391,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Painter Helper Career | 30 min | Education and training pathways; Credential overview: Lead-safe certification; Credential overview: OSHA 10; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Paperhanger Training: 8 hours, $74.99
+### Paperhanger Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2406,7 +2406,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Paperhanger Career | 40 min | Education and training pathways; Credential overview: WIA certification; Credential overview: Painting apprenticeship; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Paving Equipment Operator Training: 10 hours, $89.99
+### Paving Equipment Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2421,7 +2421,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Paving Equipment Operator Career | 50 min | Education and training pathways; Credential overview: Operating engineers apprenticeship; Credential overview: CDL; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Pile Driver Operator Training: 10 hours, $89.99
+### Pile Driver Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2436,7 +2436,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Pile Driver Operator Career | 50 min | Education and training pathways; Credential overview: NCCCO crane certification; Credential overview: Pile driver apprenticeship; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Pipelayer Training: 6 hours, $59.99
+### Pipelayer Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2451,7 +2451,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Pipelayer Career | 30 min | Education and training pathways; Credential overview: Competent person trench training; Credential overview: OSHA 10; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Plasterer Training: 8 hours, $74.99
+### Plasterer Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2466,7 +2466,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Plasterer Career | 40 min | Education and training pathways; Credential overview: Plasterer apprenticeship; Credential overview: EIFS certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Plumber Training: 12 hours, $109.99
+### Plumber Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2481,7 +2481,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Plumber Career | 1 hr | Education and training pathways; Credential overview: Journeyman plumber license; Credential overview: Master plumber license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Plumber Helper Training: 8 hours, $74.99
+### Plumber Helper Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2496,7 +2496,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Plumber Helper Career | 40 min | Education and training pathways; Credential overview: Plumbing trainee registration; Credential overview: OSHA 10; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Rebar Worker Training: 10 hours, $89.99
+### Rebar Worker Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2511,7 +2511,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Rebar Worker Career | 50 min | Education and training pathways; Credential overview: Ironworkers apprenticeship; Credential overview: Rigging certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Rigger Training: 10 hours, $89.99
+### Rigger Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2526,7 +2526,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Rigger Career | 50 min | Education and training pathways; Credential overview: NCCCO Rigger Level I and II; Credential overview: NCCCO Signalperson; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Roofer Training: 10 hours, $89.99
+### Roofer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2541,7 +2541,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Roofer Career | 50 min | Education and training pathways; Credential overview: OSHA 10-Hour Construction; Credential overview: Fall protection training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Roofer Helper Training: 6 hours, $59.99
+### Roofer Helper Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2556,7 +2556,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Roofer Helper Career | 30 min | Education and training pathways; Credential overview: Fall protection training; Credential overview: OSHA 10; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Sheet Metal Worker Training: 10 hours, $89.99
+### Sheet Metal Worker Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2571,7 +2571,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Sheet Metal Worker Career | 50 min | Education and training pathways; Credential overview: Apprenticeship completion; Credential overview: OSHA 10 or 30-Hour Construction; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Solar Panel Installer Training: 8 hours, $74.99
+### Solar Panel Installer Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2586,7 +2586,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Solar Panel Installer Career | 40 min | Education and training pathways; Credential overview: NABCEP PV Associate; Credential overview: NABCEP PV Installation Professional; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Stonemason Training: 10 hours, $89.99
+### Stonemason Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2601,7 +2601,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Stonemason Career | 50 min | Education and training pathways; Credential overview: Masonry apprenticeship; Credential overview: Restoration training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Terrazzo Worker Training: 10 hours, $89.99
+### Terrazzo Worker Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2616,7 +2616,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Terrazzo Worker Career | 50 min | Education and training pathways; Credential overview: Terrazzo apprenticeship; Credential overview: NTMA training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Tile Setter Training: 8 hours, $74.99
+### Tile Setter Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2631,7 +2631,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Tile Setter Career | 40 min | Education and training pathways; Credential overview: CTI; Credential overview: ACT; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Upholsterer Training: 10 hours, $89.99
+### Upholsterer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2646,7 +2646,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Upholsterer Career | 50 min | Education and training pathways; Credential overview: Upholstery course; Credential overview: Marine upholstery training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Welder Training: 10 hours, $89.99
+### Welder Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2661,7 +2661,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Welder Career | 50 min | Education and training pathways; Credential overview: AWS Certified Welder; Credential overview: Structural welding (AWS D1.1); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Wind Turbine Technician Training: 10 hours, $89.99
+### Wind Turbine Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2676,7 +2676,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Wind Turbine Technician Career | 50 min | Education and training pathways; Credential overview: GWO Basic Safety Training; Credential overview: GWO Basic Technical Training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Adhesive Machine Operator Training: 10 hours, $89.99
+### Adhesive Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2691,7 +2691,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Adhesive Machine Operator Career | 50 min | Education and training pathways; Credential overview: Machine training; Credential overview: Chemical safety; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Aircraft Assembler Training: 10 hours, $89.99
+### Aircraft Assembler Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2706,7 +2706,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Aircraft Assembler Career | 50 min | Education and training pathways; Credential overview: Aerospace assembly certificate; Credential overview: FOD awareness training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Aircraft Mechanic Training: 12 hours, $109.99
+### Aircraft Mechanic Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2721,7 +2721,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Aircraft Mechanic Career | 1 hr | Education and training pathways; Credential overview: FAA A&P certificate; Credential overview: Inspection Authorization (IA); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Appliance Repair Technician Training: 10 hours, $89.99
+### Appliance Repair Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2736,7 +2736,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Appliance Repair Technician Career | 50 min | Education and training pathways; Credential overview: EPA 608 certification; Credential overview: NASTeC certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Auto Body Technician Training: 10 hours, $89.99
+### Auto Body Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2751,7 +2751,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Auto Body Technician Career | 50 min | Education and training pathways; Credential overview: I-CAR training and Platinum recognition; Credential overview: ASE Collision Repair certifications (B2–B6); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Auto Glass Technician Training: 10 hours, $89.99
+### Auto Glass Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2766,7 +2766,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Auto Glass Technician Career | 50 min | Education and training pathways; Credential overview: AGSC certification; Credential overview: ADAS calibration training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Automotive Service Technician Training: 10 hours, $89.99
+### Automotive Service Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2781,7 +2781,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Automotive Service Technician Career | 50 min | Education and training pathways; Credential overview: ASE A1–A9; Credential overview: ASE Master Technician; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Avionics Technician Training: 12 hours, $109.99
+### Avionics Technician Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2796,7 +2796,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Avionics Technician Career | 1 hr | Education and training pathways; Credential overview: FAA Airframe and Powerplant (A&P) certificate; Credential overview: FCC General Radiotelephone Operator License (GROL); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Bicycle Mechanic Training: 10 hours, $89.99
+### Bicycle Mechanic Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2811,7 +2811,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Bicycle Mechanic Career | 50 min | Education and training pathways; Credential overview: Bicycle mechanic school certificate; Credential overview: Manufacturer e-bike training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Bindery Worker Training: 10 hours, $89.99
+### Bindery Worker Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2826,7 +2826,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Bindery Worker Career | 50 min | Education and training pathways; Credential overview: Bindery training; Credential overview: Cutter safety training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Biomedical Equipment Technician Training: 10 hours, $89.99
+### Biomedical Equipment Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2841,7 +2841,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Biomedical Equipment Technician Career | 50 min | Education and training pathways; Credential overview: Certified Biomedical Equipment Technician (CBET); Credential overview: Certified Radiology Equipment Specialist (CRES); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Building Maintenance Technician Training: 10 hours, $89.99
+### Building Maintenance Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2856,7 +2856,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Building Maintenance Technician Career | 50 min | Education and training pathways; Credential overview: EPA Section 608 certification; Credential overview: Certificate for Apartment Maintenance Technicians (CAMT); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Camera Repairer Training: 10 hours, $89.99
+### Camera Repairer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2871,7 +2871,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Camera Repairer Career | 50 min | Education and training pathways; Credential overview: Manufacturer service training; Credential overview: Electronics certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Car Electronics Installer Training: 10 hours, $89.99
+### Car Electronics Installer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2886,7 +2886,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Car Electronics Installer Career | 50 min | Education and training pathways; Credential overview: MECP; Credential overview: Manufacturer training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### CNC Machinist Training: 10 hours, $89.99
+### CNC Machinist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2901,7 +2901,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your CNC Machinist Career | 50 min | Education and training pathways; Credential overview: NIMS credentials; Credential overview: Machinist apprenticeship completion; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### CNC Operator Training: 10 hours, $89.99
+### CNC Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2916,7 +2916,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your CNC Operator Career | 50 min | Education and training pathways; Credential overview: NIMS CNC Operator; Credential overview: CNC certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### CNC Programmer Training: 10 hours, $89.99
+### CNC Programmer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2931,7 +2931,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your CNC Programmer Career | 50 min | Education and training pathways; Credential overview: NIMS CNC credentials; Credential overview: Mastercam certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Coil Winder Training: 10 hours, $89.99
+### Coil Winder Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2946,7 +2946,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Coil Winder Career | 50 min | Education and training pathways; Credential overview: Soldering certification; Credential overview: Electrical basics course; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Crushing Machine Operator Training: 10 hours, $89.99
+### Crushing Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2961,7 +2961,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Crushing Machine Operator Career | 50 min | Education and training pathways; Credential overview: MSHA training; Credential overview: OSHA 10; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Diesel Mechanic Training: 10 hours, $89.99
+### Diesel Mechanic Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2976,7 +2976,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Diesel Mechanic Career | 50 min | Education and training pathways; Credential overview: ASE Medium-Heavy Truck (T-series); Credential overview: DOT annual inspector qualification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Drilling Machine Operator Training: 10 hours, $89.99
+### Drilling Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -2991,7 +2991,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Drilling Machine Operator Career | 50 min | Education and training pathways; Credential overview: NIMS Drill Press; Credential overview: Machining certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Electric Motor Repairer Training: 10 hours, $89.99
+### Electric Motor Repairer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3006,7 +3006,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Electric Motor Repairer Career | 50 min | Education and training pathways; Credential overview: EASA training; Credential overview: Vibration analyst certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Electronics Assembler Training: 10 hours, $89.99
+### Electronics Assembler Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3021,7 +3021,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Electronics Assembler Career | 50 min | Education and training pathways; Credential overview: IPC J-STD-001; Credential overview: IPC/WHMA-A-620; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Engine Assembler Training: 10 hours, $89.99
+### Engine Assembler Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3036,7 +3036,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Engine Assembler Career | 50 min | Education and training pathways; Credential overview: Manufacturing certificate; Credential overview: Precision measurement course; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Extruding Machine Operator Training: 10 hours, $89.99
+### Extruding Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3051,7 +3051,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Extruding Machine Operator Career | 50 min | Education and training pathways; Credential overview: Extrusion training; Credential overview: NIMS certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Fiber Extruding Machine Operator Training: 10 hours, $89.99
+### Fiber Extruding Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3066,7 +3066,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Fiber Extruding Machine Operator Career | 50 min | Education and training pathways; Credential overview: Process training; Credential overview: OSHA 10; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Fiberglass Laminator Training: 10 hours, $89.99
+### Fiberglass Laminator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3081,7 +3081,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Fiberglass Laminator Career | 50 min | Education and training pathways; Credential overview: ACMA CCT; Credential overview: Respirator training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Food Batchmaker Training: 10 hours, $89.99
+### Food Batchmaker Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3096,7 +3096,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Food Batchmaker Career | 50 min | Education and training pathways; Credential overview: Food safety training; Credential overview: PCQI; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Food Cooking Machine Operator Training: 10 hours, $89.99
+### Food Cooking Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3111,7 +3111,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Food Cooking Machine Operator Career | 50 min | Education and training pathways; Credential overview: Food safety training; Credential overview: Better Process Control School; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Food Roasting Machine Operator Training: 6 hours, $59.99
+### Food Roasting Machine Operator Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3126,7 +3126,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Food Roasting Machine Operator Career | 30 min | Education and training pathways; Credential overview: Food safety training; Credential overview: SCA roasting certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Forging Machine Operator Training: 10 hours, $89.99
+### Forging Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3141,7 +3141,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Forging Machine Operator Career | 50 min | Education and training pathways; Credential overview: Forging training; Credential overview: Crane certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Forming Machine Operator Training: 10 hours, $89.99
+### Forming Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3156,7 +3156,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Forming Machine Operator Career | 50 min | Education and training pathways; Credential overview: Machine safety training; Credential overview: GMP training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Foundry Moldmaker Training: 10 hours, $89.99
+### Foundry Moldmaker Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3171,7 +3171,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Foundry Moldmaker Career | 50 min | Education and training pathways; Credential overview: AFS training; Credential overview: Silica safety training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Freezing Equipment Operator Training: 10 hours, $89.99
+### Freezing Equipment Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3186,7 +3186,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Freezing Equipment Operator Career | 50 min | Education and training pathways; Credential overview: Food safety training; Credential overview: Ammonia awareness; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Furnace and Kiln Operator Training: 10 hours, $89.99
+### Furnace and Kiln Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3201,7 +3201,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Furnace and Kiln Operator Career | 50 min | Education and training pathways; Credential overview: Process training; Credential overview: OSHA 10; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Garment Presser Training: 6 hours, $59.99
+### Garment Presser Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3216,7 +3216,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Garment Presser Career | 30 min | Education and training pathways; Credential overview: DLI training; Credential overview: Fabric care course; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Grinding Machine Operator Training: 10 hours, $89.99
+### Grinding Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3231,7 +3231,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Grinding Machine Operator Career | 50 min | Education and training pathways; Credential overview: NIMS Grinding; Credential overview: Machining certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Hand Cutter Training: 6 hours, $59.99
+### Hand Cutter Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3246,7 +3246,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Hand Cutter Career | 30 min | Education and training pathways; Credential overview: Knife safety training; Credential overview: OSHA 10; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Hand Grinder Training: 6 hours, $59.99
+### Hand Grinder Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3261,7 +3261,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Hand Grinder Career | 30 min | Education and training pathways; Credential overview: Abrasive safety training; Credential overview: OSHA 10; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Hand Sewer Training: 8 hours, $74.99
+### Hand Sewer Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3276,7 +3276,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Hand Sewer Career | 40 min | Education and training pathways; Credential overview: Sewing course; Credential overview: Tailoring course; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Heat Treating Operator Training: 10 hours, $89.99
+### Heat Treating Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3291,7 +3291,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Heat Treating Operator Career | 50 min | Education and training pathways; Credential overview: ASM heat treating courses; Credential overview: Nadcap training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Heavy Equipment Mechanic Training: 10 hours, $89.99
+### Heavy Equipment Mechanic Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3306,7 +3306,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Heavy Equipment Mechanic Career | 50 min | Education and training pathways; Credential overview: Dealer technician program credentials; Credential overview: AED Foundation certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Industrial Cleaning Operator Training: 10 hours, $89.99
+### Industrial Cleaning Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3321,7 +3321,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Industrial Cleaning Operator Career | 50 min | Education and training pathways; Credential overview: Hazmat training; Credential overview: OSHA 10; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Industrial Electronics Repairer Training: 10 hours, $89.99
+### Industrial Electronics Repairer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3336,7 +3336,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Industrial Electronics Repairer Career | 50 min | Education and training pathways; Credential overview: ETA Certified Electronics Technician; Credential overview: PLC certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Industrial Engineer Training: 12 hours, $109.99
+### Industrial Engineer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3351,7 +3351,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Industrial Engineer Career | 1 hr | Education and training pathways; Credential overview: PE license; Credential overview: Lean Six Sigma Green or Black Belt; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Industrial Engineering Technician Training: 10 hours, $89.99
+### Industrial Engineering Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3366,7 +3366,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Industrial Engineering Technician Career | 50 min | Education and training pathways; Credential overview: Lean Six Sigma Yellow or Green Belt; Credential overview: CQT; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Industrial Maintenance Technician Training: 10 hours, $89.99
+### Industrial Maintenance Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3381,7 +3381,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Industrial Maintenance Technician Career | 50 min | Education and training pathways; Credential overview: CMRT (SMRP); Credential overview: NIMS credentials; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Industrial Painter Training: 10 hours, $89.99
+### Industrial Painter Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3396,7 +3396,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Industrial Painter Career | 50 min | Education and training pathways; Credential overview: PCI powder coating training; Credential overview: Respirator fit test; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Industrial Production Manager Training: 10 hours, $89.99
+### Industrial Production Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3411,7 +3411,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Industrial Production Manager Career | 50 min | Education and training pathways; Credential overview: Lean Six Sigma Black Belt; Credential overview: APICS CPIM; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Lathe Operator Training: 10 hours, $89.99
+### Lathe Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3426,7 +3426,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Lathe Operator Career | 50 min | Education and training pathways; Credential overview: NIMS Turning; Credential overview: Machining certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Machine Feeder Training: 6 hours, $59.99
+### Machine Feeder Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3441,7 +3441,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Machine Feeder Career | 30 min | Education and training pathways; Credential overview: Safety training; Credential overview: Forklift certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Machinery Maintenance Worker Training: 10 hours, $89.99
+### Machinery Maintenance Worker Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3456,7 +3456,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Machinery Maintenance Worker Career | 50 min | Education and training pathways; Credential overview: MLT I; Credential overview: OSHA 10; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Maintenance Helper Training: 8 hours, $74.99
+### Maintenance Helper Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3471,7 +3471,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Maintenance Helper Career | 40 min | Education and training pathways; Credential overview: OSHA 10; Credential overview: Forklift certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Maintenance Supervisor Training: 10 hours, $89.99
+### Maintenance Supervisor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3486,7 +3486,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Maintenance Supervisor Career | 50 min | Education and training pathways; Credential overview: CMRP; Credential overview: CMRT; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Marine Mechanic Training: 10 hours, $89.99
+### Marine Mechanic Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3501,7 +3501,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Marine Mechanic Career | 50 min | Education and training pathways; Credential overview: Manufacturer certifications; Credential overview: ABYC certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Meat Packer Training: 6 hours, $59.99
+### Meat Packer Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3516,7 +3516,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Meat Packer Career | 30 min | Education and training pathways; Credential overview: Food safety training; Credential overview: Knife safety; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Meat Trimmer Training: 6 hours, $59.99
+### Meat Trimmer Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3531,7 +3531,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Meat Trimmer Career | 30 min | Education and training pathways; Credential overview: Food safety training; Credential overview: Knife safety training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Metal Fabricator Training: 10 hours, $89.99
+### Metal Fabricator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3546,7 +3546,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Metal Fabricator Career | 50 min | Education and training pathways; Credential overview: AWS welding certification; Credential overview: Crane rigging certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Metal Furnace Operator Training: 10 hours, $89.99
+### Metal Furnace Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3561,7 +3561,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Metal Furnace Operator Career | 50 min | Education and training pathways; Credential overview: Mill training; Credential overview: Crane signal training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Metal Layout Worker Training: 10 hours, $89.99
+### Metal Layout Worker Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3576,7 +3576,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Metal Layout Worker Career | 50 min | Education and training pathways; Credential overview: NIMS Measurement; Credential overview: GD&T course; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Metal Model Maker Training: 10 hours, $89.99
+### Metal Model Maker Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3591,7 +3591,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Metal Model Maker Career | 50 min | Education and training pathways; Credential overview: NIMS machining credentials; Credential overview: CAD certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Metal Patternmaker Training: 10 hours, $89.99
+### Metal Patternmaker Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3606,7 +3606,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Metal Patternmaker Career | 50 min | Education and training pathways; Credential overview: AFS training; Credential overview: Machining certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Metal Pourer Training: 10 hours, $89.99
+### Metal Pourer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3621,7 +3621,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Metal Pourer Career | 50 min | Education and training pathways; Credential overview: Molten metal safety; Credential overview: Crane training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Milling Machine Operator Training: 10 hours, $89.99
+### Milling Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3636,7 +3636,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Milling Machine Operator Career | 50 min | Education and training pathways; Credential overview: NIMS Milling; Credential overview: Machining certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Millwright Training: 10 hours, $89.99
+### Millwright Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3651,7 +3651,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Millwright Career | 50 min | Education and training pathways; Credential overview: Apprenticeship completion; Credential overview: NCCER Millwright certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Mixing Machine Operator Training: 10 hours, $89.99
+### Mixing Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3666,7 +3666,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Mixing Machine Operator Career | 50 min | Education and training pathways; Credential overview: Hazmat training; Credential overview: OSHA 10; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Molder and Caster Training: 10 hours, $89.99
+### Molder and Caster Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3681,7 +3681,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Molder and Caster Career | 50 min | Education and training pathways; Credential overview: PCI certification; Credential overview: ACI field testing; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Molding Machine Operator Training: 10 hours, $89.99
+### Molding Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3696,7 +3696,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Molding Machine Operator Career | 50 min | Education and training pathways; Credential overview: Injection molding certification; Credential overview: NADCA training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Motorcycle Mechanic Training: 10 hours, $89.99
+### Motorcycle Mechanic Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3711,7 +3711,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Motorcycle Mechanic Career | 50 min | Education and training pathways; Credential overview: Manufacturer certifications; Credential overview: Motorcycle technician program certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Multiple Machine Tool Operator Training: 10 hours, $89.99
+### Multiple Machine Tool Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3726,7 +3726,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Multiple Machine Tool Operator Career | 50 min | Education and training pathways; Credential overview: NIMS credentials; Credential overview: Machining certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Packaging Machine Operator Training: 8 hours, $74.99
+### Packaging Machine Operator Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3741,7 +3741,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Packaging Machine Operator Career | 40 min | Education and training pathways; Credential overview: PMMI training; Credential overview: GMP training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Paper Machine Operator Training: 10 hours, $89.99
+### Paper Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3756,7 +3756,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Paper Machine Operator Career | 50 min | Education and training pathways; Credential overview: Machine training; Credential overview: TAPPI training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Plating Operator Training: 10 hours, $89.99
+### Plating Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3771,7 +3771,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Plating Operator Career | 50 min | Education and training pathways; Credential overview: NASF training; Credential overview: HAZWOPER; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Prepress Technician Training: 10 hours, $89.99
+### Prepress Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3786,7 +3786,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Prepress Technician Career | 50 min | Education and training pathways; Credential overview: Adobe Certified Professional; Credential overview: G7 Expert; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Press Operator Training: 10 hours, $89.99
+### Press Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3801,7 +3801,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Press Operator Career | 50 min | Education and training pathways; Credential overview: NIMS certification; Credential overview: Press brake training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Printing Press Operator Training: 10 hours, $89.99
+### Printing Press Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3816,7 +3816,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Printing Press Operator Career | 50 min | Education and training pathways; Credential overview: PIA training; Credential overview: FTA certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Product Decorator Training: 6 hours, $59.99
+### Product Decorator Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3831,7 +3831,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Product Decorator Career | 30 min | Education and training pathways; Credential overview: Art courses; Credential overview: Screen printing course; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Production Assembler Training: 8 hours, $74.99
+### Production Assembler Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3846,7 +3846,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Production Assembler Career | 40 min | Education and training pathways; Credential overview: MSSC Certified Production Technician (CPT); Credential overview: IPC/WHMA-A-620 or IPC-A-610; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Production Helper Training: 8 hours, $74.99
+### Production Helper Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3861,7 +3861,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Production Helper Career | 40 min | Education and training pathways; Credential overview: Forklift certification; Credential overview: OSHA 10; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Production Planner Training: 10 hours, $89.99
+### Production Planner Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3876,7 +3876,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Production Planner Career | 50 min | Education and training pathways; Credential overview: APICS CPIM; Credential overview: CSCP; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Production Supervisor Training: 10 hours, $89.99
+### Production Supervisor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3891,7 +3891,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Production Supervisor Career | 50 min | Education and training pathways; Credential overview: Lean Six Sigma Green Belt; Credential overview: OSHA 30-Hour General Industry; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Quality Control Inspector Training: 10 hours, $89.99
+### Quality Control Inspector Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3906,7 +3906,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Quality Control Inspector Career | 50 min | Education and training pathways; Credential overview: ASQ Certified Quality Inspector (CQI); Credential overview: ASQ Certified Quality Technician (CQT); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Rail Car Repairer Training: 10 hours, $89.99
+### Rail Car Repairer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3921,7 +3921,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Rail Car Repairer Career | 50 min | Education and training pathways; Credential overview: FRA brake inspection qualification; Credential overview: AWS welding certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Refractory Repairer Training: 10 hours, $89.99
+### Refractory Repairer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3936,7 +3936,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Refractory Repairer Career | 50 min | Education and training pathways; Credential overview: Confined space training; Credential overview: Respirator fit testing; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Rolling Machine Operator Training: 10 hours, $89.99
+### Rolling Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3951,7 +3951,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Rolling Machine Operator Career | 50 min | Education and training pathways; Credential overview: Crane certification; Credential overview: Mill training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### RV Technician Training: 10 hours, $89.99
+### RV Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3966,7 +3966,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your RV Technician Career | 50 min | Education and training pathways; Credential overview: RVTI Level 1–4; Credential overview: Propane certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Sawmill Operator Training: 10 hours, $89.99
+### Sawmill Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3981,7 +3981,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Sawmill Operator Career | 50 min | Education and training pathways; Credential overview: Mill safety training; Credential overview: Lumber grading course; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Sewing Machine Operator Training: 6 hours, $59.99
+### Sewing Machine Operator Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -3996,7 +3996,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Sewing Machine Operator Career | 30 min | Education and training pathways; Credential overview: Industrial sewing course; Credential overview: Upholstery training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Shoe Machine Operator Training: 8 hours, $74.99
+### Shoe Machine Operator Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4011,7 +4011,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Shoe Machine Operator Career | 40 min | Education and training pathways; Credential overview: Footwear training; Credential overview: Safety training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Slicing Machine Operator Training: 10 hours, $89.99
+### Slicing Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4026,7 +4026,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Slicing Machine Operator Career | 50 min | Education and training pathways; Credential overview: Machine safety training; Credential overview: Food safety training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Small Engine Mechanic Training: 10 hours, $89.99
+### Small Engine Mechanic Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4041,7 +4041,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Small Engine Mechanic Career | 50 min | Education and training pathways; Credential overview: EETC certifications; Credential overview: Manufacturer certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Textile Cutting Machine Operator Training: 10 hours, $89.99
+### Textile Cutting Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4056,7 +4056,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Textile Cutting Machine Operator Career | 50 min | Education and training pathways; Credential overview: CNC cutter training; Credential overview: Safety training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Textile Dyeing Machine Operator Training: 8 hours, $74.99
+### Textile Dyeing Machine Operator Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4071,7 +4071,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Textile Dyeing Machine Operator Career | 40 min | Education and training pathways; Credential overview: Chemical safety training; Credential overview: AATCC training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Textile Knitting Machine Operator Training: 8 hours, $74.99
+### Textile Knitting Machine Operator Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4086,7 +4086,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Textile Knitting Machine Operator Career | 40 min | Education and training pathways; Credential overview: Mill training; Credential overview: Safety training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Textile Winding Machine Operator Training: 10 hours, $89.99
+### Textile Winding Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4101,7 +4101,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Textile Winding Machine Operator Career | 50 min | Education and training pathways; Credential overview: Mill training; Credential overview: Safety training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Timing Device Assembler Training: 10 hours, $89.99
+### Timing Device Assembler Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4116,7 +4116,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Timing Device Assembler Career | 50 min | Education and training pathways; Credential overview: Watchmaking course; Credential overview: Precision assembly training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Tire Builder Training: 10 hours, $89.99
+### Tire Builder Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4131,7 +4131,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Tire Builder Career | 50 min | Education and training pathways; Credential overview: Plant training; Credential overview: OSHA 10; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Tire Technician Training: 8 hours, $74.99
+### Tire Technician Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4146,7 +4146,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Tire Technician Career | 40 min | Education and training pathways; Credential overview: TIA ATS certification; Credential overview: TIA commercial tire training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Tool and Die Maker Training: 10 hours, $89.99
+### Tool and Die Maker Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4161,7 +4161,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Tool and Die Maker Career | 50 min | Education and training pathways; Credential overview: NIMS credentials; Credential overview: Apprenticeship completion; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Tool Grinder Training: 10 hours, $89.99
+### Tool Grinder Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4176,7 +4176,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Tool Grinder Career | 50 min | Education and training pathways; Credential overview: NIMS Grinding; Credential overview: CNC tool grinder training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Transportation Equipment Electrician Training: 10 hours, $89.99
+### Transportation Equipment Electrician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4191,7 +4191,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Transportation Equipment Electrician Career | 50 min | Education and training pathways; Credential overview: Electrical certificate; Credential overview: FRA training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Vending Machine Technician Training: 8 hours, $74.99
+### Vending Machine Technician Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4206,7 +4206,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Vending Machine Technician Career | 40 min | Education and training pathways; Credential overview: EPA 608; Credential overview: Manufacturer training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Watch Repairer Training: 10 hours, $89.99
+### Watch Repairer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4221,7 +4221,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Watch Repairer Career | 50 min | Education and training pathways; Credential overview: WOSTEP; Credential overview: AWCI CW21; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Welding Machine Operator Training: 10 hours, $89.99
+### Welding Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4236,7 +4236,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Welding Machine Operator Career | 50 min | Education and training pathways; Credential overview: AWS Certified Robotic Arc Welding; Credential overview: Robot operator training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Wood Model Maker Training: 10 hours, $89.99
+### Wood Model Maker Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4251,7 +4251,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Wood Model Maker Career | 50 min | Education and training pathways; Credential overview: Woodworking certificate; Credential overview: CAD certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Wood Patternmaker Training: 10 hours, $89.99
+### Wood Patternmaker Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4266,7 +4266,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Wood Patternmaker Career | 50 min | Education and training pathways; Credential overview: Woodworking certificate; Credential overview: AFS training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Woodworking Machine Operator Training: 10 hours, $89.99
+### Woodworking Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4281,7 +4281,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Woodworking Machine Operator Career | 50 min | Education and training pathways; Credential overview: WCA credentials; Credential overview: CNC router training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Conservation Technician Training: 10 hours, $89.99
+### Conservation Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4296,7 +4296,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Conservation Technician Career | 50 min | Education and training pathways; Credential overview: NWCG wildland firefighter training; Credential overview: Chainsaw safety certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Construction and Building Inspector Training: 12 hours, $109.99
+### Construction and Building Inspector Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4311,7 +4311,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Construction and Building Inspector Career | 1 hr | Education and training pathways; Credential overview: ICC Residential Building Inspector (B1); Credential overview: ICC Commercial Building Inspector (B2); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Environmental Engineering Technician Training: 10 hours, $89.99
+### Environmental Engineering Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4326,7 +4326,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Environmental Engineering Technician Career | 50 min | Education and training pathways; Credential overview: OSHA 40-Hour HAZWOPER; Credential overview: 8-Hour HAZWOPER Refresher; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Environmental Health Specialist Training: 12 hours, $109.99
+### Environmental Health Specialist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4341,7 +4341,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Environmental Health Specialist Career | 1 hr | Education and training pathways; Credential overview: Registered Environmental Health Specialist (REHS/RS); Credential overview: State sanitarian registration; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Environmental Technician Training: 10 hours, $89.99
+### Environmental Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4356,7 +4356,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Environmental Technician Career | 50 min | Education and training pathways; Credential overview: OSHA HAZWOPER 40-hour; Credential overview: Stormwater inspector certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Fire Alarm Technician Training: 10 hours, $89.99
+### Fire Alarm Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4371,7 +4371,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Fire Alarm Technician Career | 50 min | Education and training pathways; Credential overview: NICET Fire Alarm Systems (Levels I–IV); Credential overview: State fire alarm or low-voltage license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Fire Inspector Training: 10 hours, $89.99
+### Fire Inspector Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4386,7 +4386,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Fire Inspector Career | 50 min | Education and training pathways; Credential overview: Fire Inspector I and II; Credential overview: ICC Fire Inspector certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Forest Fire Prevention Specialist Training: 10 hours, $89.99
+### Forest Fire Prevention Specialist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4401,7 +4401,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Forest Fire Prevention Specialist Career | 50 min | Education and training pathways; Credential overview: NWCG Basic Wildland Firefighter (S-130/S-190); Credential overview: Annual fireline safety refresher (RT-130); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Hazardous Materials Technician Training: 12 hours, $109.99
+### Hazardous Materials Technician Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4416,7 +4416,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Hazardous Materials Technician Career | 1 hr | Education and training pathways; Credential overview: OSHA HAZWOPER 40-hour; Credential overview: Asbestos abatement worker license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Occupational Safety Specialist Training: 12 hours, $109.99
+### Occupational Safety Specialist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4431,7 +4431,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Occupational Safety Specialist Career | 1 hr | Education and training pathways; Credential overview: ASP and CSP (BCSP); Credential overview: CHST and OHST (BCSP); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Pest Control Technician Training: 8 hours, $74.99
+### Pest Control Technician Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4446,7 +4446,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Pest Control Technician Career | 40 min | Education and training pathways; Credential overview: State commercial pesticide applicator license; Credential overview: Structural pest control category; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Refuse Collector Training: 6 hours, $59.99
+### Refuse Collector Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4461,7 +4461,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Refuse Collector Career | 30 min | Education and training pathways; Credential overview: CDL Class B; Credential overview: SWANA certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Safety Engineer Training: 12 hours, $109.99
+### Safety Engineer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4476,7 +4476,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Safety Engineer Career | 1 hr | Education and training pathways; Credential overview: Certified Safety Professional (CSP); Credential overview: Professional Engineer (PE) license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Safety Technician Training: 10 hours, $89.99
+### Safety Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4491,7 +4491,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Safety Technician Career | 50 min | Education and training pathways; Credential overview: Occupational Health and Safety Technologist (OHST); Credential overview: Construction Health and Safety Technician (CHST); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Septic Tank Technician Training: 10 hours, $89.99
+### Septic Tank Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4506,7 +4506,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Septic Tank Technician Career | 50 min | Education and training pathways; Credential overview: State septage hauler license; Credential overview: NAWT certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Transportation Inspector Training: 10 hours, $89.99
+### Transportation Inspector Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4521,7 +4521,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Transportation Inspector Career | 50 min | Education and training pathways; Credential overview: CVSA North American Standard Inspection certification; Credential overview: FAA A&P mechanic or pilot certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Water Treatment Plant Operator Training: 10 hours, $89.99
+### Water Treatment Plant Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4536,7 +4536,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Water Treatment Plant Operator Career | 50 min | Education and training pathways; Credential overview: State water treatment operator certification; Credential overview: State wastewater treatment operator certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Air Traffic Controller Training: 12 hours, $109.99
+### Air Traffic Controller Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4551,7 +4551,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Air Traffic Controller Career | 1 hr | Education and training pathways; Credential overview: FAA Air Traffic Control Specialist certification; Credential overview: Class II medical certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Aircraft Cargo Supervisor Training: 10 hours, $89.99
+### Aircraft Cargo Supervisor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4566,7 +4566,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Aircraft Cargo Supervisor Career | 50 min | Education and training pathways; Credential overview: IATA Dangerous Goods; Credential overview: Load control training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Aircraft Service Attendant Training: 8 hours, $74.99
+### Aircraft Service Attendant Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4581,7 +4581,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Aircraft Service Attendant Career | 40 min | Education and training pathways; Credential overview: NATA Safety 1st; Credential overview: Fuel quality training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Airfield Operations Specialist Training: 10 hours, $89.99
+### Airfield Operations Specialist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4596,7 +4596,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Airfield Operations Specialist Career | 50 min | Education and training pathways; Credential overview: AAAE Certified Member; Credential overview: Part 139 training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Airline Pilot Training: 12 hours, $109.99
+### Airline Pilot Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4611,7 +4611,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Airline Pilot Career | 1 hr | Education and training pathways; Credential overview: ATP certificate; Credential overview: First-class medical; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Ambulance Driver Training: 8 hours, $74.99
+### Ambulance Driver Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4626,7 +4626,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Ambulance Driver Career | 40 min | Education and training pathways; Credential overview: EVOC; Credential overview: CPR; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Bridge Tender Training: 8 hours, $74.99
+### Bridge Tender Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4641,7 +4641,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Bridge Tender Career | 40 min | Education and training pathways; Credential overview: Agency training; Credential overview: Marine radio training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Cargo Agent Training: 8 hours, $74.99
+### Cargo Agent Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4656,7 +4656,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Cargo Agent Career | 40 min | Education and training pathways; Credential overview: IATA Dangerous Goods; Credential overview: DOT hazmat training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Commercial Pilot Training: 12 hours, $109.99
+### Commercial Pilot Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4671,7 +4671,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Commercial Pilot Career | 1 hr | Education and training pathways; Credential overview: Commercial pilot certificate; Credential overview: Instrument rating; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Conveyor Operator Training: 6 hours, $59.99
+### Conveyor Operator Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4686,7 +4686,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Conveyor Operator Career | 30 min | Education and training pathways; Credential overview: MSHA training; Credential overview: OSHA 10; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Courier Training: 8 hours, $74.99
+### Courier Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4701,7 +4701,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Courier Career | 40 min | Education and training pathways; Credential overview: Driver’s license; Credential overview: OSHA bloodborne pathogens; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Crane Operator Training: 12 hours, $109.99
+### Crane Operator Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4716,7 +4716,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Crane Operator Career | 1 hr | Education and training pathways; Credential overview: NCCCO Crane Operator certification; Credential overview: Rigger and signal person certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Deckhand Training: 6 hours, $59.99
+### Deckhand Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4731,7 +4731,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Deckhand Career | 30 min | Education and training pathways; Credential overview: Merchant Mariner Credential (MMC); Credential overview: TWIC card; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Delivery Driver Training: 8 hours, $74.99
+### Delivery Driver Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4746,7 +4746,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Delivery Driver Career | 40 min | Education and training pathways; Credential overview: Valid driver’s license; Credential overview: DOT medical card; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Dredge Operator Training: 10 hours, $89.99
+### Dredge Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4761,7 +4761,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Dredge Operator Career | 50 min | Education and training pathways; Credential overview: TWIC; Credential overview: USCG credential; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Flight Attendant Training: 8 hours, $74.99
+### Flight Attendant Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4776,7 +4776,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Flight Attendant Career | 40 min | Education and training pathways; Credential overview: FAA Certificate of Demonstrated Proficiency; Credential overview: CPR and AED certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Freight Dispatcher Training: 8 hours, $74.99
+### Freight Dispatcher Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4791,7 +4791,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Freight Dispatcher Career | 40 min | Education and training pathways; Credential overview: Dispatcher training certificate; Credential overview: ASCM CLTD; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Gas Station Attendant Training: 6 hours, $59.99
+### Gas Station Attendant Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4806,7 +4806,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Gas Station Attendant Career | 30 min | Education and training pathways; Credential overview: Fuel safety training; Credential overview: Lube technician certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Hand Packer Training: 6 hours, $59.99
+### Hand Packer Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4821,7 +4821,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Hand Packer Career | 30 min | Education and training pathways; Credential overview: Safety training; Credential overview: Forklift certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Hoist Operator Training: 10 hours, $89.99
+### Hoist Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4836,7 +4836,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Hoist Operator Career | 50 min | Education and training pathways; Credential overview: Hoist operator certification; Credential overview: MSHA training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Locomotive Engineer Training: 12 hours, $109.99
+### Locomotive Engineer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4851,7 +4851,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Locomotive Engineer Career | 1 hr | Education and training pathways; Credential overview: FRA locomotive engineer certification; Credential overview: Conductor certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Logistics Coordinator Training: 10 hours, $89.99
+### Logistics Coordinator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4866,7 +4866,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Logistics Coordinator Career | 50 min | Education and training pathways; Credential overview: CLTD (ASCM); Credential overview: CSCP (ASCM); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Logistics Manager Training: 10 hours, $89.99
+### Logistics Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4881,7 +4881,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Logistics Manager Career | 50 min | Education and training pathways; Credential overview: CSCP; Credential overview: CLTD; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Mail Sorter Training: 6 hours, $59.99
+### Mail Sorter Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4896,7 +4896,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Mail Sorter Career | 30 min | Education and training pathways; Credential overview: USPS training; Credential overview: Powered equipment training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Motorboat Operator Training: 10 hours, $89.99
+### Motorboat Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4911,7 +4911,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Motorboat Operator Career | 50 min | Education and training pathways; Credential overview: USCG OUPV (six-pack); Credential overview: USCG Master license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Parking Attendant Training: 6 hours, $59.99
+### Parking Attendant Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4926,7 +4926,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Parking Attendant Career | 30 min | Education and training pathways; Credential overview: Valid driver’s license; Credential overview: Clean driving record; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Passenger Attendant Training: 8 hours, $74.99
+### Passenger Attendant Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4941,7 +4941,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Passenger Attendant Career | 40 min | Education and training pathways; Credential overview: Passenger assistance training; Credential overview: CPR and first aid; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Postal Clerk Training: 6 hours, $59.99
+### Postal Clerk Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4956,7 +4956,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Postal Clerk Career | 30 min | Education and training pathways; Credential overview: USPS retail training; Credential overview: Customer service training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Postal Mail Carrier Training: 6 hours, $59.99
+### Postal Mail Carrier Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4971,7 +4971,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Postal Mail Carrier Career | 30 min | Education and training pathways; Credential overview: Valid driver’s license; Credential overview: USPS carrier academy completion; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Postmaster Training: 10 hours, $89.99
+### Postmaster Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -4986,7 +4986,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Postmaster Career | 50 min | Education and training pathways; Credential overview: USPS management training; Credential overview: Supervisor program; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Rail Yard Engineer Training: 10 hours, $89.99
+### Rail Yard Engineer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5001,7 +5001,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Rail Yard Engineer Career | 50 min | Education and training pathways; Credential overview: Locomotive engineer certification; Credential overview: Remote control operator; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Railroad Conductor Training: 10 hours, $89.99
+### Railroad Conductor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5016,7 +5016,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Railroad Conductor Career | 50 min | Education and training pathways; Credential overview: FRA conductor certification; Credential overview: Operating rules qualification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Railroad Signal Technician Training: 10 hours, $89.99
+### Railroad Signal Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5031,7 +5031,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Railroad Signal Technician Career | 50 min | Education and training pathways; Credential overview: FRA signal qualifications; Credential overview: Roadway worker protection; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Railroad Switch Operator Training: 10 hours, $89.99
+### Railroad Switch Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5046,7 +5046,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Railroad Switch Operator Career | 50 min | Education and training pathways; Credential overview: Operating rules qualification; Credential overview: Hazmat training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Railroad Track Equipment Operator Training: 10 hours, $89.99
+### Railroad Track Equipment Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5061,7 +5061,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Railroad Track Equipment Operator Career | 50 min | Education and training pathways; Credential overview: Roadway worker protection; Credential overview: CDL; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Reservation Agent Training: 8 hours, $74.99
+### Reservation Agent Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5076,7 +5076,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Reservation Agent Career | 40 min | Education and training pathways; Credential overview: Airline agent training; Credential overview: Hazmat awareness; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Route Sales Driver Training: 8 hours, $74.99
+### Route Sales Driver Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5091,7 +5091,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Route Sales Driver Career | 40 min | Education and training pathways; Credential overview: CDL; Credential overview: Clean driving record; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### School Bus Driver Training: 8 hours, $74.99
+### School Bus Driver Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5106,7 +5106,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your School Bus Driver Career | 40 min | Education and training pathways; Credential overview: CDL Class B or C; Credential overview: P and S endorsements; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### School Bus Monitor Training: 8 hours, $74.99
+### School Bus Monitor Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5121,7 +5121,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your School Bus Monitor Career | 40 min | Education and training pathways; Credential overview: Monitor training; Credential overview: CPR and first aid; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Ship Captain Training: 12 hours, $109.99
+### Ship Captain Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5136,7 +5136,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Ship Captain Career | 1 hr | Education and training pathways; Credential overview: USCG Master or Mate license; Credential overview: STCW certificates; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Ship Engineer Training: 12 hours, $109.99
+### Ship Engineer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5151,7 +5151,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Ship Engineer Career | 1 hr | Education and training pathways; Credential overview: USCG engineer license; Credential overview: STCW certificates; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Shipping and Receiving Clerk Training: 8 hours, $74.99
+### Shipping and Receiving Clerk Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5166,7 +5166,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Shipping and Receiving Clerk Career | 40 min | Education and training pathways; Credential overview: Forklift operator training; Credential overview: MSSC Certified Logistics Associate (CLA); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Shuttle Driver Training: 6 hours, $59.99
+### Shuttle Driver Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5181,7 +5181,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Shuttle Driver Career | 30 min | Education and training pathways; Credential overview: CDL with passenger endorsement; Credential overview: Clean driving record; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Subway Operator Training: 10 hours, $89.99
+### Subway Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5196,7 +5196,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Subway Operator Career | 50 min | Education and training pathways; Credential overview: Transit operator certification; Credential overview: CPR; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Tank Loader Training: 6 hours, $59.99
+### Tank Loader Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5211,7 +5211,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Tank Loader Career | 30 min | Education and training pathways; Credential overview: DOT hazmat training; Credential overview: TWIC; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Taxi Driver Training: 6 hours, $59.99
+### Taxi Driver Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5226,7 +5226,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Taxi Driver Career | 30 min | Education and training pathways; Credential overview: Taxi or for-hire license; Credential overview: Clean driving record; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Traffic Technician Training: 10 hours, $89.99
+### Traffic Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5241,7 +5241,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Traffic Technician Career | 50 min | Education and training pathways; Credential overview: IMSA Traffic Signal Technician; Credential overview: ITE training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Transit Bus Driver Training: 8 hours, $74.99
+### Transit Bus Driver Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5256,7 +5256,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Transit Bus Driver Career | 40 min | Education and training pathways; Credential overview: CDL Class B; Credential overview: P endorsement; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Transportation Supervisor Training: 10 hours, $89.99
+### Transportation Supervisor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5271,7 +5271,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Transportation Supervisor Career | 50 min | Education and training pathways; Credential overview: CDL; Credential overview: OSHA 30; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Vehicle Cleaner Training: 6 hours, $59.99
+### Vehicle Cleaner Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5286,7 +5286,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Vehicle Cleaner Career | 30 min | Education and training pathways; Credential overview: IDA detailing certification; Credential overview: Chemical safety training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Warehouse Associate Training: 6 hours, $59.99
+### Warehouse Associate Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5301,7 +5301,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Warehouse Associate Career | 30 min | Education and training pathways; Credential overview: Forklift certification; Credential overview: MSSC Certified Logistics Associate (CLA); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Weigher and Checker Training: 8 hours, $74.99
+### Weigher and Checker Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5316,7 +5316,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Weigher and Checker Career | 40 min | Education and training pathways; Credential overview: Public weighmaster license; Credential overview: Grain sampling training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Accountant Training: 12 hours, $109.99
+### Accountant Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5331,7 +5331,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Accountant Career | 1 hr | Education and training pathways; Credential overview: CPA; Credential overview: CMA (IMA); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Actuary Training: 10 hours, $89.99
+### Actuary Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5346,7 +5346,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Actuary Career | 50 min | Education and training pathways; Credential overview: ASA or FSA; Credential overview: ACAS or FCAS; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Administrative Assistant Training: 6 hours, $59.99
+### Administrative Assistant Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5361,7 +5361,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Administrative Assistant Career | 30 min | Education and training pathways; Credential overview: CAP (IAAP); Credential overview: Microsoft Office Specialist (MOS); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Administrative Services Manager Training: 10 hours, $89.99
+### Administrative Services Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5376,7 +5376,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Administrative Services Manager Career | 50 min | Education and training pathways; Credential overview: Certified Administrative Professional; Credential overview: Certified Records Manager; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Auto Damage Appraiser Training: 10 hours, $89.99
+### Auto Damage Appraiser Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5391,7 +5391,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Auto Damage Appraiser Career | 50 min | Education and training pathways; Credential overview: State appraiser license; Credential overview: I-CAR training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Bank Teller Training: 8 hours, $74.99
+### Bank Teller Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5406,7 +5406,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Bank Teller Career | 40 min | Education and training pathways; Credential overview: Bank teller certificate; Credential overview: BSA/AML training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Billing Clerk Training: 10 hours, $89.99
+### Billing Clerk Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5421,7 +5421,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Billing Clerk Career | 50 min | Education and training pathways; Credential overview: Certified Billing and Coding Specialist; Credential overview: QuickBooks certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Bookkeeper Training: 8 hours, $74.99
+### Bookkeeper Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5436,7 +5436,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Bookkeeper Career | 40 min | Education and training pathways; Credential overview: Certified Bookkeeper (AIPB); Credential overview: QuickBooks Certified ProAdvisor; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Brokerage Clerk Training: 10 hours, $89.99
+### Brokerage Clerk Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5451,7 +5451,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Brokerage Clerk Career | 50 min | Education and training pathways; Credential overview: SIE exam; Credential overview: Series 99; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Budget Analyst Training: 10 hours, $89.99
+### Budget Analyst Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5466,7 +5466,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Budget Analyst Career | 50 min | Education and training pathways; Credential overview: CGFM; Credential overview: CPA; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Chief Executive Training: 10 hours, $89.99
+### Chief Executive Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5481,7 +5481,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Chief Executive Career | 50 min | Education and training pathways; Credential overview: MBA; Credential overview: Board governance training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Claims Adjuster Training: 10 hours, $89.99
+### Claims Adjuster Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5496,7 +5496,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Claims Adjuster Career | 50 min | Education and training pathways; Credential overview: State adjuster license; Credential overview: Xactimate certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Compensation and Benefits Manager Training: 10 hours, $89.99
+### Compensation and Benefits Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5511,7 +5511,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Compensation and Benefits Manager Career | 50 min | Education and training pathways; Credential overview: CCP; Credential overview: CBP; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Compensation and Benefits Specialist Training: 10 hours, $89.99
+### Compensation and Benefits Specialist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5526,7 +5526,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Compensation and Benefits Specialist Career | 50 min | Education and training pathways; Credential overview: CCP; Credential overview: CBP; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Compliance Officer Training: 10 hours, $89.99
+### Compliance Officer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5541,7 +5541,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Compliance Officer Career | 50 min | Education and training pathways; Credential overview: CCEP; Credential overview: CRCM; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Correspondence Clerk Training: 8 hours, $74.99
+### Correspondence Clerk Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5556,7 +5556,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Correspondence Clerk Career | 40 min | Education and training pathways; Credential overview: Business writing course; Credential overview: Typing certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Credit Analyst Training: 10 hours, $89.99
+### Credit Analyst Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5571,7 +5571,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Credit Analyst Career | 50 min | Education and training pathways; Credential overview: CCBA; Credential overview: RMA credit training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Credit Authorizer Training: 10 hours, $89.99
+### Credit Authorizer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5586,7 +5586,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Credit Authorizer Career | 50 min | Education and training pathways; Credential overview: Credit fundamentals course; Credential overview: Fraud awareness training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Credit Counselor Training: 10 hours, $89.99
+### Credit Counselor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5601,7 +5601,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Credit Counselor Career | 50 min | Education and training pathways; Credential overview: NFCC certification; Credential overview: HUD housing counselor certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Customer Service Representative Training: 6 hours, $59.99
+### Customer Service Representative Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5616,7 +5616,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Customer Service Representative Career | 30 min | Education and training pathways; Credential overview: HDI Customer Service Representative (HDI-CSR); Credential overview: NRF Foundation customer service and sales credential; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Data Entry Clerk Training: 8 hours, $74.99
+### Data Entry Clerk Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5631,7 +5631,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Data Entry Clerk Career | 40 min | Education and training pathways; Credential overview: Typing speed certificate; Credential overview: 10-key certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Debt Collector Training: 10 hours, $89.99
+### Debt Collector Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5646,7 +5646,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Debt Collector Career | 50 min | Education and training pathways; Credential overview: Professional Collector Certification; Credential overview: FDCPA training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Economist Training: 10 hours, $89.99
+### Economist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5661,7 +5661,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Economist Career | 50 min | Education and training pathways; Credential overview: Master’s or Ph.D. in economics; Credential overview: Certified Business Economist; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Executive Assistant Training: 10 hours, $89.99
+### Executive Assistant Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5676,7 +5676,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Executive Assistant Career | 50 min | Education and training pathways; Credential overview: Certified Administrative Professional (CAP); Credential overview: Microsoft Office Specialist; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Facilities Manager Training: 10 hours, $89.99
+### Facilities Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5691,7 +5691,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Facilities Manager Career | 50 min | Education and training pathways; Credential overview: Certified Facility Manager (CFM); Credential overview: Facility Management Professional (FMP); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### File Clerk Training: 8 hours, $74.99
+### File Clerk Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5706,7 +5706,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your File Clerk Career | 40 min | Education and training pathways; Credential overview: Records management course; Credential overview: Office skills certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Financial Advisor Training: 12 hours, $109.99
+### Financial Advisor Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5721,7 +5721,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Financial Advisor Career | 1 hr | Education and training pathways; Credential overview: CFP; Credential overview: Series 65 or 66; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Financial Analyst Training: 12 hours, $109.99
+### Financial Analyst Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5736,7 +5736,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Financial Analyst Career | 1 hr | Education and training pathways; Credential overview: Chartered Financial Analyst (CFA); Credential overview: Certified Corporate FP&A Professional (FPAC); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Financial Examiner Training: 10 hours, $89.99
+### Financial Examiner Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5751,7 +5751,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Financial Examiner Career | 50 min | Education and training pathways; Credential overview: Commissioned examiner; Credential overview: CPA; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Financial Manager Training: 10 hours, $89.99
+### Financial Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5766,7 +5766,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Financial Manager Career | 50 min | Education and training pathways; Credential overview: CPA; Credential overview: CFA; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Financial Risk Specialist Training: 10 hours, $89.99
+### Financial Risk Specialist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5781,7 +5781,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Financial Risk Specialist Career | 50 min | Education and training pathways; Credential overview: FRM; Credential overview: PRM; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### General and Operations Manager Training: 10 hours, $89.99
+### General and Operations Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5796,7 +5796,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your General and Operations Manager Career | 50 min | Education and training pathways; Credential overview: Lean Six Sigma; Credential overview: PMP; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### HR Assistant Training: 10 hours, $89.99
+### HR Assistant Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5811,7 +5811,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your HR Assistant Career | 50 min | Education and training pathways; Credential overview: aPHR; Credential overview: SHRM-CP; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Human Resources Manager Training: 10 hours, $89.99
+### Human Resources Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5826,7 +5826,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Human Resources Manager Career | 50 min | Education and training pathways; Credential overview: SHRM-CP or SHRM-SCP; Credential overview: PHR or SPHR; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Human Resources Specialist Training: 10 hours, $89.99
+### Human Resources Specialist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5841,7 +5841,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Human Resources Specialist Career | 50 min | Education and training pathways; Credential overview: SHRM-CP and SHRM-SCP; Credential overview: aPHR and PHR (HRCI); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Industrial-Organizational Psychologist Training: 12 hours, $109.99
+### Industrial-Organizational Psychologist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5856,7 +5856,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Industrial-Organizational Psychologist Career | 1 hr | Education and training pathways; Credential overview: Master’s or Ph.D. in I-O; Credential overview: SIOP membership; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Insurance Claims Clerk Training: 10 hours, $89.99
+### Insurance Claims Clerk Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5871,7 +5871,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Insurance Claims Clerk Career | 50 min | Education and training pathways; Credential overview: AINS; Credential overview: INS courses; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Insurance Underwriter Training: 10 hours, $89.99
+### Insurance Underwriter Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5886,7 +5886,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Insurance Underwriter Career | 50 min | Education and training pathways; Credential overview: CPCU; Credential overview: AU; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Intake Interviewer Training: 8 hours, $74.99
+### Intake Interviewer Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5901,7 +5901,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Intake Interviewer Career | 40 min | Education and training pathways; Credential overview: CHAA; Credential overview: HIPAA training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Judicial Law Clerk Training: 10 hours, $89.99
+### Judicial Law Clerk Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5916,7 +5916,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Judicial Law Clerk Career | 50 min | Education and training pathways; Credential overview: J.D.; Credential overview: Law review; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Labor Relations Specialist Training: 10 hours, $89.99
+### Labor Relations Specialist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5931,7 +5931,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Labor Relations Specialist Career | 50 min | Education and training pathways; Credential overview: Labor relations certificate; Credential overview: SHRM credential; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Lawyer Training: 12 hours, $109.99
+### Lawyer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5946,7 +5946,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Lawyer Career | 1 hr | Education and training pathways; Credential overview: State bar admission; Credential overview: Board certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Legal Secretary Training: 10 hours, $89.99
+### Legal Secretary Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5961,7 +5961,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Legal Secretary Career | 50 min | Education and training pathways; Credential overview: ALS; Credential overview: PLS; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Loan Officer Training: 10 hours, $89.99
+### Loan Officer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5976,7 +5976,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Loan Officer Career | 50 min | Education and training pathways; Credential overview: NMLS Mortgage Loan Originator license; Credential overview: SAFE MLO test; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Loan Processor Training: 8 hours, $74.99
+### Loan Processor Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -5991,7 +5991,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Loan Processor Career | 40 min | Education and training pathways; Credential overview: Certified Mortgage Processor; Credential overview: NMLS courses; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Mail Clerk Training: 8 hours, $74.99
+### Mail Clerk Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6006,7 +6006,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Mail Clerk Career | 40 min | Education and training pathways; Credential overview: USPS bulk mail training; Credential overview: Mailpiece Design Professional; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Management Analyst Training: 10 hours, $89.99
+### Management Analyst Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6021,7 +6021,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Management Analyst Career | 50 min | Education and training pathways; Credential overview: CMC; Credential overview: Lean Six Sigma; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### New Accounts Clerk Training: 10 hours, $89.99
+### New Accounts Clerk Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6036,7 +6036,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your New Accounts Clerk Career | 50 min | Education and training pathways; Credential overview: BSA/AML training; Credential overview: Banking product training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Office Clerk Training: 8 hours, $74.99
+### Office Clerk Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6051,7 +6051,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Office Clerk Career | 40 min | Education and training pathways; Credential overview: Microsoft Office Specialist; Credential overview: Office skills certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Office Machine Operator Training: 8 hours, $74.99
+### Office Machine Operator Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6066,7 +6066,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Office Machine Operator Career | 40 min | Education and training pathways; Credential overview: Equipment training; Credential overview: Print production certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Office Manager Training: 10 hours, $89.99
+### Office Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6081,7 +6081,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Office Manager Career | 50 min | Education and training pathways; Credential overview: Certified Administrative Professional (CAP); Credential overview: QuickBooks Certified User; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Operations Research Analyst Training: 10 hours, $89.99
+### Operations Research Analyst Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6096,7 +6096,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Operations Research Analyst Career | 50 min | Education and training pathways; Credential overview: CAP; Credential overview: Master’s in operations research; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Order Clerk Training: 8 hours, $74.99
+### Order Clerk Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6111,7 +6111,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Order Clerk Career | 40 min | Education and training pathways; Credential overview: Customer service certificate; Credential overview: Excel certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Paralegal Training: 10 hours, $89.99
+### Paralegal Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6126,7 +6126,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Paralegal Career | 50 min | Education and training pathways; Credential overview: Certified Paralegal (NALA CP); Credential overview: NFPA PCCE and PACE; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Payroll Clerk Training: 10 hours, $89.99
+### Payroll Clerk Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6141,7 +6141,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Payroll Clerk Career | 50 min | Education and training pathways; Credential overview: FPC; Credential overview: CPP; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Procurement Clerk Training: 10 hours, $89.99
+### Procurement Clerk Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6156,7 +6156,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Procurement Clerk Career | 50 min | Education and training pathways; Credential overview: Purchasing fundamentals course; Credential overview: Excel certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Project Manager Training: 12 hours, $109.99
+### Project Manager Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6171,7 +6171,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Project Manager Career | 1 hr | Education and training pathways; Credential overview: PMP (PMI); Credential overview: CAPM (PMI); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Property Manager Training: 10 hours, $89.99
+### Property Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6186,7 +6186,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Property Manager Career | 50 min | Education and training pathways; Credential overview: Certified Apartment Manager (CAM); Credential overview: Certified Property Manager (CPM); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Purchasing Agent Training: 10 hours, $89.99
+### Purchasing Agent Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6201,7 +6201,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Purchasing Agent Career | 50 min | Education and training pathways; Credential overview: Certified Professional in Supply Management (CPSM); Credential overview: Certified Professional Public Buyer (CPPB); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Purchasing Manager Training: 10 hours, $89.99
+### Purchasing Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6216,7 +6216,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Purchasing Manager Career | 50 min | Education and training pathways; Credential overview: CPSM; Credential overview: CSCP; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Real Estate Agent Training: 8 hours, $74.99
+### Real Estate Agent Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6231,7 +6231,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Real Estate Agent Career | 40 min | Education and training pathways; Credential overview: State real estate salesperson license; Credential overview: Broker license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Receptionist Training: 8 hours, $74.99
+### Receptionist Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6246,7 +6246,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Receptionist Career | 40 min | Education and training pathways; Credential overview: Microsoft Office Specialist; Credential overview: Customer service certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Statistical Assistant Training: 10 hours, $89.99
+### Statistical Assistant Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6261,7 +6261,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Statistical Assistant Career | 50 min | Education and training pathways; Credential overview: Excel certification; Credential overview: SAS Base Programmer; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Survey Researcher Training: 10 hours, $89.99
+### Survey Researcher Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6276,7 +6276,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Survey Researcher Career | 50 min | Education and training pathways; Credential overview: Master’s in survey methodology; Credential overview: AAPOR training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Switchboard Operator Training: 8 hours, $74.99
+### Switchboard Operator Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6291,7 +6291,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Switchboard Operator Career | 40 min | Education and training pathways; Credential overview: Customer service certificate; Credential overview: Typing certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Tax Preparer Training: 10 hours, $89.99
+### Tax Preparer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6306,7 +6306,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Tax Preparer Career | 50 min | Education and training pathways; Credential overview: IRS PTIN; Credential overview: IRS Annual Filing Season Program (AFSP); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Telephone Operator Training: 8 hours, $74.99
+### Telephone Operator Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6321,7 +6321,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Telephone Operator Career | 40 min | Education and training pathways; Credential overview: Relay service training; Credential overview: Typing certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Title Examiner Training: 10 hours, $89.99
+### Title Examiner Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6336,7 +6336,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Title Examiner Career | 50 min | Education and training pathways; Credential overview: State title agent license; Credential overview: Land Title Professional; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Training and Development Manager Training: 10 hours, $89.99
+### Training and Development Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6351,7 +6351,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Training and Development Manager Career | 50 min | Education and training pathways; Credential overview: CPTD; Credential overview: APTD; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Typist Training: 8 hours, $74.99
+### Typist Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6366,7 +6366,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Typist Career | 40 min | Education and training pathways; Credential overview: Microsoft Office Specialist; Credential overview: Typing speed certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Cell Tower Technician Training: 10 hours, $89.99
+### Cell Tower Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6381,7 +6381,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Cell Tower Technician Career | 50 min | Education and training pathways; Credential overview: Authorized climber and rescue training; Credential overview: NWSA Telecommunications Tower Technician; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Computer Repair Technician Training: 10 hours, $89.99
+### Computer Repair Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6396,7 +6396,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Computer Repair Technician Career | 50 min | Education and training pathways; Credential overview: CompTIA A+; Credential overview: Manufacturer certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Computer Systems Analyst Training: 12 hours, $109.99
+### Computer Systems Analyst Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6411,7 +6411,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Computer Systems Analyst Career | 1 hr | Education and training pathways; Credential overview: Certified Business Analysis Professional (CBAP); Credential overview: ITIL Foundation; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Cybersecurity Analyst Training: 12 hours, $109.99
+### Cybersecurity Analyst Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6426,7 +6426,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Cybersecurity Analyst Career | 1 hr | Education and training pathways; Credential overview: CompTIA Security+; Credential overview: CompTIA CySA+; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Data Scientist Training: 12 hours, $109.99
+### Data Scientist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6441,7 +6441,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Data Scientist Career | 1 hr | Education and training pathways; Credential overview: Google Advanced Data Analytics Certificate; Credential overview: Microsoft Certified: Azure Data Scientist Associate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Database Administrator Training: 12 hours, $109.99
+### Database Administrator Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6456,7 +6456,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Database Administrator Career | 1 hr | Education and training pathways; Credential overview: Microsoft Certified: Azure Database Administrator Associate; Credential overview: Oracle Database Administration Certified Professional; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Digital Marketing Specialist Training: 10 hours, $89.99
+### Digital Marketing Specialist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6471,7 +6471,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Digital Marketing Specialist Career | 50 min | Education and training pathways; Credential overview: Google Ads certifications; Credential overview: Google Analytics certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Electronics Technician Training: 10 hours, $89.99
+### Electronics Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6486,7 +6486,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Electronics Technician Career | 50 min | Education and training pathways; Credential overview: ETA International Certified Electronics Technician (CET); Credential overview: IPC J-STD-001; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### IT Manager Training: 12 hours, $109.99
+### IT Manager Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6501,7 +6501,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your IT Manager Career | 1 hr | Education and training pathways; Credential overview: Project Management Professional (PMP); Credential overview: ITIL 4; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### IT Support Specialist Training: 8 hours, $74.99
+### IT Support Specialist Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6516,7 +6516,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your IT Support Specialist Career | 40 min | Education and training pathways; Credential overview: CompTIA A+; Credential overview: Google IT Support Professional Certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Network Administrator Training: 12 hours, $109.99
+### Network Administrator Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6531,7 +6531,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Network Administrator Career | 1 hr | Education and training pathways; Credential overview: CompTIA Network+; Credential overview: Cisco CCNA; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Network Technician Training: 10 hours, $89.99
+### Network Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6546,7 +6546,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Network Technician Career | 50 min | Education and training pathways; Credential overview: CompTIA Network+; Credential overview: Cisco CCNA; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Software Developer Training: 12 hours, $109.99
+### Software Developer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6561,7 +6561,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Software Developer Career | 1 hr | Education and training pathways; Credential overview: AWS Certified Developer – Associate; Credential overview: Microsoft Certified: Azure Developer Associate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Software QA Tester Training: 10 hours, $89.99
+### Software QA Tester Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6576,7 +6576,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Software QA Tester Career | 50 min | Education and training pathways; Credential overview: ISTQB Certified Tester Foundation Level; Credential overview: ISTQB Test Automation Engineer; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Telecommunications Technician Training: 10 hours, $89.99
+### Telecommunications Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6591,7 +6591,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Telecommunications Technician Career | 50 min | Education and training pathways; Credential overview: Fiber Optic Association CFOT; Credential overview: BICSI Installer; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### UX/UI Designer Training: 10 hours, $89.99
+### UX/UI Designer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6606,7 +6606,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your UX/UI Designer Career | 50 min | Education and training pathways; Credential overview: Google UX Design Certificate; Credential overview: NN/g UX Certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Web Developer Training: 10 hours, $89.99
+### Web Developer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6621,7 +6621,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Web Developer Career | 50 min | Education and training pathways; Credential overview: Portfolio of projects; Credential overview: Meta Front-End Developer Professional Certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### 911 Dispatcher Training: 10 hours, $89.99
+### 911 Dispatcher Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6636,7 +6636,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your 911 Dispatcher Career | 50 min | Education and training pathways; Credential overview: APCO Public Safety Telecommunicator; Credential overview: Emergency Medical Dispatch (EMD); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Animal Control Officer Training: 8 hours, $74.99
+### Animal Control Officer Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6651,7 +6651,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Animal Control Officer Career | 40 min | Education and training pathways; Credential overview: NACA Animal Control Officer certification; Credential overview: Euthanasia certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Bailiff Training: 10 hours, $89.99
+### Bailiff Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6666,7 +6666,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Bailiff Career | 50 min | Education and training pathways; Credential overview: Peace officer certification; Credential overview: Court security training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Correctional Officer Training: 10 hours, $89.99
+### Correctional Officer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6681,7 +6681,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Correctional Officer Career | 50 min | Education and training pathways; Credential overview: State corrections officer certification; Credential overview: CPR and first aid; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Detective Training: 12 hours, $109.99
+### Detective Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6696,7 +6696,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Detective Career | 1 hr | Education and training pathways; Credential overview: State peace officer certification; Credential overview: Investigative interviewing training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Emergency Management Director Training: 12 hours, $109.99
+### Emergency Management Director Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6711,7 +6711,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Emergency Management Director Career | 1 hr | Education and training pathways; Credential overview: Certified Emergency Manager (CEM); Credential overview: FEMA ICS and NIMS courses; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Firefighter Training: 10 hours, $89.99
+### Firefighter Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6726,7 +6726,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Firefighter Career | 50 min | Education and training pathways; Credential overview: Firefighter I and II; Credential overview: EMT or Paramedic; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Fish and Game Warden Training: 12 hours, $109.99
+### Fish and Game Warden Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6741,7 +6741,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Fish and Game Warden Career | 1 hr | Education and training pathways; Credential overview: State peace officer certification; Credential overview: Boating and water rescue training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Lifeguard Training: 6 hours, $59.99
+### Lifeguard Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6756,7 +6756,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Lifeguard Career | 30 min | Education and training pathways; Credential overview: American Red Cross Lifeguarding; Credential overview: Ellis & Associates or YMCA lifeguard certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Police Officer Training: 10 hours, $89.99
+### Police Officer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6771,7 +6771,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Police Officer Career | 50 min | Education and training pathways; Credential overview: State POST certification; Credential overview: Field training program; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Private Investigator Training: 10 hours, $89.99
+### Private Investigator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6786,7 +6786,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Private Investigator Career | 50 min | Education and training pathways; Credential overview: State private investigator license; Credential overview: Professional Certified Investigator (PCI); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Probation Officer Training: 12 hours, $109.99
+### Probation Officer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6801,7 +6801,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Probation Officer Career | 1 hr | Education and training pathways; Credential overview: State probation officer certification; Credential overview: Motivational interviewing training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Security Guard Training: 6 hours, $59.99
+### Security Guard Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6816,7 +6816,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Security Guard Career | 30 min | Education and training pathways; Credential overview: State guard card or security license; Credential overview: Armed security license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Security Supervisor Training: 10 hours, $89.99
+### Security Supervisor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6831,7 +6831,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Security Supervisor Career | 50 min | Education and training pathways; Credential overview: State security guard license; Credential overview: ASIS Physical Security Professional (PSP); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Transportation Security Officer Training: 8 hours, $74.99
+### Transportation Security Officer Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6846,7 +6846,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Transportation Security Officer Career | 40 min | Education and training pathways; Credential overview: TSA Officer certification; Credential overview: Recurrent training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Blaster Training: 12 hours, $109.99
+### Blaster Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6861,7 +6861,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Blaster Career | 1 hr | Education and training pathways; Credential overview: State blaster license; Credential overview: ATF clearance; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Chemical Equipment Operator Training: 10 hours, $89.99
+### Chemical Equipment Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6876,7 +6876,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Chemical Equipment Operator Career | 50 min | Education and training pathways; Credential overview: Process technology associate degree; Credential overview: HAZWOPER; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Chemical Plant Operator Training: 10 hours, $89.99
+### Chemical Plant Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6891,7 +6891,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Chemical Plant Operator Career | 50 min | Education and training pathways; Credential overview: Process technology associate degree; Credential overview: HAZWOPER; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Control Valve Technician Training: 10 hours, $89.99
+### Control Valve Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6906,7 +6906,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Control Valve Technician Career | 50 min | Education and training pathways; Credential overview: Manufacturer valve training; Credential overview: ISA CCST; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Derrick Operator Training: 10 hours, $89.99
+### Derrick Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6921,7 +6921,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Derrick Operator Career | 50 min | Education and training pathways; Credential overview: IADC RigPass; Credential overview: IADC WellSharp; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Extraction Helper Training: 10 hours, $89.99
+### Extraction Helper Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6936,7 +6936,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Extraction Helper Career | 50 min | Education and training pathways; Credential overview: MSHA training; Credential overview: SafeLand; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Gas Compressor Operator Training: 10 hours, $89.99
+### Gas Compressor Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6951,7 +6951,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Gas Compressor Operator Career | 50 min | Education and training pathways; Credential overview: Operator qualification; Credential overview: H2S training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Gas Plant Operator Training: 10 hours, $89.99
+### Gas Plant Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6966,7 +6966,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Gas Plant Operator Career | 50 min | Education and training pathways; Credential overview: Process technology associate degree; Credential overview: Operator Qualification (OQ); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Geological Technician Training: 10 hours, $89.99
+### Geological Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6981,7 +6981,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Geological Technician Career | 50 min | Education and training pathways; Credential overview: MSHA training; Credential overview: H2S awareness; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Meter Reader Training: 8 hours, $74.99
+### Meter Reader Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -6996,7 +6996,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Meter Reader Career | 40 min | Education and training pathways; Credential overview: Driver’s license; Credential overview: Utility safety training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Mining Engineer Training: 12 hours, $109.99
+### Mining Engineer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7011,7 +7011,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Mining Engineer Career | 1 hr | Education and training pathways; Credential overview: PE license; Credential overview: MSHA training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Mining Machine Operator Training: 10 hours, $89.99
+### Mining Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7026,7 +7026,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Mining Machine Operator Career | 50 min | Education and training pathways; Credential overview: MSHA new miner training; Credential overview: Annual refresher training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Nuclear Engineer Training: 12 hours, $109.99
+### Nuclear Engineer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7041,7 +7041,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Nuclear Engineer Career | 1 hr | Education and training pathways; Credential overview: PE license; Credential overview: SRO certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Nuclear Reactor Operator Training: 12 hours, $109.99
+### Nuclear Reactor Operator Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7056,7 +7056,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Nuclear Reactor Operator Career | 1 hr | Education and training pathways; Credential overview: NRC Reactor Operator (RO) license; Credential overview: NRC Senior Reactor Operator (SRO) license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Nuclear Technician Training: 10 hours, $89.99
+### Nuclear Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7071,7 +7071,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Nuclear Technician Career | 50 min | Education and training pathways; Credential overview: NRRPT registration; Credential overview: Plant technician qualifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Oilfield Service Operator Training: 10 hours, $89.99
+### Oilfield Service Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7086,7 +7086,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Oilfield Service Operator Career | 50 min | Education and training pathways; Credential overview: CDL Class A; Credential overview: IADC WellSharp; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Petroleum Engineer Training: 12 hours, $109.99
+### Petroleum Engineer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7101,7 +7101,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Petroleum Engineer Career | 1 hr | Education and training pathways; Credential overview: PE license; Credential overview: SPE membership; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Power Dispatcher Training: 12 hours, $109.99
+### Power Dispatcher Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7116,7 +7116,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Power Dispatcher Career | 1 hr | Education and training pathways; Credential overview: NERC System Operator certification; Credential overview: Utility switching qualification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Power Plant Operator Training: 12 hours, $109.99
+### Power Plant Operator Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7131,7 +7131,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Power Plant Operator Career | 1 hr | Education and training pathways; Credential overview: NERC System Operator certification; Credential overview: Power plant technology certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Pump Operator Training: 10 hours, $89.99
+### Pump Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7146,7 +7146,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Pump Operator Career | 50 min | Education and training pathways; Credential overview: SafeLand; Credential overview: H2S training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Quarry Rock Splitter Training: 6 hours, $59.99
+### Quarry Rock Splitter Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7161,7 +7161,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Quarry Rock Splitter Career | 30 min | Education and training pathways; Credential overview: MSHA Part 46; Credential overview: Silica training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Refinery Operator Training: 10 hours, $89.99
+### Refinery Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7176,7 +7176,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Refinery Operator Career | 50 min | Education and training pathways; Credential overview: Process technology associate degree; Credential overview: Operator unit qualifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Roof Bolter Training: 10 hours, $89.99
+### Roof Bolter Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7191,7 +7191,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Roof Bolter Career | 50 min | Education and training pathways; Credential overview: MSHA Part 48; Credential overview: Underground miner certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Rotary Drill Operator Training: 10 hours, $89.99
+### Rotary Drill Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7206,7 +7206,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Rotary Drill Operator Career | 50 min | Education and training pathways; Credential overview: IADC WellSharp Driller; Credential overview: IADC RigPass; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Roustabout Training: 6 hours, $59.99
+### Roustabout Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7221,7 +7221,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Roustabout Career | 30 min | Education and training pathways; Credential overview: SafeLand USA; Credential overview: H2S Clear; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Separating Machine Operator Training: 10 hours, $89.99
+### Separating Machine Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7236,7 +7236,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Separating Machine Operator Career | 50 min | Education and training pathways; Credential overview: Process tech courses; Credential overview: HAZWOPER; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Stationary Engineer Training: 10 hours, $89.99
+### Stationary Engineer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7251,7 +7251,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Stationary Engineer Career | 50 min | Education and training pathways; Credential overview: State or city stationary engineer license; Credential overview: Boiler operator license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Substation Technician Training: 12 hours, $109.99
+### Substation Technician Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7266,7 +7266,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Substation Technician Career | 1 hr | Education and training pathways; Credential overview: NETA Level III or IV technician; Credential overview: Utility apprenticeship; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Surface Mining Equipment Operator Training: 10 hours, $89.99
+### Surface Mining Equipment Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7281,7 +7281,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Surface Mining Equipment Operator Career | 50 min | Education and training pathways; Credential overview: MSHA Part 46 or 48; Credential overview: CDL; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Telecommunications Lineworker Training: 10 hours, $89.99
+### Telecommunications Lineworker Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7296,7 +7296,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Telecommunications Lineworker Career | 50 min | Education and training pathways; Credential overview: Fiber Optic Association CFOT; Credential overview: CDL; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Underground Mining Loader Operator Training: 10 hours, $89.99
+### Underground Mining Loader Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7311,7 +7311,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Underground Mining Loader Operator Career | 50 min | Education and training pathways; Credential overview: MSHA Part 48; Credential overview: Equipment certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Water Well Driller Training: 10 hours, $89.99
+### Water Well Driller Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7326,7 +7326,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Water Well Driller Career | 50 min | Education and training pathways; Credential overview: State water well driller license; Credential overview: NGWA Certified Well Driller; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Wellhead Pumper Training: 10 hours, $89.99
+### Wellhead Pumper Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7341,7 +7341,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Wellhead Pumper Career | 50 min | Education and training pathways; Credential overview: SafeLand USA; Credential overview: H2S Clear; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Aerospace Engineer Training: 12 hours, $109.99
+### Aerospace Engineer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7356,7 +7356,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Aerospace Engineer Career | 1 hr | Education and training pathways; Credential overview: PE license; Credential overview: Security clearance; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Aerospace Engineering Technician Training: 10 hours, $89.99
+### Aerospace Engineering Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7371,7 +7371,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Aerospace Engineering Technician Career | 50 min | Education and training pathways; Credential overview: NASA workmanship standards; Credential overview: IPC certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Archaeologist Training: 10 hours, $89.99
+### Archaeologist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7386,7 +7386,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Archaeologist Career | 50 min | Education and training pathways; Credential overview: RPA; Credential overview: Field school; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Architect Training: 12 hours, $109.99
+### Architect Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7401,7 +7401,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Architect Career | 1 hr | Education and training pathways; Credential overview: State architect license; Credential overview: ARE; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Astronomer Training: 10 hours, $89.99
+### Astronomer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7416,7 +7416,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Astronomer Career | 50 min | Education and training pathways; Credential overview: Ph.D.; Credential overview: Postdoctoral fellowships; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Biochemist Training: 10 hours, $89.99
+### Biochemist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7431,7 +7431,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Biochemist Career | 50 min | Education and training pathways; Credential overview: Ph.D.; Credential overview: Postdoctoral fellowship; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Biological Technician Training: 10 hours, $89.99
+### Biological Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7446,7 +7446,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Biological Technician Career | 50 min | Education and training pathways; Credential overview: ASCP Technologist in Molecular Biology; Credential overview: GLP and GMP training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Biomedical Engineer Training: 12 hours, $109.99
+### Biomedical Engineer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7461,7 +7461,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Biomedical Engineer Career | 1 hr | Education and training pathways; Credential overview: RAC; Credential overview: CCE; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### CAD Drafter Training: 10 hours, $89.99
+### CAD Drafter Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7476,7 +7476,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your CAD Drafter Career | 50 min | Education and training pathways; Credential overview: Autodesk Certified Professional; Credential overview: ADDA Certified Drafter; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Calibration Technician Training: 10 hours, $89.99
+### Calibration Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7491,7 +7491,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Calibration Technician Career | 50 min | Education and training pathways; Credential overview: ASQ Certified Calibration Technician (CCT); Credential overview: Military PMEL training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Cartographer Training: 12 hours, $109.99
+### Cartographer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7506,7 +7506,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Cartographer Career | 1 hr | Education and training pathways; Credential overview: GISP; Credential overview: Esri technical certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Chemical Engineer Training: 12 hours, $109.99
+### Chemical Engineer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7521,7 +7521,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Chemical Engineer Career | 1 hr | Education and training pathways; Credential overview: PE license; Credential overview: CCPSC; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Chemical Technician Training: 10 hours, $89.99
+### Chemical Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7536,7 +7536,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Chemical Technician Career | 50 min | Education and training pathways; Credential overview: ACS-approved chemical technology degree; Credential overview: HAZWOPER; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Chemist Training: 12 hours, $109.99
+### Chemist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7551,7 +7551,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Chemist Career | 1 hr | Education and training pathways; Credential overview: ACS-certified degree; Credential overview: Certified Chemist (NCRA); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Civil Engineer Training: 12 hours, $109.99
+### Civil Engineer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7566,7 +7566,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Civil Engineer Career | 1 hr | Education and training pathways; Credential overview: Engineer in Training (EIT); Credential overview: Professional Engineer (PE); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Civil Engineering Technician Training: 10 hours, $89.99
+### Civil Engineering Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7581,7 +7581,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Civil Engineering Technician Career | 50 min | Education and training pathways; Credential overview: NICET certification; Credential overview: ACI Concrete Field Testing Technician; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Electrical Drafter Training: 10 hours, $89.99
+### Electrical Drafter Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7596,7 +7596,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Electrical Drafter Career | 50 min | Education and training pathways; Credential overview: ADDA certification; Credential overview: Autodesk certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Electrical Engineer Training: 12 hours, $109.99
+### Electrical Engineer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7611,7 +7611,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Electrical Engineer Career | 1 hr | Education and training pathways; Credential overview: Engineer in Training (EIT); Credential overview: Professional Engineer (PE); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Electronics Engineer Training: 12 hours, $109.99
+### Electronics Engineer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7626,7 +7626,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Electronics Engineer Career | 1 hr | Education and training pathways; Credential overview: PE license; Credential overview: IPC CID; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Engineering Manager Training: 12 hours, $109.99
+### Engineering Manager Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7641,7 +7641,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Engineering Manager Career | 1 hr | Education and training pathways; Credential overview: PE license; Credential overview: PMP; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Epidemiologist Training: 10 hours, $89.99
+### Epidemiologist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7656,7 +7656,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Epidemiologist Career | 50 min | Education and training pathways; Credential overview: CPH; Credential overview: CIC; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Food Science Technician Training: 10 hours, $89.99
+### Food Science Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7671,7 +7671,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Food Science Technician Career | 50 min | Education and training pathways; Credential overview: HACCP certification; Credential overview: PCQI; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Food Scientist Training: 10 hours, $89.99
+### Food Scientist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7686,7 +7686,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Food Scientist Career | 50 min | Education and training pathways; Credential overview: CFS; Credential overview: PCQI; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Forensic Science Technician Training: 12 hours, $109.99
+### Forensic Science Technician Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7701,7 +7701,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Forensic Science Technician Career | 1 hr | Education and training pathways; Credential overview: IAI Crime Scene Certification; Credential overview: ABC Diplomate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Geographer Training: 10 hours, $89.99
+### Geographer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7716,7 +7716,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Geographer Career | 50 min | Education and training pathways; Credential overview: GISP; Credential overview: Esri certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Geoscientist Training: 12 hours, $109.99
+### Geoscientist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7731,7 +7731,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Geoscientist Career | 1 hr | Education and training pathways; Credential overview: PG license; Credential overview: ASBOG exams; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Historian Training: 10 hours, $89.99
+### Historian Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7746,7 +7746,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Historian Career | 50 min | Education and training pathways; Credential overview: Master’s in history; Credential overview: Ph.D.; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Marine Engineer Training: 12 hours, $109.99
+### Marine Engineer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7761,7 +7761,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Marine Engineer Career | 1 hr | Education and training pathways; Credential overview: PE license; Credential overview: USCG engineering license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Materials Engineer Training: 12 hours, $109.99
+### Materials Engineer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7776,7 +7776,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Materials Engineer Career | 1 hr | Education and training pathways; Credential overview: PE license; Credential overview: ASM certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Materials Scientist Training: 10 hours, $89.99
+### Materials Scientist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7791,7 +7791,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Materials Scientist Career | 50 min | Education and training pathways; Credential overview: Ph.D.; Credential overview: Lab safety training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Mathematician Training: 10 hours, $89.99
+### Mathematician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7806,7 +7806,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Mathematician Career | 50 min | Education and training pathways; Credential overview: Ph.D. in mathematics; Credential overview: Security clearance; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Mechanical Drafter Training: 10 hours, $89.99
+### Mechanical Drafter Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7821,7 +7821,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Mechanical Drafter Career | 50 min | Education and training pathways; Credential overview: CSWA or CSWP; Credential overview: ADDA certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Mechanical Engineer Training: 12 hours, $109.99
+### Mechanical Engineer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7836,7 +7836,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Mechanical Engineer Career | 1 hr | Education and training pathways; Credential overview: Engineer in Training (EIT); Credential overview: Professional Engineer (PE); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Mechanical Engineering Technician Training: 10 hours, $89.99
+### Mechanical Engineering Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7851,7 +7851,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Mechanical Engineering Technician Career | 50 min | Education and training pathways; Credential overview: Certified SolidWorks Associate (CSWA); Credential overview: NICET certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Mechatronics Technician Training: 10 hours, $89.99
+### Mechatronics Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7866,7 +7866,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Mechatronics Technician Career | 50 min | Education and training pathways; Credential overview: Siemens Mechatronic Systems Certification; Credential overview: FANUC robot certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Medical Laboratory Technician Training: 10 hours, $89.99
+### Medical Laboratory Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7881,7 +7881,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Medical Laboratory Technician Career | 50 min | Education and training pathways; Credential overview: ASCP Medical Laboratory Technician (MLT); Credential overview: ASCP Medical Laboratory Scientist (MLS); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Medical Scientist Training: 10 hours, $89.99
+### Medical Scientist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7896,7 +7896,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Medical Scientist Career | 50 min | Education and training pathways; Credential overview: Ph.D. or M.D.; Credential overview: GCP training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Meteorologist Training: 10 hours, $89.99
+### Meteorologist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7911,7 +7911,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Meteorologist Career | 50 min | Education and training pathways; Credential overview: CBM; Credential overview: CCM; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Microbiologist Training: 12 hours, $109.99
+### Microbiologist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7926,7 +7926,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Microbiologist Career | 1 hr | Education and training pathways; Credential overview: ASM Specialist Microbiologist; Credential overview: ASCP Microbiology certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Natural Sciences Manager Training: 10 hours, $89.99
+### Natural Sciences Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7941,7 +7941,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Natural Sciences Manager Career | 50 min | Education and training pathways; Credential overview: Ph.D.; Credential overview: Lab safety certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Physicist Training: 10 hours, $89.99
+### Physicist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7956,7 +7956,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Physicist Career | 50 min | Education and training pathways; Credential overview: Ph.D.; Credential overview: ABR certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Semiconductor Processing Technician Training: 10 hours, $89.99
+### Semiconductor Processing Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7971,7 +7971,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Semiconductor Processing Technician Career | 50 min | Education and training pathways; Credential overview: Semiconductor technician certificates; Credential overview: SEMI training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Social Science Research Assistant Training: 10 hours, $89.99
+### Social Science Research Assistant Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -7986,7 +7986,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Social Science Research Assistant Career | 50 min | Education and training pathways; Credential overview: CITI human subjects training; Credential overview: Statistics course; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Sociologist Training: 10 hours, $89.99
+### Sociologist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8001,7 +8001,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Sociologist Career | 50 min | Education and training pathways; Credential overview: Master’s or Ph.D.; Credential overview: IRB training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Statistician Training: 10 hours, $89.99
+### Statistician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8016,7 +8016,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Statistician Career | 50 min | Education and training pathways; Credential overview: PStat; Credential overview: SAS certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Surveying Technician Training: 10 hours, $89.99
+### Surveying Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8031,7 +8031,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Surveying Technician Career | 50 min | Education and training pathways; Credential overview: NSPS Certified Survey Technician (CST); Credential overview: FAA Part 107; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Surveyor Training: 12 hours, $109.99
+### Surveyor Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8046,7 +8046,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Surveyor Career | 1 hr | Education and training pathways; Credential overview: Professional Land Surveyor (PLS); Credential overview: Fundamentals of Surveying (FS) exam; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Account Executive Training: 10 hours, $89.99
+### Account Executive Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8061,7 +8061,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Account Executive Career | 50 min | Education and training pathways; Credential overview: HubSpot Sales Software certification; Credential overview: Salesforce certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Advertising Sales Agent Training: 10 hours, $89.99
+### Advertising Sales Agent Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8076,7 +8076,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Advertising Sales Agent Career | 50 min | Education and training pathways; Credential overview: IAB Digital Media Sales certification; Credential overview: Google Ads certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Cashier Training: 6 hours, $59.99
+### Cashier Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8091,7 +8091,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Cashier Career | 30 min | Education and training pathways; Credential overview: NRF Foundation RISE Up Customer Service; Credential overview: Responsible alcohol and tobacco sales training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Financial Services Sales Agent Training: 12 hours, $109.99
+### Financial Services Sales Agent Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8106,7 +8106,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Financial Services Sales Agent Career | 1 hr | Education and training pathways; Credential overview: FINRA SIE; Credential overview: FINRA Series 7; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Insurance Agent Training: 8 hours, $74.99
+### Insurance Agent Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8121,7 +8121,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Insurance Agent Career | 40 min | Education and training pathways; Credential overview: State insurance producer license; Credential overview: Chartered Property Casualty Underwriter (CPCU); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Marketing Manager Training: 12 hours, $109.99
+### Marketing Manager Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8136,7 +8136,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Marketing Manager Career | 1 hr | Education and training pathways; Credential overview: AMA Professional Certified Marketer (PCM); Credential overview: Google Ads and Analytics certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Parts Salesperson Training: 6 hours, $59.99
+### Parts Salesperson Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8151,7 +8151,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Parts Salesperson Career | 30 min | Education and training pathways; Credential overview: ASE P2 Automobile Parts Specialist; Credential overview: ASE P1 Medium-Heavy Truck Parts Specialist; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Real Estate Broker Training: 12 hours, $109.99
+### Real Estate Broker Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8166,7 +8166,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Real Estate Broker Career | 1 hr | Education and training pathways; Credential overview: State real estate broker license; Credential overview: Certified Real Estate Brokerage Manager (CRB); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Rental Agent Training: 6 hours, $59.99
+### Rental Agent Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8181,7 +8181,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Rental Agent Career | 30 min | Education and training pathways; Credential overview: Valid driver’s license; Credential overview: Customer service training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Retail Sales Associate Training: 6 hours, $59.99
+### Retail Sales Associate Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8196,7 +8196,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Retail Sales Associate Career | 30 min | Education and training pathways; Credential overview: NRF Foundation RISE Up credentials; Credential overview: Product certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Retail Store Manager Training: 10 hours, $89.99
+### Retail Store Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8211,7 +8211,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Retail Store Manager Career | 50 min | Education and training pathways; Credential overview: NRF Foundation retail certifications; Credential overview: Loss prevention training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Sales Engineer Training: 12 hours, $109.99
+### Sales Engineer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8226,7 +8226,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Sales Engineer Career | 1 hr | Education and training pathways; Credential overview: Vendor technical certifications; Credential overview: Professional Engineer (PE); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Sales Manager Training: 12 hours, $109.99
+### Sales Manager Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8241,7 +8241,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Sales Manager Career | 1 hr | Education and training pathways; Credential overview: Certified Sales Leader; Credential overview: Certified Sales Professional (CSP); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Stock Associate Training: 6 hours, $59.99
+### Stock Associate Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8256,7 +8256,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Stock Associate Career | 30 min | Education and training pathways; Credential overview: Forklift or pallet jack training; Credential overview: OSHA safety training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Technical Sales Representative Training: 10 hours, $89.99
+### Technical Sales Representative Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8271,7 +8271,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Technical Sales Representative Career | 50 min | Education and training pathways; Credential overview: Certified Medical Representative (CMR); Credential overview: Certified Sales Professional (CSP); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Travel Agent Training: 8 hours, $74.99
+### Travel Agent Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8286,7 +8286,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Travel Agent Career | 40 min | Education and training pathways; Credential overview: Certified Travel Associate (CTA); Credential overview: Certified Travel Counselor (CTC); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Visual Merchandiser Training: 10 hours, $89.99
+### Visual Merchandiser Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8301,7 +8301,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Visual Merchandiser Career | 50 min | Education and training pathways; Credential overview: Visual merchandising certificate; Credential overview: Retail merchandising training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Wholesale Sales Representative Training: 10 hours, $89.99
+### Wholesale Sales Representative Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8316,7 +8316,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Wholesale Sales Representative Career | 50 min | Education and training pathways; Credential overview: Certified Professional Manufacturers’ Representative (CPMR); Credential overview: Certified Sales Professional (CSP); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Amusement Park Attendant Training: 6 hours, $59.99
+### Amusement Park Attendant Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8331,7 +8331,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Amusement Park Attendant Career | 30 min | Education and training pathways; Credential overview: Ride operator training; Credential overview: CPR and first aid; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Baker Training: 8 hours, $74.99
+### Baker Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8346,7 +8346,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Baker Career | 40 min | Education and training pathways; Credential overview: Food handler card; Credential overview: Retail Bakers of America certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Banquet Server Training: 6 hours, $59.99
+### Banquet Server Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8361,7 +8361,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Banquet Server Career | 30 min | Education and training pathways; Credential overview: Food handler card; Credential overview: Alcohol server training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Barista Training: 6 hours, $59.99
+### Barista Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8376,7 +8376,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Barista Career | 30 min | Education and training pathways; Credential overview: Food handler card; Credential overview: Specialty Coffee Association courses; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Bartender Training: 6 hours, $59.99
+### Bartender Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8391,7 +8391,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Bartender Career | 30 min | Education and training pathways; Credential overview: TIPS or ServSafe Alcohol; Credential overview: State bartender or server license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Bellhop Training: 8 hours, $74.99
+### Bellhop Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8406,7 +8406,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Bellhop Career | 40 min | Education and training pathways; Credential overview: Hospitality training; Credential overview: Guest service certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Busser Training: 6 hours, $59.99
+### Busser Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8421,7 +8421,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Busser Career | 30 min | Education and training pathways; Credential overview: Food handler card; Credential overview: Alcohol awareness; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Butcher Training: 8 hours, $74.99
+### Butcher Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8436,7 +8436,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Butcher Career | 40 min | Education and training pathways; Credential overview: Food handler card; Credential overview: Meat cutting certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Cafeteria Cook Training: 6 hours, $59.99
+### Cafeteria Cook Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8451,7 +8451,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Cafeteria Cook Career | 30 min | Education and training pathways; Credential overview: Food handler card; Credential overview: ServSafe; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Casino Cage Cashier Training: 8 hours, $74.99
+### Casino Cage Cashier Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8466,7 +8466,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Casino Cage Cashier Career | 40 min | Education and training pathways; Credential overview: State gaming license; Credential overview: Title 31 training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Casino Cashier Training: 6 hours, $59.99
+### Casino Cashier Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8481,7 +8481,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Casino Cashier Career | 30 min | Education and training pathways; Credential overview: State gaming license; Credential overview: AML training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Casino Dealer Training: 8 hours, $74.99
+### Casino Dealer Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8496,7 +8496,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Casino Dealer Career | 40 min | Education and training pathways; Credential overview: State gaming license; Credential overview: Dealer school certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Casino Floor Supervisor Training: 10 hours, $89.99
+### Casino Floor Supervisor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8511,7 +8511,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Casino Floor Supervisor Career | 50 min | Education and training pathways; Credential overview: State gaming license; Credential overview: Game protection training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Casino Manager Training: 10 hours, $89.99
+### Casino Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8526,7 +8526,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Casino Manager Career | 50 min | Education and training pathways; Credential overview: State gaming license; Credential overview: Hospitality management degree; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Chef Training: 10 hours, $89.99
+### Chef Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8541,7 +8541,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Chef Career | 50 min | Education and training pathways; Credential overview: ServSafe Food Protection Manager; Credential overview: ACF Certified Sous Chef or Executive Chef; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Concierge Training: 10 hours, $89.99
+### Concierge Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8556,7 +8556,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Concierge Career | 50 min | Education and training pathways; Credential overview: Les Clefs d’Or membership; Credential overview: AHLEI hospitality certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Custodial Supervisor Training: 10 hours, $89.99
+### Custodial Supervisor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8571,7 +8571,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Custodial Supervisor Career | 50 min | Education and training pathways; Credential overview: CEH or CHESP; Credential overview: ISSA CIMS training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Dishwasher Training: 6 hours, $59.99
+### Dishwasher Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8586,7 +8586,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Dishwasher Career | 30 min | Education and training pathways; Credential overview: Food handler card; Credential overview: Chemical safety training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Event Planner Training: 10 hours, $89.99
+### Event Planner Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8601,7 +8601,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Event Planner Career | 50 min | Education and training pathways; Credential overview: Certified Meeting Professional (CMP); Credential overview: Certified Special Events Professional (CSEP); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Fast Food Cook Training: 6 hours, $59.99
+### Fast Food Cook Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8616,7 +8616,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Fast Food Cook Career | 30 min | Education and training pathways; Credential overview: Food handler card; Credential overview: ServSafe; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Food Service Supervisor Training: 10 hours, $89.99
+### Food Service Supervisor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8631,7 +8631,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Food Service Supervisor Career | 50 min | Education and training pathways; Credential overview: ServSafe Food Protection Manager; Credential overview: Food handler card; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Hotel Front Desk Agent Training: 8 hours, $74.99
+### Hotel Front Desk Agent Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8646,7 +8646,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Hotel Front Desk Agent Career | 40 min | Education and training pathways; Credential overview: AHLEI Certified Front Desk Representative; Credential overview: Guest service training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Hotel Housekeeper Training: 6 hours, $59.99
+### Hotel Housekeeper Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8661,7 +8661,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Hotel Housekeeper Career | 30 min | Education and training pathways; Credential overview: AHLEI Certified Guestroom Attendant; Credential overview: Bloodborne pathogens training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Hotel Manager Training: 10 hours, $89.99
+### Hotel Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8676,7 +8676,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Hotel Manager Career | 50 min | Education and training pathways; Credential overview: Certified Hotel Administrator (CHA); Credential overview: Certified Revenue Management Executive (CRME); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Janitor Training: 6 hours, $59.99
+### Janitor Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8691,7 +8691,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Janitor Career | 30 min | Education and training pathways; Credential overview: Bloodborne pathogens training; Credential overview: Chemical safety training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Line Cook Training: 6 hours, $59.99
+### Line Cook Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8706,7 +8706,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Line Cook Career | 30 min | Education and training pathways; Credential overview: Food handler card; Credential overview: ServSafe Food Handler; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Prep Cook Training: 6 hours, $59.99
+### Prep Cook Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8721,7 +8721,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Prep Cook Career | 30 min | Education and training pathways; Credential overview: Food handler card; Credential overview: ServSafe Food Handler; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Private Chef Training: 10 hours, $89.99
+### Private Chef Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8736,7 +8736,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Private Chef Career | 50 min | Education and training pathways; Credential overview: ServSafe Food Protection Manager; Credential overview: Personal Certified Chef; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Recreation Manager Training: 10 hours, $89.99
+### Recreation Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8751,7 +8751,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Recreation Manager Career | 50 min | Education and training pathways; Credential overview: CPRP; Credential overview: Aquatic Facility Operator; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Restaurant Host Training: 6 hours, $59.99
+### Restaurant Host Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8766,7 +8766,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Restaurant Host Career | 30 min | Education and training pathways; Credential overview: Hospitality training; Credential overview: Food handler card; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Restaurant Manager Training: 10 hours, $89.99
+### Restaurant Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8781,7 +8781,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Restaurant Manager Career | 50 min | Education and training pathways; Credential overview: ServSafe Food Protection Manager; Credential overview: Responsible alcohol service certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Server Training: 6 hours, $59.99
+### Server Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8796,7 +8796,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Server Career | 30 min | Education and training pathways; Credential overview: Food handler card; Credential overview: Responsible alcohol service; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Short-Order Cook Training: 6 hours, $59.99
+### Short-Order Cook Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8811,7 +8811,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Short-Order Cook Career | 30 min | Education and training pathways; Credential overview: Food handler card; Credential overview: ServSafe; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Sportsbook Writer Training: 8 hours, $74.99
+### Sportsbook Writer Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8826,7 +8826,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Sportsbook Writer Career | 40 min | Education and training pathways; Credential overview: State gaming license; Credential overview: AML training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Tour Guide Training: 8 hours, $74.99
+### Tour Guide Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8841,7 +8841,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Tour Guide Career | 40 min | Education and training pathways; Credential overview: City tour guide license; Credential overview: First aid and CPR; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Usher Training: 6 hours, $59.99
+### Usher Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8856,7 +8856,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Usher Career | 30 min | Education and training pathways; Credential overview: Crowd management training; Credential overview: First aid and CPR; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Animator Training: 10 hours, $89.99
+### Animator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8871,7 +8871,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Animator Career | 50 min | Education and training pathways; Credential overview: Autodesk Certified Professional; Credential overview: Adobe Certified Professional in After Effects; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Apparel Patternmaker Training: 10 hours, $89.99
+### Apparel Patternmaker Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8886,7 +8886,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Apparel Patternmaker Career | 50 min | Education and training pathways; Credential overview: Fashion design degree; Credential overview: CAD patternmaking certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Art Director Training: 10 hours, $89.99
+### Art Director Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8901,7 +8901,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Art Director Career | 50 min | Education and training pathways; Credential overview: Portfolio; Credential overview: Adobe Certified Professional; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Audio and Video Technician Training: 10 hours, $89.99
+### Audio and Video Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8916,7 +8916,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Audio and Video Technician Career | 50 min | Education and training pathways; Credential overview: AVIXA CTS; Credential overview: Dante certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Broadcast Announcer Training: 10 hours, $89.99
+### Broadcast Announcer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8931,7 +8931,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Broadcast Announcer Career | 50 min | Education and training pathways; Credential overview: Broadcasting degree; Credential overview: FCC rules knowledge; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Broadcast Technician Training: 10 hours, $89.99
+### Broadcast Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8946,7 +8946,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Broadcast Technician Career | 50 min | Education and training pathways; Credential overview: SBE certification; Credential overview: FCC GROL; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Camera Operator Training: 10 hours, $89.99
+### Camera Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8961,7 +8961,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Camera Operator Career | 50 min | Education and training pathways; Credential overview: FAA Part 107 Remote Pilot Certificate; Credential overview: Camera manufacturer training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Choreographer Training: 10 hours, $89.99
+### Choreographer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8976,7 +8976,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Choreographer Career | 50 min | Education and training pathways; Credential overview: Dance degree; Credential overview: Teaching certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Costume Attendant Training: 8 hours, $74.99
+### Costume Attendant Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -8991,7 +8991,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Costume Attendant Career | 40 min | Education and training pathways; Credential overview: IATSE wardrobe union; Credential overview: Sewing course; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Court Reporter Training: 10 hours, $89.99
+### Court Reporter Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9006,7 +9006,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Court Reporter Career | 50 min | Education and training pathways; Credential overview: Registered Professional Reporter (RPR); Credential overview: Certified Shorthand Reporter (CSR); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Craft Artist Training: 8 hours, $74.99
+### Craft Artist Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9021,7 +9021,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Craft Artist Career | 40 min | Education and training pathways; Credential overview: Craft school courses; Credential overview: BFA; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Curator Training: 10 hours, $89.99
+### Curator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9036,7 +9036,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Curator Career | 50 min | Education and training pathways; Credential overview: Master’s; Credential overview: Ph.D.; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Desktop Publisher Training: 10 hours, $89.99
+### Desktop Publisher Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9051,7 +9051,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Desktop Publisher Career | 50 min | Education and training pathways; Credential overview: Adobe Certified Professional; Credential overview: Accessible PDF training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Editor Training: 10 hours, $89.99
+### Editor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9066,7 +9066,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Editor Career | 50 min | Education and training pathways; Credential overview: Editing certificate; Credential overview: ACES training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Engraver Training: 10 hours, $89.99
+### Engraver Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9081,7 +9081,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Engraver Career | 50 min | Education and training pathways; Credential overview: Laser safety training; Credential overview: Hand engraving course; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Fashion Designer Training: 10 hours, $89.99
+### Fashion Designer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9096,7 +9096,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Fashion Designer Career | 50 min | Education and training pathways; Credential overview: Fashion design degree; Credential overview: CLO 3D certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Fine Artist Training: 10 hours, $89.99
+### Fine Artist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9111,7 +9111,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Fine Artist Career | 50 min | Education and training pathways; Credential overview: BFA or MFA; Credential overview: Artist residencies; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Florist Training: 10 hours, $89.99
+### Florist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9126,7 +9126,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Florist Career | 50 min | Education and training pathways; Credential overview: AIFD Certified Floral Designer (CFD); Credential overview: Floral design certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Graphic Designer Training: 10 hours, $89.99
+### Graphic Designer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9141,7 +9141,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Graphic Designer Career | 50 min | Education and training pathways; Credential overview: Adobe Certified Professional; Credential overview: Google UX Design Certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Industrial Designer Training: 10 hours, $89.99
+### Industrial Designer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9156,7 +9156,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Industrial Designer Career | 50 min | Education and training pathways; Credential overview: SolidWorks certification; Credential overview: IDSA membership; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Interior Designer Training: 10 hours, $89.99
+### Interior Designer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9171,7 +9171,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Interior Designer Career | 50 min | Education and training pathways; Credential overview: NCIDQ Certification; Credential overview: LEED Green Associate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Interpreter Training: 10 hours, $89.99
+### Interpreter Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9186,7 +9186,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Interpreter Career | 50 min | Education and training pathways; Credential overview: Medical interpreter certification; Credential overview: Court interpreter certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Jeweler Training: 10 hours, $89.99
+### Jeweler Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9201,7 +9201,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Jeweler Career | 50 min | Education and training pathways; Credential overview: GIA Graduate Gemologist; Credential overview: JA Certified Bench Jeweler; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Journalist Training: 10 hours, $89.99
+### Journalist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9216,7 +9216,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Journalist Career | 50 min | Education and training pathways; Credential overview: Journalism degree; Credential overview: Data journalism training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Lighting Technician Training: 10 hours, $89.99
+### Lighting Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9231,7 +9231,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Lighting Technician Career | 50 min | Education and training pathways; Credential overview: ETCP Entertainment Electrician; Credential overview: ETCP Rigger; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Model Training: 6 hours, $59.99
+### Model Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9246,7 +9246,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Model Career | 30 min | Education and training pathways; Credential overview: Agency representation; Credential overview: SAG-AFTRA membership; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Movie Projectionist Training: 6 hours, $59.99
+### Movie Projectionist Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9261,7 +9261,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Movie Projectionist Career | 30 min | Education and training pathways; Credential overview: Manufacturer training; Credential overview: Film handling training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Museum Technician Training: 10 hours, $89.99
+### Museum Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9276,7 +9276,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Museum Technician Career | 50 min | Education and training pathways; Credential overview: Museum studies certificate; Credential overview: Conservation master’s; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Music Director Training: 10 hours, $89.99
+### Music Director Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9291,7 +9291,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Music Director Career | 50 min | Education and training pathways; Credential overview: Music degree; Credential overview: Church music certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Musical Instrument Repairer Training: 10 hours, $89.99
+### Musical Instrument Repairer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9306,7 +9306,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Musical Instrument Repairer Career | 50 min | Education and training pathways; Credential overview: RPT; Credential overview: NAPBIRT training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Photo Lab Technician Training: 8 hours, $74.99
+### Photo Lab Technician Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9321,7 +9321,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Photo Lab Technician Career | 40 min | Education and training pathways; Credential overview: Photoshop certification; Credential overview: Color management training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Photographer Training: 10 hours, $89.99
+### Photographer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9336,7 +9336,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Photographer Career | 50 min | Education and training pathways; Credential overview: Certified Professional Photographer (CPP); Credential overview: FAA Part 107 Remote Pilot Certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Producer and Director Training: 10 hours, $89.99
+### Producer and Director Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9351,7 +9351,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Producer and Director Career | 50 min | Education and training pathways; Credential overview: Film degree; Credential overview: DGA membership; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Proofreader Training: 10 hours, $89.99
+### Proofreader Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9366,7 +9366,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Proofreader Career | 50 min | Education and training pathways; Credential overview: Proofreading certificate; Credential overview: Legal proofreading training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Public Relations Manager Training: 10 hours, $89.99
+### Public Relations Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9381,7 +9381,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Public Relations Manager Career | 50 min | Education and training pathways; Credential overview: APR; Credential overview: CFRE; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Public Relations Specialist Training: 10 hours, $89.99
+### Public Relations Specialist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9396,7 +9396,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Public Relations Specialist Career | 50 min | Education and training pathways; Credential overview: Accreditation in Public Relations (APR); Credential overview: Certificate in Principles of Public Relations; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Set Designer Training: 10 hours, $89.99
+### Set Designer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9411,7 +9411,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Set Designer Career | 50 min | Education and training pathways; Credential overview: BFA or MFA; Credential overview: USA 829 membership; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Sound Engineer Training: 10 hours, $89.99
+### Sound Engineer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9426,7 +9426,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Sound Engineer Career | 50 min | Education and training pathways; Credential overview: Avid Pro Tools certification; Credential overview: Audio engineering certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Talent Agent Training: 12 hours, $109.99
+### Talent Agent Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9441,7 +9441,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Talent Agent Career | 1 hr | Education and training pathways; Credential overview: Talent agency license; Credential overview: Sports agent certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Technical Writer Training: 10 hours, $89.99
+### Technical Writer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9456,7 +9456,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Technical Writer Career | 50 min | Education and training pathways; Credential overview: Certified Professional Technical Communicator (CPTC); Credential overview: Technical writing certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Video Editor Training: 10 hours, $89.99
+### Video Editor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9471,7 +9471,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Video Editor Career | 50 min | Education and training pathways; Credential overview: Avid Certified User; Credential overview: Adobe Certified Professional in Premiere Pro; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Writer Training: 10 hours, $89.99
+### Writer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9486,7 +9486,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Writer Career | 50 min | Education and training pathways; Credential overview: MFA in creative writing; Credential overview: Copywriting course; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Adult Education Teacher Training: 10 hours, $89.99
+### Adult Education Teacher Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9501,7 +9501,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Adult Education Teacher Career | 50 min | Education and training pathways; Credential overview: TESOL or TEFL certificate; Credential overview: State adult education credential; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Agricultural Sciences Professor Training: 10 hours, $89.99
+### Agricultural Sciences Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9516,7 +9516,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Agricultural Sciences Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in agricultural science; Credential overview: Certified Crop Adviser; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Anthropology Professor Training: 10 hours, $89.99
+### Anthropology Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9531,7 +9531,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Anthropology Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in anthropology; Credential overview: Register of Professional Archaeologists; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Architecture Professor Training: 10 hours, $89.99
+### Architecture Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9546,7 +9546,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Architecture Professor Career | 50 min | Education and training pathways; Credential overview: Architect license; Credential overview: NCARB certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Archivist Training: 10 hours, $89.99
+### Archivist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9561,7 +9561,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Archivist Career | 50 min | Education and training pathways; Credential overview: Certified Archivist; Credential overview: Digital Archives Specialist; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Art, Drama and Music Professor Training: 10 hours, $89.99
+### Art, Drama and Music Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9576,7 +9576,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Art, Drama and Music Professor Career | 50 min | Education and training pathways; Credential overview: MFA; Credential overview: DMA; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Biology Professor Training: 10 hours, $89.99
+### Biology Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9591,7 +9591,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Biology Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in biology; Credential overview: Postdoctoral training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Business Professor Training: 10 hours, $89.99
+### Business Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9606,7 +9606,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Business Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. or DBA; Credential overview: CPA or CFA; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Career and Technical Education Teacher Training: 12 hours, $109.99
+### Career and Technical Education Teacher Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9621,7 +9621,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Career and Technical Education Teacher Career | 1 hr | Education and training pathways; Credential overview: State CTE teaching license; Credential overview: Industry certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Chemistry Professor Training: 10 hours, $89.99
+### Chemistry Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9636,7 +9636,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Chemistry Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in chemistry; Credential overview: ACS membership; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Childcare Center Director Training: 10 hours, $89.99
+### Childcare Center Director Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9651,7 +9651,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Childcare Center Director Career | 50 min | Education and training pathways; Credential overview: National Administrator Credential (NAC); Credential overview: Child Development Associate (CDA); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Childcare Worker Training: 8 hours, $74.99
+### Childcare Worker Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9666,7 +9666,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Childcare Worker Career | 40 min | Education and training pathways; Credential overview: CPR and pediatric first aid; Credential overview: Child Development Associate (CDA); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### College Administrator Training: 10 hours, $89.99
+### College Administrator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9681,7 +9681,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your College Administrator Career | 50 min | Education and training pathways; Credential overview: Master’s in higher education; Credential overview: Ed.D. or Ph.D.; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Communications Professor Training: 10 hours, $89.99
+### Communications Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9696,7 +9696,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Communications Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in communication; Credential overview: Professional media experience; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Computer Science Professor Training: 10 hours, $89.99
+### Computer Science Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9711,7 +9711,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Computer Science Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in computer science; Credential overview: Industry certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Corporate Trainer Training: 10 hours, $89.99
+### Corporate Trainer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9726,7 +9726,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Corporate Trainer Career | 50 min | Education and training pathways; Credential overview: ATD Certified Professional in Talent Development (CPTD); Credential overview: ATD Associate Professional in Talent Development (APTD); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Criminal Justice Professor Training: 10 hours, $89.99
+### Criminal Justice Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9741,7 +9741,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Criminal Justice Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in criminology; Credential overview: Law enforcement experience; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Cultural Studies Professor Training: 10 hours, $89.99
+### Cultural Studies Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9756,7 +9756,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Cultural Studies Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D.; Credential overview: Language proficiency; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Earth Sciences Professor Training: 10 hours, $89.99
+### Earth Sciences Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9771,7 +9771,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Earth Sciences Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in earth science; Credential overview: Professional Geologist (PG); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Economics Professor Training: 10 hours, $89.99
+### Economics Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9786,7 +9786,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Economics Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in economics; Credential overview: Research grants; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Education Professor Training: 10 hours, $89.99
+### Education Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9801,7 +9801,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Education Professor Career | 50 min | Education and training pathways; Credential overview: Ed.D. or Ph.D.; Credential overview: Teaching license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Elementary School Teacher Training: 12 hours, $109.99
+### Elementary School Teacher Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9816,7 +9816,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Elementary School Teacher Career | 1 hr | Education and training pathways; Credential overview: State teaching license; Credential overview: Praxis or state exams; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Engineering Professor Training: 10 hours, $89.99
+### Engineering Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9831,7 +9831,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Engineering Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in engineering; Credential overview: PE license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### English Professor Training: 10 hours, $89.99
+### English Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9846,7 +9846,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your English Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in English; Credential overview: MFA in creative writing; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Environmental Science Professor Training: 10 hours, $89.99
+### Environmental Science Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9861,7 +9861,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Environmental Science Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in environmental science; Credential overview: Field safety training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Family and Consumer Sciences Professor Training: 10 hours, $89.99
+### Family and Consumer Sciences Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9876,7 +9876,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Family and Consumer Sciences Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D.; Credential overview: CFCS; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Foreign Language Professor Training: 10 hours, $89.99
+### Foreign Language Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9891,7 +9891,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Foreign Language Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in the language; Credential overview: ACTFL OPI tester certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Forestry and Conservation Professor Training: 10 hours, $89.99
+### Forestry and Conservation Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9906,7 +9906,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Forestry and Conservation Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in forestry or ecology; Credential overview: Certified Forester (SAF); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Geography Professor Training: 10 hours, $89.99
+### Geography Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9921,7 +9921,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Geography Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in geography; Credential overview: GISP; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Graduate Teaching Assistant Training: 10 hours, $89.99
+### Graduate Teaching Assistant Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9936,7 +9936,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Graduate Teaching Assistant Career | 50 min | Education and training pathways; Credential overview: TA training; Credential overview: Graduate teaching certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Health Sciences Professor Training: 12 hours, $109.99
+### Health Sciences Professor Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9951,7 +9951,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Health Sciences Professor Career | 1 hr | Education and training pathways; Credential overview: Professional license; Credential overview: Board certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### High School Special Education Teacher Training: 12 hours, $109.99
+### High School Special Education Teacher Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9966,7 +9966,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your High School Special Education Teacher Career | 1 hr | Education and training pathways; Credential overview: State special education license; Credential overview: Content endorsement; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### High School Teacher Training: 12 hours, $109.99
+### High School Teacher Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9981,7 +9981,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your High School Teacher Career | 1 hr | Education and training pathways; Credential overview: State teaching license; Credential overview: Subject endorsement; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### History Professor Training: 10 hours, $89.99
+### History Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -9996,7 +9996,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your History Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in history; Credential overview: Language skills; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Instructional Coordinator Training: 10 hours, $89.99
+### Instructional Coordinator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10011,7 +10011,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Instructional Coordinator Career | 50 min | Education and training pathways; Credential overview: State administrator or curriculum license; Credential overview: Teaching license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Kindergarten Teacher Training: 12 hours, $109.99
+### Kindergarten Teacher Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10026,7 +10026,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Kindergarten Teacher Career | 1 hr | Education and training pathways; Credential overview: State teaching license; Credential overview: Praxis or state teacher exams; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Law Professor Training: 12 hours, $109.99
+### Law Professor Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10041,7 +10041,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Law Professor Career | 1 hr | Education and training pathways; Credential overview: J.D.; Credential overview: Bar admission; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Librarian Training: 10 hours, $89.99
+### Librarian Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10056,7 +10056,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Librarian Career | 50 min | Education and training pathways; Credential overview: MLS or MLIS degree; Credential overview: School library media certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Library Assistant Training: 8 hours, $74.99
+### Library Assistant Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10071,7 +10071,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Library Assistant Career | 40 min | Education and training pathways; Credential overview: Library support staff certificate; Credential overview: Customer service training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Library Science Professor Training: 10 hours, $89.99
+### Library Science Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10086,7 +10086,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Library Science Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in library or information science; Credential overview: ALA-accredited MLIS; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Library Technician Training: 10 hours, $89.99
+### Library Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10101,7 +10101,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Library Technician Career | 50 min | Education and training pathways; Credential overview: ALA Library Support Staff Certification (LSSC); Credential overview: Library technology certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Math Professor Training: 10 hours, $89.99
+### Math Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10116,7 +10116,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Math Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in mathematics; Credential overview: Master’s in mathematics; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Middle School CTE Teacher Training: 12 hours, $109.99
+### Middle School CTE Teacher Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10131,7 +10131,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Middle School CTE Teacher Career | 1 hr | Education and training pathways; Credential overview: State teaching license; Credential overview: Industry credential; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Middle School Special Education Teacher Training: 12 hours, $109.99
+### Middle School Special Education Teacher Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10146,7 +10146,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Middle School Special Education Teacher Career | 1 hr | Education and training pathways; Credential overview: State special education license; Credential overview: Content endorsement; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Middle School Teacher Training: 12 hours, $109.99
+### Middle School Teacher Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10161,7 +10161,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Middle School Teacher Career | 1 hr | Education and training pathways; Credential overview: State teaching license; Credential overview: Subject endorsement; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Nursing Instructor Training: 12 hours, $109.99
+### Nursing Instructor Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10176,7 +10176,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Nursing Instructor Career | 1 hr | Education and training pathways; Credential overview: RN license; Credential overview: Certified Nurse Educator (CNE); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Philosophy and Religion Professor Training: 10 hours, $89.99
+### Philosophy and Religion Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10191,7 +10191,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Philosophy and Religion Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D.; Credential overview: Language skills; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Physics Professor Training: 10 hours, $89.99
+### Physics Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10206,7 +10206,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Physics Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in physics; Credential overview: Postdoctoral research; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Political Science Professor Training: 10 hours, $89.99
+### Political Science Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10221,7 +10221,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Political Science Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in political science; Credential overview: Research grants; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Postsecondary CTE Instructor Training: 10 hours, $89.99
+### Postsecondary CTE Instructor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10236,7 +10236,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Postsecondary CTE Instructor Career | 50 min | Education and training pathways; Credential overview: Industry certification; Credential overview: State CTE teaching credential; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Preschool Special Education Teacher Training: 12 hours, $109.99
+### Preschool Special Education Teacher Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10251,7 +10251,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Preschool Special Education Teacher Career | 1 hr | Education and training pathways; Credential overview: State special education license; Credential overview: CPR and first aid; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Preschool Teacher Training: 10 hours, $89.99
+### Preschool Teacher Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10266,7 +10266,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Preschool Teacher Career | 50 min | Education and training pathways; Credential overview: Child Development Associate (CDA); Credential overview: State early childhood teacher license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Psychology Professor Training: 10 hours, $89.99
+### Psychology Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10281,7 +10281,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Psychology Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in psychology; Credential overview: Licensed psychologist; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Recreation and Fitness Professor Training: 10 hours, $89.99
+### Recreation and Fitness Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10296,7 +10296,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Recreation and Fitness Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in kinesiology; Credential overview: ACSM certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### School Counselor Training: 12 hours, $109.99
+### School Counselor Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10311,7 +10311,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your School Counselor Career | 1 hr | Education and training pathways; Credential overview: State school counselor certification; Credential overview: National Certified Counselor (NCC); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### School Principal Training: 12 hours, $109.99
+### School Principal Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10326,7 +10326,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your School Principal Career | 1 hr | Education and training pathways; Credential overview: State administrator license; Credential overview: Master’s in educational leadership; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### School Psychologist Training: 12 hours, $109.99
+### School Psychologist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10341,7 +10341,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your School Psychologist Career | 1 hr | Education and training pathways; Credential overview: State school psychologist credential; Credential overview: NCSP; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Self-Enrichment Teacher Training: 10 hours, $89.99
+### Self-Enrichment Teacher Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10356,7 +10356,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Self-Enrichment Teacher Career | 50 min | Education and training pathways; Credential overview: Subject certification; Credential overview: CPR and first aid; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Social Work Professor Training: 10 hours, $89.99
+### Social Work Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10371,7 +10371,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Social Work Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. or DSW; Credential overview: MSW; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Sociology Professor Training: 10 hours, $89.99
+### Sociology Professor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10386,7 +10386,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Sociology Professor Career | 50 min | Education and training pathways; Credential overview: Ph.D. in sociology; Credential overview: IRB training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Special Education Teacher Training: 12 hours, $109.99
+### Special Education Teacher Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10401,7 +10401,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Special Education Teacher Career | 1 hr | Education and training pathways; Credential overview: State special education license; Credential overview: Praxis special education exams; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Substitute Teacher Training: 10 hours, $89.99
+### Substitute Teacher Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10416,7 +10416,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Substitute Teacher Career | 50 min | Education and training pathways; Credential overview: State substitute teaching permit; Credential overview: Background check and fingerprints; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Teacher Assistant Training: 10 hours, $89.99
+### Teacher Assistant Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10431,7 +10431,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Teacher Assistant Career | 50 min | Education and training pathways; Credential overview: ParaPro Assessment; Credential overview: State paraprofessional certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Tutor Training: 10 hours, $89.99
+### Tutor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10446,7 +10446,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Tutor Career | 50 min | Education and training pathways; Credential overview: CRLA tutor certification; Credential overview: National Tutoring Association certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Community Health Worker Training: 8 hours, $74.99
+### Community Health Worker Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10461,7 +10461,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Community Health Worker Career | 40 min | Education and training pathways; Credential overview: State CHW certification; Credential overview: Certified Application Counselor; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Court Clerk Training: 10 hours, $89.99
+### Court Clerk Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10476,7 +10476,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Court Clerk Career | 50 min | Education and training pathways; Credential overview: Certified Municipal Clerk (CMC); Credential overview: Certified Court Manager; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Eligibility Interviewer Training: 10 hours, $89.99
+### Eligibility Interviewer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10491,7 +10491,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Eligibility Interviewer Career | 50 min | Education and training pathways; Credential overview: Agency eligibility training; Credential overview: Certified Application Counselor; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Fundraiser Training: 10 hours, $89.99
+### Fundraiser Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10506,7 +10506,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Fundraiser Career | 50 min | Education and training pathways; Credential overview: Certified Fund Raising Executive (CFRE); Credential overview: Grant Professional Certified (GPC); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Health Educator Training: 10 hours, $89.99
+### Health Educator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10521,7 +10521,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Health Educator Career | 50 min | Education and training pathways; Credential overview: Certified Health Education Specialist (CHES); Credential overview: Master Certified Health Education Specialist (MCHES); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Healthcare Social Worker Training: 12 hours, $109.99
+### Healthcare Social Worker Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10536,7 +10536,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Healthcare Social Worker Career | 1 hr | Education and training pathways; Credential overview: Licensed Master Social Worker (LMSW); Credential overview: Licensed Clinical Social Worker (LCSW); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Human Services Assistant Training: 8 hours, $74.99
+### Human Services Assistant Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10551,7 +10551,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Human Services Assistant Career | 40 min | Education and training pathways; Credential overview: Human Services Board Certified Practitioner (HS-BCP); Credential overview: Mental Health First Aid; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Marriage and Family Therapist Training: 12 hours, $109.99
+### Marriage and Family Therapist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10566,7 +10566,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Marriage and Family Therapist Career | 1 hr | Education and training pathways; Credential overview: Licensed Marriage and Family Therapist (LMFT); Credential overview: AMFTRB national exam; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Mediator Training: 10 hours, $89.99
+### Mediator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10581,7 +10581,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Mediator Career | 50 min | Education and training pathways; Credential overview: Basic mediation training (40 hours); Credential overview: State court mediator certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Psychiatric Technician Training: 10 hours, $89.99
+### Psychiatric Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10596,7 +10596,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Psychiatric Technician Career | 50 min | Education and training pathways; Credential overview: State psychiatric technician license; Credential overview: Crisis Prevention Institute (CPI) certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Rehabilitation Counselor Training: 10 hours, $89.99
+### Rehabilitation Counselor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10611,7 +10611,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Rehabilitation Counselor Career | 50 min | Education and training pathways; Credential overview: Certified Rehabilitation Counselor (CRC); Credential overview: Licensed Professional Counselor (LPC); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Residential Advisor Training: 8 hours, $74.99
+### Residential Advisor Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10626,7 +10626,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Residential Advisor Career | 40 min | Education and training pathways; Credential overview: Medication administration certification; Credential overview: CPR and first aid; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Social and Community Service Manager Training: 10 hours, $89.99
+### Social and Community Service Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10641,7 +10641,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Social and Community Service Manager Career | 50 min | Education and training pathways; Credential overview: Certified Nonprofit Professional (CNP); Credential overview: Project Management Professional (PMP); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Social Worker Training: 12 hours, $109.99
+### Social Worker Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10656,7 +10656,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Social Worker Career | 1 hr | Education and training pathways; Credential overview: Licensed Baccalaureate Social Worker (LBSW); Credential overview: Licensed Master Social Worker (LMSW); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Substance Abuse Counselor Training: 12 hours, $109.99
+### Substance Abuse Counselor Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10671,7 +10671,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Substance Abuse Counselor Career | 1 hr | Education and training pathways; Credential overview: Licensed Professional Counselor (LPC/LMHC); Credential overview: Certified Alcohol and Drug Counselor (CADC); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Tax Examiner Training: 10 hours, $89.99
+### Tax Examiner Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10686,7 +10686,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Tax Examiner Career | 50 min | Education and training pathways; Credential overview: Certified Public Accountant (CPA); Credential overview: Enrolled Agent (EA); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Urban Planner Training: 12 hours, $109.99
+### Urban Planner Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10701,7 +10701,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Urban Planner Career | 1 hr | Education and training pathways; Credential overview: AICP certification; Credential overview: GIS certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Athletic Trainer Training: 12 hours, $109.99
+### Athletic Trainer Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10716,7 +10716,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Athletic Trainer Career | 1 hr | Education and training pathways; Credential overview: BOC Certified Athletic Trainer (ATC); Credential overview: State athletic trainer license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Barber Training: 10 hours, $89.99
+### Barber Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10731,7 +10731,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Barber Career | 50 min | Education and training pathways; Credential overview: State barber license; Credential overview: Master barber license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Cosmetologist Training: 10 hours, $89.99
+### Cosmetologist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10746,7 +10746,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Cosmetologist Career | 50 min | Education and training pathways; Credential overview: State cosmetology license; Credential overview: NIC exam; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Dietitian Training: 12 hours, $109.99
+### Dietitian Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10761,7 +10761,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Dietitian Career | 1 hr | Education and training pathways; Credential overview: Registered Dietitian Nutritionist (RDN); Credential overview: State dietitian license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Embalmer Training: 10 hours, $89.99
+### Embalmer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10776,7 +10776,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Embalmer Career | 50 min | Education and training pathways; Credential overview: State embalmer license; Credential overview: National Board Exam; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Esthetician Training: 10 hours, $89.99
+### Esthetician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10791,7 +10791,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Esthetician Career | 50 min | Education and training pathways; Credential overview: State esthetician license; Credential overview: Master esthetician license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Exercise Physiologist Training: 10 hours, $89.99
+### Exercise Physiologist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10806,7 +10806,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Exercise Physiologist Career | 50 min | Education and training pathways; Credential overview: ACSM Certified Exercise Physiologist (ACSM-EP); Credential overview: ACSM Certified Clinical Exercise Physiologist (ACSM-CEP); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Funeral Director Training: 10 hours, $89.99
+### Funeral Director Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10821,7 +10821,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Funeral Director Career | 50 min | Education and training pathways; Credential overview: State funeral director license; Credential overview: National Board Exam; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Makeup Artist Training: 10 hours, $89.99
+### Makeup Artist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10836,7 +10836,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Makeup Artist Career | 50 min | Education and training pathways; Credential overview: Cosmetology or esthetics license; Credential overview: Makeup school certificate; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Massage Therapist Training: 10 hours, $89.99
+### Massage Therapist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10851,7 +10851,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Massage Therapist Career | 50 min | Education and training pathways; Credential overview: State massage therapy license; Credential overview: MBLEx; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Nail Technician Training: 10 hours, $89.99
+### Nail Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10866,7 +10866,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Nail Technician Career | 50 min | Education and training pathways; Credential overview: State nail technician license; Credential overview: Gel and acrylic certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Personal Trainer Training: 10 hours, $89.99
+### Personal Trainer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10881,7 +10881,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Personal Trainer Career | 50 min | Education and training pathways; Credential overview: NCCA-accredited personal trainer certification; Credential overview: CPR/AED; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Recreation Worker Training: 8 hours, $74.99
+### Recreation Worker Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10896,7 +10896,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Recreation Worker Career | 40 min | Education and training pathways; Credential overview: CPR and first aid; Credential overview: Certified Park and Recreation Professional (CPRP); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Recreational Therapist Training: 12 hours, $109.99
+### Recreational Therapist Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10911,7 +10911,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Recreational Therapist Career | 1 hr | Education and training pathways; Credential overview: Certified Therapeutic Recreation Specialist (CTRS); Credential overview: State license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Salon Manager Training: 10 hours, $89.99
+### Salon Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10926,7 +10926,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Salon Manager Career | 50 min | Education and training pathways; Credential overview: Cosmetology or esthetics license; Credential overview: Salon management training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Sports Coach Training: 10 hours, $89.99
+### Sports Coach Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10941,7 +10941,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Sports Coach Career | 50 min | Education and training pathways; Credential overview: NFHS coaching certifications; Credential overview: First aid, CPR and AED; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Sports Official Training: 8 hours, $74.99
+### Sports Official Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10956,7 +10956,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Sports Official Career | 40 min | Education and training pathways; Credential overview: State association officiating registration; Credential overview: Rules exams; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Tailor Training: 8 hours, $74.99
+### Tailor Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10971,7 +10971,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Tailor Career | 40 min | Education and training pathways; Credential overview: Sewing and tailoring courses; Credential overview: Fashion design classes; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Agricultural Engineer Training: 10 hours, $89.99
+### Agricultural Engineer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -10986,7 +10986,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Agricultural Engineer Career | 50 min | Education and training pathways; Credential overview: PE license; Credential overview: Certified Irrigation Designer; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Agricultural Equipment Operator Training: 6 hours, $59.99
+### Agricultural Equipment Operator Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11001,7 +11001,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Agricultural Equipment Operator Career | 30 min | Education and training pathways; Credential overview: Commercial pesticide applicator license; Credential overview: CDL; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Agricultural Inspector Training: 10 hours, $89.99
+### Agricultural Inspector Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11016,7 +11016,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Agricultural Inspector Career | 50 min | Education and training pathways; Credential overview: USDA FSIS inspector training; Credential overview: HACCP certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Agricultural Technician Training: 10 hours, $89.99
+### Agricultural Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11031,7 +11031,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Agricultural Technician Career | 50 min | Education and training pathways; Credential overview: Certified Crop Adviser (CCA); Credential overview: Pesticide applicator license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Animal Caretaker Training: 8 hours, $74.99
+### Animal Caretaker Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11046,7 +11046,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Animal Caretaker Career | 40 min | Education and training pathways; Credential overview: National Dog Groomers Association certification; Credential overview: Fear Free certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Animal Scientist Training: 10 hours, $89.99
+### Animal Scientist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11061,7 +11061,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Animal Scientist Career | 50 min | Education and training pathways; Credential overview: PAS; Credential overview: Master’s or Ph.D.; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Animal Trainer Training: 10 hours, $89.99
+### Animal Trainer Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11076,7 +11076,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Animal Trainer Career | 50 min | Education and training pathways; Credential overview: Certified Professional Dog Trainer (CPDT-KA); Credential overview: Karen Pryor Academy certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Arborist Training: 8 hours, $74.99
+### Arborist Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11091,7 +11091,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Arborist Career | 40 min | Education and training pathways; Credential overview: ISA Certified Arborist; Credential overview: ISA Certified Tree Worker/Climber Specialist; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Extension Educator Training: 10 hours, $89.99
+### Extension Educator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11106,7 +11106,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Extension Educator Career | 50 min | Education and training pathways; Credential overview: Master’s degree; Credential overview: Pesticide applicator license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Farm Equipment Mechanic Training: 10 hours, $89.99
+### Farm Equipment Mechanic Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11121,7 +11121,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Farm Equipment Mechanic Career | 50 min | Education and training pathways; Credential overview: Dealer technician programs; Credential overview: Manufacturer certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Farm Labor Contractor Training: 8 hours, $74.99
+### Farm Labor Contractor Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11136,7 +11136,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Farm Labor Contractor Career | 40 min | Education and training pathways; Credential overview: DOL farm labor contractor registration; Credential overview: State FLC license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Farm Manager Training: 10 hours, $89.99
+### Farm Manager Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11151,7 +11151,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Farm Manager Career | 50 min | Education and training pathways; Credential overview: Private pesticide applicator license; Credential overview: Beef Quality Assurance (BQA); Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Farmworker Training: 6 hours, $59.99
+### Farmworker Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11166,7 +11166,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Farmworker Career | 30 min | Education and training pathways; Credential overview: Worker Protection Standard training; Credential overview: Heat illness prevention training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Forest and Conservation Worker Training: 8 hours, $74.99
+### Forest and Conservation Worker Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11181,7 +11181,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Forest and Conservation Worker Career | 40 min | Education and training pathways; Credential overview: Sawyer certification; Credential overview: Wilderness first aid; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Forester Training: 12 hours, $109.99
+### Forester Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11196,7 +11196,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Forester Career | 1 hr | Education and training pathways; Credential overview: SAF Certified Forester; Credential overview: State forester license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Landscape Architect Training: 12 hours, $109.99
+### Landscape Architect Training: 12 hours, $89.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11211,7 +11211,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Landscape Architect Career | 1 hr | Education and training pathways; Credential overview: State landscape architect license; Credential overview: LARE; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 1 hr | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Landscaper Training: 6 hours, $59.99
+### Landscaper Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11226,7 +11226,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Landscaper Career | 30 min | Education and training pathways; Credential overview: NALP Landscape Industry Certified Technician; Credential overview: Pesticide applicator license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Landscaping Supervisor Training: 10 hours, $89.99
+### Landscaping Supervisor Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11241,7 +11241,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Landscaping Supervisor Career | 50 min | Education and training pathways; Credential overview: NALP Landscape Industry Certified Manager; Credential overview: Pesticide applicator license; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Logging Equipment Operator Training: 10 hours, $89.99
+### Logging Equipment Operator Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11256,7 +11256,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Logging Equipment Operator Career | 50 min | Education and training pathways; Credential overview: Logger safety training programs; Credential overview: SFI logger training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Pesticide Applicator Training: 8 hours, $74.99
+### Pesticide Applicator Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11271,7 +11271,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Pesticide Applicator Career | 40 min | Education and training pathways; Credential overview: State commercial applicator license; Credential overview: Category certifications; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Ranch Hand Training: 6 hours, $59.99
+### Ranch Hand Training: 6 hours, $49.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11286,7 +11286,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Ranch Hand Career | 30 min | Education and training pathways; Credential overview: Beef Quality Assurance (BQA); Credential overview: Dairy Farmers of America training; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 30 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Soil and Plant Scientist Training: 10 hours, $89.99
+### Soil and Plant Scientist Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11301,7 +11301,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Soil and Plant Scientist Career | 50 min | Education and training pathways; Credential overview: CCA; Credential overview: CPSS; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 50 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Veterinary Assistant Training: 8 hours, $74.99
+### Veterinary Assistant Training: 8 hours, $59.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
@@ -11316,7 +11316,7 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 | 9 | Launching Your Veterinary Assistant Career | 40 min | Education and training pathways; Credential overview: NAVTA Approved Veterinary Assistant (AVA); Credential overview: Fear Free certification; Resume and interview preparation; Your first 90 days on the job |
 | 10 | Final Knowledge Check | 40 min | Comprehensive practice exam with explanations; Certificate of completion on passing |
 
-### Veterinary Technician Training: 10 hours, $89.99
+### Veterinary Technician Training: 10 hours, $74.99
 
 | # | Module | Time | Lessons |
 |---|---|---|---|
