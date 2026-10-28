@@ -47,8 +47,8 @@ also writes `/assets/shell.json` (header, footer, stylesheet) for the blog, show
 (from the blog's `posts.json`) and site search merges the blog's `search-index.json`.
 
 ## Pricing and course length
-Job-title trainings are priced by length: 6 hours $59.99, 8 hours $74.99, 10 hours $89.99, 12 hours $109.99,
-14 hours $129.99. Each course splits into 10 timed modules. **COURSE-SPECS.md** lists every training's
+Job-title trainings are priced by length: 6 hours $49.99, 8 hours $59.99, 10 hours $74.99, 12 hours $89.99,
+14 hours $99.99. Each course splits into 10 timed modules. **COURSE-SPECS.md** lists every training's
 length, price and module plan for the course builders. Regenerate it with `npm run course-specs`.
 
 Provider courses use the provider's own price, because the provider LMS charges by course id.
