@@ -41,7 +41,7 @@ function menu() {
     { label: 'Training', match: ['/training/', '/enroll/', '/subscriptions/', '/checkout/', '/cart/'], cols: [
       { h: 'Job-title training', links: [[`Search all ${countLabel(G.careers.length)} trainings`, '/training/'], ['Subscriptions', '/subscriptions/'], ['How it works', '/how-it-works/'], ['Enroll', '/enroll/'], ['Not sure? Career Match Quiz', '/quizzes/career-match/']] },
       { h: 'Popular trainings', links: popularTraining.map((c) => [`${c.title} Training`, c.trainingUrl]) },
-      { h: 'Instant access', links: buyOnline.map((c) => [c.title, c.url]).concat([['Every training is under $50', '/training/']]) }] },
+      { h: 'Instant access', links: buyOnline.map((c) => [c.title, c.url]).concat([['All job-title trainings', '/training/']]) }] },
     { label: 'Quizzes', match: ['/quizzes/'], cols: [
       { h: 'Find your fit', links: [['Career Match Quiz', '/quizzes/career-match/'], ['Work Style Quiz', '/quizzes/work-style/'], ['College or Trade School?', '/quizzes/college-or-trade-school/'], ['Career Change Readiness', '/quizzes/career-change-readiness/']] },
       { h: 'Quizzes by field', links: [[`${G.categories.length} career field quizzes`, '/quizzes/#field-quizzes'], ...['healthcare', 'skilled-trades', 'technology'].map((k) => G.categories.find((c) => c.slug === k)).filter(Boolean).map((c) => [`${c.short || c.name} quiz`, `/quizzes/which-${c.slug}-career-is-right-for-me/`])] },

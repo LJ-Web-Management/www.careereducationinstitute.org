@@ -734,9 +734,9 @@ These job titles are covered by a complete HAZWOPER-OSHA.com course sold through
 
 | Job title | Course | Hours | Price | LMS course id |
 |---|---|---|---|---|
-| Forklift Operator | Forklift Operator Training | 4 | $34.99 | 248 |
-| Flagger | Flagger Training | 4 | $39.99 | 535 |
-| Mold Inspector | Mold Inspector Training | 6 | $49.99 | 237 |
+| Forklift Operator | Forklift Operator Training | 4 | $59.99 | 248 |
+| Flagger | Flagger Training | 4 | $89.99 | 535 |
+| Mold Inspector | Mold Inspector Training | 6 | $329.99 | 237 |
 
 ## Module plans
 

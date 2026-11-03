@@ -14,7 +14,7 @@ guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The b
 |---|---|
 | 700+ career hubs in 17 fields | Overview, day in the life, salary, how to become, skills, glossary, how-to index plus 3 step-by-step task pages, interview questions, FAQ, fit quiz |
 | 700+ job-title trainings | Course page with price, length, timed syllabus and enrollment form, plus a free practice test. Truck driver, forklift operator and flagger point to the matching provider course instead |
-| 3 checkout trainings | Forklift operator, flagger and mold inspector training from HAZWOPER-OSHA.com, named and listed like every other training under `/training/` with a Buy now button. Old `/courses/` links redirect (`movedFrom` in `src/data/partner-selection.mjs`); their site prices are set there and must match the LMS |
+| 3 checkout trainings | Forklift operator, flagger and mold inspector training from HAZWOPER-OSHA.com, named and listed like every other training under `/training/` with a Buy now button. Old `/courses/` links redirect (`movedFrom` in `src/data/partner-selection.mjs`). Prices come from the provider catalog, the same as on HAZWOPER-OSHA.com |
 | Subscriptions | `/subscriptions/` (seat plans for individuals and groups) and `/for-workforce-programs/` (program seats): monthly, yearly or decade billing, 3% yearly loyalty discount up to 15%, quoted by email, no published prices. Settings in `site.config.mjs → subscriptions` |
 | Checkout | `/checkout/?course=<slug>`: Stripe card payment and enrollment in the provider LMS |
 | Comparisons | About 2,200 "X vs. Y" career comparisons, plus a comparison hub for each field |
@@ -48,7 +48,7 @@ also writes `/assets/shell.json` (header, footer, stylesheet) for the blog, show
 (from the blog's `posts.json`) and site search merges the blog's `search-index.json`.
 
 ## Pricing and course length
-Every training is priced under $50, by length: 6 hours $29.99, 8 hours $34.99, 10 hours $39.99, 12 hours $44.99,
+Job-title trainings are priced under $50, by length: 6 hours $29.99, 8 hours $34.99, 10 hours $39.99, 12 hours $44.99,
 14 hours $49.99. Each course splits into 10 timed modules. **COURSE-SPECS.md** lists every training's
 length, price and module plan for the course builders. Regenerate it with `npm run course-specs`.
 
