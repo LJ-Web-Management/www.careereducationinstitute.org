@@ -205,12 +205,12 @@
       if (!res.ok || od.success === false || od.error) return fail(msgOf(od.error || od) || 'Your order could not be placed. Please try again or call ' + D.phone + ' and we will help you finish enrolling.');
       if (od.order_id || od.id) orderRef = '#' + (od.order_id || od.id);
       if (od.clientSecret) {
-        // The LMS sets the amount. With a code, stop rather than charge more than the page shows.
-        if (applied) {
-          var pi = await stripe.retrievePaymentIntent(od.clientSecret);
-          var cents = pi.paymentIntent && pi.paymentIntent.amount;
-          if (cents && cents > Math.round(r.pay * 100) + 1) return fail('Your discount code could not be applied to this order, so your card was not charged. Remove the code to pay ' + fmt(cents / 100) + ', or call ' + D.phone + ' and we will help.');
-        }
+        // The LMS sets the amount. Never charge more than the page shows.
+        var pi = await stripe.retrievePaymentIntent(od.clientSecret);
+        var cents = pi.paymentIntent && pi.paymentIntent.amount;
+        if (cents && cents > Math.round(r.pay * 100) + 1) return fail(applied
+          ? 'Your discount code could not be applied to this order, so your card was not charged. Remove the code to pay ' + fmt(cents / 100) + ', or call ' + D.phone + ' and we will help.'
+          : 'We could not confirm the price for this order, so your card was not charged. Please call ' + D.phone + ' and we will help you finish enrolling.');
         var cf = await stripe.confirmCardPayment(od.clientSecret, { payment_method: pm.paymentMethod.id });
         if (cf.error) return fail(msgOf(cf.error));
       }

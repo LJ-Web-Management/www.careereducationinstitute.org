@@ -83,7 +83,8 @@ for (const f of htmlFiles) {
     }
   }
   const size = Buffer.byteLength(html);
-  if (size > 300_000) warn(rel, `large HTML (${Math.round(size / 1024)} KB)`);
+  // The training catalog lists every training on one searchable page (about 50 KB gzipped), so it gets a higher limit.
+  if (size > (rel === base + '/training/' ? 500_000 : 300_000)) warn(rel, `large HTML (${Math.round(size / 1024)} KB)`);
 }
 
 for (const [t, list] of titles) if (list.length > 1) err(list.join(', '), `duplicate title “${t}”`);

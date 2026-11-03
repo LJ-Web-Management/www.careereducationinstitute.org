@@ -99,7 +99,7 @@ export async function writeImages({ DIST, ROOT, careers, categories }) {
   const fixed = [
     ['default', 'Find the career that fits, then train for it', 'Career training by job title', `${countLabel(careers.length)} careers · Free quizzes · Salary data · U.S.-focused`],
     ['training', 'Online career training by job title', 'Training catalog', 'Self-paced · Practical · Certificate of completion'],
-    ['courses', 'Job-title courses to buy online', 'CDL ELDT, forklift, flagger, mold inspector', 'Buy online · Self-paced · Volume pricing'],
+    ['courses', 'Job-title training', 'Forklift, flagger, mold inspector and more', 'Buy online · Self-paced · Under $50'],
     ['compare', 'Compare careers side by side', 'Career comparison', 'Pay · Training time · Job growth · Daily duties'],
     ['quiz', 'Free career quizzes', 'Quizzes', 'Career Match · College vs. Trade School · Career Change'],
     ['guides', 'Career guides for every stage', 'Guides', 'Students · Career changers · Working professionals'],

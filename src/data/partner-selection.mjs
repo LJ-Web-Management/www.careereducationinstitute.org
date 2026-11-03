@@ -1,23 +1,28 @@
-// HAZWOPER-OSHA.com courses sold on Career Education Institute (checkout sends the LMS course id).
-// Only courses that are the complete training for a job title belong here, the way CDL ELDT Class A
-// is the training for a truck driver. Topic, regulation, supervisor, competent person, endorsement
-// and refresher courses are left out.
-// Run `npm run update-partner-courses` after editing this list to refresh prices and details.
+// Job-title courses sold through the online checkout (checkout sends the LMS course id). They are listed and
+// named exactly like every other job-title training ("Forklift Operator Training") and live under /training/.
+// Only courses that are the complete training for a job title belong here. Topic, regulation, supervisor,
+// competent person, endorsement and refresher courses are left out.
+// Run `npm run update-partner-courses` after editing this list to refresh details.
 
-// slug: our page URL (/courses/<slug>/). job: the job title the course trains for. field: career field (categories.mjs). career: matching career profile, if there is one.
+// slug: page URL (/training/<slug>/); for a course with a matching career it is the career's training page.
+// job: the job title the course trains for. field: career field (categories.mjs). career: matching career profile, if any.
+// price: the price shown on the site (every course is under $50). The LMS must charge the same price for the course id:
+// checkout stops before charging if the LMS asks for more than the page shows.
 export const selection = [
-  { id: 304, slug: 'cdl-eldt-class-a', job: 'Truck Driver (Class A CDL)', field: 'transportation-and-logistics', career: 'truck-driver' },
-  { id: 309, slug: 'cdl-eldt-class-b', job: 'Class B CDL Driver', field: 'transportation-and-logistics', career: 'truck-driver' },
-  { id: 248, slug: 'forklift-operator-training', job: 'Forklift Operator', field: 'transportation-and-logistics', career: 'forklift-operator' },
-  { id: 535, slug: 'flagger-certification', job: 'Flagger', field: 'skilled-trades', career: 'flagger' },
-  { id: 237, slug: 'mold-inspector-certification', job: 'Mold Inspector', field: 'safety-and-environmental' }
+  { id: 248, slug: 'forklift-operator', job: 'Forklift Operator', field: 'transportation-and-logistics', career: 'forklift-operator', price: 34.99 },
+  { id: 535, slug: 'flagger', job: 'Flagger', field: 'skilled-trades', career: 'flagger', price: 39.99 },
+  { id: 237, slug: 'mold-inspector', job: 'Mold Inspector', field: 'safety-and-environmental', price: 49.99 }
 ];
 
-// Careers whose job-title training is the matching provider course.
-export const replaceTraining = { 'truck-driver': 304, 'forklift-operator': 248, flagger: 535 };
+// Careers whose job-title training is the matching checkout course.
+export const replaceTraining = { 'forklift-operator': 248, flagger: 535 };
 
-// Short display names used in menus, tables, buy boxes and page titles.
-export const shortNames = {
-  304: 'CDL ELDT Class A', 309: 'CDL ELDT Class B', 248: 'Forklift Operator Training',
-  535: 'Flagger Certification', 237: 'Mold Inspector Certification'
+// Old addresses of these courses, sent on to the new pages.
+export const movedFrom = {
+  '/courses/': '/training/',
+  '/courses/forklift-operator-training/': '/training/forklift-operator/',
+  '/courses/flagger-certification/': '/training/flagger/',
+  '/courses/mold-inspector-certification/': '/training/mold-inspector/',
+  '/courses/cdl-eldt-class-a/': '/training/truck-driver/',
+  '/courses/cdl-eldt-class-b/': '/training/truck-driver/'
 };

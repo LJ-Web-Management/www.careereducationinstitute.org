@@ -72,6 +72,31 @@
     f.addEventListener('submit', function (e) { e.preventDefault(); run(); });
   }
 
+  // Training catalog search: filters the rows already on the page by name, other job titles and field.
+  var cs = d.querySelector('[data-catalog-search]'), cat = d.querySelector('[data-catalog]');
+  if (cs && cat) {
+    var groups = [].slice.call(cat.querySelectorAll('.tl-group')), cnt = d.querySelector('[data-catalog-count]'), empty = cat.querySelector('[data-catalog-empty]'), jump = cat.querySelector('.tl-jump');
+    var filter = function () {
+      var words = (cs.q.value || '').toLowerCase().trim().split(/\s+/).filter(Boolean), field = cs.cat.value, shown = 0;
+      groups.forEach(function (g) {
+        var n = 0;
+        if (field && g.getAttribute('data-cat') !== field) { g.hidden = true; return; }
+        [].forEach.call(g.querySelectorAll('.tl-list>li'), function (r) {
+          var k = r.querySelector('a').textContent.toLowerCase() + ' ' + (r.getAttribute('data-k') || ''), ok = words.every(function (w) { return k.indexOf(w) > -1; });
+          r.hidden = !ok; if (ok) n++;
+        });
+        g.hidden = !n; shown += n;
+        var gc = g.querySelector('[data-group-count]'); if (gc) gc.textContent = n + (n === 1 ? ' training' : ' trainings');
+      });
+      if (cnt) cnt.textContent = shown + (shown === 1 ? ' training' : ' trainings') + (words.length || field ? ' match' + (shown === 1 ? 'es' : '') : '');
+      if (empty) empty.hidden = shown > 0;
+      if (jump) jump.hidden = !!(words.length || field);
+    };
+    cs.addEventListener('input', filter); cs.addEventListener('change', filter);
+    cs.addEventListener('submit', function (e) { e.preventDefault(); filter(); var first = cat.querySelector('.tl-list>li:not([hidden]) a'); if (first) first.focus(); });
+    var q0 = new URLSearchParams(location.search).get('q'); if (q0) { cs.q.value = q0; filter(); }
+  }
+
   // Sortable tables
   [].forEach.call(d.querySelectorAll('table[data-sortable]'), function (t) {
     [].forEach.call(t.querySelectorAll('th[data-sort]'), function (th, i) {
@@ -111,13 +136,20 @@
   };
   MP.cart.badge();
   addEventListener('storage', function (e) { if (e.key === CART_KEY) { MP.cart.badge(); d.dispatchEvent(new CustomEvent('cart:change')); } });
-  // "Add to cart" buttons carry the item as JSON in data-add-cart
+  // "Add to cart" buttons carry the item as JSON in data-add-cart; training catalog rows carry it in data-c and the row
   d.addEventListener('click', function (e) {
-    var b = e.target.closest && e.target.closest('[data-add-cart]');
+    var b = e.target.closest && e.target.closest('[data-add-cart], .tl-list button');
     if (!b) return;
-    try { MP.cart.add(JSON.parse(b.getAttribute('data-add-cart'))); } catch (x) { return; }
-    b.textContent = 'Added to cart';
+    var row = b.closest('.tl-list>li');
+    try {
+      if (row) {
+        var a = row.querySelector('a'), u = a.getAttribute('href'), buy = row.getAttribute('data-buy');
+        MP.cart.add({ k: buy ? 'course' : 'training', s: buy || u.replace(/\/$/, '').split('/').pop(), t: a.textContent, p: parseFloat(row.querySelector('strong').textContent.replace(/[^\d.]/g, '')), u: u });
+      } else MP.cart.add(JSON.parse(b.getAttribute('data-add-cart')));
+    } catch (x) { return; }
+    b.textContent = row ? 'Added' : 'Added to cart';
     var next = b.nextElementSibling;
+    if (row) return; // catalog rows: the header cart count is enough
     if (!next || !next.hasAttribute('data-view-cart')) {
       var v = d.createElement('a');
       v.href = (MP.base || '') + '/cart/'; v.className = 'view-cart'; v.setAttribute('data-view-cart', ''); v.textContent = 'View cart';

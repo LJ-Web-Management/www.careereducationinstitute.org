@@ -142,7 +142,7 @@ Career Education Institute provides free career information (career profiles, sa
 ## 3. Enrollment, pricing and payment
 Prices are listed in U.S. dollars on each course page and may change, but changes will not affect purchases already confirmed. Volume discounts are applied by seat count as shown on the course and checkout pages.
 - **Job-title trainings** are requested with our enrollment form, which opens an email to our team. The purchase is complete when we confirm your enrollment and receive payment.
-- **Provider courses** (CDL ELDT, forklift operator, flagger and mold inspector) are purchased with a credit or debit card on our checkout page. Card payments are processed by Stripe, Inc., and your order and learner account are created in the learning platform of ${cfg.checkout.provider}, which delivers the course and issues certificates. By purchasing, you also agree to follow that provider’s course rules, such as identity validation and assessment requirements described in the course.
+- **Trainings bought at checkout** (such as forklift operator, flagger and mold inspector) are purchased with a credit or debit card on our checkout page. Card payments are processed by Stripe, Inc., and your order and learner account are created in the learning platform of ${cfg.checkout.provider}, which delivers the course and issues certificates. By purchasing, you also agree to follow that provider’s course rules, such as identity validation and assessment requirements described in the course.
 
 You are responsible for any applicable taxes. Refunds are governed by our [Refund Policy](/refund-policy/).
 
