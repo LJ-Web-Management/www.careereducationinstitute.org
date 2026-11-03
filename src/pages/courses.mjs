@@ -91,7 +91,7 @@ ${related.length ? `<h2 id="related">More trainings you can start today</h2>${pa
       ['How can I pay?', 'Monthly, yearly or by the decade (ten years paid at once).'],
       ['Does my price go down?', `Yes. On monthly and yearly plans your price drops ${pc(S.loyalty.step)} after each full year you stay, until you reach ${pc(S.loyalty.max)} off your original price.`],
       ['What resets the loyalty discount?', 'Reducing your number of seats or cancelling your subscription. Adding seats never resets it.'],
-      ['Can I just buy one training instead?', `Yes. Every training can be bought on its own for under $50. Browse the <a href="${href('/training/')}">training catalog</a>.`]
+      ['Can I just buy one training instead?', `Yes. Every training can be bought on its own, most for under $50. Browse the <a href="${href('/training/')}">training catalog</a>.`]
     ];
     const main = `${answerBox('Subscriptions in short', `Pick a plan by number of seats (one seat per learner), choose monthly, yearly or decade billing and request a quote by email. On monthly and yearly plans your price drops ${pc(S.loyalty.step)} every year you stay, up to ${pc(S.loyalty.max)} off.`)}
 <h2 id="plans">Choose your plan</h2>

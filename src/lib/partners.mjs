@@ -22,7 +22,6 @@ export const partnerCourses = raw.filter((c) => sel[c.id]).sort((a, b) => sel[a.
   // Named like every other job-title training
   title: `${sel[c.id].job} Training`,
   short: `${sel[c.id].job} Training`,
-  price: sel[c.id].price ?? c.price,
   slug: sel[c.id].slug,
   url: `/training/${sel[c.id].slug}/`,
   hours: c.hours.replace(/\bHours?\b/g, (h) => h.toLowerCase()),

@@ -6,12 +6,12 @@
 
 // slug: page URL (/training/<slug>/); for a course with a matching career it is the career's training page.
 // job: the job title the course trains for. field: career field (categories.mjs). career: matching career profile, if any.
-// price: the price shown on the site (every course is under $50). The LMS must charge the same price for the course id:
-// checkout stops before charging if the LMS asks for more than the page shows.
+// Price: always the provider catalog price (src/data/partner-courses.json, refreshed by `npm run update-partner-courses`),
+// because checkout charges the LMS price for the course id.
 export const selection = [
-  { id: 248, slug: 'forklift-operator', job: 'Forklift Operator', field: 'transportation-and-logistics', career: 'forklift-operator', price: 34.99 },
-  { id: 535, slug: 'flagger', job: 'Flagger', field: 'skilled-trades', career: 'flagger', price: 39.99 },
-  { id: 237, slug: 'mold-inspector', job: 'Mold Inspector', field: 'safety-and-environmental', price: 49.99 }
+  { id: 248, slug: 'forklift-operator', job: 'Forklift Operator', field: 'transportation-and-logistics', career: 'forklift-operator' },
+  { id: 535, slug: 'flagger', job: 'Flagger', field: 'skilled-trades', career: 'flagger' },
+  { id: 237, slug: 'mold-inspector', job: 'Mold Inspector', field: 'safety-and-environmental' }
 ];
 
 // Careers whose job-title training is the matching checkout course.
