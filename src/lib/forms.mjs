@@ -72,3 +72,47 @@ ${callLine}
 ${notice}
 </section>`;
 }
+
+// Seat subscription request (individual plans on /subscriptions/, program plans on /for-workforce-programs/).
+// Like the enrollment form it opens a pre-filled email; no prices are shown, every request is quoted.
+export function subscriptionForm({ heading = 'Request a subscription', id = 'subscribe', org = false, plan = '' } = {}) {
+  const S = cfg.subscriptions;
+  return `<section class="form-box" id="${id}" aria-labelledby="${id}-h"><h2 id="${id}-h">${esc(heading)}</h2>
+<p class="small muted">Tell us how many seats you need and how you’d like to pay. Pressing the button opens your email app with a pre-filled request to our team (${esc(cfg.enrollTo)}). We reply with your quote, usually within one business day. Nothing you type is stored on this website.</p>
+${noscript('request a subscription')}
+<form class="form" data-enroll data-kind="subscription" data-to="${esc(cfg.enrollTo)}" data-cc="${esc(cfg.enrollCc)}" method="post" novalidate>
+${org ? `<div class="row2"><div class="field"><label for="${id}-org">School, program or organization ${req}</label><input id="${id}-org" name="Organization" type="text" autocomplete="organization" required></div>
+<div class="field"><label for="${id}-type">Type of program ${opt}</label><select id="${id}-type" name="Type"><option value="">Select</option>${['High school or CTE program', 'Community college or adult education', 'Workforce board or American Job Center', 'Reentry, veterans or youth program', 'Nonprofit job-readiness program', 'Employer', 'Other'].map((t) => `<option>${t}</option>`).join('')}</select></div></div>` : ''}
+<div class="row2"><div class="field"><label for="${id}-name">Full name ${req}</label><input id="${id}-name" name="Name" type="text" autocomplete="name" required></div>
+<div class="field"><label for="${id}-email">Email ${req}</label><input id="${id}-email" name="Email" type="email" autocomplete="email" required></div></div>
+<div class="row2"><div class="field"><label for="${id}-phone">Phone ${opt}</label><input id="${id}-phone" name="Phone" type="tel" autocomplete="tel"></div>
+${stateField(id)}</div>
+<div class="row2">${org ? '' : `<div class="field"><label for="${id}-plan">Plan</label><select id="${id}-plan" name="Plan">${S.plans.map((p) => `<option${p.name === plan ? ' selected' : ''} data-min="${p.min}">${esc(p.name)} (${esc(p.seats)})</option>`).join('')}</select></div>`}
+<div class="field"><label for="${id}-seats">Seats per month ${req}</label><input id="${id}-seats" name="Seats" type="number" min="1" max="100000" value="${org ? 25 : 1}" inputmode="numeric" required><div class="hint">One seat is one learner. You can add seats any time.</div></div>
+${org ? `<div class="field"><label for="${id}-cycle">Billing ${req}</label><select id="${id}-cycle" name="Billing" required>${S.cycles.map((c) => `<option>${c}</option>`).join('')}</select></div>` : ''}</div>
+${org ? '' : `<div class="field"><label for="${id}-cycle">Billing ${req}</label><select id="${id}-cycle" name="Billing" required>${S.cycles.map((c) => `<option>${c}</option>`).join('')}</select></div>`}
+<div class="field"><label for="${id}-roles">Trainings or job titles of interest ${opt}</label><input id="${id}-roles" name="Trainings" type="text" placeholder="For example: CNA, welder, warehouse associate"></div>
+<div class="field"><label for="${id}-msg">Questions or notes ${opt}</label><textarea id="${id}-msg" name="Message"></textarea></div>
+${org ? `<label class="check"><input type="checkbox" name="Authorized" value="Confirmed" required><span>I am authorized to request this subscription for my organization. ${req}</span></label>` : `<label class="check"><input type="checkbox" name="Age" value="Confirmed" required><span>I am 18 or older, or I am a parent/guardian requesting for a minor. ${req}</span></label>`}
+${consent('this subscription request')}
+<p class="err" role="alert" hidden></p>
+<button class="btn btn-primary btn-block" type="submit">Request my subscription quote</button>
+${callLine}
+</form>
+${notice}
+</section>`;
+}
+
+// How subscription billing and the loyalty discount work (shared by both subscription pages).
+export function subscriptionTerms() {
+  const { step, max } = cfg.subscriptions.loyalty;
+  const years = Math.round(max / step) + 1;
+  const pc = (n) => `${Math.round(n * 100)}%`;
+  const ladder = Array.from({ length: years }, (_, i) => Math.min(i * step, max));
+  return `<h2 id="billing">Pay monthly, yearly or by the decade</h2>
+<div class="grid-3"><div class="card"><h3>Monthly</h3><p>Pay each month for the seats you use. Add seats whenever you need them.</p></div><div class="card"><h3>Yearly</h3><p>Pay once a year for your seats and skip the monthly bills.</p></div><div class="card"><h3>Decade</h3><p>Lock in ten years of seats with a single payment. Ask us for a decade quote.</p></div></div>
+<h2 id="loyalty">Your price drops every year you stay</h2>
+<p>On monthly and yearly plans, your price goes down by <strong>${pc(step)}</strong> after every full year you keep your subscription, until you reach <strong>${pc(max)} off</strong> your original price.</p>
+<ol class="loyalty" aria-label="Loyalty discount by year">${ladder.map((d, i) => `<li><i style="height:${Math.round(110 * (1 - d * 2.4))}px" aria-hidden="true"></i><b>${d ? `${pc(d)} off` : 'Full price'}</b>Year ${i + 1}${i === ladder.length - 1 ? '+' : ''}</li>`).join('')}</ol>
+<aside class="callout"><p><strong>Keep your seat count to keep your discount.</strong> The loyalty discount resets to full price if you reduce your number of seats or cancel. Adding seats never resets it.</p></aside>`;
+}

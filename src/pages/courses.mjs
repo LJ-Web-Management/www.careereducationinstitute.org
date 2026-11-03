@@ -1,27 +1,29 @@
 import cfg from '../../site.config.mjs';
 import { esc, href, abs, clamp, fitTitle, md, countLabel } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, sideLinks, answerBox } from '../lib/layout.mjs';
-import { STATES, enrollForm } from '../lib/forms.mjs';
+import { STATES, enrollForm, subscriptionForm, subscriptionTerms } from '../lib/forms.mjs';
 import { partnerCourses, partnerTable, tierTable, providerLine } from '../lib/partners.mjs';
+import { movedFrom } from '../data/partner-selection.mjs';
 import { cartItem } from './training.mjs';
 
 const price = (p) => '$' + Number(p).toFixed(2);
 
-function providerNote(c) {
-  const base = `${providerLine()}, our affiliated training provider. When you buy this course here, you are enrolled directly in the provider’s online learning platform and your login details are emailed to you.`;
-  if (c.isEldt) return `${base} ${cfg.checkout.provider} provides this Entry-Level Driver Training and is an approved training provider listed on the Federal Motor Carrier Safety Administration (FMCSA) Training Provider Registry. After you pass, your completion record is submitted to the registry, which you need before taking the related CDL test. Behind-the-wheel training, if your state requires it, is not included and must be completed separately.`;
-  return base;
-}
+// Why the job needs this training: the short intro on courses that match a career.
+const intro = {
+  'forklift-operator': ['OSHA requires every forklift operator to be trained and evaluated before operating a powered industrial truck on their own (29 CFR 1910.178).', 'This training covers the formal classroom instruction. Your employer completes the hands-on practice and the workplace evaluation on the trucks you will use.'],
+  flagger: ['The federal Manual on Uniform Traffic Control Devices (MUTCD) calls for flaggers to be trained in safe traffic control practices, and most contractors and many states require a flagger certificate before you work in a road work zone.', 'This training covers federal flagging and work zone standards online, in English or Spanish. Some states issue their own flagger card instead, so check with your state DOT or employer before you buy.']
+};
 
 export function coursePages(ctx) {
   const { byslug } = ctx;
   const pages = [];
-  const coursesHub = ['Courses', '/courses/'];
+  const coursesHub = ['Training', '/training/'];
 
   // ---------- Course pages ----------
   for (const c of partnerCourses) {
     const path = c.url;
-    const crumbs = [['Home', '/'], coursesHub, [c.short, path]];
+    const fieldName = (ctx.categories.find((x) => x.slug === c.field) || {}).name;
+    const crumbs = [['Home', '/'], coursesHub, ...(fieldName ? [[fieldName, `/training/#${c.field}`]] : []), [c.title, path]];
     const factRows = [
       ['Price', `${price(c.price)} per learner`],
       ['Length', c.hours],
@@ -35,9 +37,12 @@ export function coursePages(ctx) {
     ].filter(([, v]) => v);
     const career = c.career && byslug[c.career];
     const related = partnerCourses.filter((x) => x !== c);
+    const [p1, p2] = intro[c.career] || [];
     const faqs = c.faqs.map(([q, a]) => [q, md(a, { headingIds: false }).html.replace(/^<p>|<\/p>$/g, '')]);
     const summary = `${c.title} is the ${c.hoursAdj} online training for the ${c.jobLower} job${c.regulation ? `, covering ${c.regulation}` : ''}. It is available in ${c.langLabel} and costs ${price(c.price)} per learner.`;
     const main = `${answerBox('Course at a glance', esc(summary))}
+${p1 ? `<p>${esc(p1)} ${esc(p2)}</p>` : ''}
+<div class="buy-strip"><div><p class="buy-strip-price">${price(c.price)} <span>per learner</span></p><p class="small muted">Instant access after checkout · ${esc(c.hours)} · ${esc(c.langLabel)}</p></div><div class="btn-row"><a class="btn btn-primary" href="${href(`/checkout/?course=${c.slug}`)}">Buy now</a><button class="btn" type="button" data-add-cart="${cartItem({ k: 'course', s: c.slug, t: c.title, p: c.price, u: href(c.url) })}">Add to cart</button></div></div>
 <div class="table-wrap"><table><tbody>${factRows.map(([k, v]) => `<tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`).join('')}</tbody></table></div>
 ${c.overview.length ? `<h2 id="overview">Overview</h2>${c.overview.map((p) => `<p>${esc(p)}</p>`).join('')}` : ''}
 ${c.extras.length ? `<ul class="checks">${c.extras.map((e) => `<li>${esc(e)}</li>`).join('')}</ul>` : ''}
@@ -45,19 +50,18 @@ ${c.audience.length ? `<h2 id="who">Who should take this course</h2><ul>${c.audi
 ${c.requirements.length ? `<h2 id="requirements">Requirements to know</h2><ul>${c.requirements.map((a) => `<li>${esc(a)}</li>`).join('')}</ul>` : ''}
 ${c.syllabus.modules.length ? `<h2 id="syllabus">Course syllabus</h2>${c.syllabus.intro ? `<p>${esc(c.syllabus.intro)}</p>` : ''}<div class="modules">${c.syllabus.modules.map((m, i) => `<details${i === 0 ? ' open' : ''}><summary><span>${esc(m.title)}</span></summary><div class="mod-body">${m.desc ? `<p>${esc(m.desc)}</p>` : ''}${m.lessons.length ? `<ul>${m.lessons.map((l) => `<li>${esc(l)}</li>`).join('')}</ul>` : ''}</div></details>`).join('')}</div>` : ''}
 ${c.objectives.length ? `<h2 id="objectives">What you will be able to do</h2><ul class="checks">${c.objectives.map((o) => `<li>${esc(o)}</li>`).join('')}</ul>` : ''}
-<h2 id="provider">About the course provider</h2><p>${esc(providerNote(c))}</p>
 <h2 id="buy">Enroll</h2><p>Buy online with a credit or debit card. Buying for a team? Enter the number of learners at checkout and volume pricing is applied automatically.</p><div class="btn-row"><a class="btn btn-primary" href="${href(`/checkout/?course=${c.slug}`)}">Buy now for ${price(c.price)}</a><button class="btn" type="button" data-add-cart="${cartItem({ k: 'course', s: c.slug, t: c.title, p: c.price, u: href(c.url) })}">Add to cart</button></div>
 <details class="more-info"><summary>Volume pricing</summary>${tierTable()}</details>
 ${faqs.length ? faqBlock(faqs, 'Frequently asked questions') : ''}
-${career ? `<h2 id="career">The ${esc(career.lower)} career</h2><p>${esc(career.blurb)} <a href="${href(career.url)}">Read the ${esc(career.lower)} career profile</a>, including <a href="${href(career.url + 'salary/')}">pay</a> and <a href="${href(career.url + 'day-in-the-life/')}">a day in the life</a>.</p>` : ''}
-${related.length ? `<h2 id="related">Other job-title courses you can buy online</h2>${partnerTable(related)}` : ''}`;
-    const aside = `<div class="cta-card buy-box"><p class="eyebrow" style="color:#ffd88a">Online course</p><h2>${esc(c.short)}</h2><p class="buy-price">${price(c.price)}<span> per learner</span></p><ul><li>${esc(c.hours)}</li><li>${esc(c.langLabel)}</li><li>${esc(c.facts['What You Get'] || 'Certificate of completion')}</li>${c.ceu ? `<li>${esc(c.ceu)} CEU</li>` : ''}</ul><a class="btn btn-primary" href="${href(`/checkout/?course=${c.slug}`)}">Buy now</a><p class="small" style="margin:.8em 0 0">Invoice or purchase order? Call <a href="tel:${cfg.phoneE164}" style="color:#fff">${cfg.phone}</a>.</p></div>${sideLinks('Online courses', [['All online courses', '/courses/'], ...(career ? [[`${career.title} career`, career.url]] : []), ['All job-title trainings', '/training/'], ['Refund policy', '/refund-policy/']])}`;
+${career ? `<h2 id="career">The ${esc(career.lower)} career</h2><p>${esc(career.blurb)} <a href="${href(career.url)}">Read the ${esc(career.lower)} career profile</a>, including <a href="${href(career.url + 'salary/')}">pay</a> and <a href="${href(career.url + 'day-in-the-life/')}">a day in the life</a>, or take the free <a href="${href(career.trainingUrl + 'practice-test/')}">practice test</a>.</p>` : ''}
+${related.length ? `<h2 id="related">More trainings you can start today</h2>${partnerTable(related)}` : ''}`;
+    const aside = `<div class="cta-card buy-box"><p class="eyebrow" style="color:#ffd88a">Job-title training</p><h2>${esc(c.short)}</h2><p class="buy-price">${price(c.price)}<span> per learner</span></p><ul><li>${esc(c.hours)}</li><li>${esc(c.langLabel)}</li><li>${esc(c.facts['What You Get'] || 'Certificate of completion')}</li>${c.ceu ? `<li>${esc(c.ceu)} CEU</li>` : ''}</ul><a class="btn btn-primary" href="${href(`/checkout/?course=${c.slug}`)}">Buy now</a><p class="small" style="margin:.8em 0 0">Invoice or purchase order? Call <a href="tel:${cfg.phoneE164}" style="color:#fff">${cfg.phone}</a>.</p></div>${sideLinks('Keep exploring', [...(career ? [[`${career.title} career`, career.url], ['Free practice test', career.trainingUrl + 'practice-test/']] : []), ['All job-title trainings', '/training/'], ['Subscriptions', '/subscriptions/'], ['Refund policy', '/refund-policy/']])}`;
     pages.push({
-      path, crumbs, og: '/og/courses.png', kind: 'Course', name: c.title, scripts: [],
+      path, crumbs, og: career ? `/og/${career.slug}.png` : '/og/training.png', kind: 'Training', name: c.title, scripts: [],
       mcta: `<a class="btn btn-primary" href="${href(`/checkout/?course=${c.slug}`)}">Buy now · ${price(c.price)}</a>`,
-      title: fitTitle(c.short.length <= 44 ? `${c.short} (Online)` : c.short),
+      title: fitTitle(`${c.title} Course (Online)`),
       desc: clamp(`${c.title}: ${c.hoursAdj} online course${c.regulation ? ` aligned with ${c.regulation}` : ''}. ${c.langLabel}, ${price(c.price)} per learner, certificate of completion. Buy online today.`),
-      body: `${pageHero({ crumbs, eyebrow: `Job-title training: ${c.job}`, h1: esc(c.title), lead: esc(`${c.hours} · ${c.langLabel} · ${price(c.price)} per learner`), meta: false, extra: `<div class="btn-row"><a class="btn btn-primary" href="${href(`/checkout/?course=${c.slug}`)}">Buy now</a><button class="btn" type="button" data-add-cart="${cartItem({ k: 'course', s: c.slug, t: c.title, p: c.price, u: href(c.url) })}">Add to cart</button>${c.syllabus.modules.length ? `<a class="btn" href="#syllabus">View syllabus</a>` : ''}</div>` })}<div class="wrap layout"><div class="prose">${main}</div><aside>${aside}</aside></div>`,
+      body: `${pageHero({ crumbs, eyebrow: `${fieldName || 'Job-title'} training`, h1: esc(c.title), lead: esc(`${c.hours} · ${c.langLabel} · ${price(c.price)} per learner`), meta: false, extra: `<div class="btn-row"><a class="btn btn-primary" href="${href(`/checkout/?course=${c.slug}`)}">Buy now</a><button class="btn" type="button" data-add-cart="${cartItem({ k: 'course', s: c.slug, t: c.title, p: c.price, u: href(c.url) })}">Add to cart</button>${c.syllabus.modules.length ? `<a class="btn" href="#syllabus">View syllabus</a>` : ''}</div>` })}<div class="wrap layout"><div class="prose">${main}</div><aside>${aside}</aside></div>`,
       schema: [{
         '@type': 'Course', '@id': abs(path) + '#course', name: c.title, description: summary,
         provider: { '@type': 'Organization', name: cfg.checkout.provider, legalName: cfg.checkout.providerLegal },
@@ -70,28 +74,39 @@ ${related.length ? `<h2 id="related">Other job-title courses you can buy online<
     });
   }
 
-  // ---------- Catalog ----------
+  // ---------- Old /courses/ addresses: these trainings now live under /training/ ----------
+  for (const [from, to] of Object.entries(movedFrom)) {
+    pages.push({ path: from, noindex: true, redirect: to, og: '/og/training.png', title: 'This Page Has Moved | Career Education Institute', desc: 'This training has moved. You are being sent to its new page in the Career Education Institute job-title training catalog.', body: `${pageHero({ eyebrow: 'Moved', h1: 'This page has moved', lead: `Continue to <a href="${href(to)}">the new page</a>.`, meta: false })}`, schema: [] });
+  }
+
+  // ---------- Subscriptions for individuals, households and small groups (quoted by email, no published prices) ----------
   {
-    const path = '/courses/';
-    const crumbs = [['Home', '/'], coursesHub];
+    const path = '/subscriptions/';
+    const crumbs = [['Home', '/'], coursesHub, ['Subscriptions', path]];
+    const S = cfg.subscriptions;
+    const pc = (n) => `${Math.round(n * 100)}%`;
     const faqs = [
-      ['Who provides these courses?', `${providerLine()}, our affiliated training provider. You buy here and are enrolled directly in the provider’s online learning platform.`],
-      ['How do I get access after I pay?', 'Your login details are emailed to the address you enter at checkout, usually right away. You can start immediately and learn at your own pace.'],
-      ['Can I buy for my team?', 'Yes. Enter the number of learners at checkout. Volume pricing applies automatically from 2 learners, and invoice or purchase-order billing is available by phone or email.'],
-      ['What is your refund policy?', `You can cancel within 30 days of purchase for a full refund, subject to the conditions in our <a href="${href('/refund-policy/')}">Refund Policy</a>.`]
+      ['What is a seat?', 'A seat is one learner. Each learner gets their own login and can take job-title trainings from our full catalog while the subscription is active.'],
+      ['Why don’t you list prices?', 'Every subscription is quoted for your seat count and billing choice. Send the short form and we reply by email, usually within one business day.'],
+      ['How can I pay?', 'Monthly, yearly or by the decade (ten years paid at once).'],
+      ['Does my price go down?', `Yes. On monthly and yearly plans your price drops ${pc(S.loyalty.step)} after each full year you stay, until you reach ${pc(S.loyalty.max)} off your original price.`],
+      ['What resets the loyalty discount?', 'Reducing your number of seats or cancelling your subscription. Adding seats never resets it.'],
+      ['Can I just buy one training instead?', `Yes. Every training can be bought on its own for under $50. Browse the <a href="${href('/training/')}">training catalog</a>.`]
     ];
-    const careerLinks = partnerCourses.filter((c) => c.career && byslug[c.career]);
+    const main = `${answerBox('Subscriptions in short', `Pick a plan by number of seats (one seat per learner), choose monthly, yearly or decade billing and request a quote by email. On monthly and yearly plans your price drops ${pc(S.loyalty.step)} every year you stay, up to ${pc(S.loyalty.max)} off.`)}
+<h2 id="plans">Choose your plan</h2>
+<ul class="plans">${S.plans.map((pl) => `<li class="plan${pl.featured ? ' featured' : ''}">${pl.featured ? '<span class="tag">Most popular</span>' : ''}<h3>${esc(pl.name)}</h3><p class="seats">${esc(pl.seats)}</p><p class="small muted">${esc(pl.for)}</p><ul>${pl.points.map((x) => `<li>${esc(x)}</li>`).join('')}</ul><a class="btn ${pl.featured ? 'btn-primary' : ''} btn-block" href="#subscribe" data-pick-plan="${esc(pl.name)}">Request a quote</a></li>`).join('')}</ul>
+<p class="small muted">Running a school, workforce board or nonprofit program? See <a href="${href('/for-workforce-programs/')}">program subscriptions</a>.</p>
+${subscriptionTerms()}
+${subscriptionForm({ heading: 'Request your subscription quote', plan: 'Household' })}
+${faqBlock(faqs, 'Subscription questions')}`;
     pages.push({
-      path, crumbs, og: '/og/courses.png', kind: 'Course category', name: 'Job-title courses to buy online',
-      title: fitTitle('CDL ELDT, Forklift, Flagger and Mold Inspector Courses'),
-      desc: clamp(`Buy complete online training for ${partnerCourses.length} job titles: ${partnerCourses.map((c) => c.jobLower.replace(/ \(.*\)/, '')).join(', ')}. Self-paced, with certificates and instant enrollment.`),
-      body: `${pageHero({ crumbs, eyebrow: `${partnerCourses.length} online courses`, h1: 'Job-Title Courses You Can Buy Online', lead: 'Complete online training for a specific job title, provided by our affiliated training provider. Buy here and start right away.', meta: false })}
-<div class="wrap layout"><div class="prose">${partnerTable(partnerCourses, { caption: 'Job-title courses' })}
-<p class="small muted">All courses are 100% online and self-paced. ${esc(providerLine())}. Prices are per learner; volume pricing applies automatically from 2 learners.</p>
-<p>Looking for something else? Our <a href="${href('/training/')}">job-title trainings</a> cover ${countLabel(ctx.careers.length)} careers, from medical assistant to electrician.</p>
-${faqBlock(faqs, 'Buying courses')}</div>
-<aside>${sideLinks('Related careers', careerLinks.map((c) => [`${byslug[c.career].title} career`, byslug[c.career].url]).filter((x, i, a) => a.findIndex((y) => y[1] === x[1]) === i).concat([['All job-title trainings', '/training/']]))}</aside></div>`,
-      schema: [faqSchema(faqs, path)]
+      path, crumbs, og: '/og/training.png', kind: 'Page', name: 'Training subscriptions', scripts: ['enroll'],
+      mcta: `<a class="btn btn-primary" href="#subscribe">Request a quote</a><a class="btn" href="#plans">See plans</a>`,
+      title: fitTitle('Career Training Subscriptions by Seat'),
+      desc: clamp(`Subscribe to Career Education Institute job-title training by seat: plans for one learner, households and small groups. Pay monthly, yearly or by the decade, with a loyalty discount.`),
+      body: `${pageHero({ crumbs, eyebrow: 'Subscriptions', h1: 'Training Subscriptions', lead: `Seats for you, your family or your group, with job-title training for ${countLabel(ctx.careers.length)} careers. Pay monthly, yearly or by the decade, and pay less every year you stay.`, meta: false, extra: `<div class="btn-row"><a class="btn btn-primary" href="#plans">See plans</a><a class="btn" href="#subscribe">Request a quote</a></div>` })}<div class="wrap layout"><div class="prose">${main}</div><aside><div class="cta-card"><h2>Pay less every year</h2><p>Monthly and yearly plans drop ${pc(S.loyalty.step)} a year, up to ${pc(S.loyalty.max)} off.</p><ul><li>One seat = one learner</li><li>Monthly, yearly or decade billing</li><li>Certificate for every training</li></ul><a class="btn btn-primary" href="#subscribe">Request a quote</a></div>${sideLinks('Keep exploring', [['All job-title trainings', '/training/'], ['Program subscriptions', '/for-workforce-programs/'], ['Training for employers', '/for-employers/'], ['Contact us', '/contact/']])}</aside></div>`,
+      schema: [faqSchema(faqs.map(([q, a]) => [q, a]), path)]
     });
   }
 
@@ -124,11 +139,11 @@ ${field('address2', 'Apartment, suite or unit', 'text', false, ' autocomplete="a
 <button class="btn btn-primary btn-block" type="submit" id="payBtn">Pay now</button>
 <p class="small muted" style="margin:0">Need an invoice or purchase order instead? Call <a href="tel:${cfg.phoneE164}">${cfg.phone}</a> or email <a href="mailto:${cfg.email}">${cfg.email}</a>.</p>
 </form>
-<section class="result-card" id="checkoutSuccess" hidden tabindex="-1"><p class="eyebrow">Order complete</p><h2>Thank you for your order</h2><p>Order reference: <strong data-order-ref></strong></p><p>Your receipt and course login details are being sent to <strong data-order-email></strong>. If you don’t see them within 15 minutes, check your spam folder or call ${cfg.phone}.</p><div class="btn-row"><a class="btn" href="${href('/courses/')}">Browse more courses</a></div></section>
+<section class="result-card" id="checkoutSuccess" hidden tabindex="-1"><p class="eyebrow">Order complete</p><h2>Thank you for your order</h2><p>Order reference: <strong data-order-ref></strong></p><p>Your receipt and course login details are being sent to <strong data-order-email></strong>. If you don’t see them within 15 minutes, check your spam folder or call ${cfg.phone}.</p><div class="btn-row"><a class="btn" href="${href('/training/')}">Browse more trainings</a></div></section>
 </div>
-<aside><div class="side-box order-summary"><h2>Order summary</h2><p class="summary-course" data-sum-name>Select a course</p><p class="small muted" data-sum-meta></p><table><tbody><tr><th scope="row" data-sum-qty>1 × $0.00</th><td class="num" data-sum-sub>$0.00</td></tr><tr data-sum-discount-row hidden><th scope="row" data-sum-discount-label>Volume discount</th><td class="num" data-sum-discount>-$0.00</td></tr><tr data-sum-code-row hidden><th scope="row" data-sum-code-label>Discount code</th><td class="num" data-sum-code>-$0.00</td></tr><tr class="total"><th scope="row">Total</th><td class="num" data-sum-total>$0.00</td></tr></tbody></table><p class="small muted">Prices in U.S. dollars. ${esc(providerLine())}.</p><p class="small"><a data-sum-link href="${href('/courses/')}">View course details</a></p></div></aside></div>
+<aside><div class="side-box order-summary"><h2>Order summary</h2><p class="summary-course" data-sum-name>Select a course</p><p class="small muted" data-sum-meta></p><table><tbody><tr><th scope="row" data-sum-qty>1 × $0.00</th><td class="num" data-sum-sub>$0.00</td></tr><tr data-sum-discount-row hidden><th scope="row" data-sum-discount-label>Volume discount</th><td class="num" data-sum-discount>-$0.00</td></tr><tr data-sum-code-row hidden><th scope="row" data-sum-code-label>Discount code</th><td class="num" data-sum-code>-$0.00</td></tr><tr class="total"><th scope="row">Total</th><td class="num" data-sum-total>$0.00</td></tr></tbody></table><p class="small muted">Prices in U.S. dollars. ${esc(providerLine())}.</p><p class="small"><a data-sum-link href="${href('/training/')}">View course details</a></p></div></aside></div>
 <script type="application/json" id="checkout-data">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
-    pages.push({ path, crumbs, noindex: true, og: '/og/courses.png', scripts: ['checkout'], title: 'Checkout | Career Education Institute', desc: 'Secure card checkout for Career Education Institute online job-title courses, with volume pricing from 2 learners.', body, schema: [] });
+    pages.push({ path, crumbs, noindex: true, og: '/og/courses.png', scripts: ['checkout'], title: 'Checkout | Career Education Institute', desc: 'Secure card checkout for Career Education Institute job-title trainings, with volume pricing from 2 learners and instant access by email.', body, schema: [] });
 
   // Cart (saved in the visitor's browser by site.js): online courses go to card checkout together; job-title trainings
   // go to one enrollment request. The page data carries current prices so a saved cart never shows stale ones.
@@ -136,17 +151,17 @@ ${field('address2', 'Apartment, suite or unit', 'text', false, ' autocomplete="a
     const path = '/cart/';
     const crumbs = [['Home', '/'], ['Cart', path]];
     const data = { tiers: cfg.bulkTiers, courses: Object.fromEntries(partnerCourses.map((c) => [c.slug, { t: c.title, p: c.price, u: href(c.url) }])), trainings: Object.fromEntries(ctx.careers.filter((c) => !c.replacedBy).map((c) => [c.slug, c.price])), checkout: href('/checkout/?cart=1') };
-    const body = `${pageHero({ crumbs, eyebrow: 'Your cart', h1: 'Cart', lead: 'Your cart is saved in this browser only. Online courses check out together by card; job-title trainings are requested in one enrollment email.', meta: false })}
+    const body = `${pageHero({ crumbs, eyebrow: 'Your cart', h1: 'Cart', lead: 'Your cart is saved in this browser only. Trainings marked “buy now” check out together by card; the rest are requested in one enrollment email.', meta: false })}
 <div class="wrap layout cart-page" data-cart><div>
-<noscript><p class="callout">The cart needs JavaScript. You can still buy any online course from its page, or call ${cfg.phone}.</p></noscript>
-<div data-cart-empty hidden><p class="lead" style="margin-top:0">Your cart is empty.</p><div class="btn-row"><a class="btn btn-primary" href="${href('/training/')}">Browse trainings</a><a class="btn" href="${href('/courses/')}">Online courses</a></div></div>
-<section data-cart-group="course" hidden><h2 style="margin-top:0">Online courses: buy now</h2><p class="muted small">Complete job-title courses from our affiliated training provider. Your login is emailed right after checkout.</p><ul class="cart-lines" data-lines></ul></section>
-<section data-cart-group="training" hidden><h2>Job-title trainings: enrollment by request</h2><p class="muted small">Send one request for every training below. We reply with a payment link or invoice and your learning-platform login. Prices with volume discounts are estimates until your invoice.</p><ul class="cart-lines" data-lines></ul>
+<noscript><p class="callout">The cart needs JavaScript. You can still enroll from any training’s page, or call ${cfg.phone}.</p></noscript>
+<div data-cart-empty hidden><p class="lead" style="margin-top:0">Your cart is empty.</p><div class="btn-row"><a class="btn btn-primary" href="${href('/training/')}">Browse trainings</a><a class="btn" href="${href('/subscriptions/')}">Subscriptions</a></div></div>
+<section data-cart-group="course" hidden><h2 style="margin-top:0">Buy now: instant access</h2><p class="muted small">These trainings check out by card. Your login is emailed right after checkout.</p><ul class="cart-lines" data-lines></ul></section>
+<section data-cart-group="training" hidden><h2>Enrollment by request</h2><p class="muted small">Send one request for every training below. We reply with a payment link or invoice and your learning-platform login. Prices with volume discounts are estimates until your invoice.</p><ul class="cart-lines" data-lines></ul>
 ${enrollForm({ kind: 'cart', id: 'cart-enroll', heading: 'Request enrollment for these trainings' })}</section>
 </div>
-<aside><div class="side-box cart-sum" data-cart-summary hidden><h2>Summary</h2><div data-sum-course hidden><p class="small" style="margin:0"><strong>Online courses</strong></p><table><tbody data-sum-rows></tbody></table><a class="btn btn-primary btn-block" data-checkout href="${data.checkout}">Check out online</a></div><div data-sum-training hidden style="margin-top:16px"><p class="small" style="margin:0"><strong>Job-title trainings</strong> <span class="muted">(estimate)</span></p><table><tbody data-sum-rows></tbody></table><a class="btn btn-block" href="#cart-enroll">Request enrollment</a></div><p class="small muted" style="margin:12px 0 0">Volume pricing applies from 2 learners per course. Prices in U.S. dollars.</p></div>${sideLinks('Keep browsing', [['All job-title trainings', '/training/'], ['Online courses', '/courses/'], ['Training for employers', '/for-employers/']])}</aside></div>
+<aside><div class="side-box cart-sum" data-cart-summary hidden><h2>Summary</h2><div data-sum-course hidden><p class="small" style="margin:0"><strong>Buy now</strong></p><table><tbody data-sum-rows></tbody></table><a class="btn btn-primary btn-block" data-checkout href="${data.checkout}">Check out online</a></div><div data-sum-training hidden style="margin-top:16px"><p class="small" style="margin:0"><strong>By request</strong> <span class="muted">(estimate)</span></p><table><tbody data-sum-rows></tbody></table><a class="btn btn-block" href="#cart-enroll">Request enrollment</a></div><p class="small muted" style="margin:12px 0 0">Volume pricing applies from 2 learners per course. Prices in U.S. dollars.</p></div>${sideLinks('Keep browsing', [['All job-title trainings', '/training/'], ['Subscriptions', '/subscriptions/'], ['Training for employers', '/for-employers/']])}</aside></div>
 <script type="application/json" id="cart-data">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
-    pages.push({ path, crumbs, noindex: true, og: '/og/courses.png', scripts: ['cart', 'enroll'], title: 'Cart | Career Education Institute', desc: 'Your Career Education Institute cart: online courses to buy together and job-title trainings to request in one enrollment email.', body, schema: [] });
+    pages.push({ path, crumbs, noindex: true, og: '/og/courses.png', scripts: ['cart', 'enroll'], title: 'Cart | Career Education Institute', desc: 'Your Career Education Institute cart: trainings to buy now by card and trainings to request together in one enrollment email.', body, schema: [] });
   }  }
   return pages;
 }

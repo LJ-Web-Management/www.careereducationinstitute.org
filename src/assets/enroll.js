@@ -5,6 +5,18 @@
     // Fill in a partner discount code remembered from a partner's share link
     var codeField = form.elements.Code;
     if (codeField && form.dataset.kind === 'enroll' && !codeField.value && window.MP && MP.code) codeField.value = MP.code();
+    // Subscription plans: picking a plan (in the form or from a plan card) fills in its starting seat count
+    var plan = form.elements.Plan, seats = form.elements.Seats;
+    if (plan && seats) {
+      var pickPlan = function () { var o = plan.options[plan.selectedIndex]; if (o) seats.value = o.getAttribute('data-min') || seats.value; };
+      plan.addEventListener('change', pickPlan);
+      [].forEach.call(document.querySelectorAll('[data-pick-plan]'), function (a) {
+        a.addEventListener('click', function () {
+          [].forEach.call(plan.options, function (o, i) { if (o.text.indexOf(a.getAttribute('data-pick-plan') + ' (') === 0) plan.selectedIndex = i; });
+          pickPlan();
+        });
+      });
+    }
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var bad = [];
@@ -26,7 +38,28 @@
       var course = v('Course');
       var subject, lines;
       var consent = 'Contact consent: agreed to Terms of Use and Privacy Policy';
-      if (kind === 'partner') {
+      if (kind === 'subscription') {
+        subject = 'Subscription request: ' + v('Seats') + (v('Seats') === '1' ? ' seat, ' : ' seats, ') + v('Billing').toLowerCase() + ' (' + (v('Organization') || v('Name')) + ')';
+        lines = [
+          'Hello Career Education Institute team, I would like a quote for a seat subscription.',
+          '',
+          v('Organization') ? 'Organization: ' + v('Organization') : null,
+          v('Type') ? 'Program type: ' + v('Type') : null,
+          'Name: ' + v('Name'),
+          'Email: ' + v('Email'),
+          'Phone: ' + (v('Phone') || 'Not provided'),
+          'State: ' + v('State'),
+          v('Plan') ? 'Plan: ' + v('Plan') : null,
+          'Seats per month: ' + v('Seats'),
+          'Billing: ' + v('Billing'),
+          'Trainings of interest: ' + (v('Trainings') || 'Not sure yet'),
+          '',
+          'Notes: ' + (v('Message') || 'None'),
+          '',
+          v('Organization') ? 'Authorization: authorized to request for this organization (confirmed)' : 'Age confirmation: 18 or older, or parent/guardian (confirmed)',
+          consent
+        ].filter(function (l) { return l !== null; });
+      } else if (kind === 'partner') {
         subject = 'Partner program sign-up: ' + v('Organization') + ' (' + v('Type') + ')';
         lines = [
           'Hello Career Education Institute team, we would like to join the partner discount program.',

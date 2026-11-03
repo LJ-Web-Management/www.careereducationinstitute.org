@@ -67,49 +67,6 @@ function courseFaqs(c) {
   ];
 }
 
-const replacedIntro = {
-  'truck-driver': ['Federal rules require new commercial drivers to complete Entry-Level Driver Training (ELDT) theory before taking the Class A or Class B CDL skills test, or certain endorsement knowledge tests, for the first time.', 'The course below is the theory training for a Class A CDL, the license most tractor-trailer jobs require. Driving a straight truck, dump truck or delivery truck instead? The Class B course is listed further down.'],
-  'forklift-operator': ['OSHA requires every forklift operator to be trained and evaluated before operating a powered industrial truck on their own (29 CFR 1910.178).', 'The course below covers the formal classroom instruction. Your employer completes the hands-on practice and the workplace evaluation on the trucks you will use.'],
-  flagger: ['The federal Manual on Uniform Traffic Control Devices (MUTCD) calls for flaggers to be trained in safe traffic control practices, and most contractors and many states require a flagger certificate before you work in a road work zone.', 'The course below covers federal flagging and work zone standards online, in English or Spanish. Some states issue their own flagger card instead, so check with your state DOT or employer before you buy.']
-};
-
-function replacedPage(c, ctx) {
-  const m = partnerById[c.replacedBy];
-  const cat = catBySlug[c.cat];
-  const path = c.trainingUrl;
-  const crumbs = [['Home', '/'], ['Training', '/training/'], [cat.name, `/training/#${cat.slug}`], [`${c.title} Training`, path]];
-  const others = partnerCourses.filter((p) => p.career === c.slug && p.id !== m.id);
-  const [p1, p2] = replacedIntro[c.slug] || ['', ''];
-  const buy = href(`/checkout/?course=${m.slug}`);
-  const facts = [['Price', `${usd(m.price)} per learner`], ['Length', m.hours], ['Language', m.langLabel], ['Regulation', m.regulation], ['Course access', m.facts['Course Access Validity']], ['Certificate validity', m.facts['Certificate Validity']]].filter(([, v]) => v);
-  const provider = m.isEldt
-    ? `${providerLine()}, our affiliated training provider, which provides this Entry-Level Driver Training and is an approved provider listed on the FMCSA Training Provider Registry. After you pass, your completion record is submitted to the registry. Behind-the-wheel training, if your state requires it, is completed separately.`
-    : `${providerLine()}, our affiliated training provider. Buying here enrolls you directly in the provider’s online learning platform, and your login is emailed to you.`;
-  const faqs = [
-    [`What training do I need to become ${c.a} ${c.lower}?`, `${p1} ${c.edu}`],
-    [`How much does ${m.short} cost?`, `${usd(m.price)} per learner, with volume pricing from 2 learners. It takes about ${m.hours.toLowerCase()} and is completed online.`],
-    ['How do I get started after buying?', 'Your login details are emailed as soon as checkout is complete, and you can start right away at your own pace.']
-  ];
-  const main = `${answerBox(`Training to become ${c.a} ${c.lower}`, esc(p1))}
-<p>${esc(p2)}</p>
-<section class="feature-course"><p class="eyebrow">Recommended course</p><h2 style="margin-top:0"><a href="${href(m.url)}">${esc(m.title)}</a></h2><div class="table-wrap"><table><tbody>${facts.map(([k, v]) => `<tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`).join('')}</tbody></table></div>
-${m.objectives.length ? `<h3>What you will learn</h3><ul class="checks">${m.objectives.slice(0, 6).map((o) => `<li>${esc(o)}</li>`).join('')}</ul>` : ''}
-<div class="btn-row"><a class="btn btn-primary" href="${buy}">Buy now for ${usd(m.price)}</a><a class="btn" href="${href(m.url)}">Full course details and syllabus</a></div></section>
-<p class="small muted">${esc(provider)}</p>
-${others.length ? `<h2 id="more-courses">More courses for ${esc(c.pluralLower)}</h2>${partnerTable(others, { caption: `Courses for ${c.pluralLower}` })}` : ''}
-<h2 id="prepare">Prepare for the career</h2><ul><li><a href="${href(c.trainingUrl + 'practice-test/')}">${esc(c.title)} practice test</a></li><li><a href="${href(c.url + 'glossary/')}">${esc(c.title)} vocabulary</a></li><li><a href="${href(c.url + 'how-to/')}">Step-by-step ${esc(c.lower)} tasks</a></li><li><a href="${href(c.url + 'day-in-the-life/')}">A day in the life</a> and <a href="${href(c.url + 'salary/')}">salary data</a></li></ul>
-${faqBlock(faqs, `${c.title} training FAQ`)}`;
-  const aside = `<div class="cta-card buy-box"><h2>${esc(m.short)}</h2><p class="buy-price">${usd(m.price)}<span> per learner</span></p><ul><li>${esc(m.hours)}</li><li>${esc(m.langLabel)}</li><li>${esc(m.facts['What You Get'] || 'Certificate of completion')}</li></ul><a class="btn btn-primary" href="${buy}">Buy now</a></div>${sideLinks(`Explore the ${c.lower} career`, [['Career overview', c.url], ['Salary & pay scale', c.url + 'salary/'], ['How to become one', c.url + 'how-to-become/'], ['Interview questions', c.url + 'interview-questions/']])}`;
-  return {
-    path, crumbs, og: `/og/${c.slug}.png`, kind: 'Training', name: `${c.title} Training`,
-    mcta: `<a class="btn btn-primary" href="${buy}">Buy now · ${usd(m.price)}</a>`,
-    title: fitTitle(pick([`${c.title} Training: ${m.short}`, `${c.title} Training (Online)`])),
-    desc: clamp(`${c.title} training online: ${m.title}, ${m.hours.toLowerCase()}, ${usd(m.price)}. ${p1}`),
-    body: `${pageHero({ crumbs, eyebrow: `${cat.name} training`, h1: `${esc(c.title)} Training`, lead: esc(`Start with the training the job requires: ${m.title}. ${m.hours}, online, ${usd(m.price)}.`), extra: `<div class="btn-row"><a class="btn btn-primary" href="${buy}">Buy now</a><button class="btn" type="button" data-add-cart="${cartItem({ k: 'course', s: m.slug, t: m.title, p: m.price, u: href(m.url) })}">Add to cart</button><a class="btn" href="${href(m.url)}">Course details</a></div>` })}<div class="wrap layout"><div class="prose">${main}</div><aside>${aside}</aside></div>`,
-    schema: [faqSchema(faqs, path)]
-  };
-}
-
 export function trainingPages(c, ctx) {
   const { careers, byslug } = ctx;
   const pages = [];
@@ -121,8 +78,8 @@ export function trainingPages(c, ctx) {
   const faqs = courseFaqs(c);
 
   // ---------- Course page ----------
-  if (c.replacedBy && partnerById[c.replacedBy]) pages.push(replacedPage(c, ctx));
-  else {
+  // A career whose training is a checkout course: the course page (courses.mjs) is its training page.
+  if (!(c.replacedBy && partnerById[c.replacedBy])) {
     const path = c.trainingUrl;
     const crumbs = [['Home', '/'], ['Training', '/training/'], [cat.name, `/training/#${cat.slug}`], [`${c.title} Training`, path]];
     const price = usd(c.price);
@@ -180,19 +137,43 @@ ${faqBlock(faqs, `${c.title} training FAQ`)}
   return pages;
 }
 
+// One row of the training catalog: name, length, price and the button that gets the learner started. Rows stay small
+// (700+ on one page): site.js builds the cart item from the row (data-buy marks a checkout course) on "+ Cart".
+let rowN = 0;
+function catalogRow({ title, url, hours, price, buy, k = '' }) {
+  const id = `r${++rowN}`;
+  return `<li${k ? ` data-k="${esc(k.toLowerCase())}"` : ''}${buy ? ` data-buy="${buy}"` : ''}><a href="${href(url)}" id="${id}">${esc(title)}</a><small>${hours} hours${buy ? ' · <b>Instant access</b>' : ''}</small><strong>${usd(price)}</strong><a class="btn btn-sm btn-primary" href="${buy ? href(`/checkout/?course=${buy}`) : `${href(url)}#enroll`}" aria-describedby="${id}">${buy ? 'Buy now' : 'Enroll'}</a><button class="btn btn-sm" type="button" aria-describedby="${id}">+ Cart</button></li>`;
+}
+
 export function trainingCatalog(ctx) {
   const { careers, categories } = ctx;
   const path = '/training/';
   const crumbs = [['Home', '/'], ['Training', path]];
-  const body = `${pageHero({ crumbs, eyebrow: `${countLabel(careers.length)} job-title trainings`, h1: 'Career Training by Job Title', lead: `Practical, self-paced online courses that teach you what a job really involves: duties, vocabulary, common procedures, safety and how to get hired. Pick a job title to start.`, extra: `<div class="btn-row"><a class="btn btn-primary" href="${href('/enroll/')}">Enroll</a><a class="btn" href="${href('/quizzes/career-match/')}">Not sure? Take the Career Match Quiz</a></div>`})}
-<section class="section alt"><div class="wrap"><div class="section-head"><h2>What every training includes</h2></div><div class="grid-3">${[['Role foundations', 'What the job is, where people work, pay and the career ladder.'], ['Day-on-the-job walkthrough', 'A realistic shift so you know what to expect.'], ['Essential vocabulary', 'The terms you’ll hear on day one, with practice drills.'], ['Step-by-step procedures', 'How to perform the common tasks of the role.'], ['Safety & compliance', 'Hazards, standards and professional expectations.'], ['Career launch & final exam', 'Credentials, resumes, interviews and a certificate of completion.']].map(([t, d]) => `<div class="card"><h3>${t}</h3><p>${d}</p></div>`).join('')}</div></div></section>
-<div class="wrap" style="padding-top:20px;padding-bottom:60px"><ul class="az" aria-label="Jump to a field">${categories.map((cat) => `<li><a href="#${cat.slug}" style="width:auto;padding:0 10px">${esc(cat.short || cat.name)}</a></li>`).join('')}</ul>${categories.map((cat) => `<section id="${cat.slug}" style="scroll-margin-top:90px"><h2>${icon(cat.slug, 26)} ${esc(cat.name)} trainings</h2><p class="muted">${esc(cat.blurb)}</p><ul class="linklist">${careers.filter((c) => c.cat === cat.slug).sort((a, b) => a.title.localeCompare(b.title)).map((c) => `<li><a href="${href(c.trainingUrl)}">${esc(c.title)} Training</a> <span class="muted small">${c.replacedBy && partnerById[c.replacedBy] ? `from ${usd(partnerById[c.replacedBy].price)}` : usd(c.price)}</span></li>`).join('')}</ul></section>`).join('')}
-<section id="buy-online" style="scroll-margin-top:90px;margin-top:34px"><h2>More job titles: buy online</h2><p class="muted">Complete online training for these job titles comes from our affiliated training provider. Buy online and start right away.</p>${partnerTable(partnerCourses.filter((p) => !careers.some((c) => c.replacedBy === p.id)), { caption: 'More job-title courses' })}</section>
-<aside class="callout info" style="margin-top:30px"><p>Career Education Institute trainings are general, non-credit career-preparation courses for U.S. learners. They do not replace state-required licensing programs. ${esc(cfg.course.groupNote)}: see <a href="${href('/for-employers/')}">training for employers</a>.</p></aside></div>`;
+  const rowsFor = (cat) => {
+    const rows = careers.filter((c) => c.cat === cat.slug).map((c) => {
+      const m = c.replacedBy && partnerById[c.replacedBy];
+      return m
+        ? { title: m.title, url: m.url, hours: m.hoursNum, price: m.price, buy: m.slug, k: searchKeywords(c) }
+        : { title: `${c.title} Training`, url: c.trainingUrl, hours: c.hours, price: c.price, k: searchKeywords(c) };
+    });
+    // Checkout courses with no career profile of their own (mold inspector) sit in their field too
+    for (const m of partnerCourses.filter((p) => p.field === cat.slug && !careers.some((c) => c.replacedBy === p.id))) rows.push({ title: m.title, url: m.url, hours: m.hoursNum, price: m.price, buy: m.slug });
+    return rows.sort((a, b) => a.title.localeCompare(b.title));
+  };
+  const all = categories.map((cat) => [cat, rowsFor(cat)]);
+  const total = all.reduce((n, [, r]) => n + r.length, 0);
+  const prices = all.flatMap(([, r]) => r.map((x) => x.price));
+  const body = `${pageHero({ crumbs, eyebrow: `${countLabel(total)} job-title trainings`, h1: 'Career Training by Job Title', lead: `Self-paced online courses that teach you what a job really involves: duties, vocabulary, common procedures, safety and how to get hired. Every training is ${usd(Math.min(...prices))} to ${usd(Math.max(...prices))}.`, meta: false, extra: `<form class="tl-search" role="search" data-catalog-search><label class="vh" for="tl-q">Search trainings</label><input id="tl-q" name="q" type="search" placeholder="Search ${countLabel(total)} trainings, for example “welder” or “nurse”" autocomplete="off"><select name="cat" aria-label="Career field"><option value="">All fields</option>${categories.map((cat) => `<option value="${cat.slug}">${esc(cat.name)}</option>`).join('')}</select></form><p class="tl-count small muted" data-catalog-count aria-live="polite">${total} trainings</p>` })}
+<div class="wrap tl-wrap" data-catalog><p class="tl-note small muted">Every training is online and self-paced, with a certificate of completion. “Buy now” trainings start instantly; the rest start after a quick enrollment request.</p><ul class="tl-jump" aria-label="Jump to a field">${categories.map((cat) => `<li><a href="#${cat.slug}">${esc(cat.short || cat.name)}</a></li>`).join('')}</ul>
+${all.map(([cat, rows]) => `<section class="tl-group" id="${cat.slug}" data-cat="${cat.slug}"><div class="tl-head"><h2>${icon(cat.slug, 24)} ${esc(cat.name)}</h2><span class="muted small" data-group-count>${rows.length} trainings</span></div><ul class="tl-list">${rows.map(catalogRow).join('')}</ul></section>`).join('')}
+<div class="tl-empty" data-catalog-empty hidden><h2>No training matches that search</h2><p>Try a shorter word, or tell us the job title and we’ll point you to the closest training.</p><div class="btn-row"><a class="btn btn-primary" href="${href('/quizzes/career-match/')}">Take the Career Match Quiz</a><a class="btn" href="${href('/contact/')}">Ask us</a></div></div>
+<section class="tl-includes"><h2>Every training includes</h2><ul class="checks">${['Role foundations: what the job is, where people work, pay and the career ladder', 'A realistic day-on-the-job walkthrough', 'The vocabulary you’ll hear on day one, with practice drills', 'Step-by-step procedures for the common tasks of the role', 'Safety, compliance and professional standards', 'A final exam and certificate of completion'].map((t) => `<li>${t}</li>`).join('')}</ul><div class="btn-row"><a class="btn btn-primary" href="${href('/subscriptions/')}">Get every training with a subscription</a><a class="btn" href="${href('/for-employers/')}">Training a team?</a></div></section>
+<aside class="callout info" style="margin-top:30px"><p>Career Education Institute trainings are general, non-credit career-preparation courses for U.S. learners. They do not replace state-required licensing programs. ${esc(cfg.course.groupNote)}.</p></aside></div>`;
   return {
     path, crumbs, og: '/og/training.png', kind: 'Training catalog', name: 'All trainings',
+    mcta: `<a class="btn btn-primary" href="#tl-q">Search trainings</a><a class="btn" href="${href('/subscriptions/')}">Subscriptions</a>`,
     title: fitTitle(`Online Career Training by Job Title (${countLabel(careers.length)} Courses)`),
-    desc: clamp(`Browse ${countLabel(careers.length)} online career trainings by job title: healthcare, skilled trades, safety, logistics, business, tech and public safety. Self-paced, practical and built for U.S. learners.`),
+    desc: clamp(`Browse ${countLabel(careers.length)} online career trainings by job title, each under $50: healthcare, skilled trades, safety, logistics, business, tech and public safety. Self-paced, with a certificate.`),
     body,
     schema: []
   };

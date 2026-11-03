@@ -130,8 +130,9 @@ ${cfg.name} publishes free, plain-language career information for ${countLabel(c
 - [Career Match Quiz](${abs('/quizzes/career-match/')}): free interest-based quiz that recommends careers from our ${countLabel(careers.length)} profiles
 - [All careers](${abs('/careers/')}): directory with pay, growth and training time
 - [Salary guide](${abs('/salary-guide/')}): BLS median pay for all ${countLabel(careers.length)} careers
-- [All trainings](${abs('/training/')}): online courses by job title
-- [Job-title courses to buy online](${abs('/courses/')}): CDL Entry-Level Driver Training (Class A and B), forklift operator, flagger and mold inspector, bought online
+- [All trainings](${abs('/training/')}): online courses by job title, each under $50
+- [Training subscriptions](${abs('/subscriptions/')}): seats for individuals and groups, billed monthly, yearly or by the decade
+- [Programs and schools](${abs('/for-workforce-programs/')}): seat subscriptions for schools and workforce programs
 - [Guides](${abs('/guides/')}): choosing a career, college vs. trade school, changing careers, resumes, interviews
 - [For students](${abs('/students/')}) · [For career changers](${abs('/career-changers/')}) · [For working professionals](${abs('/professionals/')})
 - [Full facts for every career (llms-full.txt)](${abs('/llms-full.txt')})
