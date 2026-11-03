@@ -135,7 +135,7 @@ export const shell = () => ({
 
 // ---------- Shared components ----------
 export const careerCard = (c, l) =>
-  `<article class="card link"><span class="ico">${icon(c.cat)}</span><h3><a class="stretch" href="${href(`/careers/${c.slug}/`)}">${esc(c.title)}</a></h3><p>${esc(c.blurb || c.summary)}</p><ul class="chips"><li class="chip pay">${money(l.wages.median)}/yr median</li><li class="chip grow">${pct(l.growthPct)} growth</li><li class="chip">${esc(c.train)}</li></ul></article>`;
+  `<article class="card link fcard"><span class="ico">${icon(c.cat)}</span><h3><a class="stretch" href="${href(`/careers/${c.slug}/`)}">${esc(c.title)}</a></h3><p>${esc(c.blurb || c.summary)}</p><div class="fcard-foot"><span class="fcard-big">${money(l.wages.median)} <small>median pay</small></span><span>${pct(l.growthPct)} growth · Training: ${esc(c.train)}</span></div></article>`;
 
 export const trainingCard = (c, l) =>
   `<article class="card link"><span class="ico">${icon(c.cat)}</span><h3><a class="stretch" href="${href(`/training/${c.slug}/`)}">${esc(c.title)} Training</a></h3><p>${esc(c.blurb || c.summary)}</p><ul class="chips"><li class="chip">${esc(cfg.course.format)}</li><li class="chip pay">Career median ${money(l.wages.median)}</li></ul></article>`;
