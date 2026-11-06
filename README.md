@@ -6,6 +6,7 @@ guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The b
 (`blog.careereducationinstitute.org`): see **The blog** below.
 
 - **Operated by:** Industrial Certified Training, LLC ([ictraining.us](https://www.ictraining.us)), which also runs HAZWOPER-OSHA.com
+- **Live address:** https://cei.ictraining.us (GitHub Pages custom domain; see **Deploying to cei.ictraining.us** below)
 - **Preview:** https://lj-web-management.github.io/www.careereducationinstitute.org/ (until the custom domain is connected)
 - **Domain (planned):** https://www.careereducationinstitute.org
 
@@ -97,6 +98,15 @@ build time), and its links to careers, trainings and guides point back here.
 How the two connect: in this site, links written as `/blog/...` go to `cfg.blogUrl` (`site.config.mjs`), which follows this
 site's address (github.io stays github.io, the custom domain uses the blog subdomain). The repository variable `BLOG_URL`
 overrides it, for example while only one of the two custom domains is connected.
+
+### Deploying to cei.ictraining.us
+1. DNS for `ictraining.us`: add a `CNAME` record `cei` → `lj-web-management.github.io`.
+2. This repository: **Settings → Pages → Custom domain** = `cei.ictraining.us`, save, wait for the DNS check, then tick
+   **Enforce HTTPS**. (No `CNAME` file is needed: the site deploys with GitHub Actions.)
+3. **Actions → Build and deploy → Run workflow** (or push to `main`). The build reads the domain from Pages, so canonical
+   URLs, the sitemap and `robots.txt` all use `https://cei.ictraining.us`.
+4. The blog stays on its github.io address (`cfg.blogUrl` only switches to `blog.careereducationinstitute.org` when this site
+   runs on `careereducationinstitute.org`). Set the repository variable `BLOG_URL` if the blog gets its own domain.
 
 Custom domains, when you are ready:
 1. DNS: a `CNAME` record for `www` and one for `blog`, both pointing to `lj-web-management.github.io` (plus GitHub's apex `A`

@@ -1,10 +1,11 @@
 // Central site settings. Change values here, then rebuild (npm run build).
 // SITE_URL is injected by the GitHub Pages workflow. When the custom domain
-// (www.careereducationinstitute.org) is connected, it switches automatically.
+// (now cei.ictraining.us; later www.careereducationinstitute.org) is connected, it switches automatically.
 const url = (process.env.SITE_URL || 'http://localhost:4173').replace(/\/$/, '');
 // The blog is its own site (repo blog.careereducationinstitute.org). BLOG_URL overrides; otherwise it follows this
-// site: the local blog server, the blog repo's github.io address, or blog.careereducationinstitute.org.
-const blogUrl = (process.env.BLOG_URL || (/localhost/.test(url) ? 'http://localhost:4174' : /github\.io/.test(url) ? new URL(url).origin + '/blog.careereducationinstitute.org' : 'https://blog.careereducationinstitute.org')).replace(/\/$/, '');
+// site: the local blog server, blog.careereducationinstitute.org once this site runs on careereducationinstitute.org,
+// or else (github.io, or another domain such as cei.ictraining.us) the blog repo's github.io address.
+const blogUrl = (process.env.BLOG_URL || (/localhost/.test(url) ? 'http://localhost:4174' : /(^|\.)careereducationinstitute\.org$/.test(new URL(url).hostname) ? 'https://blog.careereducationinstitute.org' : 'https://lj-web-management.github.io/blog.careereducationinstitute.org')).replace(/\/$/, '');
 
 export default {
   name: 'Career Education Institute',
