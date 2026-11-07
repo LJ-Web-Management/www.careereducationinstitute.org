@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Career Education Institute static website generator: career profiles, trainings, certification courses, checkout, quizzes, guides, employer resources and newsletter pages. The blog is a separate repo (blog), published at /blog/.",
+  "description": "Career Education Institute static website generator: career profiles, trainings, certification courses, checkout, quizzes, guides, employer resources and newsletter pages. The blog is a separate repo (blog.careereducationinstitute.org), built into /blog/ by the deploy workflow.",
   "scripts": {
     "build": "node scripts/build.mjs",
     "audit": "node scripts/audit.mjs",

@@ -8,7 +8,7 @@ export const slugify = (s) =>
     .replace(/['’]/g, '').replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
 
 // Internal link: prefixes the base path (github.io project sites live under /repo/).
-// Paths under /blog/ belong to the blog, a separate site at cfg.blogUrl.
+// Paths under /blog/ belong to the blog (its own repo, published at cfg.blogUrl, normally this site's /blog/).
 const inBlog = (p) => p === '/blog' || p.startsWith('/blog/');
 export const href = (p = '/') => (/^(https?:|mailto:|tel:|#)/.test(p) ? p : inBlog(p) ? cfg.blogUrl + (p.slice(5) || '/') : cfg.basePath + p);
 // Absolute URL for canonicals, sitemaps and structured data.

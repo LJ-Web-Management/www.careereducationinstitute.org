@@ -5,10 +5,9 @@
 // written as https://, keeping canonicals, the sitemaps and robots.txt on one scheme.
 const https = (u) => (/^http:\/\/(localhost|127\.)/.test(u) ? u : u.replace(/^http:\/\//, 'https://'));
 const url = https(process.env.SITE_URL || 'http://localhost:4173').replace(/\/$/, '');
-// The blog is its own site (repo blog.careereducationinstitute.org). BLOG_URL overrides; otherwise it follows this
-// site: the local blog server, blog.careereducationinstitute.org once this site runs on careereducationinstitute.org,
-// or else (github.io, or another domain such as cei.ictraining.us) the blog repo's github.io address.
-const blogUrl = https(process.env.BLOG_URL || (/localhost/.test(url) ? 'http://localhost:4174' : /(^|\.)careereducationinstitute\.org$/.test(new URL(url).hostname) ? 'https://blog.careereducationinstitute.org' : 'https://lj-web-management.github.io/blog.careereducationinstitute.org')).replace(/\/$/, '');
+// The blog lives in its own repo (blog.careereducationinstitute.org) and is published at /blog/ of this site: the
+// deploy workflow builds it into dist/blog/. BLOG_URL overrides; locally the blog runs on its own preview server.
+const blogUrl = https(process.env.BLOG_URL || (/localhost/.test(url) ? 'http://localhost:4174' : url + '/blog')).replace(/\/$/, '');
 
 export default {
   name: 'Career Education Institute',
@@ -21,7 +20,7 @@ export default {
     'Career Education Institute offers online career training by job title, plus free career quizzes, salary data, day-in-the-life guides and college and career-change resources for the U.S.',
   url, // absolute origin + base path, no trailing slash
   basePath: new URL(url).pathname.replace(/\/$/, ''), // '' on a custom domain, '/repo' on github.io
-  blogUrl, // the blog's address, no trailing slash: links written as /blog/... go there
+  blogUrl, // the blog's address (normally this site + /blog), no trailing slash: links written as /blog/... go there
   futureDomain: 'https://www.careereducationinstitute.org',
   locale: 'en_US',
   lang: 'en-US',

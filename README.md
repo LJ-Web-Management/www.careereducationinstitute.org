@@ -2,8 +2,8 @@
 
 Static website for Career Education Institute: career training by job title, a few complete job-title courses from
 HAZWOPER-OSHA.com sold through an online checkout, plus free career resources (700+ career profiles, salary data, quizzes,
-guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The blog is its own site in a separate repository
-(`blog.careereducationinstitute.org`): see **The blog** below.
+guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The blog lives in a separate repository
+(`blog.careereducationinstitute.org`) and is published at `/blog/` of this site: see **The blog** below.
 
 - **Operated by:** Industrial Certified Training, LLC ([ictraining.us](https://www.ictraining.us)), which also runs HAZWOPER-OSHA.com
 - **Live address:** https://cei.ictraining.us (GitHub Pages custom domain; see **Deploying to cei.ictraining.us** below)
@@ -44,9 +44,10 @@ guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The b
 | Mark content as reviewed | Change `updated` in `site.config.mjs` |
 | Replace the logo | Swap `src/brand/logo-full.png` (header and footer) or `src/brand/logo-icon.png` (favicons, app icons, social images). Transparent PNGs; the build trims and resizes them |
 
-Every push to `main` rebuilds and deploys automatically (GitHub Actions to Pages) and runs the SEO audit. Each build
-also writes `/assets/shell.json` (header, footer, stylesheet) for the blog, shows the blog's latest posts on the homepage
-(from the blog's `posts.json`) and site search merges the blog's `search-index.json`.
+Every push to `main` rebuilds and deploys automatically (GitHub Actions to Pages) and runs the SEO audit. Each deploy
+also builds the blog repository into `/blog/` (with this build's `/assets/shell.json`: header, footer, stylesheet),
+shows the blog's latest posts on the homepage (from the blog's `posts.json`) and site search merges the blog's
+`search-index.json`. The workflow also runs every 6 hours, and whenever the blog repository asks for it.
 
 ## Pricing and course length
 Job-title trainings are priced under $50, by length: 6 hours $29.99, 8 hours $34.99, 10 hours $39.99, 12 hours $44.99,
@@ -85,41 +86,34 @@ npm run audit      # SEO checks: titles, descriptions, H1s, canonicals, broken l
 ```
 
 ## The blog
-The blog is its own static site in the repository `LJ-Web-Management/blog.careereducationinstitute.org` (prepared locally in
-`../careereducationinstitute-blog`). It uses this site's header, footer and stylesheet (read from `/assets/shell.json` at
-build time), and its links to careers, trainings and guides point back here.
+The blog's source is its own repository, `LJ-Web-Management/blog.careereducationinstitute.org`, and it is published at
+**/blog/ of this site** (https://cei.ictraining.us/blog/). It uses this site's header, footer and stylesheet, and its links
+to careers, trainings and guides point back here.
 
-| | Main site | Blog |
-|---|---|---|
-| Repository | `LJ-Web-Management/www.careereducationinstitute.org` | `LJ-Web-Management/blog.careereducationinstitute.org` |
-| Address now | https://lj-web-management.github.io/www.careereducationinstitute.org/ | https://lj-web-management.github.io/blog.careereducationinstitute.org/ |
-| Address with custom domains | https://www.careereducationinstitute.org | https://blog.careereducationinstitute.org |
-
-How the two connect: in this site, links written as `/blog/...` go to `cfg.blogUrl` (`site.config.mjs`), which follows this
-site's address (github.io stays github.io, the custom domain uses the blog subdomain). The repository variable `BLOG_URL`
-overrides it, for example while only one of the two custom domains is connected.
+How the two connect:
+- This repository's deploy workflow checks out the blog repository (`blog-repo/`), builds it with
+  `SITE_URL=<this site>/blog`, audits it and copies its `dist/` to `dist/blog/`, so both deploy as one Pages site. The
+  blog's `sitemap.xml` is listed in this site's `robots.txt`.
+- Links written as `/blog/...` go to `cfg.blogUrl` (`site.config.mjs`), which is this site's address + `/blog`. The
+  repository variable `BLOG_URL` overrides it; `BLOG_REPO` overrides which repository is built (default
+  `LJ-Web-Management/blog.careereducationinstitute.org`).
+- When a post is published, the blog's workflow asks this one to redeploy (`repository_dispatch`, `blog-updated`). That needs
+  the secret `SITE_DISPATCH_TOKEN` in the blog repository: a fine-grained token with **Contents: read and write** on this
+  repository. Without it, new posts go live on the next push here or the 6-hourly scheduled run. If the blog repository is
+  ever made private, add the same secret here (with read access to the blog) so this workflow can check it out.
+- The blog repository's own Pages address (https://lj-web-management.github.io/blog.careereducationinstitute.org/) only
+  redirects old links to the same page under /blog/ here.
 
 ### Deploying to cei.ictraining.us
 1. DNS for `ictraining.us`: add a `CNAME` record `cei` → `lj-web-management.github.io`.
 2. This repository: **Settings → Pages → Custom domain** = `cei.ictraining.us`, save, wait for the DNS check, then tick
    **Enforce HTTPS**. (No `CNAME` file is needed: the site deploys with GitHub Actions.)
 3. **Actions → Build and deploy → Run workflow** (or push to `main`). The build reads the domain from Pages, so canonical
-   URLs, the sitemap and `robots.txt` all use `https://cei.ictraining.us`.
-4. The blog stays on its github.io address (`cfg.blogUrl` only switches to `blog.careereducationinstitute.org` when this site
-   runs on `careereducationinstitute.org`). Set the repository variable `BLOG_URL` if the blog gets its own domain.
+   URLs, the sitemap and `robots.txt` all use `https://cei.ictraining.us`, and the blog is at `https://cei.ictraining.us/blog/`.
 
-Custom domains, when you are ready:
-1. DNS: a `CNAME` record for `www` and one for `blog`, both pointing to `lj-web-management.github.io` (plus GitHub's apex `A`
-   records if you also want `careereducationinstitute.org`).
-2. In each repository: **Settings → Pages → Custom domain** (`www.careereducationinstitute.org` here,
-   `blog.careereducationinstitute.org` in the blog), then tick **Enforce HTTPS**.
-3. Run this repository's workflow, then the blog's, so each picks up the other's new address.
-
-Optional automatic rebuilds: make a fine-grained token with **Contents: read and write** on both repositories and save it as
-the secret `SITE_DISPATCH_TOKEN` in both. Add the variable `BLOG_REPO` = `LJ-Web-Management/blog.careereducationinstitute.org`
-here and `MAIN_SITE_REPO` = `LJ-Web-Management/www.careereducationinstitute.org` in the blog. A new post then refreshes this
-site's homepage, and menu or style changes here refresh the blog. Without them, the homepage picks up new posts on this
-site's next deploy (site search reads the blog's live index, so it is always current).
+Moving to www.careereducationinstitute.org later: set that as this repository's custom domain and run the workflow; the
+blog follows to `/blog/` automatically. In the blog repository, set the variable `BLOG_URL` to
+`https://www.careereducationinstitute.org/blog` so its old-address redirects point to the new place.
 
 ## After launch (SEO)
 - Add the site to **Google Search Console** and **Bing Webmaster Tools**; put the verification codes in

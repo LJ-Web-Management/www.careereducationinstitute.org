@@ -5,7 +5,9 @@ on:
     branches: [main]
   workflow_dispatch:
   repository_dispatch:
-    types: [blog-updated]   # sent by the blog repo after it deploys, so the homepage, search and sitemap pick up new posts
+    types: [blog-updated]   # sent by the blog repo when posts change, so /blog/ and the homepage pick them up
+  schedule:
+    - cron: '17 */6 * * *'   # also every 6 hours, so new blog posts go live even without the blog's dispatch token
 
 permissions:
   contents: read
@@ -22,29 +24,63 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      # The blog (its own repo) is published at /blog/ of this site, so it is built here too.
+      # BLOG_REPO (optional variable) defaults to LJ-Web-Management/blog.careereducationinstitute.org.
+      - name: Check out the blog
+        uses: actions/checkout@v5
+        with:
+          repository: ${{ vars.BLOG_REPO || 'LJ-Web-Management/blog.careereducationinstitute.org' }}
+          path: blog-repo
+          token: ${{ secrets.SITE_DISPATCH_TOKEN || github.token }}
+
       - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            blog-repo/package-lock.json
 
       - name: Install dependencies
-        run: npm ci --no-audit --no-fund
+        run: |
+          npm ci --no-audit --no-fund
+          npm ci --no-audit --no-fund --prefix blog-repo
 
       - name: Configure GitHub Pages
         id: pages
         uses: actions/configure-pages@v5
 
+      # First blog build: only for its posts.json, so the homepage lists the latest posts.
+      - name: Build blog (posts list)
+        run: node blog-repo/scripts/build.mjs
+        env:
+          SITE_URL: ${{ steps.pages.outputs.base_url }}/blog
+          MAIN_SITE_URL: ${{ steps.pages.outputs.base_url }}
+
       - name: Build site
         run: node scripts/build.mjs
         env:
           SITE_URL: ${{ steps.pages.outputs.base_url }}
-          BLOG_URL: ${{ vars.BLOG_URL }}   # optional repository variable; empty means the default in site.config.mjs
+          BLOG_URL: ${{ vars.BLOG_URL }}   # optional repository variable; empty means this site's /blog/
+          BLOG_POSTS_URL: ${{ github.workspace }}/blog-repo/dist/posts.json
 
       - name: SEO audit
         run: node scripts/audit.mjs
         env:
           SITE_URL: ${{ steps.pages.outputs.base_url }}
-          BLOG_URL: ${{ vars.BLOG_URL }}   # optional repository variable; empty means the default in site.config.mjs
+          BLOG_URL: ${{ vars.BLOG_URL }}   # optional repository variable; empty means this site's /blog/
+
+      # Second blog build: with the header, footer and stylesheet this build has just made, then into dist/blog/.
+      - name: Build blog
+        run: node blog-repo/scripts/build.mjs && node blog-repo/scripts/audit.mjs
+        env:
+          SITE_URL: ${{ steps.pages.outputs.base_url }}/blog
+          MAIN_SITE_URL: ${{ steps.pages.outputs.base_url }}
+          SHELL_URL: ${{ github.workspace }}/dist/assets/shell.json
+          MAIN_SITE_DIST: ${{ github.workspace }}/dist
+
+      - name: Add the blog at /blog/
+        run: rm -rf dist/blog && cp -R blog-repo/dist dist/blog && rm -f dist/blog/.nojekyll
 
       - uses: actions/upload-pages-artifact@v3
         with:
@@ -60,12 +96,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-      # Optional: rebuild the blog so it picks up header, footer or stylesheet changes.
-      # Needs repository variable BLOG_REPO (LJ-Web-Management/blog.careereducationinstitute.org) and secret
-      # SITE_DISPATCH_TOKEN (a fine-grained token with Contents: read and write on that repo).
-      - name: Tell the blog to rebuild
-        if: ${{ vars.BLOG_REPO != '' && github.event_name != 'repository_dispatch' }}
-        env:
-          GH_TOKEN: ${{ secrets.SITE_DISPATCH_TOKEN }}
-        run: gh api "repos/${{ vars.BLOG_REPO }}/dispatches" -f event_type=site-shell-updated

@@ -38,9 +38,9 @@ const catOrder = categories.map((c) => c.slug);
 const careers = raw.map((c) => enrich(c, labor)).sort((a, b) => catOrder.indexOf(a.cat) - catOrder.indexOf(b.cat) || a.title.localeCompare(b.title));
 const byslug = Object.fromEntries(careers.map((c) => [c.slug, c]));
 for (const c of careers) for (const r of c.related) if (!byslug[r]) console.warn(`! ${c.slug} relates to missing career ${r}`);
-// The blog is a separate site (repo blog.careereducationinstitute.org, at cfg.blogUrl). The homepage shows its latest
-// posts from the live blog's posts.json (locally: the blog repo's dist/ next to this one). BLOG_POSTS_URL overrides
-// either. If the file can't be read, the homepage simply skips its blog section.
+// The blog is its own repo (blog.careereducationinstitute.org), published at cfg.blogUrl (this site's /blog/). The
+// homepage shows its latest posts from the live blog's posts.json (locally: the blog repo's dist/ next to this one).
+// BLOG_POSTS_URL overrides either (the deploy workflow points it at the blog it has just built). If the file can't be read, the homepage simply skips its blog section.
 const blogSrc = process.env.BLOG_POSTS_URL || (/localhost/.test(cfg.url) ? path.resolve(ROOT, '../careereducationinstitute-blog/dist/posts.json') : `${cfg.blogUrl}/posts.json`);
 let posts = [];
 try {
@@ -103,7 +103,7 @@ for (const [g, list] of Object.entries(groups)) if (list.length) fs.writeFileSyn
 fs.writeFileSync(path.join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${Object.entries(groups).filter(([, l]) => l.length).map(([g, l]) => `<sitemap><loc>${abs(`/sitemap-${g}.xml`)}</loc><lastmod>${l.map((p) => p.modified || cfg.updated).sort().at(-1)}</lastmod></sitemap>`).join('\n')}\n</sitemapindex>\n`);
 
 const aiBots = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'anthropic-ai', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot', 'Applebot-Extended', 'Bingbot', 'DuckAssistBot', 'Amazonbot', 'meta-externalagent', 'MistralAI-User', 'cohere-ai', 'CCBot', 'YouBot'];
-fs.writeFileSync(path.join(DIST, 'robots.txt'), `# Career Education Institute: all search engines and AI assistants are welcome.\nUser-agent: *\nAllow: /\nDisallow: ${cfg.basePath}/search/?\n\n${aiBots.map((b) => `User-agent: ${b}\nAllow: /`).join('\n\n')}\n\nSitemap: ${abs('/sitemap.xml')}\nSitemap: ${cfg.blogUrl}/sitemap.xml\n`); // the blog's own robots.txt is ignored while it lives under a github.io path
+fs.writeFileSync(path.join(DIST, 'robots.txt'), `# Career Education Institute: all search engines and AI assistants are welcome.\nUser-agent: *\nAllow: /\nDisallow: ${cfg.basePath}/search/?\n\n${aiBots.map((b) => `User-agent: ${b}\nAllow: /`).join('\n\n')}\n\nSitemap: ${abs('/sitemap.xml')}\nSitemap: ${cfg.blogUrl}/sitemap.xml\n`); // the blog is served under /blog/, so its sitemap is listed here
 
 fs.writeFileSync(path.join(DIST, 'site.webmanifest'), JSON.stringify({ name: cfg.name, short_name: cfg.shortName, description: cfg.description, start_url: href('/'), scope: href('/'), display: 'standalone', background_color: '#faf8f3', theme_color: '#022350', icons: [{ src: href('/icons/icon-192.png'), sizes: '192x192', type: 'image/png' }, { src: href('/icons/icon-512.png'), sizes: '512x512', type: 'image/png' }, { src: href('/icons/icon-maskable-512.png'), sizes: '512x512', type: 'image/png', purpose: 'maskable' }] }, null, 1));
 fs.mkdirSync(path.join(DIST, '.well-known'), { recursive: true });
