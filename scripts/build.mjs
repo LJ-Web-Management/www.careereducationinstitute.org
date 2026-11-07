@@ -100,10 +100,10 @@ for (const p of indexable) {
 }
 const urlset = (list) => `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${list.map((p) => `<url><loc>${abs(p.path)}</loc><lastmod>${p.modified || cfg.updated}</lastmod>${p.og ? `<image:image><image:loc>${abs(p.og)}</image:loc></image:image>` : ''}</url>`).join('\n')}\n</urlset>\n`;
 for (const [g, list] of Object.entries(groups)) if (list.length) fs.writeFileSync(path.join(DIST, `sitemap-${g}.xml`), urlset(list));
-fs.writeFileSync(path.join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${Object.entries(groups).filter(([, l]) => l.length).map(([g, l]) => `<sitemap><loc>${abs(`/sitemap-${g}.xml`)}</loc><lastmod>${l.map((p) => p.modified || cfg.updated).sort().at(-1)}</lastmod></sitemap>`).join('\n')}\n</sitemapindex>\n`); // the blog is its own site and lists its own sitemap in its robots.txt
+fs.writeFileSync(path.join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${Object.entries(groups).filter(([, l]) => l.length).map(([g, l]) => `<sitemap><loc>${abs(`/sitemap-${g}.xml`)}</loc><lastmod>${l.map((p) => p.modified || cfg.updated).sort().at(-1)}</lastmod></sitemap>`).join('\n')}\n</sitemapindex>\n`);
 
 const aiBots = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'anthropic-ai', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot', 'Applebot-Extended', 'Bingbot', 'DuckAssistBot', 'Amazonbot', 'meta-externalagent', 'MistralAI-User', 'cohere-ai', 'CCBot', 'YouBot'];
-fs.writeFileSync(path.join(DIST, 'robots.txt'), `# Career Education Institute: all search engines and AI assistants are welcome.\nUser-agent: *\nAllow: /\nDisallow: ${cfg.basePath}/search/?\n\n${aiBots.map((b) => `User-agent: ${b}\nAllow: /`).join('\n\n')}\n\nSitemap: ${abs('/sitemap.xml')}\n`);
+fs.writeFileSync(path.join(DIST, 'robots.txt'), `# Career Education Institute: all search engines and AI assistants are welcome.\nUser-agent: *\nAllow: /\nDisallow: ${cfg.basePath}/search/?\n\n${aiBots.map((b) => `User-agent: ${b}\nAllow: /`).join('\n\n')}\n\nSitemap: ${abs('/sitemap.xml')}\nSitemap: ${cfg.blogUrl}/sitemap.xml\n`); // the blog's own robots.txt is ignored while it lives under a github.io path
 
 fs.writeFileSync(path.join(DIST, 'site.webmanifest'), JSON.stringify({ name: cfg.name, short_name: cfg.shortName, description: cfg.description, start_url: href('/'), scope: href('/'), display: 'standalone', background_color: '#faf8f3', theme_color: '#022350', icons: [{ src: href('/icons/icon-192.png'), sizes: '192x192', type: 'image/png' }, { src: href('/icons/icon-512.png'), sizes: '512x512', type: 'image/png' }, { src: href('/icons/icon-maskable-512.png'), sizes: '512x512', type: 'image/png', purpose: 'maskable' }] }, null, 1));
 fs.mkdirSync(path.join(DIST, '.well-known'), { recursive: true });
@@ -136,6 +136,7 @@ ${cfg.name} publishes free, plain-language career information for ${countLabel(c
 - [Guides](${abs('/guides/')}): choosing a career, college vs. trade school, changing careers, resumes, interviews
 - [For students](${abs('/students/')}) · [For career changers](${abs('/career-changers/')}) · [For working professionals](${abs('/professionals/')})
 - [Full facts for every career (llms-full.txt)](${abs('/llms-full.txt')})
+- [Career advice blog](${abs('/blog/')}): career advice, salary updates and training tips
 
 ## Career profiles by field
 Each profile has salary, how to become, day in the life, skills, glossary, how-to, interview questions, FAQ, training and practice test pages. Summaries for every career are in llms-full.txt.
@@ -144,6 +145,7 @@ ${cats.map((cat) => `\n### [${cat.name}](${abs(`/careers/${cat.slug}/`)})\n${car
 ## Guides
 ${pages.filter((p) => p.path.startsWith('/guides/') && p.path !== '/guides/').map((p) => `- [${p.name || p.title}](${abs(p.path)}): ${p.desc}`).join('\n')}
 
+${posts.length ? `\n## Blog\n${posts.map((p) => `- [${p.title}](${abs(`/blog/${p.slug}/`)}): ${p.description}`).join('\n')}\n` : ''}
 ## Policies
 - [Privacy Policy](${abs('/privacy-policy/')}): U.S.-only service
 - [Terms of Use](${abs('/terms-of-use/')})

@@ -1,11 +1,14 @@
 // Central site settings. Change values here, then rebuild (npm run build).
 // SITE_URL is injected by the GitHub Pages workflow. When the custom domain
 // (now cei.ictraining.us; later www.careereducationinstitute.org) is connected, it switches automatically.
-const url = (process.env.SITE_URL || 'http://localhost:4173').replace(/\/$/, '');
+// GitHub Pages reports an http:// base_url until "Enforce HTTPS" is ticked, so any address other than localhost is
+// written as https://, keeping canonicals, the sitemaps and robots.txt on one scheme.
+const https = (u) => (/^http:\/\/(localhost|127\.)/.test(u) ? u : u.replace(/^http:\/\//, 'https://'));
+const url = https(process.env.SITE_URL || 'http://localhost:4173').replace(/\/$/, '');
 // The blog is its own site (repo blog.careereducationinstitute.org). BLOG_URL overrides; otherwise it follows this
 // site: the local blog server, blog.careereducationinstitute.org once this site runs on careereducationinstitute.org,
 // or else (github.io, or another domain such as cei.ictraining.us) the blog repo's github.io address.
-const blogUrl = (process.env.BLOG_URL || (/localhost/.test(url) ? 'http://localhost:4174' : /(^|\.)careereducationinstitute\.org$/.test(new URL(url).hostname) ? 'https://blog.careereducationinstitute.org' : 'https://lj-web-management.github.io/blog.careereducationinstitute.org')).replace(/\/$/, '');
+const blogUrl = https(process.env.BLOG_URL || (/localhost/.test(url) ? 'http://localhost:4174' : /(^|\.)careereducationinstitute\.org$/.test(new URL(url).hostname) ? 'https://blog.careereducationinstitute.org' : 'https://lj-web-management.github.io/blog.careereducationinstitute.org')).replace(/\/$/, '');
 
 export default {
   name: 'Career Education Institute',
