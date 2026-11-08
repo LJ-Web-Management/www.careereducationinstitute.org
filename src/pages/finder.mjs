@@ -7,7 +7,6 @@
 //   /skills-to-learn/, /skills-to-learn/<skill>/
 //   /career-options-after-high-school/
 //   /colleges/, /colleges/<state>/            college and university search and state lists (IPEDS)
-//   /finder-admin/                            staff dashboard (noindex)
 import cfg from '../../site.config.mjs';
 import { esc, href, abs, clamp, fitTitle, listJoin, countLabel, num, md } from '../lib/util.mjs';
 import { pick } from '../lib/career-helpers.mjs';
@@ -41,7 +40,7 @@ export function finderPages(ctx) {
   // A CEI training recommendation: what it is, the skills it builds, why it fits, and how to enroll
   const courseCard = (slug, why, list) => {
     const c = byslug[slug]; const k = courseFor(c);
-    return `<article class="course-card"><div class="cc-head"><span class="ico">${icon(c.cat)}</span><div><h3><a href="${href(k.url)}" data-track-course="${c.slug}" data-track-list="${esc(list)}" data-track-action="view">${esc(k.name)}</a></h3><p class="cc-meta">Online, self-paced · about ${k.hours} hours · $${Number(k.price).toFixed(2)}</p></div></div><p>${esc(k.desc)}</p><p class="cc-skills"><strong>Skills you build:</strong> ${esc(listJoin(c.hard.slice(0, 3).map((x) => x.charAt(0).toLowerCase() + x.slice(1))))}</p>${why ? `<p class="cc-why"><strong>Why it fits:</strong> ${esc(why)}</p>` : ''}<div class="btn-row"><a class="btn btn-primary btn-sm" href="${href(k.buy)}" data-track-course="${c.slug}" data-track-list="${esc(list)}" data-track-action="enroll">${k.buyLabel === 'Buy now' ? 'Start learning today' : 'Enroll in this course'}</a><a class="btn btn-sm" href="${href(k.url)}" data-track-course="${c.slug}" data-track-list="${esc(list)}" data-track-action="view">View course details</a></div></article>`;
+    return `<article class="course-card"><div class="cc-head"><span class="ico">${icon(c.cat)}</span><div><h3><a href="${href(k.url)}">${esc(k.name)}</a></h3><p class="cc-meta">Online, self-paced · about ${k.hours} hours · $${Number(k.price).toFixed(2)}</p></div></div><p>${esc(k.desc)}</p><p class="cc-skills"><strong>Skills you build:</strong> ${esc(listJoin(c.hard.slice(0, 3).map((x) => x.charAt(0).toLowerCase() + x.slice(1))))}</p>${why ? `<p class="cc-why"><strong>Why it fits:</strong> ${esc(why)}</p>` : ''}<div class="btn-row"><a class="btn btn-primary btn-sm" href="${href(k.buy)}">${k.buyLabel === 'Buy now' ? 'Start learning today' : 'Enroll in this course'}</a><a class="btn btn-sm" href="${href(k.url)}">View course details</a></div></article>`;
   };
   const courseGrid = (items, list) => `<div class="course-grid">${items.map(([s, why]) => courseCard(s, why, list)).join('')}</div>`;
   const whyFrom = (r) => engine.reasonText(r.reasons[0] || ['', '']);
@@ -173,7 +172,7 @@ ${answerBox(`What is a ${m.name} major?`, esc(m.about))}
 <h2 id="skills">Skills you build</h2><ul class="chips skill-chips">${m.skills.map((s) => `<li class="chip">${esc(s)}</li>`).join('')}</ul>
 <h2 id="careers">Career paths for ${esc(lower)} majors</h2><p>Careers connected to this major. Each profile explains the work, how to get started and what the job is like day to day.</p>${careerCards(m.careers)}
 <h2 id="minors">Minors that pair well with ${esc(m.name)}</h2><div class="table-wrap"><table><thead><tr><th scope="col">Minor</th><th scope="col">How it complements ${esc(m.name)}</th></tr></thead><tbody>${m.minors.map(([s, why]) => `<tr><td><a href="${href(minorPath(s))}">${esc(minorBySlug[s].name)}</a></td><td>${esc(why)}</td></tr>`).join('')}</tbody></table></div>
-${top.length ? `<h2 id="training">Start building practical skills now</h2><p>These short online courses from Career Education Institute connect to ${esc(lower)} careers. You can take one alongside your classes or before you choose a program.</p>${courseGrid(top.map((r) => [r.slug, `Connected to careers that ${esc(m.name)} majors pursue, such as ${byslug[r.slug].title.toLowerCase()}.`]), 'major_page')}<p><a class="btn" href="${href('/training/')}" data-track-action="browse" data-track-list="major_page">Browse all training programs</a></p>` : ''}
+${top.length ? `<h2 id="training">Start building practical skills now</h2><p>These short online courses from Career Education Institute connect to ${esc(lower)} careers. You can take one alongside your classes or before you choose a program.</p>${courseGrid(top.map((r) => [r.slug, `Connected to careers that ${esc(m.name)} majors pursue, such as ${byslug[r.slug].title.toLowerCase()}.`]), 'major_page')}<p><a class="btn" href="${href('/training/')}">Browse all training programs</a></p>` : ''}
 <h2 id="colleges">Where to study ${esc(lower)}</h2><p>${cnt.total ? `${plural(cnt.total, 'U.S. college or university', 'U.S. colleges and universities')} reported awarding ${levels.length ? esc(levelText(levels.map(([l]) => l).join('')).toLowerCase().replace('bachelor’s', 'bachelor’s').replace(/\bassociate\b/, 'associate')) : ''} awards in this field (${esc(colleges.meta.completions || 'IPEDS')}).` : 'Few colleges report awards under this exact program classification; similar programs may be listed under related names.'}</p>${levels.length ? `<ul>${levels.map(([l, n]) => `<li>${esc(AWARD[l])}: ${plural(n, 'school')}</li>`).join('')}</ul>` : ''}<p><a class="btn btn-primary" href="${href(`/colleges/?major=${m.slug}`)}">Find colleges that offer ${esc(m.name)}</a></p>
 ${trainingWhy}
 ${faqBlock(faqs, `${m.name} major FAQ`)}
@@ -257,7 +256,7 @@ ${finderNote(false)}
     const body = `${pageHero({ crumbs, eyebrow: 'Majors and careers', h1: 'College Majors and Career Paths', lead: `Where ${majors.length} college majors can lead: the career paths connected to each one, and practical training you can take along the way.`, meta: false })}
 <div class="wrap" style="padding-top:30px;padding-bottom:20px">
 ${answerBox('How to use this list', 'Find your major, or a major you are considering, to see careers that commonly connect to it. Select a career to read what the work involves, or a training to start building skills for it now. Many careers are open to more than one major.')}
-${majorFields.map((f) => `<h2 id="${f.slug}">${esc(f.name)}</h2><div class="table-wrap"><table><thead><tr><th scope="col">Major</th><th scope="col">Career paths</th><th scope="col">Related training</th></tr></thead><tbody>${majors.filter((m) => m.field === f.slug).map((m) => { const t = m.careers[0]; return `<tr><td><a href="${href(majorPath(m))}">${esc(m.name)}</a></td><td class="small">${m.careers.slice(0, 4).map((s) => `<a href="${href(byslug[s].url)}">${esc(byslug[s].title)}</a>`).join(', ')}</td><td class="small"><a href="${href(courseFor(byslug[t]).url)}" data-track-course="${t}" data-track-list="majors_careers_table" data-track-action="view">${esc(courseFor(byslug[t]).name)}</a></td></tr>`; }).join('')}</tbody></table></div>`).join('')}
+${majorFields.map((f) => `<h2 id="${f.slug}">${esc(f.name)}</h2><div class="table-wrap"><table><thead><tr><th scope="col">Major</th><th scope="col">Career paths</th><th scope="col">Related training</th></tr></thead><tbody>${majors.filter((m) => m.field === f.slug).map((m) => { const t = m.careers[0]; return `<tr><td><a href="${href(majorPath(m))}">${esc(m.name)}</a></td><td class="small">${m.careers.slice(0, 4).map((s) => `<a href="${href(byslug[s].url)}">${esc(byslug[s].title)}</a>`).join(', ')}</td><td class="small"><a href="${href(courseFor(byslug[t]).url)}">${esc(courseFor(byslug[t]).name)}</a></td></tr>`; }).join('')}</tbody></table></div>`).join('')}
 ${faqBlock(faqs)}
 ${finderNote(false)}
 </div>
@@ -422,13 +421,6 @@ ${finderNote()}
       schema: [{ '@type': 'ItemList', name: `Colleges and universities in ${name}`, numberOfItems: list.length, itemListElement: list.slice(0, 100).map((i, k) => ({ '@type': 'ListItem', position: k + 1, item: { '@type': 'CollegeOrUniversity', name: i.name, ...(i.web ? { url: i.web } : {}), address: { '@type': 'PostalAddress', addressLocality: i.city, addressRegion: i.state, postalCode: i.zip, addressCountry: 'US' } } })) }]
     });
   }
-
-  // ---------- Admin dashboard (noindex) ----------
-  pages.push({
-    path: '/finder-admin/', crumbs: [], noindex: true, og: OG, scripts: ['finder-engine', 'finder-admin'],
-    title: 'College & Career Finder Admin | Career Education Institute', desc: 'Staff dashboard for the College & Career Finder: majors, minors, careers, skills, course mappings, rankings, colleges and analytics.',
-    body: `<section class="page-hero"><div class="wrap"><p class="eyebrow">Staff only</p><h1>College &amp; Career Finder Admin</h1><p class="lead">Edit majors, minors, interests, skills, course mappings, rankings and college corrections, test recommendations, and publish changes.</p></div></section><div class="wrap admin-wrap"><div class="admin" data-finder-admin data-base="${esc(cfg.basePath)}" data-repo="${esc(cfg.finder?.repo || '')}" data-branch="${esc(cfg.finder?.branch || 'main')}" data-ga="${esc(cfg.analytics.ga4 || '')}"><noscript><p>The admin dashboard needs JavaScript.</p></noscript><p class="muted">Loading…</p></div></div>`
-  });
 
   return pages;
 }

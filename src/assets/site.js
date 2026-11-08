@@ -147,7 +147,6 @@
         MP.cart.add({ k: buy ? 'course' : 'training', s: buy || u.replace(/\/$/, '').split('/').pop(), t: a.textContent, p: parseFloat(row.querySelector('strong').textContent.replace(/[^\d.]/g, '')), u: u });
       } else MP.cart.add(JSON.parse(b.getAttribute('data-add-cart')));
     } catch (x) { return; }
-    try { var it = MP.cart.get().slice(-1)[0]; if (it) MP.track('add_to_cart', withAttr({ currency: 'USD', value: it.p, items: [{ item_id: it.s, item_name: it.t, price: it.p }] }, it.s)); } catch (x) {}
     b.textContent = row ? 'Added' : 'Added to cart';
     var next = b.nextElementSibling;
     if (row) return; // catalog rows: the header cart count is enough
@@ -196,18 +195,14 @@
   }
 
   // Optional analytics: only loads if configured, never with GPC or opt-out
-  var ga = window.MP && window.MP.ga, clarity = window.MP && window.MP.clarity, gtm = window.MP && window.MP.gtm;
-  var allowed = (ga || clarity || gtm) && !navigator.globalPrivacyControl && !getOpt();
-  if (allowed && (ga || gtm)) {
-    // The queue starts now so events sent before the tags finish loading are kept
-    window.dataLayer = window.dataLayer || [];
-    if (ga) { window.gtag = function () { dataLayer.push(arguments); }; gtag('js', new Date()); gtag('config', ga, { allow_google_signals: false, allow_ad_personalization_signals: false, cookie_expires: 34128000 }); } // 395 days, the 13 months in the cookie policy
-    if (gtm) dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
-  }
-  if (allowed) {
+  var ga = window.MP && window.MP.ga, clarity = window.MP && window.MP.clarity;
+  if ((ga || clarity) && !navigator.globalPrivacyControl && !getOpt()) {
     var load = function () {
-      if (ga) { var s = d.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ga; d.head.appendChild(s); }
-      if (gtm) { var g = d.createElement('script'); g.async = true; g.src = 'https://www.googletagmanager.com/gtm.js?id=' + gtm; d.head.appendChild(g); }
+      if (ga) {
+        var s = d.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ga; d.head.appendChild(s);
+        window.dataLayer = window.dataLayer || []; window.gtag = function () { dataLayer.push(arguments); };
+        gtag('js', new Date()); gtag('config', ga, { allow_google_signals: false, allow_ad_personalization_signals: false, cookie_expires: 34128000 }); // 395 days, the 13 months in the cookie policy
+      }
       if (clarity) {
         window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
         var c = d.createElement('script'); c.async = true; c.src = 'https://www.clarity.ms/tag/' + clarity; d.head.appendChild(c);
@@ -215,44 +210,6 @@
     };
     if ('requestIdleCallback' in window) addEventListener('load', function () { requestIdleCallback(load); }); else addEventListener('load', load);
   }
-
-  // MP.track(event, params): a GA4 event (and a Google Tag Manager dataLayer event when a container is set). Does nothing
-  // for visitors with Global Privacy Control or the opt-out. Never pass names, emails or other personal details.
-  MP.track = function (name, params) {
-    if (!allowed) return;
-    params = params || {};
-    try { if (ga && window.gtag) gtag('event', name, params); if (gtm) dataLayer.push(Object.assign({ event: name }, params)); } catch (e) {}
-  };
-  // College & Career Finder attribution: kept 30 days after someone finishes the finder, so course visits, enrollment
-  // requests and purchases can be credited to the academic interests that led to them.
-  MP.finderAttr = function () {
-    try {
-      var a = JSON.parse(localStorage.getItem('cei-finder-attr') || 'null');
-      if (!a || Date.now() - a.t > 30 * 864e5) return null;
-      var c = function (x) { x = (x || []).join(', '); return x.length > 100 ? x.slice(0, 97) + '…' : x; };
-      return { finder_assisted: 'yes', finder_major: c(a.majors) || 'none', finder_minor: c(a.minors) || 'none', finder_interest: c(a.interests) || 'none', finder_stage: a.stage || 'not_given', recommended: a.courses || [] };
-    } catch (e) { return null; }
-  };
-  var withAttr = function (p, slug) {
-    var a = MP.finderAttr();
-    if (a) { p = Object.assign(p, a); if (slug) p.finder_recommended = a.recommended.indexOf(slug) > -1 ? 'yes' : 'no'; delete p.recommended; }
-    return p;
-  };
-  MP.withFinder = withAttr;
-  // Course links and buttons marked data-track-course (finder results, major, minor and skill pages)
-  d.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('[data-track-action]');
-    if (!a) return;
-    var act = a.getAttribute('data-track-action'), list = a.getAttribute('data-track-list') || 'unknown', slug = a.getAttribute('data-track-course') || '';
-    var box = a.closest('.course-card, .ts-item'), first = box && box.querySelector('a[data-track-course]');
-    var name = (first || a).textContent.trim();
-    if (act === 'browse') MP.track('browse_all_training', withAttr({ item_list_id: list }));
-    else if (act === 'enroll') MP.track('course_enroll_click', withAttr({ item_list_id: list, course_id: slug, course_name: name }, slug));
-    else MP.track('select_item', withAttr({ item_list_id: list, item_list_name: list, items: [{ item_id: slug, item_name: name, item_list_id: list }] }, slug));
-  });
-  // A training page visited after using the finder
-  var tm = location.pathname.slice((MP.base || '').length).match(/^\/training\/([a-z0-9-]+)\/$/);
-  if (tm && MP.finderAttr()) MP.track('finder_course_page_view', withAttr({ course_id: tm[1] }, tm[1]));
 
   // Copy-to-clipboard buttons (job description templates)
   [].forEach.call(d.querySelectorAll('[data-copy-target]'), function (b) {

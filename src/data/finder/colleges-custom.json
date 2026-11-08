@@ -1,5 +1,5 @@
 {
-  "_help": "Changes laid over the IPEDS college directory (src/data/colleges.json, refreshed with `npm run update-colleges`). add: institutions missing from IPEDS (give each a numeric id from 9000001 up, and only add schools you have verified on their official website). edit: IPEDS id -> fields to change (name, city, state, zip, web, admissions, netPrice, control 1 public / 2 private nonprofit / 3 private for-profit, level 1 four-year / 2 two-year, ug, grad, online, onlineUg, onlineGrad as 0 or 1). hide: IPEDS ids to leave out. Manage these from /finder-admin/.",
+  "_help": "Changes laid over the IPEDS college directory (src/data/colleges.json, refreshed with `npm run update-colleges`). add: institutions missing from IPEDS (give each a numeric id from 9000001 up, and only add schools you have verified on their official website). edit: IPEDS id -> fields to change (name, city, state, zip, web, admissions, netPrice, control 1 public / 2 private nonprofit / 3 private for-profit, level 1 four-year / 2 two-year, ug, grad, online, onlineUg, onlineGrad as 0 or 1). hide: IPEDS ids to leave out.",
   "add": [],
   "edit": {},
   "hide": []

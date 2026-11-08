@@ -1,7 +1,7 @@
 // College and university search (IPEDS data from /assets/finder/colleges.json). Used on /colleges/ and in step 4 of
 // the College & Career Finder: window.CEIColleges.mount(element, options).
 // Options: base (site base path), saved (array of school ids), onSave(ids) to let visitors build a list,
-// majors (preselected major slugs), params (initial filters), track(eventName, params).
+// majors (preselected major slugs), params (initial filters).
 (function () {
   var d = document;
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
@@ -10,7 +10,6 @@
   var cache = {};
   var getJSON = function (url) { return cache[url] || (cache[url] = fetch(url).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })); };
   var miles = function (a, b, c, e) { var R = 3958.8, r = Math.PI / 180, x = Math.sin((c - a) * r / 2), y = Math.sin((e - b) * r / 2); return 2 * R * Math.asin(Math.sqrt(x * x + Math.cos(a * r) * Math.cos(c * r) * y * y)); };
-  var track = function (o, n, p) { try { (o.track || (window.MP && MP.track) || function () {})(n, p); } catch (e) {} };
 
   function mount(el, o) {
     o = o || {};
@@ -45,8 +44,7 @@
         + '<p class="small muted cs-source">Source: ' + esc(meta.source) + ' (' + esc(meta.directory) + '; ' + esc(meta.completions) + '). Confirm details with each school.</p>'
         + '<dialog class="dlg" data-dlg aria-labelledby="' + id + 'dt"><div class="dlg-in"><button class="dlg-x" type="button" data-close aria-label="Close">×</button><div data-dlg-body></div></div></dialog>';
       var f = el.querySelector('form');
-      var timer;
-      var go = function () { shown = PAGE; draw(); clearTimeout(timer); timer = setTimeout(function () { track(o, 'college_search', { state: f.state.value || 'all', major: f.major.value || 'any', online: f.online.value ? 'yes' : 'any', control: f.control.value || 'any', level: f.level.value || 'any' }); }, 1500); };
+      var go = function () { shown = PAGE; draw(); };
       f.addEventListener('input', go); f.addEventListener('change', go);
       f.addEventListener('submit', function (e) { e.preventDefault(); go(); });
       el.querySelector('[data-more]').addEventListener('click', function () { shown += PAGE; draw(); });
@@ -64,7 +62,7 @@
         var idv = b.getAttribute('data-id'), row = rows.filter(function (r) { return String(r[0]) === idv; })[0]; if (!row) return;
         if (b.hasAttribute('data-save')) {
           var i = saved.indexOf(row[0]);
-          if (i > -1) saved.splice(i, 1); else { saved.push(row[0]); track(o, 'college_save', { college_name: row[1], state: row[3] }); }
+          if (i > -1) saved.splice(i, 1); else saved.push(row[0]);
           if (o.onSave) o.onSave(saved.slice(), rows);
           draw(true);
         } else open(row, b);
@@ -134,7 +132,7 @@
       if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
       dlg.querySelector('[data-close]').focus();
       dlg.addEventListener('close', function f() { dlg.removeEventListener('close', f); if (from && from.focus) from.focus(); });
-      track(o, 'college_view', { college_name: r[1], state: r[3] });
+      
       Promise.all([getJSON(base + '/assets/finder/programs/' + r[3] + '.json'), getJSON(base + '/assets/finder/cip.json')]).then(function (x) {
         var info = x[0][r[0]] || {}, cip = x[1];
         var links = body.querySelector('[data-links]');

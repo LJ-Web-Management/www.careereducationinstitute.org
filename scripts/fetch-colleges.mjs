@@ -10,7 +10,7 @@
 //
 // Kept: institutions active in the current year, degree-granting and eligible for federal student aid (Title IV), in
 // U.S. states, DC and U.S. territories. Nothing is edited or estimated: corrections go in
-// src/data/finder/colleges-custom.json (managed from the finder admin page), which the build lays over this file.
+// src/data/finder/colleges-custom.json, which the build lays over this file.
 import fs from 'node:fs';
 import zlib from 'node:zlib';
 

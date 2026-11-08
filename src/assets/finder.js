@@ -6,15 +6,13 @@
   var d = document, root = d.querySelector('[data-finder]');
   if (!root || !window.CEIRecommend) return;
   var base = root.getAttribute('data-base') || '', LEAD = root.getAttribute('data-lead') || '', TO = root.getAttribute('data-to') || '', CC = root.getAttribute('data-cc') || '';
-  var E = window.CEIRecommend, KEY = 'cei-finder', ATTR = 'cei-finder-attr';
+  var E = window.CEIRecommend, KEY = 'cei-finder';
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var ico = function (k) { return '<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-' + k + '"/></svg>'; };
-  var track = function (n, p) { try { if (window.MP && MP.track) MP.track(n, p); } catch (e) {} };
-  var cut = function (s) { s = String(s || ''); return s.length > 100 ? s.slice(0, 97) + '…' : s; };
   var store = { get: function (k) { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } }, set: function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
   var STEPS = [['goals', 'Goals'], ['stage', 'Education'], ['interests', 'Interests'], ['colleges', 'Colleges'], ['majors', 'Majors'], ['minors', 'Minors'], ['careers', 'Careers'], ['skills', 'Skills'], ['results', 'Results']];
   var fresh = function () { return { v: 1, step: 0, goals: [], stage: '', interests: [], colleges: [], collegeInfo: {}, majors: [], minors: [], ctype: '', careers: [], industries: [], skills: [] }; };
-  var S = fresh(), P = null, ENG = null, DETAIL = null, started = false, completed = false, viaShare = false, listsSeen = {};
+  var S = fresh(), P = null, ENG = null, DETAIL = null;
   var ui = { field: '', mq: '', nq: '', cq: '', iq: '', moreInterests: false, compare: [] };
 
   // ---------- Load ----------
@@ -38,9 +36,9 @@
       skills: map(P.skills, function (s) { return { name: s.name, careers: s.careers, all: !!P.engine.skills[s.slug].all, matched: P.engine.skills[s.slug].matched }; })
     };
     var q = new URLSearchParams(location.search), shared = q.get('r'), saved = store.get(KEY);
-    if (shared) { try { S = Object.assign(fresh(), clean(JSON.parse(decodeURIComponent(escape(atob(shared.replace(/-/g, '+').replace(/_/g, '/'))))))); S.step = 8; viaShare = true; } catch (e) {} }
+    if (shared) { try { S = Object.assign(fresh(), clean(JSON.parse(decodeURIComponent(escape(atob(shared.replace(/-/g, '+').replace(/_/g, '/'))))))); S.step = 8; } catch (e) {} }
     else if (saved && saved.v === 1) S = Object.assign(fresh(), clean(saved));
-    if (q.get('major') && P.major[q.get('major')]) { if (S.majors.indexOf(q.get('major')) < 0) S.majors.push(q.get('major')); S.step = 4; started = true; track('finder_start', { entry: 'major_page', major: P.major[q.get('major')].name }); }
+    if (q.get('major') && P.major[q.get('major')]) { if (S.majors.indexOf(q.get('major')) < 0) S.majors.push(q.get('major')); S.step = 4; }
     root.innerHTML = '<div class="fz"><nav class="fz-steps" aria-label="Finder steps"><ol data-steps></ol></nav><div class="fz-bar" aria-hidden="true"><i data-bar></i></div><p class="fz-of" data-of></p><section class="fz-panel" data-panel></section><div class="fz-nav" data-nav></div></div><dialog class="dlg" data-dlg aria-labelledby="dlg-title"><div class="dlg-in"><button class="dlg-x" type="button" data-close aria-label="Close">×</button><div data-dlg-body></div></div></dialog>';
     bind();
     go(S.step, true);
@@ -68,8 +66,7 @@
   var toggle = function (list, v) { var i = list.indexOf(v); if (i > -1) { list.splice(i, 1); return false; } list.push(v); return true; };
   var select = function (type, list, v, name) {
     var on = toggle(list, v);
-    if (!started) { started = true; track('finder_start', { entry: 'direct' }); }
-    if (on) track('finder_select', { item_type: type, item_id: v, item_name: cut(name) });
+        if (on) 
     save();
     return on;
   };
@@ -82,10 +79,7 @@
     root.querySelector('[data-bar]').style.width = Math.round(((n + 1) / STEPS.length) * 100) + '%';
     root.querySelector('[data-of]').textContent = 'Step ' + (n + 1) + ' of ' + STEPS.length + ': ' + STEPS[n][1];
     draw();
-    track('finder_step', { step_number: n + 1, step_name: STEPS[n][0] });
     if (!first) { var h = root.querySelector('[data-panel] h2'); if (h) { h.focus({ preventScroll: true }); } root.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-    if (n === 8 && !completed && !viaShare) { completed = true; complete(); }
-    if (n < 8) viaShare = false;
   }
   function nav() {
     var n = S.step, el = root.querySelector('[data-nav]');
@@ -99,7 +93,6 @@
     panel.innerHTML = [goals, stage, interests, colleges, majorsStep, minorsStep, careersStep, skillsStep, results][S.step]();
     nav();
     if (S.step === 3) mountColleges();
-    stripViews();
   }
   var head = function (t, sub) { return '<h2 tabindex="-1">' + t + '</h2>' + (sub ? '<p class="fz-sub">' + sub + '</p>' : ''); };
   var optCard = function (type, name, value, on, label, hint, icon) {
@@ -110,22 +103,11 @@
   function strip(prof, title, list, n) {
     var r = E.recommend(ENG, prof).courses.slice(0, n || ENG.config.maxCoursesPerStep || 3);
     if (!r.length) return '';
-    return '<aside class="train-strip" data-strip="' + list + '" data-items="' + r.map(function (x) { return x.slug; }).join(',') + '"><h3>' + esc(title) + '</h3><div class="ts-list">' + r.map(function (x) {
+    return '<aside class="train-strip"><h3>' + esc(title) + '</h3><div class="ts-list">' + r.map(function (x) {
       var c = career(x.slug);
-      return '<div class="ts-item"><a href="' + base + c.course.url + '" data-track-course="' + x.slug + '" data-track-list="' + list + '" data-track-action="view">' + esc(c.course.name) + '</a><span class="small muted">' + esc(E.reasonText(x.reasons[0] || ['', ''])) + ' · $' + Number(c.course.price).toFixed(2) + '</span></div>';
-    }).join('') + '</div><p class="small"><a href="' + base + '/training/" data-track-action="browse" data-track-list="' + list + '">Explore related training</a></p></aside>';
+      return '<div class="ts-item"><a href="' + base + c.course.url + '">' + esc(c.course.name) + '</a><span class="small muted">' + esc(E.reasonText(x.reasons[0] || ['', ''])) + ' · $' + Number(c.course.price).toFixed(2) + '</span></div>';
+    }).join('') + '</div><p class="small"><a href="' + base + '/training/">Explore related training</a></p></aside>';
   }
-  function stripViews() {
-    [].forEach.call(root.querySelectorAll('[data-strip]'), function (s) {
-      var key = s.getAttribute('data-strip') + ':' + s.getAttribute('data-items');
-      if (listsSeen[key]) return; listsSeen[key] = 1;
-      viewList(s.getAttribute('data-strip'), s.getAttribute('data-items').split(','));
-    });
-  }
-  function viewList(list, slugs) {
-    track('view_item_list', { item_list_id: list, item_list_name: list, items: slugs.map(function (s, i) { var c = career(s); return { item_id: s, item_name: c.course.name, item_category: catName(c.cat), price: c.course.price, index: i, item_list_id: list }; }) });
-  }
-
   // ---------- Steps ----------
   function goals() {
     return head('What are you hoping to find?', 'Choose as many as you like. Every step is optional, and you can come back to change your answers.')
@@ -162,8 +144,7 @@
         S.colleges = ids;
         ids.forEach(function (id) { if (!S.collegeInfo[id]) { var r = rows.filter(function (x) { return x[0] === id; })[0]; if (r) S.collegeInfo[id] = [r[1], r[2], r[3], r[5]]; } });
         Object.keys(S.collegeInfo).forEach(function (id) { if (ids.indexOf(+id) < 0) delete S.collegeInfo[id]; });
-        if (!started) { started = true; track('finder_start', { entry: 'direct' }); }
-        save();
+                save();
       }
     });
   }
@@ -240,13 +221,6 @@
 
   // ---------- Results ----------
   function rec() { return E.recommend(ENG, profile()); }
-  function complete() {
-    var r = rec(), courses = r.courses.slice(0, ENG.config.maxCourses || 6);
-    var names = function (list, map) { return cut(list.map(function (s) { return map[s] ? map[s].name : s; }).join(', ')); };
-    track('finder_complete', { stage: S.stage || 'not_given', majors: names(S.majors, P.major), minors: names(S.minors, P.minor), interests: names(S.interests, P.interest), careers: cut(S.careers.map(function (s) { return P.careers[s][0]; }).join(', ')), skills: names(S.skills, P.skill), course_count: courses.length });
-    // Remembered for 30 days so course page visits, enrollments and purchases can be credited to the finder
-    store.set(ATTR, { t: Date.now(), majors: S.majors.map(function (s) { return P.major[s].name; }), minors: S.minors.map(function (s) { return P.minor[s].name; }), interests: S.interests.map(function (s) { return P.interest[s].name; }), stage: S.stage, courses: courses.map(function (x) { return x.slug; }) });
-  }
   function results() {
     var r = rec(), courses = r.courses.slice(0, ENG.config.maxCourses || 6), paths = r.careers.slice(0, ENG.config.maxCareers || 9);
     var stageNote = S.stage ? P.questions.stageNotes[S.stage] : '';
@@ -271,9 +245,9 @@
       + (common.length ? '<h4>Skills common to your majors and career paths</h4><ul class="chips skill-chips">' + common.map(function (h) { return '<li class="chip">' + esc(h) + '</li>'; }).join('') + '</ul>' : '')
       + (!S.skills.length && !common.length ? '<p><a href="#" data-go="7">Choose skills to develop</a></p>' : '') + '</section>';
     var D = '<section class="res-sec res-train" id="res-d"><h3>D. Recommended CEI training courses</h3>' + (courses.length
-      ? '<p>Practical online courses from Career Education Institute matched to your majors, minors, career goals and skills. Each one is self-paced and focused on a single job.</p><div class="course-grid" data-strip="finder_results" data-items="' + courses.map(function (x) { return x.slug; }).join(',') + '">' + courses.map(function (x) { return courseCard(x); }).join('') + '</div>'
+      ? '<p>Practical online courses from Career Education Institute matched to your majors, minors, career goals and skills. Each one is self-paced and focused on a single job.</p><div class="course-grid">' + courses.map(function (x) { return courseCard(x); }).join('') + '</div>'
       : '<p>We did not find training closely related to your answers yet. Add a major, interest or career goal, or browse the full catalog.</p>')
-      + '<p class="btn-row"><a class="btn" href="' + base + '/training/" data-track-action="browse" data-track-list="finder_results">Browse all training programs</a></p></section>';
+      + '<p class="btn-row"><a class="btn" href="' + base + '/training/">Browse all training programs</a></p></section>';
     var E5 = '<section class="res-sec" id="res-e"><h3>E. Why consider additional career training?</h3><p>Your college major can provide an academic foundation, while additional career training can help you develop practical knowledge and skills relevant to your professional interests.</p><p>You do not need to wait until graduation to start. A short course can help you test a career before you commit to a program, prepare for an internship or part-time job, and speak the language of the field in interviews.</p>' + (stageNote ? '<p><strong>For you:</strong> ' + esc(stageNote) + '</p>' : '') + '<p class="small muted">Career Education Institute is not a college, university, degree-granting institution or admissions service. CEI trainings are general, non-credit career-preparation courses: they do not replace a college degree, grant academic credit or guarantee employment.</p></section>';
     return head('Your personalized results', 'Based on your answers. Change any step to update them.')
       + '<p class="print-only">College &amp; Career Finder results from Career Education Institute, ' + new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) + '</p>'
@@ -285,7 +259,7 @@
   function courseCard(x) {
     var c = career(x.slug), k = c.course, buy = k.buyLabel === 'Buy now';
     var item = esc(JSON.stringify({ k: buy ? 'course' : 'training', s: buy ? k.buy.split('course=')[1] : x.slug, t: k.name, p: k.price, u: base + k.url }));
-    return '<article class="course-card"><div class="cc-head"><span class="ico">' + ico(c.cat) + '</span><div><h4><a href="' + base + k.url + '" data-track-course="' + x.slug + '" data-track-list="finder_results" data-track-action="view">' + esc(k.name) + '</a></h4><p class="cc-meta">Online, self-paced · about ' + k.hours + ' hours · $' + Number(k.price).toFixed(2) + '</p></div></div><p>' + esc(courseDesc(c)) + '</p><p class="cc-skills"><strong>Skills developed:</strong> ' + esc(c.hard.slice(0, 3).join(', ')) + '</p><p class="cc-why"><strong>Why it fits you:</strong> ' + esc(x.reasons.slice(0, 2).map(E.reasonText).join('; ')) + '.</p><div class="btn-row"><a class="btn btn-primary btn-sm" href="' + base + k.buy + '" data-track-course="' + x.slug + '" data-track-list="finder_results" data-track-action="enroll">' + (buy ? 'Start learning today' : 'Enroll in this course') + '</a><a class="btn btn-sm" href="' + base + k.url + '" data-track-course="' + x.slug + '" data-track-list="finder_results" data-track-action="view">View course details</a><button class="btn btn-sm btn-light no-print" type="button" data-add-cart="' + item + '">Add to cart</button></div></article>';
+    return '<article class="course-card"><div class="cc-head"><span class="ico">' + ico(c.cat) + '</span><div><h4><a href="' + base + k.url + '">' + esc(k.name) + '</a></h4><p class="cc-meta">Online, self-paced · about ' + k.hours + ' hours · $' + Number(k.price).toFixed(2) + '</p></div></div><p>' + esc(courseDesc(c)) + '</p><p class="cc-skills"><strong>Skills developed:</strong> ' + esc(c.hard.slice(0, 3).join(', ')) + '</p><p class="cc-why"><strong>Why it fits you:</strong> ' + esc(x.reasons.slice(0, 2).map(E.reasonText).join('; ')) + '.</p><div class="btn-row"><a class="btn btn-primary btn-sm" href="' + base + k.buy + '">' + (buy ? 'Start learning today' : 'Enroll in this course') + '</a><a class="btn btn-sm" href="' + base + k.url + '">View course details</a><button class="btn btn-sm btn-light no-print" type="button" data-add-cart="' + item + '">Add to cart</button></div></article>';
   }
 
   // Plain-text summary for emails
@@ -337,22 +311,21 @@
     err.hidden = true;
     if (v('stage') && v('stage') !== S.stage) { S.stage = v('stage'); save(); }
     var data = leadData({ type: 'finder_results', firstName: v('firstName'), email: email, educationLevel: v('stage'), selectedMajor: v('major'), selectedMinor: v('minor'), careerInterests: v('careerInterests'), marketingConsent: marketing, delivery: mode });
-    if (email && marketing) { sendLead(data); track('generate_lead', { lead_type: 'finder_results', delivery: mode, majors: cut(data.majors.join(', ')), interests: cut(data.interests.join(', ')) }); }
+    if (email && marketing) { sendLead(data); }
     closeDlg();
     if (mode === 'email') {
-      track('finder_results_email', { marketing_consent: marketing ? 'yes' : 'no' });
+      
       // Without a lead endpoint, a visitor who agreed to follow-up copies CEI on the email instead
       location.href = mailto(email, marketing && !LEAD ? TO : '', 'My College & Career Finder results', (v('firstName') ? 'Hi ' + v('firstName') + ',\n\n' : '') + summary());
     } else download();
   }
-  function download() { track('finder_results_download', {}); setTimeout(function () { window.print(); }, 150); }
+  function download() { setTimeout(function () { window.print(); }, 150); }
   function submitInfo(form) {
     var v = function (n) { return String(form.elements[n].value || '').trim(); }, err = form.querySelector('.err'), bad = [];
     [].forEach.call(form.querySelectorAll('[required]'), function (el) { var ok = el.type === 'checkbox' ? el.checked : el.value.trim() !== ''; if (ok && el.type === 'email') ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.value.trim()); el.setAttribute('aria-invalid', ok ? 'false' : 'true'); if (!ok) bad.push(el); });
     if (bad.length) { err.hidden = false; err.textContent = 'Please complete the required fields.'; bad[0].focus(); return; }
     err.hidden = true;
     var data = leadData({ type: 'info_request', firstName: v('firstName'), email: v('email'), phone: v('phone'), message: v('message'), contactConsent: true });
-    track('generate_lead', { lead_type: 'info_request', majors: cut(data.majors.join(', ')), interests: cut(data.interests.join(', ')), course_count: data.recommendedCourses.length });
     var okBox = root.querySelector('[data-info-ok]');
     var body = ['Training information request from the College & Career Finder', '', 'Name: ' + data.firstName, 'Email: ' + data.email, 'Phone: ' + (data.phone || 'not given'), 'Education level: ' + (data.stage || 'not given'), 'Message: ' + (data.message || ''), '', summary(), '', 'Contact consent: agreed'].join('\n');
     sendLead(data).then(function (sent) {
@@ -374,13 +347,11 @@
     if (!dlg.open) { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', ''); }
     dlg.querySelector('.dlg-in').scrollTop = 0;
     dlg.querySelector('[data-close]').focus();
-    stripViews();
   }
   function closeDlg() { var dlg = root.querySelector('[data-dlg]'); if (dlg.open) { if (dlg.close) dlg.close(); else dlg.removeAttribute('open'); } }
   var pickBtn = function (type, v, on, name) { return '<button class="btn btn-sm' + (on ? ' btn-primary' : '') + '" type="button" data-pick="' + type + '" data-v="' + v + '" aria-pressed="' + on + '">' + (on ? 'Selected' : 'Select this ' + type) + '<span class="vh"> ' + esc(name) + '</span></button>'; };
   function majorDetail(s) {
     var m = P.major[s];
-    track('finder_view_major', { major: m.name });
     openDlg('<h2 id="dlg-title">' + esc(m.name) + '</h2><p class="small muted">' + esc(P.field[m.field].name) + ' · ' + esc(m.degrees) + '</p><p>' + esc(m.about) + '</p>'
       + '<p>' + pickBtn('major', s, S.majors.indexOf(s) > -1, m.name) + ' <a class="btn btn-sm" href="' + base + '/college-majors/' + s + '/">Full major guide</a></p>'
       + '<div class="dlg-cols"><div><h3>What you study</h3><ul>' + m.study.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div><div><h3>Skills you build</h3><ul>' + m.skills.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div></div>'
@@ -398,13 +369,12 @@
   }
   function careerDetail(s) {
     var c = career(s), on = S.careers.indexOf(s) > -1;
-    track('finder_view_career', { career: c.title });
     var render = function () {
       var x = DETAIL && DETAIL[s];
       openDlg('<h2 id="dlg-title">' + esc(c.title) + '</h2><p class="small muted">' + esc(catName(c.cat)) + ' · Typical training: ' + esc(c.train) + '</p><p>' + esc(x ? x[0] : c.blurb) + '</p><p>' + pickBtn('career', s, on, c.title) + ' <a class="btn btn-sm" href="' + base + '/careers/' + s + '/">Full career profile</a></p>'
         + (x ? '<div class="dlg-cols"><div><h3>Common responsibilities</h3><ul>' + x[1].map(function (y) { return '<li>' + esc(y) + '</li>'; }).join('') + '</ul></div><div><h3>Important skills</h3><ul>' + c.hard.concat(x[3]).map(function (y) { return '<li>' + esc(y) + '</li>'; }).join('') + '</ul></div></div><h3>Relevant education</h3><p>' + esc(x[2]) + ' <span class="small muted">Typical entry education (BLS): ' + esc(x[4]) + '.</span></p>' : '<p class="muted">Loading details…</p>')
         + (c.related.length ? '<h3>Related career paths</h3><ul class="dlg-links">' + c.related.filter(function (r) { return P.careers[r]; }).map(function (r) { return '<li><button class="link-btn" type="button" data-detail="career" data-v="' + r + '">' + esc(P.careers[r][0]) + '</button></li>'; }).join('') + '</ul>' : '')
-        + '<aside class="train-strip" data-strip="finder_career_detail" data-items="' + s + '"><h3>Training for this career</h3><div class="ts-item"><a href="' + base + c.course.url + '" data-track-course="' + s + '" data-track-list="finder_career_detail" data-track-action="view">' + esc(c.course.name) + '</a><span class="small muted">Online, self-paced · about ' + c.course.hours + ' hours · $' + Number(c.course.price).toFixed(2) + '</span></div><p class="btn-row"><a class="btn btn-primary btn-sm" href="' + base + c.course.buy + '" data-track-course="' + s + '" data-track-list="finder_career_detail" data-track-action="enroll">Develop skills for this career</a></p></aside>'
+        + '<aside class="train-strip"><h3>Training for this career</h3><div class="ts-item"><a href="' + base + c.course.url + '">' + esc(c.course.name) + '</a><span class="small muted">Online, self-paced · about ' + c.course.hours + ' hours · $' + Number(c.course.price).toFixed(2) + '</span></div><p class="btn-row"><a class="btn btn-primary btn-sm" href="' + base + c.course.buy + '">Develop skills for this career</a></p></aside>'
         + '<p class="small muted">Career information is general. Requirements vary by state and employer, and no career outcome is guaranteed.</p>');
     };
     render();
@@ -414,11 +384,10 @@
     var ms = ui.compare.map(function (s) { return P.major[s]; });
     var row = function (label, fn) { return '<tr><th scope="row">' + label + '</th>' + ms.map(function (m) { return '<td>' + fn(m) + '</td>'; }).join('') + '</tr>'; };
     var ul = function (a) { return '<ul>' + a.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>'; };
-    track('finder_compare_majors', { majors: cut(ms.map(function (m) { return m.name; }).join(', ')) });
     openDlg('<h2 id="dlg-title">Compare majors</h2><div class="table-wrap"><table class="cmp"><thead><tr><th scope="col"><span class="vh">Topic</span></th>' + ms.map(function (m) { return '<th scope="col">' + esc(m.name) + '</th>'; }).join('') + '</tr></thead><tbody>'
       + row('Overview', function (m) { return esc(m.summary); }) + row('Typical degrees', function (m) { return esc(m.degrees); }) + row('What you study', function (m) { return ul(m.study.slice(0, 5)); }) + row('Skills', function (m) { return ul(m.skills.slice(0, 5)); })
       + row('Career paths', function (m) { return ul(m.careers.slice(0, 5).map(function (c) { return P.careers[c][0]; })); }) + row('Suggested minors', function (m) { return ul(m.minors.map(function (x) { return P.minor[x[0]].name; })); })
-      + row('Related training', function (m) { var c = career(m.careers[0]); return '<a href="' + base + c.course.url + '" data-track-course="' + m.careers[0] + '" data-track-list="finder_compare" data-track-action="view">' + esc(c.course.name) + '</a>'; })
+      + row('Related training', function (m) { var c = career(m.careers[0]); return '<a href="' + base + c.course.url + '">' + esc(c.course.name) + '</a>'; })
       + row('', function (m) { return pickBtn('major', m.slug, S.majors.indexOf(m.slug) > -1, m.name); }) + '</tbody></table></div>');
   }
 
@@ -443,12 +412,11 @@
       if (act === 'more-interests') { ui.moreInterests = !ui.moreInterests; redraw(t, '[data-act="more-interests"]'); }
       else if (act === 'compare') compareDialog();
       else if (act === 'compare-clear') { ui.compare = []; redraw(t); }
-      else if (act === 'restart') { if (confirm('Clear all your answers and start over?')) { S = fresh(); ui.compare = []; completed = false; save(); try { history.replaceState(null, '', location.pathname); } catch (x) {} go(0); } }
+      else if (act === 'restart') { if (confirm('Clear all your answers and start over?')) { S = fresh(); ui.compare = []; save(); try { history.replaceState(null, '', location.pathname); } catch (x) {} go(0); } }
       else if (act === 'save') saveDialog(t.getAttribute('data-mode'));
       else if (act === 'skip-save') { closeDlg(); download(); }
       else if (act === 'share') {
         var url = shareUrl(), msg = root.querySelector('[data-share-msg]');
-        track('finder_share', {});
         var done = function () { msg.textContent = 'Link copied. Anyone with the link can see these results.'; };
         if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, function () { prompt('Copy this link:', url); }); else prompt('Copy this link:', url);
       }
@@ -456,11 +424,11 @@
     root.addEventListener('change', function (e) {
       var t = e.target;
       if (t.name === 'goal') { select('goal', S.goals, t.value, t.parentNode.querySelector('.oc-t').textContent); t.parentNode.classList.toggle('on', t.checked); }
-      else if (t.name === 'stage') { S.stage = t.value; if (!started) { started = true; track('finder_start', { entry: 'direct' }); } track('finder_select', { item_type: 'stage', item_id: t.value, item_name: t.value }); save(); [].forEach.call(root.querySelectorAll('[name="stage"]'), function (r) { r.parentNode.classList.toggle('on', r.checked); }); }
+      else if (t.name === 'stage') { S.stage = t.value; save(); [].forEach.call(root.querySelectorAll('[name="stage"]'), function (r) { r.parentNode.classList.toggle('on', r.checked); }); }
       else if (t.name === 'interest') { select('interest', S.interests, t.value, P.interest[t.value].name); redraw(t); }
       else if (t.name === 'skill') { select('skill', S.skills, t.value, P.skill[t.value].name); t.parentNode.classList.toggle('on', t.checked); }
       else if (t.name === 'industry') { select('industry', S.industries, t.value, catName(t.value)); redraw(t); }
-      else if (t.name === 'ctype') { S.ctype = t.value; track('finder_select', { item_type: 'career_goal_type', item_id: t.value, item_name: t.value }); save(); redraw(t); }
+      else if (t.name === 'ctype') { S.ctype = t.value; save(); redraw(t); }
       else if (t.hasAttribute('data-compare')) { var s = t.getAttribute('data-compare'); if (t.checked && ui.compare.length >= 3) { t.checked = false; alert('You can compare up to three majors.'); return; } toggle(ui.compare, s); redraw(t); }
       else if (t.hasAttribute('data-field')) { ui.field = t.value; redraw(t); }
     });
@@ -486,7 +454,7 @@
     var sel = selector || (from && (from.id ? '#' + from.id : from.getAttribute('data-pick') ? '[data-pick="' + from.getAttribute('data-pick') + '"][data-v="' + from.getAttribute('data-v') + '"]' : from.name && from.value ? '[name="' + from.name + '"][value="' + from.value + '"]' : from.hasAttribute('data-compare') ? '[data-compare="' + from.getAttribute('data-compare') + '"]' : ''));
     var pos = from && from.selectionStart, y = window.scrollY;
     panel.innerHTML = [goals, stage, interests, colleges, majorsStep, minorsStep, careersStep, skillsStep, results][S.step]();
-    nav(); stripViews();
+    nav();
     window.scrollTo(0, y);
     if (sel) { var el = panel.querySelector(sel); if (el) { el.focus({ preventScroll: true }); if (pos != null && el.setSelectionRange) try { el.setSelectionRange(pos, pos); } catch (x) {} } }
   }

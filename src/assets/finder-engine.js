@@ -1,5 +1,5 @@
-// College & Career Finder recommendation engine. One file, used three ways so results always match:
-// in the browser (finder.js, finder-admin.js) as window.CEIRecommend, and at build time (src/lib/finder.mjs) to put
+// College & Career Finder recommendation engine. One file, used two ways so results always match:
+// in the browser (finder.js) as window.CEIRecommend, and at build time (src/lib/finder.mjs) to put
 // related trainings on the major and minor pages.
 //
 // recommend(data, profile) ranks CEI career trainings (one per career profile) by how strongly they connect to the

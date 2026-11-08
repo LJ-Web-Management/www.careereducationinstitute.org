@@ -89,7 +89,7 @@ fs.writeFileSync(path.join(DIST, 'assets', 'shell.json'), JSON.stringify(shell()
 fs.writeFileSync(path.join(DIST, 'assets', 'careers.json'), JSON.stringify(directoryData(careers)));
 fs.writeFileSync(path.join(DIST, 'assets', 'quiz-careers.json'), JSON.stringify(quizCareerData(careers)));
 // College & Career Finder downloads: questionnaire data, career details, the IPEDS college index, program lists by
-// state and program titles (all loaded on demand by finder.js, college-search.js and finder-admin.js)
+// state and program titles (all loaded on demand by finder.js and college-search.js)
 const FD = path.join(DIST, 'assets', 'finder');
 fs.mkdirSync(path.join(FD, 'programs'), { recursive: true });
 fs.writeFileSync(path.join(FD, 'data.json'), JSON.stringify(finderPayload(careers, cats)));
@@ -97,9 +97,6 @@ fs.writeFileSync(path.join(FD, 'careers-detail.json'), JSON.stringify(careerDeta
 fs.writeFileSync(path.join(FD, 'colleges.json'), JSON.stringify(collegeIndex()));
 fs.writeFileSync(path.join(FD, 'cip.json'), JSON.stringify(cipTitles()));
 for (const [st, rows] of Object.entries(programShards())) fs.writeFileSync(path.join(FD, 'programs', `${st}.json`), JSON.stringify(rows));
-// The admin dashboard starts from these copies of the source files (and from GitHub when a token is entered)
-fs.mkdirSync(path.join(FD, 'source'), { recursive: true });
-for (const f of fs.readdirSync(path.join(ROOT, 'src/data/finder')).filter((f) => f.endsWith('.json'))) fs.copyFileSync(path.join(ROOT, 'src/data/finder', f), path.join(FD, 'source', f));
 for (const f of fs.readdirSync(path.join(ROOT, 'src/assets')).filter((f) => f.endsWith('.js'))) {
   fs.writeFileSync(path.join(DIST, 'assets', f), minJs(fs.readFileSync(path.join(ROOT, 'src/assets', f), 'utf8')));
 }

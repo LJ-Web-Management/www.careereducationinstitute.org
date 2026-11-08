@@ -23,7 +23,7 @@ guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The b
 | Guides | 46 guides for students, career changers, professionals and employers |
 | Employers | Buyer pages (employers, staffing agencies, workforce programs, 17 industries), 700+ hiring guides, 700+ job description templates, 700+ onboarding plans, ROI calculator, onboarding assessment |
 | Lists and data | 14 "best careers" lists, salary guide, A to Z glossary |
-| College & Career Finder | `/college-and-career-finder/`: a nine-step tool (goals, education stage, interests, colleges, majors, minors, career goals, skills, personalized results) that ends in career paths, skills and ranked CEI training recommendations. Plus indexable pages from the same data: `/college-majors/` (109 majors, 16 field pages), `/college-minors/` (50), `/college-majors-and-career-paths/`, `/skills-to-learn/` (12), `/career-options-after-high-school/`, `/colleges/` (search) and a page per state. Staff dashboard at `/finder-admin/` (noindex). See **College & Career Finder** below |
+| College & Career Finder | `/college-and-career-finder/`: a nine-step tool (goals, education stage, interests, colleges, majors, minors, career goals, skills, personalized results) that ends in career paths, skills and ranked CEI training recommendations. Plus indexable pages from the same data: `/college-majors/` (109 majors, 16 field pages), `/college-minors/` (50), `/college-majors-and-career-paths/`, `/skills-to-learn/` (12), `/career-options-after-high-school/`, `/colleges/` (search) and a page per state. See **College & Career Finder** below |
 | Keyword landing pages | 10 pages built from the SEO and AI keyword research: `/online-career-training/`, `/job-readiness-training/`, `/employee-training-programs/`, `/career-readiness-programs-for-schools/`, four field training pages (healthcare, skilled trades, logistics, technology and business) and two answer-led question pages (`/career-exploration/`, `/choosing-online-career-training/`) |
 | Partner program | `/partners/` plus a page each for school districts, colleges, companies and organizations: a discount code for their people and a share of each sale, with a sign-up form |
 | Students, changers and professionals hubs, worksheets, newsletter sign-up, company and legal pages | |
@@ -39,7 +39,7 @@ guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The b
 | Change a job-title training's length | Edit `src/data/course-pricing.mjs` (the price follows the length ladder), then run `npm run course-specs` |
 | Add or remove a provider course | Edit `src/data/partner-selection.mjs` (LMS course id, page slug, job title, field), then run `npm run update-partner-courses`. Only list courses that are the complete training for a job title, not topic, refresher or endorsement courses |
 | Refresh provider course prices and details | `npm run update-partner-courses` (reads the provider catalog and rewrites `src/data/partner-courses.json`) |
-| Edit finder majors, minors, interests, skills, rankings or course mappings | `/finder-admin/` (publishes to GitHub), or edit `src/data/finder/*.json` directly |
+| Edit finder majors, minors, interests, skills, rankings or course mappings | Edit `src/data/finder/*.json` (each file has a `_help` note), then push. The build checks every mapping |
 | Refresh the college directory (each fall, when IPEDS publishes) | `npm run update-colleges -- 2025` (the IPEDS year), then rebuild |
 | Edit a career | `src/data/careers/*.mjs` |
 | Edit a guide | `src/data/guides/*.mjs` (Markdown in the `body` field) |
@@ -66,7 +66,7 @@ employment.
   and CIP program titles, keeping active, degree-granting, Title IV schools in U.S. states, DC and territories (3,954 in
   the 2024 data). It writes `src/data/colleges.json`. Nothing is invented: no tuition, admission requirements or
   outcomes are shown; each school links to its official website, admissions page, net price calculator (when reported)
-  and its College Navigator profile. Verified corrections go in `src/data/finder/colleges-custom.json` (admin Colleges tab).
+  and its College Navigator profile. Verified corrections go in `src/data/finder/colleges-custom.json`.
   A major is "offered" by a school when the school reported awards under one of the major's CIP codes.
 - **Training recommendations: the CEI course catalog only.** Every recommendation is a job-title training that exists
   (one per career profile) or the checkout course that replaces it. Prices and course pages come from the catalog. The
@@ -77,19 +77,10 @@ skills, degrees, ordered career list, minors with why they pair well, interests,
 `interests.json`, `skills.json`, `questions.json` (answer wording), `recommend.json` (ranking weights, minimum score,
 boosts, hidden courses, per-major pins, course overrides), `colleges-custom.json`.
 
-**Recommendation engine** (`src/assets/finder-engine.js`, the same file in the browser, the admin tester and the static
-pages): each training scores points for connections to the visitor's careers, majors, minors, interests, industries and
+**Recommendation engine** (`src/assets/finder-engine.js`, the same file in the browser and the static pages): each training scores points for connections to the visitor's careers, majors, minors, interests, industries and
 skills (earlier items in a list count more). Only trainings reaching `minScore` are shown, so nothing unrelated is
 added to fill space. Skill-listed courses count fully only when they share a career field with the rest of the answers.
 Ties go to careers with more BLS annual openings.
-
-**Admin dashboard** (`/finder-admin/`, noindex): edit majors, minors, interests, skills, major fields, career and course
-connections and their order, pins, weights, boosts, hidden courses, course names, descriptions and URLs, questions and
-college corrections. It validates with the build's rules and has a recommendation tester. Publishing commits the changed
-JSON files to `site.config.mjs → finder.repo/branch` with a fine-grained GitHub token (Contents read and write on this
-repository only), kept in the browser tab; the push redeploys the site. Or download the files and upload them.
-The page is static, so anyone can open it, but nothing changes without a GitHub token. To keep it private, put the site
-behind your host's access controls or remove it from the build (`finderPages` in `src/pages/finder.mjs`).
 
 **Leads**: results are always shown without any personal details. Optional forms (save/email/download results, and
 "Request more information") post JSON to `site.config.mjs → finder.leadEndpoint` when set (a Zapier/Make webhook, a
@@ -97,16 +88,8 @@ Google Apps Script web app writing to a Sheet, or a CRM form endpoint). With no 
 pre-filled email to `enrollTo`, and visitors who email themselves their results and agree to follow-up copy that inbox.
 Marketing consent is an unticked, optional box. Names and emails are never sent to analytics.
 
-**Analytics events** (GA4 through `MP.track` in `src/assets/site.js`, plus Google Tag Manager when
-`analytics.gtm` is set; nothing is sent with Global Privacy Control or the opt-out): `finder_start`, `finder_step`,
-`finder_select` (item_type, item_name), `finder_complete`, `view_item_list` (recommendations shown),
-`select_item` and `course_enroll_click` (course buttons, also on major/minor/skill pages), `browse_all_training`,
-`finder_course_page_view`, `add_to_cart`, `enroll_request`, `purchase`, `generate_lead`, `finder_results_download`,
-`finder_results_email`, `finder_share`, `college_search`, `college_view`, `college_save`, `finder_view_major`,
-`finder_view_career`, `finder_compare_majors`. For 30 days after someone finishes the finder, course visits, cart adds,
-enrollment requests and purchases also carry `finder_assisted`, `finder_major`, `finder_minor`, `finder_interest`,
-`finder_stage` and `finder_recommended`; register these as custom dimensions in GA4 to see which academic interests
-lead to training sales. If you also configure GA4 inside GTM, clear `analytics.ga4` to avoid counting events twice.
+**Analytics**: the finder uses the site's normal Google Analytics 4 page tracking (no custom events). Names and
+emails from the lead forms are never sent to analytics.
 
 ## Pricing and course length
 Job-title trainings are priced under $50, by length: 6 hours $29.99, 8 hours $34.99, 10 hours $39.99, 12 hours $44.99,

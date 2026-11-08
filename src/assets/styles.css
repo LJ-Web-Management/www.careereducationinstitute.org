@@ -736,32 +736,4 @@ table.cmp td ul{margin:0;padding-left:1.1em;font-size:.88rem}
 .cs-majors{columns:2 220px}
 .college-table td,.college-table th{font-size:.9rem}
 .finder-note{margin-top:1.6em}
-/* Finder admin */
-.admin-wrap{padding-top:24px;padding-bottom:60px}
-.adm-tabs{display:flex;flex-wrap:wrap;gap:4px;border-bottom:2px solid var(--line);margin-bottom:10px}
-.adm-tabs button{background:none;border:0;padding:10px 12px;font:600 .9rem var(--sans);color:var(--muted);cursor:pointer;border-radius:8px 8px 0 0}
-.adm-tabs button[aria-current=page]{background:var(--navy);color:#fff}
-.adm-status{font-size:.9rem;background:var(--gold-soft);border-radius:8px;padding:8px 12px}
-.adm-split{display:grid;gap:20px;grid-template-columns:260px minmax(0,1fr)}
-@media (max-width:820px){.adm-split{grid-template-columns:1fr}}
-.adm-list{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;max-height:75vh;overflow:auto;position:sticky;top:84px}
-.adm-list input{width:100%;padding:8px;border:1px solid var(--line2);border-radius:8px;margin-bottom:6px}
-.adm-list ul{list-style:none;padding:0;margin:8px 0 0}
-.adm-list li{margin:0}
-.adm-list li button{display:block;width:100%;text-align:left;background:none;border:0;padding:6px 8px;border-radius:6px;cursor:pointer;font:inherit;font-size:.9rem}
-.adm-list li button[aria-current=true]{background:var(--teal-soft);font-weight:700}
-.adm-form form{display:grid;gap:12px}
-.adm-form input,.adm-form textarea,.adm-form select,.adm-table input,.adm-table select,.adm-grid input,.adm-grid select{width:100%;font:inherit;font-size:.92rem;padding:7px 9px;border:1px solid var(--line2);border-radius:8px;background:#fff}
-.adm-form input[type=checkbox],.adm-grid input[type=checkbox],.adm-table input[type=checkbox]{width:auto}
-.adm-refs{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
-.adm-refs ol{margin:0 0 8px;padding-left:1.4em}
-.adm-refs li{display:flex;gap:6px;align-items:center;margin:3px 0}
-.adm-refs li span{flex:1}
-.adm-refs .btn-sm{padding:2px 8px}
-.adm-pair{display:grid;grid-template-columns:200px minmax(0,1fr) auto;gap:6px;margin-bottom:6px}
-.adm-grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));align-items:end;margin-bottom:14px}
-.adm-grid .field span{display:block;font-weight:700;font-size:.82rem;color:var(--navy)}
-.adm-table{font-size:.85rem}
-.adm-table td{vertical-align:top}
-.adm-fields{margin:0 0 16px}
 @media print{.finder{border:0;box-shadow:none;padding:0}.fz-steps,.fz-bar,.fz-of,.fz-nav,.res-actions,.res-toc,.course-card .btn-row,.train-strip p,.dlg,.finder-wrap~.layout,.page-hero .hero-note{display:none!important}.print-only{display:block}.course-card,.pick-card,.sk{break-inside:avoid;box-shadow:none}.res-train{background:none;margin:0;padding:0}}

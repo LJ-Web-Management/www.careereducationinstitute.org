@@ -1,5 +1,5 @@
 // College & Career Finder: loads and checks the finder data, prepares what the browser app downloads, and lays the
-// admin's college corrections over the IPEDS directory.
+// verified college corrections over the IPEDS directory.
 //
 // Two separate sources, never mixed:
 //   - College and university facts come only from IPEDS (src/data/colleges.json, `npm run update-colleges`) plus
