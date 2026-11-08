@@ -5,6 +5,7 @@ import { dataNote, growthWord, compareSlug, EDU_LABEL } from '../lib/career-help
 import { lists as allLists } from '../data/lists.mjs';
 import { guides, gp } from '../data/guides/index.mjs';
 import { fieldCourses } from '../lib/partners.mjs';
+import { landingFor } from './landing.mjs';
 
 // Careers directory data for the filter (src/assets/site.js loads it only when someone filters or sorts)
 export const directoryData = (careers) => careers.map((c) => ({ n: c.title, u: c.url, c: c.cat, e: c.eduLevel, m: c.l.wages.median, g: c.l.growthPct, mo: c.months, t: c.train, b: c.blurb, k: (c.title + ' ' + c.aka.join(' ')).toLowerCase() }));
@@ -58,7 +59,7 @@ ${band('Not sure where to start?', 'Answer 24 quick questions and get matched wi
 <h2 id="tips">Getting hired in ${esc(cat.noun)}</h2><p>${esc(cat.tips)}</p><h3>What affects pay in this field</h3><ul>${cat.payFactors.map((f) => `<li>${esc(f)}</li>`).join('')}</ul>${partner}
 <h2 id="quiz">Find your fit</h2><p>Take the <a href="${href(`/quizzes/which-${cat.slug}-career-is-right-for-me/`)}">${esc(cat.name)} career quiz</a> to see which of these roles matches your interests best.</p>
 ${faqBlock(faqs, `${cat.name} careers FAQ`)}</div>
-<aside>${ctaCard({ title: `${cat.name} trainings`, text: `Practical online courses for every ${cat.noun} career on this page.`, btn: 'Browse trainings', link: `/training/#${cat.slug}` })}${sideLinks('Other fields', categories.filter((c) => c !== cat).map((c) => [c.name, `/careers/${c.slug}/`]))}</aside></div>`;
+<aside>${ctaCard({ title: `${cat.name} trainings`, text: `Practical online courses for every ${cat.noun} career on this page.`, btn: 'Browse trainings', link: `/training/#${cat.slug}` })}${landingFor(cat.slug) ? sideLinks('Training guide', [[`Online ${cat.noun} training: what to expect`, landingFor(cat.slug)]]) : ''}${sideLinks('Other fields', categories.filter((c) => c !== cat).map((c) => [c.name, `/careers/${c.slug}/`]))}</aside></div>`;
     pages.push({ path, crumbs, body, og: `/og/cat-${cat.slug}.png`, kind: 'Career field', name: `${cat.name} careers`,
       title: fitTitle(`${cat.name} Careers: Pay, Training & Outlook`.length <= 60 ? `${cat.name} Careers: Pay, Training & Outlook` : `${cat.name} Careers`),
       desc: clamp(`Compare ${cs.length} ${cat.noun} careers (${listJoin(cs.slice(0, 3).map((c) => c.title.toLowerCase()))} and more) by median pay, job growth, training time and daily duties.`),
