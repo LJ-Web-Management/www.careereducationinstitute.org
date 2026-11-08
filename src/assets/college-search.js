@@ -30,16 +30,16 @@
       var id = 'cs' + Math.random().toString(36).slice(2, 7);
       var sel = function (name, label, opts) { return '<div class="field"><label for="' + id + name + '">' + label + '</label><select id="' + id + name + '" name="' + name + '">' + opts + '</select></div>'; };
       el.innerHTML = '<form class="filters cs-filters" role="search" aria-label="Search colleges and universities">'
-        + '<div class="field cs-wide"><label for="' + id + 'q">College name</label><input id="' + id + 'q" name="q" type="search" placeholder="e.g. Ohio State, community college" autocomplete="off" value="' + esc(p.q || '') + '"></div>'
+        + '<div class="field cs-wide"><label for="' + id + 'q">College name</label><input id="' + id + 'q" name="q" type="search" placeholder="e.g. Ohio State" autocomplete="off" value="' + esc(p.q || '') + '"></div>'
         + sel('state', 'State', '<option value="">All states</option>' + stOpts)
         + '<div class="field"><label for="' + id + 'city">City</label><input id="' + id + 'city" name="city" type="text" autocomplete="address-level2" value="' + esc(p.city || '') + '"></div>'
-        + '<div class="field cs-zip"><label for="' + id + 'zip">ZIP code</label><input id="' + id + 'zip" name="zip" type="text" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" value="' + esc(p.zip || '') + '"><button class="link-btn small" type="button" data-near>Use my location</button></div>'
+        + '<div class="field cs-zip"><div class="cs-lbl"><label for="' + id + 'zip">ZIP code</label><button class="link-btn" type="button" data-near>Use my location</button></div><input id="' + id + 'zip" name="zip" type="text" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" value="' + esc(p.zip || '') + '"></div>'
         + sel('major', 'Major or program', '<option value="">Any major</option>' + mjOpts)
         + sel('online', 'Online or in person', '<option value="">Any</option><option value="1"' + (p.online === '1' ? ' selected' : '') + '>Offers fully online programs</option>')
         + sel('control', 'Public or private', '<option value="">Any</option><option value="1">Public</option><option value="2">Private nonprofit</option><option value="3">Private for-profit</option><option value="23">Any private</option>')
         + sel('level', 'Two- or four-year', '<option value="">Any</option><option value="1">Four-year</option><option value="2">Two-year</option>')
         + sel('prog', 'Programs', '<option value="">Undergraduate or graduate</option><option value="ug">Undergraduate</option><option value="grad">Graduate</option>')
-        + (o.majors && o.majors.length ? '<div class="field cs-check"><label><input type="checkbox" name="mine"' + (p.mine ? ' checked' : '') + '> Only colleges offering my selected majors</label></div>' : '')
+        + (o.majors && o.majors.length ? '<div class="field cs-check"><label><input type="checkbox" name="mine"' + (p.mine ? ' checked' : '') + '> <span>Only colleges offering my selected majors</span></label></div>' : '')
         + '</form><p class="cs-count" aria-live="polite" data-count></p><p class="small muted" data-origin hidden></p><ol class="cs-list" data-list></ol><p data-more-wrap hidden><button class="btn" type="button" data-more>Show more colleges</button></p>'
         + '<p class="small muted cs-source">Source: ' + esc(meta.source) + ' (' + esc(meta.directory) + '; ' + esc(meta.completions) + '). Confirm details with each school.</p>'
         + '<dialog class="dlg" data-dlg aria-labelledby="' + id + 'dt"><div class="dlg-in"><button class="dlg-x" type="button" data-close aria-label="Close">×</button><div data-dlg-body></div></div></dialog>';
