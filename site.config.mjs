@@ -105,5 +105,11 @@ export default {
   analytics: { ga4: 'G-FPKWMLEWMG', clarity: 'z4kntlcpgn' },
 
   verification: { google: '', bing: '' },
-  social: [] // e.g. ['https://www.linkedin.com/company/career-education-institute']
+  // Official profiles: linked in the footer and listed as sameAs in the Organization schema.
+  social: [
+    'https://www.instagram.com/careereducationinstitute/',
+    'https://www.youtube.com/@careereducationinstitute',
+    'https://x.com/cei_ictraining',
+    'https://www.linkedin.com/company/careereducationinstitute'
+  ]
 };
