@@ -1,11 +1,11 @@
 // College & Career Finder (/college-and-career-finder/). A nine-step questionnaire that ends in personalized results:
 // academic interests, career paths, skills to develop and recommended CEI trainings (ranked by finder-engine.js).
-// Answers are kept only in this browser (localStorage) unless the visitor submits the optional forms.
+// Answers are kept only in this browser (localStorage). There are no forms: visitors can download, email or share results themselves.
 // Data: /assets/finder/data.json (built from src/data/finder/*.json and the course catalog).
 (function () {
   var d = document, root = d.querySelector('[data-finder]');
   if (!root || !window.CEIRecommend) return;
-  var base = root.getAttribute('data-base') || '', LEAD = root.getAttribute('data-lead') || '', TO = root.getAttribute('data-to') || '', CC = root.getAttribute('data-cc') || '';
+  var base = root.getAttribute('data-base') || '';
   var E = window.CEIRecommend, KEY = 'cei-finder';
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var ico = function (k) { return '<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-' + k + '"/></svg>'; };
@@ -251,10 +251,9 @@
     var E5 = '<section class="res-sec" id="res-e"><h3>E. Why consider additional career training?</h3><p>Your college major can provide an academic foundation, while additional career training can help you develop practical knowledge and skills relevant to your professional interests.</p><p>You do not need to wait until graduation to start. A short course can help you test a career before you commit to a program, prepare for an internship or part-time job, and speak the language of the field in interviews.</p>' + (stageNote ? '<p><strong>For you:</strong> ' + esc(stageNote) + '</p>' : '') + '<p class="small muted">Career Education Institute is not a college, university, degree-granting institution or admissions service. CEI trainings are general, non-credit career-preparation courses: they do not replace a college degree, grant academic credit or guarantee employment.</p></section>';
     return head('Your personalized results', 'Based on your answers. Change any step to update them.')
       + '<p class="print-only">College &amp; Career Finder results from Career Education Institute, ' + new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) + '</p>'
-      + '<div class="res-actions no-print"><button class="btn btn-primary" type="button" data-act="save" data-mode="download">Download my results</button><button class="btn" type="button" data-act="save" data-mode="email">Email my results</button><button class="btn" type="button" data-act="share">Copy a link to my results</button><span class="small muted" data-share-msg aria-live="polite"></span></div>'
-      + '<nav class="res-toc no-print" aria-label="Results sections"><a href="#res-a">Academic interests</a><a href="#res-b">Career paths</a><a href="#res-c">Skills</a><a href="#res-d">Training</a><a href="#res-e">Why training</a><a href="#res-info">Get more information</a></nav>'
-      + A + B + C + D + E5
-      + '<section class="res-sec no-print" id="res-info"><h3>Want help choosing training?</h3><p>Tell us a little about your goals and our team will follow up with information about relevant Career Education Institute training.</p><form class="form" data-info novalidate><div class="row2"><div class="field"><label for="ri-n">First name <span class="req">*</span></label><input id="ri-n" name="firstName" required autocomplete="given-name"></div><div class="field"><label for="ri-e">Email <span class="req">*</span></label><input id="ri-e" name="email" type="email" required autocomplete="email"></div></div><div class="field"><label for="ri-p">Phone (optional)</label><input id="ri-p" name="phone" type="tel" autocomplete="tel"></div><div class="field"><label for="ri-m">What would you like to know?</label><textarea id="ri-m" name="message" rows="3"></textarea></div><label class="check"><input type="checkbox" name="consent" required> <span>I agree that Career Education Institute may contact me by email or phone about training related to my interests. See the <a href="' + base + '/privacy-policy/">Privacy Policy</a>. <span class="req">*</span></span></label><p class="err" hidden></p><button class="btn btn-primary" type="submit">Request more information</button><p class="small muted">Your answers from this finder (majors, minors, interests, career goals, skills and recommended courses) are included so we can help. Your name and email are never sent to analytics tools.</p></form><div class="notice" data-info-ok hidden tabindex="-1"></div></section>';
+      + '<div class="res-actions no-print"><button class="btn btn-primary" type="button" data-act="download">Download my results</button><button class="btn" type="button" data-act="email">Email my results</button><button class="btn" type="button" data-act="share">Copy a link to my results</button><span class="small muted" data-share-msg aria-live="polite"></span></div>'
+      + '<nav class="res-toc no-print" aria-label="Results sections"><a href="#res-a">Academic interests</a><a href="#res-b">Career paths</a><a href="#res-c">Skills</a><a href="#res-d">Training</a><a href="#res-e">Why training</a></nav>'
+      + A + B + C + D + E5;
   }
   function courseCard(x) {
     var c = career(x.slug), k = c.course, buy = k.buyLabel === 'Buy now';
@@ -280,65 +279,9 @@
     var o = { step: 8, goals: S.goals, stage: S.stage, interests: S.interests, majors: S.majors, minors: S.minors, ctype: S.ctype, careers: S.careers, industries: S.industries, skills: S.skills, colleges: S.colleges, collegeInfo: S.collegeInfo };
     return location.origin + location.pathname + '?r=' + btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
   }
-  function leadData(extra) {
-    var r = rec();
-    return Object.assign({ source: 'College & Career Finder', page: location.href.split('?')[0], submittedAt: new Date().toISOString(), stage: S.stage, majors: S.majors.map(function (s) { return P.major[s].name; }), minors: S.minors.map(function (s) { return P.minor[s].name; }), interests: S.interests.map(function (s) { return P.interest[s].name; }), careers: S.careers.map(function (s) { return P.careers[s][0]; }), skills: S.skills.map(function (s) { return P.skill[s].name; }), recommendedCourses: r.courses.slice(0, ENG.config.maxCourses || 6).map(function (x) { var c = career(x.slug); return { name: c.course.name, url: location.origin + base + c.course.url }; }), partnerCode: (window.MP && MP.code && MP.code()) || '' }, extra);
-  }
-  // Sends a lead to the configured endpoint. Resolves true when it was accepted.
-  function sendLead(data) {
-    if (!LEAD) return Promise.resolve(false);
-    return fetch(LEAD, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body: JSON.stringify(data), mode: 'cors' }).then(function (r) { return r.ok || r.type === 'opaque'; }).catch(function () { return false; });
-  }
   var mailto = function (to, cc, subject, body) { return 'mailto:' + to + '?' + (cc ? 'cc=' + encodeURIComponent(cc) + '&' : '') + 'subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body.length > 1800 ? body.slice(0, 1800) + '\n…' : body); };
 
-  // Optional email capture before downloading or emailing results
-  function saveDialog(mode) {
-    var email = mode === 'email', majors = S.majors.map(function (s) { return P.major[s].name; }).join(', '), minors = S.minors.map(function (s) { return P.minor[s].name; }).join(', ');
-    var careersTxt = S.careers.map(function (s) { return P.careers[s][0]; }).concat(S.interests.map(function (s) { return P.interest[s].name; })).join(', ');
-    openDlg('<h2 id="dlg-title">' + (email ? 'Email my results' : 'Download my results') + '</h2><p>' + (email ? 'We will open your email app with your results, ready to send to yourself.' : 'Your results open as a printable page; choose “Save as PDF” to download them.') + ' Adding your details is optional' + (email ? ' apart from your email address' : '') + '.</p>'
-      + '<form class="form" data-save-form data-mode="' + mode + '" novalidate><div class="row2"><div class="field"><label for="sv-n">First name</label><input id="sv-n" name="firstName" autocomplete="given-name"></div><div class="field"><label for="sv-e">Email' + (email ? ' <span class="req">*</span>' : '') + '</label><input id="sv-e" name="email" type="email" autocomplete="email"' + (email ? ' required' : '') + '></div></div>'
-      + '<div class="row2"><div class="field"><label for="sv-s">Education level</label><select id="sv-s" name="stage"><option value="">Choose</option>' + P.questions.stages.map(function (s) { return '<option value="' + s.value + '"' + (S.stage === s.value ? ' selected' : '') + '>' + esc(s.label) + '</option>'; }).join('') + '</select></div><div class="field"><label for="sv-m">Selected major</label><input id="sv-m" name="major" value="' + esc(majors) + '"></div></div>'
-      + '<div class="row2"><div class="field"><label for="sv-mi">Selected minor</label><input id="sv-mi" name="minor" value="' + esc(minors) + '"></div><div class="field"><label for="sv-c">Career interests</label><input id="sv-c" name="careerInterests" value="' + esc(careersTxt) + '"></div></div>'
-      + '<label class="check"><input type="checkbox" name="marketing"> <span>Yes, Career Education Institute may email me about training related to my interests. I can unsubscribe at any time.</span></label>'
-      + '<p class="small muted">Optional. If you enter your email and tick the box, we save your details and answers to follow up about relevant training. See our <a href="' + base + '/privacy-policy/">Privacy Policy</a>. Your name and email are never sent to analytics tools.</p><p class="err" hidden></p>'
-      + '<div class="btn-row"><button class="btn btn-primary" type="submit">' + (email ? 'Open my email' : 'Download my results') + '</button>' + (email ? '' : '<button class="btn" type="button" data-act="skip-save">Skip and download</button>') + '</div></form>');
-  }
-  function submitSave(form) {
-    var mode = form.getAttribute('data-mode'), v = function (n) { return String(form.elements[n].value || '').trim(); }, err = form.querySelector('.err');
-    var email = v('email'), ok = !email || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email), marketing = form.elements.marketing.checked;
-    if ((mode === 'email' && !email) || !ok) { err.hidden = false; err.textContent = 'Please enter a valid email address.'; form.elements.email.focus(); return; }
-    if (marketing && !email) { err.hidden = false; err.textContent = 'Add your email address so we can follow up, or untick the box.'; form.elements.email.focus(); return; }
-    err.hidden = true;
-    if (v('stage') && v('stage') !== S.stage) { S.stage = v('stage'); save(); }
-    var data = leadData({ type: 'finder_results', firstName: v('firstName'), email: email, educationLevel: v('stage'), selectedMajor: v('major'), selectedMinor: v('minor'), careerInterests: v('careerInterests'), marketingConsent: marketing, delivery: mode });
-    if (email && marketing) { sendLead(data); }
-    closeDlg();
-    if (mode === 'email') {
-      
-      // Without a lead endpoint, a visitor who agreed to follow-up copies CEI on the email instead
-      location.href = mailto(email, marketing && !LEAD ? TO : '', 'My College & Career Finder results', (v('firstName') ? 'Hi ' + v('firstName') + ',\n\n' : '') + summary());
-    } else download();
-  }
   function download() { setTimeout(function () { window.print(); }, 150); }
-  function submitInfo(form) {
-    var v = function (n) { return String(form.elements[n].value || '').trim(); }, err = form.querySelector('.err'), bad = [];
-    [].forEach.call(form.querySelectorAll('[required]'), function (el) { var ok = el.type === 'checkbox' ? el.checked : el.value.trim() !== ''; if (ok && el.type === 'email') ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.value.trim()); el.setAttribute('aria-invalid', ok ? 'false' : 'true'); if (!ok) bad.push(el); });
-    if (bad.length) { err.hidden = false; err.textContent = 'Please complete the required fields.'; bad[0].focus(); return; }
-    err.hidden = true;
-    var data = leadData({ type: 'info_request', firstName: v('firstName'), email: v('email'), phone: v('phone'), message: v('message'), contactConsent: true });
-    var okBox = root.querySelector('[data-info-ok]');
-    var body = ['Training information request from the College & Career Finder', '', 'Name: ' + data.firstName, 'Email: ' + data.email, 'Phone: ' + (data.phone || 'not given'), 'Education level: ' + (data.stage || 'not given'), 'Message: ' + (data.message || ''), '', summary(), '', 'Contact consent: agreed'].join('\n');
-    sendLead(data).then(function (sent) {
-      form.hidden = true; okBox.hidden = false;
-      if (sent) okBox.innerHTML = '<p><strong>Thank you, ' + esc(data.firstName) + '.</strong> We received your request and will follow up by email.</p>';
-      else {
-        okBox.innerHTML = '<p><strong>Almost done:</strong> your email app should open with your request. Press send to reach our team. If it does not open, email <a href="mailto:' + esc(TO) + '">' + esc(TO) + '</a>.</p>';
-        location.href = mailto(TO, CC, 'Training information request: ' + (data.majors[0] || data.interests[0] || 'College & Career Finder'), body);
-      }
-      okBox.focus();
-    });
-  }
-
   // ---------- Details dialogs ----------
   function openDlg(html) {
     var dlg = root.querySelector('[data-dlg]');
@@ -413,8 +356,8 @@
       else if (act === 'compare') compareDialog();
       else if (act === 'compare-clear') { ui.compare = []; redraw(t); }
       else if (act === 'restart') { if (confirm('Clear all your answers and start over?')) { S = fresh(); ui.compare = []; save(); try { history.replaceState(null, '', location.pathname); } catch (x) {} go(0); } }
-      else if (act === 'save') saveDialog(t.getAttribute('data-mode'));
-      else if (act === 'skip-save') { closeDlg(); download(); }
+      else if (act === 'download') download();
+      else if (act === 'email') location.href = mailto('', '', 'My College & Career Finder results', summary());
       else if (act === 'share') {
         var url = shareUrl(), msg = root.querySelector('[data-share-msg]');
         var done = function () { msg.textContent = 'Link copied. Anyone with the link can see these results.'; };
@@ -436,10 +379,6 @@
       var t = e.target, k = t.getAttribute('data-q'); if (!k) return;
       ui[k] = t.value;
       clearTimeout(t._tm); t._tm = setTimeout(function () { redraw(t); }, 150);
-    });
-    root.addEventListener('submit', function (e) {
-      var f = e.target; e.preventDefault();
-      if (f.hasAttribute('data-save-form')) submitSave(f); else if (f.hasAttribute('data-info')) submitInfo(f);
     });
     var dlg = root.querySelector('[data-dlg]');
     dlg.addEventListener('click', function (e) { if (e.target === dlg) closeDlg(); });

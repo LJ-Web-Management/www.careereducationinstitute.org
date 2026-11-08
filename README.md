@@ -82,14 +82,10 @@ skills (earlier items in a list count more). Only trainings reaching `minScore` 
 added to fill space. Skill-listed courses count fully only when they share a career field with the rest of the answers.
 Ties go to careers with more BLS annual openings.
 
-**Leads**: results are always shown without any personal details. Optional forms (save/email/download results, and
-"Request more information") post JSON to `site.config.mjs → finder.leadEndpoint` when set (a Zapier/Make webhook, a
-Google Apps Script web app writing to a Sheet, or a CRM form endpoint). With no endpoint, information requests open a
-pre-filled email to `enrollTo`, and visitors who email themselves their results and agree to follow-up copy that inbox.
-Marketing consent is an unticked, optional box. Names and emails are never sent to analytics.
+**No lead forms**: results are shown without any sign-up. Visitors can download or print them, email them to
+themselves from their own email app, or copy a share link. Answers stay in the visitor's browser.
 
-**Analytics**: the finder uses the site's normal Google Analytics 4 page tracking (no custom events). Names and
-emails from the lead forms are never sent to analytics.
+**Analytics**: the finder uses the site's normal Google Analytics 4 page tracking (no custom events).
 
 ## Pricing and course length
 Job-title trainings are priced under $50, by length: 6 hours $29.99, 8 hours $34.99, 10 hours $39.99, 12 hours $44.99,

@@ -104,11 +104,6 @@ export default {
   // Leave one empty to turn it off.
   analytics: { ga4: 'G-FPKWMLEWMG', clarity: 'z4kntlcpgn' },
 
-  // College & Career Finder (/college-and-career-finder/, data in src/data/finder/).
-  // leadEndpoint: optional URL that receives the finder's lead forms as a JSON POST (for example a Zapier or Make
-  // webhook, a Google Apps Script web app or a CRM form endpoint). Leave it empty and lead forms open a pre-filled
-  // email to enrollTo instead.
-  finder: { leadEndpoint: '' },
   verification: { google: '', bing: '' },
   social: [] // e.g. ['https://www.linkedin.com/company/career-education-institute']
 };
