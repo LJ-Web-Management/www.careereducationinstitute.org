@@ -23,7 +23,7 @@ guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The b
 | Guides | 46 guides for students, career changers, professionals and employers |
 | Employers | Buyer pages (employers, staffing agencies, workforce programs, 17 industries), 700+ hiring guides, 700+ job description templates, 700+ onboarding plans, ROI calculator, onboarding assessment |
 | Lists and data | 14 "best careers" lists, salary guide, A to Z glossary |
-| College & Career Finder | `/college-and-career-finder/`: a nine-step tool (goals, education stage, interests, colleges, majors, minors, career goals, skills, personalized results) that ends in career paths, skills and ranked CEI training recommendations. Plus indexable pages from the same data: `/college-majors/` (109 majors, 16 field pages), `/college-minors/` (50), `/college-majors-and-career-paths/`, `/skills-to-learn/` (12), `/career-options-after-high-school/`, `/colleges/` (search) and a page per state. See **College & Career Finder** below |
+| College & Career Finder | Nine steps, each its own searchable page: `/college-and-career-finder/` (start), `/college-and-career-finder/education-level/`, `/career-interests/` (plus a page per interest), `/colleges/` (plus a page per state), `/college-majors/` (plus 16 field pages and 109 major pages), `/college-minors/` (plus 50 minor pages), `/career-finder/`, `/skills-to-learn/` (plus 12 skill pages) and `/college-and-career-finder/results/` (noindex). Every page carries data-driven FAQs (FAQPage schema). Also `/college-majors-and-career-paths/` and `/career-options-after-high-school/`. See **College & Career Finder** below |
 | Keyword landing pages | 10 pages built from the SEO and AI keyword research: `/online-career-training/`, `/job-readiness-training/`, `/employee-training-programs/`, `/career-readiness-programs-for-schools/`, four field training pages (healthcare, skilled trades, logistics, technology and business) and two answer-led question pages (`/career-exploration/`, `/choosing-online-career-training/`) |
 | Partner program | `/partners/` plus a page each for school districts, colleges, companies and organizations: a discount code for their people and a share of each sale, with a sign-up form |
 | Students, changers and professionals hubs, worksheets, newsletter sign-up, company and legal pages | |
@@ -76,6 +76,13 @@ employment.
 skills, degrees, ordered career list, minors with why they pair well, interests, CIP codes), `minors.json`,
 `interests.json`, `skills.json`, `questions.json` (answer wording), `recommend.json` (ranking weights, minimum score,
 boosts, hidden courses, per-major pins, course overrides), `colleges-custom.json`.
+
+**One page per step**: each step of the finder is its own indexable page (`STEP_PATHS` in `src/lib/finder.mjs`).
+`src/assets/finder.js` mounts the matching step at the top of each page (`data-step`) and opens the next page on
+Continue; answers carry between pages in the visitor's browser. Below the step, each page has guide content and FAQs
+built from the data (coursework, skills, careers, IPEDS college counts by level and state), so answers stay accurate
+when the data changes. Detail pages (each major, minor, interest, skill and state) link into their step with the item
+pre-selected, e.g. `/college-majors/?major=nursing`.
 
 **Recommendation engine** (`src/assets/finder-engine.js`, the same file in the browser and the static pages): each training scores points for connections to the visitor's careers, majors, minors, interests, industries and
 skills (earlier items in a list count more). Only trainings reaching `minScore` are shown, so nothing unrelated is

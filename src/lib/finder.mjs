@@ -38,6 +38,10 @@ export const fieldPath = (f) => `/college-majors/${typeof f === 'string' ? f : f
 export const minorPath = (m) => `/college-minors/${typeof m === 'string' ? m : m.slug}/`;
 export const skillPath = (s) => `/skills-to-learn/${typeof s === 'string' ? s : s.slug}/`;
 export const FINDER = '/college-and-career-finder/';
+// Each finder step is its own page (in step order). The step pages that already exist as guides (colleges, majors,
+// minors, skills) carry the interactive step at the top and the searchable guide content below it.
+export const STEP_PATHS = [FINDER, '/college-and-career-finder/education-level/', '/career-interests/', '/colleges/', '/college-majors/', '/college-minors/', '/career-finder/', '/skills-to-learn/', '/college-and-career-finder/results/'];
+export const interestPath = (i) => `/career-interests/${typeof i === 'string' ? i : i.slug}/`;
 
 // Majors that a minor is suggested for, with the reason (from majors.json)
 export const minorPairs = (slug) => majors.flatMap((m) => m.minors.filter(([s]) => s === slug).map(([, why]) => ({ major: m, why })));

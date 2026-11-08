@@ -1,11 +1,15 @@
-// College & Career Finder (/college-and-career-finder/). A nine-step questionnaire that ends in personalized results:
-// academic interests, career paths, skills to develop and recommended CEI trainings (ranked by finder-engine.js).
+// College & Career Finder. A nine-step questionnaire, one page per step (each step page is also a searchable guide:
+// /college-majors/, /college-minors/, /colleges/ and so on). The page says which step it is (data-step) and lists every
+// step's address (data-paths). It ends in personalized results: academic interests, career paths, skills to develop and
+// recommended CEI trainings (ranked by finder-engine.js).
 // Answers are kept only in this browser (localStorage). There are no forms: visitors can download, email or share results themselves.
 // Data: /assets/finder/data.json (built from src/data/finder/*.json and the course catalog).
 (function () {
   var d = document, root = d.querySelector('[data-finder]');
   if (!root || !window.CEIRecommend) return;
   var base = root.getAttribute('data-base') || '';
+  var PAGE = +root.getAttribute('data-step') || 0, PATHS = JSON.parse(root.getAttribute('data-paths') || '[]');
+  var stepUrl = function (n) { return base + (PATHS[n] || PATHS[0] || '/college-and-career-finder/'); };
   var E = window.CEIRecommend, KEY = 'cei-finder';
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var ico = function (k) { return '<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-' + k + '"/></svg>'; };
@@ -36,12 +40,16 @@
       skills: map(P.skills, function (s) { return { name: s.name, careers: s.careers, all: !!P.engine.skills[s.slug].all, matched: P.engine.skills[s.slug].matched }; })
     };
     var q = new URLSearchParams(location.search), shared = q.get('r'), saved = store.get(KEY);
-    if (shared) { try { S = Object.assign(fresh(), clean(JSON.parse(decodeURIComponent(escape(atob(shared.replace(/-/g, '+').replace(/_/g, '/'))))))); S.step = 8; } catch (e) {} }
+    // A shared link shows those results without replacing this visitor's own saved answers
+    if (shared) { try { S = Object.assign(fresh(), clean(JSON.parse(decodeURIComponent(escape(atob(shared.replace(/-/g, '+').replace(/_/g, '/'))))))); S.shared = true; } catch (e) {} }
     else if (saved && saved.v === 1) S = Object.assign(fresh(), clean(saved));
-    if (q.get('major') && P.major[q.get('major')]) { if (S.majors.indexOf(q.get('major')) < 0) S.majors.push(q.get('major')); S.step = 4; }
+    if (q.get('major') && P.major[q.get('major')] && S.majors.indexOf(q.get('major')) < 0) { S.majors.push(q.get('major')); save(); }
+    if (q.get('minor') && P.minor[q.get('minor')] && S.minors.indexOf(q.get('minor')) < 0) { S.minors.push(q.get('minor')); save(); }
+    if (q.get('interest') && P.interest[q.get('interest')] && S.interests.indexOf(q.get('interest')) < 0) { S.interests.push(q.get('interest')); save(); }
+    S.step = PAGE;
     root.innerHTML = '<div class="fz"><nav class="fz-steps" aria-label="Finder steps"><ol data-steps></ol></nav><div class="fz-bar" aria-hidden="true"><i data-bar></i></div><p class="fz-of" data-of></p><section class="fz-panel" data-panel></section><div class="fz-nav" data-nav></div></div><dialog class="dlg" data-dlg aria-labelledby="dlg-title"><div class="dlg-in"><button class="dlg-x" type="button" data-close aria-label="Close">×</button><div data-dlg-body></div></div></dialog>';
     bind();
-    go(S.step, true);
+    go(PAGE, true);
   }
   // Keep only known keys and values from saved or shared answers
   function clean(o) {
@@ -58,7 +66,7 @@
     out.collegeInfo = {}; out.colleges.forEach(function (id) { var c = o.collegeInfo && o.collegeInfo[id]; if (c) out.collegeInfo[id] = [String(c[0]), String(c[1]), String(c[2]), /^https?:\/\//.test(c[3]) ? c[3] : '']; });
     return Object.assign(f, out);
   }
-  var save = function () { store.set(KEY, S); };
+  var save = function () { if (!S.shared) store.set(KEY, S); };
   var profile = function () { return { majors: S.majors, minors: S.minors, interests: S.interests, careers: S.careers, industries: S.industries, skills: S.skills }; };
   var career = function (s) { var c = P.careers[s]; return c && { slug: s, title: c[0], cat: c[1], blurb: c[2], hard: c[3], related: c[4], train: c[5], course: { name: c[6][0], url: c[6][1], price: c[6][2], hours: c[6][3], buy: c[6][4], buyLabel: c[6][5], desc: c[6][6] }, aka: c[7] }; };
   var courseDesc = function (c) { return c.course.desc || 'A self-paced online course on what the ' + c.title.toLowerCase() + ' job involves: duties, key terms, step-by-step tasks, tools, safety and how to launch the career.'; };
@@ -66,20 +74,21 @@
   var toggle = function (list, v) { var i = list.indexOf(v); if (i > -1) { list.splice(i, 1); return false; } list.push(v); return true; };
   var select = function (type, list, v, name) {
     var on = toggle(list, v);
-        if (on) 
     save();
     return on;
   };
 
   // ---------- Frame ----------
+  // Each step is its own page: moving to another step opens that page (answers are already saved)
   function go(n, first) {
+    if (n !== PAGE) { save(); location.href = stepUrl(n); return; }
     S.step = n; save();
     var steps = root.querySelector('[data-steps]');
-    steps.innerHTML = STEPS.map(function (s, i) { return '<li' + (i === n ? ' aria-current="step"' : '') + (i < n ? ' class="done"' : '') + '><button type="button" data-go="' + i + '"><span class="n">' + (i + 1) + '</span><span class="t">' + s[1] + '</span></button></li>'; }).join('');
+    steps.innerHTML = STEPS.map(function (s, i) { return '<li' + (i === n ? ' aria-current="step"' : '') + (i < n ? ' class="done"' : '') + '><a href="' + stepUrl(i) + '" data-go="' + i + '"' + (i === n ? ' aria-current="page"' : '') + '><span class="n">' + (i + 1) + '</span><span class="t">' + s[1] + '</span></a></li>'; }).join('');
     root.querySelector('[data-bar]').style.width = Math.round(((n + 1) / STEPS.length) * 100) + '%';
     root.querySelector('[data-of]').textContent = 'Step ' + (n + 1) + ' of ' + STEPS.length + ': ' + STEPS[n][1];
     draw();
-    if (!first) { var h = root.querySelector('[data-panel] h2'); if (h) { h.focus({ preventScroll: true }); } root.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    if (!first) { var h = root.querySelector('[data-panel] h2'); if (h) h.focus({ preventScroll: true }); }
   }
   function nav() {
     var n = S.step, el = root.querySelector('[data-nav]');
@@ -135,11 +144,17 @@
       + '<div class="college-app" data-college-mount></div>';
   }
   var collegeWidget = null;
+  // Filters can come from the address too (?state=OH&major=nursing&q=...), as on the state and major pages
+  function collegeParams() {
+    var q = new URLSearchParams(location.search), p = { mine: S.majors.length && !q.get('major') ? 1 : 0 };
+    ['q', 'state', 'major', 'city', 'zip', 'online'].forEach(function (k) { if (q.get(k)) p[k] = q.get(k); });
+    return p;
+  }
   function mountColleges() {
     var el = root.querySelector('[data-college-mount]');
     if (!el || !window.CEIColleges) return;
     collegeWidget = window.CEIColleges.mount(el, {
-      base: base, saved: S.colleges, majors: S.majors, params: { mine: S.majors.length ? 1 : 0 }, compact: true,
+      base: base, saved: S.colleges, majors: S.majors, params: collegeParams(), compact: true,
       onSave: function (ids, rows) {
         S.colleges = ids;
         ids.forEach(function (id) { if (!S.collegeInfo[id]) { var r = rows.filter(function (x) { return x[0] === id; })[0]; if (r) S.collegeInfo[id] = [r[1], r[2], r[3], r[5]]; } });
@@ -277,7 +292,7 @@
   }
   function shareUrl() {
     var o = { step: 8, goals: S.goals, stage: S.stage, interests: S.interests, majors: S.majors, minors: S.minors, ctype: S.ctype, careers: S.careers, industries: S.industries, skills: S.skills, colleges: S.colleges, collegeInfo: S.collegeInfo };
-    return location.origin + location.pathname + '?r=' + btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    return location.origin + stepUrl(8) + '?r=' + btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
   }
   var mailto = function (to, cc, subject, body) { return 'mailto:' + to + '?' + (cc ? 'cc=' + encodeURIComponent(cc) + '&' : '') + 'subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body.length > 1800 ? body.slice(0, 1800) + '\n…' : body); };
 
@@ -355,7 +370,7 @@
       if (act === 'more-interests') { ui.moreInterests = !ui.moreInterests; redraw(t, '[data-act="more-interests"]'); }
       else if (act === 'compare') compareDialog();
       else if (act === 'compare-clear') { ui.compare = []; redraw(t); }
-      else if (act === 'restart') { if (confirm('Clear all your answers and start over?')) { S = fresh(); ui.compare = []; save(); try { history.replaceState(null, '', location.pathname); } catch (x) {} go(0); } }
+      else if (act === 'restart') { if (confirm('Clear all your answers and start over?')) { S = fresh(); ui.compare = []; store.set(KEY, S); if (PAGE === 0) go(0, true); else location.href = stepUrl(0); } }
       else if (act === 'download') download();
       else if (act === 'email') location.href = mailto('', '', 'My College & Career Finder results', summary());
       else if (act === 'share') {
