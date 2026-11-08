@@ -59,7 +59,7 @@ Browse all {careers} in the [searchable training catalog](/training/), or start 
 ## Self-paced, short-term and affordable
 - **Self-paced:** there are no class times. Learn on a phone or computer whenever you have 20 minutes.
 - **Short-term:** courses run {minHours} to {maxHours} hours, so most people finish in one to three weeks of evenings.
-- **Affordable:** prices run from {minPrice} to {maxPrice} by course length, with no application fee. Groups get volume pricing from 2 learners, and [subscriptions](/subscriptions/) give one or more people access to the whole catalog.
+- **Affordable:** prices run from {minPrice} to {maxPrice} by course length, with no application fee. Groups get volume pricing from 2 learners, and schools and workforce programs can [subscribe to training seats](/for-workforce-programs/).
 - **12 months of access**, so you can come back to the material once you start the job.
 
 ## Career training without a degree
@@ -93,14 +93,14 @@ Where a career needs a license or exam, the course’s “Launching your career�
 Still comparing options? Our [guide to choosing online career training](/choosing-online-career-training/) answers the questions people ask most.`,
     faq: [
       ['What is online career training?', 'Online career training is instruction delivered over the internet that prepares you for a specific job or field. At Career Education Institute each course covers one job title: its duties, vocabulary, step-by-step tasks, tools, safety rules and the path into the career.'],
-      ['How much do your online career courses cost?', 'Job-title trainings cost {minPrice} to {maxPrice}, depending on length ({minHours} to {maxHours} hours). Volume pricing starts at 2 learners, and seat subscriptions are quoted on request.'],
+      ['How much do your online career courses cost?', 'Job-title trainings cost {minPrice} to {maxPrice}, depending on length ({minHours} to {maxHours} hours). Volume pricing starts at 2 learners.'],
       ['Are the courses self-paced?', 'Yes. There are no live sessions or deadlines. You get 12 months of access to the learning platform and can study on any device.'],
       ['Do I need a degree or experience to enroll?', 'No. The courses are written for beginners. There are no prerequisites, applications or entrance exams.'],
       ['Is this the same as vocational school?', 'No. A vocational or trade school program usually lasts months, includes hands-on practice and can lead to a license or certification exam. Our courses are short, online and non-credit. Many learners use one to decide which vocational program to pursue, or to prepare for it.'],
       ['Will a course help me change careers?', 'It helps you test a new field, learn its vocabulary and prepare for interviews and formal training. It is not a substitute for a credential the job legally requires.'],
       ['What do I get when I finish?', 'A certificate of completion from Career Education Institute after you pass the final knowledge check. It shows you completed the training; it is not a license or industry certification.']
     ],
-    related: [['Training catalog', '/training/'], ['Job readiness training', '/job-readiness-training/'], ['How to choose online career training', '/choosing-online-career-training/'], ['Career exploration questions', '/career-exploration/'], ['How it works', '/how-it-works/'], ['Subscriptions', '/subscriptions/']]
+    related: [['Training catalog', '/training/'], ['Job readiness training', '/job-readiness-training/'], ['How to choose online career training', '/choosing-online-career-training/'], ['Career exploration questions', '/career-exploration/'], ['How it works', '/how-it-works/']]
   },
 
   // ---------------------------------------------------------------- Job readiness (keywords 21 to 40)
@@ -200,7 +200,7 @@ Employers use them for:
 Browse all {careers} job titles in the [training catalog](/training/), or see onboarding training by industry on our [employer training page](/for-employers/).
 
 ## Employee training for small business
-Small businesses rarely have a trainer or an LMS. With our courses you don’t need either: enroll one employee or ten, and each person gets a login by email, 12 months of access and a certificate when they finish. There is no setup fee or minimum. For a handful of employees who need different roles over time, a [small group subscription](/subscriptions/) lets you move seats as people finish.
+Small businesses rarely have a trainer or an LMS. With our courses you don’t need either: enroll one employee or ten, and each person gets a login by email, 12 months of access and a certificate when they finish. There is no setup fee or minimum.
 
 ## Training programs for staffing agencies
 Staffing firms and recruiters use job-title training as **pre-employment and candidate skills training**: a candidate who has completed a forklift, warehouse or medical assistant course can talk about the job in an interview and needs less ramp-up on assignment. See [training for recruiters and staffing agencies](/for-staffing-agencies/).
@@ -213,7 +213,7 @@ Job-title trainings cost {minPrice} to {maxPrice} per learner, depending on cour
 
 {tiers}
 
-Prefer a predictable bill? [Seat subscriptions](/subscriptions/) are billed monthly, yearly or by the decade and quoted on request. Use the [training ROI calculator](/employers/training-roi-calculator/) to estimate what faster ramp-up and lower turnover are worth to you.
+Training a whole program? [Seat subscriptions](/for-workforce-programs/) are billed yearly (or monthly) and quoted on request. Use the [training ROI calculator](/employers/training-roi-calculator/) to estimate what faster ramp-up and lower turnover are worth to you.
 
 ## What the training does not replace
 Our courses are general, non-credit job-role training. They do not replace OSHA-required training, state licensing programs, manufacturer certification or your own site-specific procedures and equipment sign-offs. Think of them as the classroom foundation that makes your on-site training faster.`,
@@ -273,7 +273,7 @@ Point students to the field that interests them, where every career is compared 
 Students who want hands-on work without a four-year degree should also see [highest-paying jobs without a degree](/best-careers/highest-paying-jobs-without-a-degree/) and our [guide to community college](/guides/community-college-guide/).
 
 ## Training seats for schools, colleges and workforce programs
-When students are ready to go deeper, schools can give them **job-title training**: self-paced online courses of {minHours} to {maxHours} hours for {careers} careers, each with a final knowledge check and certificate of completion. Seats are sold as monthly, yearly or decade [subscriptions for schools and workforce programs](/for-workforce-programs/), sized to your program and billed by invoice or purchase order.
+When students are ready to go deeper, schools can give them **job-title training**: self-paced online courses of {minHours} to {maxHours} hours for {careers} careers, each with a final knowledge check and certificate of completion. Seats are sold as yearly (or monthly) [subscriptions for schools and workforce programs](/for-workforce-programs/), sized to your program and billed by invoice or purchase order.
 
 Districts and colleges can also join the [partner program](/partners/school-districts/), which gives students and families a discount code on training they buy themselves.
 
@@ -286,10 +286,10 @@ Our trainings are general, non-credit courses. They don’t grant academic credi
       ['What grade levels are the resources for?', 'They are written for high school students and adults. Middle school teachers often use the career profiles and quizzes with more guidance.'],
       ['Is the Career Match Quiz a formal career assessment?', 'No. It is a free interest-based self-reflection tool that suggests careers to explore. It is not a validated psychological or aptitude test.'],
       ['Can students earn credit for your trainings?', 'No. The trainings are non-credit. Some teachers use them as enrichment or as preparation for a CTE pathway or apprenticeship.'],
-      ['How do training seat subscriptions work for schools?', 'You choose a number of seats and a billing cycle (monthly, yearly or decade). Each seat gives one learner access to the catalog, and seats can move to new students as others finish. Prices are quoted by email.'],
+      ['How do training seat subscriptions work for schools?', 'You choose a number of seats and yearly billing (monthly is also available). Each seat gives one learner access to the catalog, and seats can move to new students as others finish. Prices are quoted by email.'],
       ['Can nonprofits and workforce boards use the program?', 'Yes. Workforce boards, nonprofits and community organizations use the same subscriptions and partner program.']
     ],
-    cta: { title: 'Training seats for your school', text: 'Monthly, yearly or decade seat subscriptions for students and program participants.', btn: 'Request a quote', link: '/for-workforce-programs/#subscribe' },
+    cta: { title: 'Training seats for your school', text: 'Yearly seat subscriptions for students and program participants, with a loyalty discount every year you stay.', btn: 'Request a quote', link: '/for-workforce-programs/#subscribe' },
     related: [['For students', '/students/'], ['High school career planning', '/guides/high-school-career-planning/'], ['Career Match Quiz', '/quizzes/career-match/'], ['Free worksheets', '/resources/'], ['Schools and workforce programs', '/for-workforce-programs/'], ['Partner program for school districts', '/partners/school-districts/']]
   },
 

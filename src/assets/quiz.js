@@ -9,6 +9,13 @@
   var sets = [].slice.call(form.querySelectorAll('fieldset'));
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var answered = function () { return sets.filter(function (f) { return f.querySelector('input:checked'); }).length; };
+  var money = function (n) { return '$' + Number(n).toFixed(2); };
+  // k = [name, course url, price, buy url, instant, cart slug] (offerData in src/lib/offer.mjs)
+  var cartAttr = function (k) { return esc(JSON.stringify({ k: k[4] ? 'course' : 'training', s: k[5], t: k[0], p: k[2], u: k[1] })); };
+  var offer = function (k, kicker) {
+    return '<div class="offer"><div class="offer-txt"><p class="offer-k">' + esc(kicker) + '</p><p class="offer-h"><a href="' + k[1] + '">' + esc(k[0]) + '</a>: <strong>' + money(k[2]) + '</strong>, start today</p><p class="offer-meta">Online, self-paced · certificate of completion' + (k[4] ? ' · Instant access' : '') + '</p></div><div class="offer-btns"><a class="btn btn-primary" href="' + k[3] + '">Buy now</a><button class="btn" type="button" data-add-cart="' + cartAttr(k) + '">Add to cart</button></div></div>';
+  };
+  var shop = function () { return data.shop ? '<div class="offer"><div class="offer-txt"><p class="offer-k">Your next step</p><p class="offer-h">' + esc(data.shop.text) + '</p></div><div class="offer-btns"><a class="btn btn-primary" href="' + data.shop.link + '">' + esc(data.shop.btn) + '</a></div></div>' : ''; };
   var links = function (ls) { return ls && ls.length ? '<ul>' + ls.map(function (l) { return '<li><a href="' + l[1] + '">' + esc(l[0]) + '</a></li>'; }).join('') + '</ul>' : ''; };
 
   // ---------- Slides: one question at a time ----------
@@ -132,7 +139,7 @@
       });
       var p = Math.round(right / sets.length * 100);
       if (n < sets.length) note = '<p class="small muted quiz-note">You left ' + (sets.length - n) + ' of ' + sets.length + ' questions blank; they count as wrong.</p>';
-      finish('<div class="result-card"><p class="eyebrow">Your score</p><p class="score">' + p + '%</p><p>You answered <strong>' + right + ' of ' + sets.length + '</strong> correctly. ' + (p >= data.passing ? 'Nice work, that is a passing score.' : 'Review the explanations below and try again.') + '</p><p>' + esc(data.cta.text) + '</p><div class="btn-row"><a class="btn btn-primary" href="' + data.cta.link + '">' + esc(data.cta.btn) + '</a><button class="btn" type="button" onclick="location.reload()">Retake test</button></div></div>');
+      finish('<div class="result-card"><p class="eyebrow">Your score</p><p class="score">' + p + '%</p><p>You answered <strong>' + right + ' of ' + sets.length + '</strong> correctly. ' + (p >= data.passing ? 'Nice work, that is a passing score.' : 'Review the explanations below and try again.') + '</p><p>' + esc(data.cta.text) + '</p>' + (data.offer ? offer(data.offer, 'Go deeper') : '') + '<div class="btn-row"><a class="btn btn-primary" href="' + data.cta.link + '">' + esc(data.cta.btn) + '</a><button class="btn" type="button" onclick="location.reload()">Retake test</button></div></div>');
       return;
     }
 
@@ -141,7 +148,7 @@
       var sum = given.reduce(function (a, v) { return a + (+v); }, 0);
       var pct = Math.round((sum - given.length) / (given.length * 4) * 100);
       var b = data.bands.filter(function (x) { return pct >= x.min; })[0];
-      finish('<div class="result-card"><p class="eyebrow">Your result</p><p class="score">' + pct + '%</p><h2>' + esc(b.title) + '</h2><p>' + esc(b.text) + '</p>' + links(b.links) + '<div class="btn-row"><button class="btn" type="button" onclick="location.reload()">Retake quiz</button></div></div>');
+      finish('<div class="result-card"><p class="eyebrow">Your result</p><p class="score">' + pct + '%</p><h2>' + esc(b.title) + '</h2><p>' + esc(b.text) + '</p>' + (data.offer ? offer(data.offer, b.min >= 60 ? 'Start this career today' : 'If you still want to try it') : shop()) + links(b.links) + '<div class="btn-row"><button class="btn" type="button" onclick="location.reload()">Retake quiz</button></div></div>');
       return;
     }
 
@@ -157,7 +164,7 @@
     if (data.type === 'outcome') {
       var best = Object.keys(data.outcomes).sort(function (a, z) { return (w[z] || 0) - (w[a] || 0); })[0];
       var o = data.outcomes[best];
-      finish('<div class="result-card"><p class="eyebrow">Your result</p><h2>' + esc(o.title) + '</h2><p>' + esc(o.text) + '</p>' + links(o.links) + '<div class="btn-row"><button class="btn" type="button" onclick="location.reload()">Retake quiz</button></div></div>');
+      finish('<div class="result-card"><p class="eyebrow">Your result</p><h2>' + esc(o.title) + '</h2><p>' + esc(o.text) + '</p>' + links(o.links) + shop() + '<div class="btn-row"><button class="btn" type="button" onclick="location.reload()">Retake quiz</button></div></div>');
       return;
     }
 
@@ -166,7 +173,7 @@
       var total = Object.keys(w).reduce(function (a, k) { return a + w[k]; }, 0);
       var pc = Math.max(0, Math.min(100, Math.round(total / (data.max * n / sets.length) * 100)));
       var bb = data.bands.filter(function (x) { return pc >= x.min; })[0];
-      finish('<div class="result-card"><p class="eyebrow">Your readiness score</p><p class="score">' + pc + '%</p><h2>' + esc(bb.title) + '</h2><p>' + esc(bb.text) + '</p>' + links(bb.links) + '<div class="btn-row"><button class="btn" type="button" onclick="location.reload()">Retake quiz</button></div></div>');
+      finish('<div class="result-card"><p class="eyebrow">Your readiness score</p><p class="score">' + pc + '%</p><h2>' + esc(bb.title) + '</h2><p>' + esc(bb.text) + '</p>' + links(bb.links) + shop() + '<div class="btn-row"><button class="btn" type="button" onclick="location.reload()">Retake quiz</button></div></div>');
       return;
     }
 
@@ -187,13 +194,17 @@
         return { c: c, s: s };
       }).sort(function (a, z) { return z.s - a.s || (z.c.o || 0) - (a.c.o || 0); });
       var top = scored.slice(0, data.top || 6), hi = top[0].s, lo = scored[scored.length - 1].s, span = (hi - lo) || 1;
-      var html = '<div class="result-card"><p class="eyebrow">Your top matches</p><h2>' + esc(data.resultTitle || 'Careers that fit you') + '</h2><p>' + esc(data.resultText || '') + '</p><ol class="match-list">' + top.map(function (x) {
-        var m = Math.round(62 + 36 * (x.s - lo) / span);
-        return '<li><span><a href="' + x.c.u + '">' + esc(x.c.n) + '</a><br><span class="small muted">Median pay ' + x.c.p + ' · ' + esc(x.c.tr) + ' to train</span></span><span class="pct">' + m + '%</span><span class="meter"><i style="width:' + m + '%"></i></span></li>';
+      var html = '<div class="result-card"><p class="eyebrow">Your top matches</p><h2>' + esc(data.resultTitle || 'Careers that fit you') + '</h2><p>' + esc(data.resultText || '') + '</p>'
+        + (top[0].c.k ? offer(top[0].c.k, 'Your #1 match: ' + top[0].c.n) : '')
+        + '<ol class="match-list">' + top.map(function (x) {
+        var m = Math.round(62 + 36 * (x.s - lo) / span), k = x.c.k;
+        return '<li><span><a href="' + x.c.u + '">' + esc(x.c.n) + '</a><br><span class="small muted">Median pay ' + x.c.p + ' · ' + esc(x.c.tr) + ' to train</span></span><span class="pct">' + m + '%</span><span class="meter"><i style="width:' + m + '%"></i></span>'
+          + (k ? '<span class="match-offer"><a href="' + k[1] + '">' + esc(k[0]) + '</a>: <b>' + money(k[2]) + '</b>, start today <a class="btn btn-sm btn-primary" href="' + k[3] + '">Buy now</a><button class="btn btn-sm" type="button" data-add-cart="' + cartAttr(k) + '">Add to cart</button></span>' : '')
+          + '</li>';
       }).join('') + '</ol>';
       var tops = 'RIASEC'.split('').filter(function (k) { return w[k] > 0; }).sort(function (a, z) { return w[z] - w[a]; }).slice(0, 3);
       if (tops.length && data.riasecNames) html += '<p style="margin-top:14px"><strong>Your interest code:</strong> ' + tops.join('') + ': ' + tops.map(function (k) { return data.riasecNames[k]; }).join(', ') + '.</p>';
-      html += '<div class="btn-row"><a class="btn btn-primary" href="' + top[0].c.u.replace('/careers/', '/training/') + '">See ' + esc(top[0].c.n) + ' training</a><button class="btn" type="button" onclick="location.reload()">Retake quiz</button></div></div>';
+      html += '<div class="btn-row">' + (top[0].c.k ? '<a class="btn btn-primary" href="' + top[0].c.k[3] + '">Buy ' + esc(top[0].c.k[0]) + ' · ' + money(top[0].c.k[2]) + '</a>' : '<a class="btn btn-primary" href="' + top[0].c.u.replace('/careers/', '/training/') + '">See ' + esc(top[0].c.n) + ' training</a>') + '<button class="btn" type="button" onclick="location.reload()">Retake quiz</button></div></div>';
       finish(html);
     }
   });

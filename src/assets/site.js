@@ -4,6 +4,36 @@
   // Partner share links: ?code=XYZ on any page remembers the discount code for MP.cd days, and
   // MP.code() hands it to the checkout and enrollment forms to fill in.
   var MP = window.MP = window.MP || {};
+
+  // Copy text to the clipboard. Resolves true when copied; otherwise selects `el` (if given) so the visitor can copy it.
+  MP.copyText = function (text, el) {
+    var fallback = function () {
+      var ok = false;
+      try {
+        var ta = d.createElement('textarea');
+        ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.top = '-1000px';
+        d.body.appendChild(ta); ta.select(); ok = d.execCommand('copy'); d.body.removeChild(ta);
+      } catch (e) {}
+      if (!ok && el) { try { var rg = d.createRange(); rg.selectNodeContents(el); var sel = getSelection(); sel.removeAllRanges(); sel.addRange(rg); } catch (e) {} }
+      return ok;
+    };
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text).then(function () { return true; }, fallback);
+    return Promise.resolve(fallback());
+  };
+  var toast = function (msg) {
+    var t = d.querySelector('.mail-toast');
+    if (!t) { t = d.createElement('div'); t.className = 'mail-toast'; t.setAttribute('role', 'status'); d.body.appendChild(t); }
+    t.textContent = msg; t.hidden = false;
+    clearTimeout(t._tm); t._tm = setTimeout(function () { t.hidden = true; }, 6000);
+  };
+  // Email links: the address is copied too, so it can be pasted into webmail if no email app opens
+  d.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="mailto:"]');
+    if (!a) return;
+    var addr = decodeURIComponent(a.getAttribute('href').slice(7).split('?')[0]);
+    if (!addr) return;
+    MP.copyText(addr).then(function (ok) { toast(ok ? 'Opening your email app. We also copied ' + addr + ' so you can paste it into any email.' : 'Opening your email app. If nothing opens, email us at ' + addr + '.'); });
+  });
   var CODE_KEY = 'cei-partner-code';
   try {
     var linkCode = new URLSearchParams(location.search).get('code');

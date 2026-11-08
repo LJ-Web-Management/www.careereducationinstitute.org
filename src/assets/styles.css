@@ -311,6 +311,8 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--navy);bo
 .match-list .meter{grid-column:1/-1;height:7px;background:var(--line);border-radius:999px;overflow:hidden}
 .match-list .meter i{display:block;height:100%;background:var(--gold)}
 .match-list a{font-weight:700}
+.match-list .match-offer{grid-column:1/-1}
+.match-offer .btn{padding:4px 12px;margin-left:6px}
 /* Filter bar */
 .filters{display:flex;flex-wrap:wrap;gap:10px;align-items:end;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;margin:0 0 22px}
 .filters .field{min-width:170px;flex:1}
@@ -603,19 +605,26 @@ ul.grid.search-results>li{margin:0}
 .buy-strip-price{font:700 1.7rem/1.1 var(--serif);color:var(--navy)}
 .buy-strip-price span{font:600 .9rem var(--sans);color:var(--muted)}
 
-/* Subscription plans */
-.plans{display:grid;gap:22px 18px;grid-template-columns:repeat(2,minmax(0,1fr));margin:0 0 1.6em;padding:0;list-style:none}
-.plan{position:relative;background:#fff;border:1px solid var(--line2);border-radius:20px;padding:22px;margin:0;display:flex;flex-direction:column}
-.plan h3{margin:0 0 .2em;font-size:1.25rem}
-.plan .seats{font:700 .74rem/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin:0 0 .8em}
-.plan ul{margin:0 0 1.2em;padding-left:1.1em;font-size:.93rem;flex:1}
-.plan.featured{border:2px solid var(--navy);box-shadow:5px 5px 0 var(--gold)}
-.plan .tag{position:absolute;top:-12px;left:20px;background:var(--navy);color:#fff;font:700 .66rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border-radius:6px}
+/* Course offer: "X Training: $39.99, start today" with Buy now (career pages, quizzes, comparisons) */
+.offer{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 18px;background:var(--gold-soft);border:1px solid #f0d89c;border-left:5px solid var(--gold);border-radius:12px;padding:14px 18px;margin:1.2em 0}
+.offer p{margin:0}
+.offer-k{font:700 .7rem/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+.offer-h{font:700 1.2rem/1.3 var(--serif);color:var(--navy);margin:.2em 0 !important}
+.offer-h a{color:inherit}
+.offer-h strong{color:var(--navy)}
+.offer-meta{font-size:.86rem;color:var(--muted)}
+.offer-btns{display:flex;flex-wrap:wrap;gap:8px}
+.offer-wrap{padding-top:18px}
+.offer-wrap .offer{margin:0}
+.match-offer{display:block;margin-top:6px;font-size:.92rem;line-height:2}
+.match-offer b{color:var(--navy)}
+.copy-box{margin-top:12px}
+.copy-box pre{white-space:pre-wrap;max-height:240px;overflow:auto;background:#fff;border:1px solid var(--line2);border-radius:8px;padding:10px;font-size:.82rem}
+.mail-toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);z-index:60;background:var(--navy);color:#fff;border-radius:10px;padding:10px 14px;font-size:.9rem;box-shadow:0 10px 30px -10px rgba(0,0,0,.4);max-width:calc(100% - 32px)}
 .loyalty{list-style:none;margin:0 0 1.4em;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;align-items:end}
 .loyalty li{margin:0;text-align:center;font-size:.82rem;color:var(--muted)}
 .loyalty i{display:block;background:var(--navy);border-radius:8px 8px 0 0;margin-bottom:6px}
 .loyalty b{display:block;color:var(--navy);font-size:1rem}
-@media (max-width:560px){.plans{grid-template-columns:1fr}}
 .numbers{margin-bottom:24px}
 
 /* College & Career Finder */

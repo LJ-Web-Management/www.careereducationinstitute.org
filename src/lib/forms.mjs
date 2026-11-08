@@ -13,7 +13,7 @@ const opt = '<span class="muted small">(optional)</span>';
 const stateField = (id) => `<div class="field"><label for="${id}-state">State ${req}</label><select id="${id}-state" name="State" autocomplete="address-level1" required><option value="">Select your state</option>${STATES.map((s) => `<option>${s}</option>`).join('')}</select><div class="hint">We currently serve U.S. residents only.</div></div>`;
 const consent = (about, purchase = true) => `<label class="check"><input type="checkbox" name="Consent" value="Agreed" required><span>I agree to be contacted by email or phone about ${about} and accept the <a href="${href('/terms-of-use/')}">Terms of Use</a> and <a href="${href('/privacy-policy/')}">Privacy Policy</a>.${purchase ? ' Consent is not a condition of purchase.' : ''} ${req}</span></label>`;
 const callLine = `<p class="small muted" style="margin:0">Prefer to call? <a href="tel:${cfg.phoneE164}">${cfg.phone}</a> · Email <a href="mailto:${cfg.email}">${cfg.email}</a></p>`;
-const notice = `<div class="notice" role="status" tabindex="-1"><p><strong>Your email app should now be open with your request.</strong> Just press send. If nothing opened, copy the message below and email it to <a href="mailto:${cfg.enrollTo}">${cfg.enrollTo}</a> (cc ${cfg.enrollCc}).</p><pre></pre><button class="btn btn-sm" type="button" data-copy>Copy message</button></div>`;
+const notice = `<div class="notice" role="status" tabindex="-1"><p><strong>Your email app should now be open with your request.</strong> Just press send. If nothing opened, copy the message below and email it to <a href="mailto:${cfg.enrollTo}">${cfg.enrollTo}</a>.</p><pre></pre><button class="btn btn-sm" type="button" data-copy>Copy message</button></div>`;
 const noscript = (what) => `<noscript><p class="callout">JavaScript is turned off, so this form can’t open your email app. Please email <a href="mailto:${cfg.enrollTo}">${cfg.enrollTo}</a> or call ${cfg.phone} to ${what}.</p></noscript>`;
 
 // Enrollment form. Submitting opens a pre-filled email (no data is stored by the website).
@@ -23,7 +23,7 @@ export function enrollForm({ course = null, kind = 'enroll', heading = 'Request 
   return `<section class="form-box" id="${id}" aria-labelledby="${id}-h"><h2 id="${id}-h">${esc(heading)}</h2>
 <p class="small muted">Fill this out and press the button: your email app will open with a pre-filled message to our enrollment team (${esc(cfg.enrollTo)}). We reply with ${isEmployer ? 'volume pricing, invoicing options and setup details' : 'a payment link or invoice and your learning-platform login'}. Nothing you type is stored on this website.</p>
 ${noscript('enroll')}
-<form class="form" data-enroll data-kind="${kind}" data-to="${esc(cfg.enrollTo)}" data-cc="${esc(cfg.enrollCc)}" method="post" novalidate>
+<form class="form" data-enroll data-kind="${kind}" data-to="${esc(cfg.enrollTo)}" method="post" novalidate>
 ${course ? `<p class="form-course"><span class="k">Course</span> <strong>${esc(course.title)} Training</strong> <span class="muted">· ${course.hours} hours · $${course.price.toFixed(2)} per learner</span><input type="hidden" name="Course" value="${esc(course.title)} Training" data-price="${course.price}"></p>` : ''}
 <div class="row2"><div class="field"><label for="${id}-name">Full name ${req}</label><input id="${id}-name" name="Name" type="text" autocomplete="name" required></div>
 <div class="field"><label for="${id}-email">Email ${req}</label><input id="${id}-email" name="Email" type="email" autocomplete="email" required></div></div>
@@ -38,7 +38,7 @@ ${isEmployer ? '' : `<div class="field"><label for="${id}-code">Partner discount
 <label class="check"><input type="checkbox" name="Age" value="Confirmed" required><span>I am 18 or older, or I am a parent/guardian submitting for a minor. ${req}</span></label>
 ${consent('this request')}
 <p class="err" role="alert" hidden></p>
-<button class="btn btn-primary btn-block" type="submit">${isEmployer ? 'Request group training' : 'Send enrollment request'}</button>
+<button class="btn btn-primary btn-block" type="submit">${isEmployer ? 'Request group training' : isCart ? 'Place my order' : 'Buy now: place my order'}</button>
 ${callLine}
 </form>
 ${notice}
@@ -51,7 +51,7 @@ export function partnerForm({ type = '', heading = 'Get your discount code', id 
   return `<section class="form-box" id="${id}" aria-labelledby="${id}-h"><h2 id="${id}-h">${esc(heading)}</h2>
 <p class="small muted">Fill this out and press the button: your email app will open with a pre-filled sign-up request to our team (${esc(cfg.enrollTo)}). We reply with your discount code and program details, usually within one business day. Nothing you type is stored on this website.</p>
 ${noscript('join the partner program')}
-<form class="form" data-enroll data-kind="partner" data-to="${esc(cfg.enrollTo)}" data-cc="${esc(cfg.enrollCc)}" method="post" novalidate>
+<form class="form" data-enroll data-kind="partner" data-to="${esc(cfg.enrollTo)}" method="post" novalidate>
 <div class="row2"><div class="field"><label for="${id}-org">Organization name ${req}</label><input id="${id}-org" name="Organization" type="text" autocomplete="organization" required></div>
 <div class="field"><label for="${id}-type">Organization type ${req}</label><select id="${id}-type" name="Type" required><option value="">Select a type</option>${PARTNER_TYPES.map((t) => `<option${t === type ? ' selected' : ''}>${t}</option>`).join('')}</select></div></div>
 <div class="row2"><div class="field"><label for="${id}-name">Your name ${req}</label><input id="${id}-name" name="Name" type="text" autocomplete="name" required></div>
@@ -73,27 +73,25 @@ ${notice}
 </section>`;
 }
 
-// Seat subscription request (individual plans on /subscriptions/, program plans on /for-workforce-programs/).
-// Like the enrollment form it opens a pre-filled email; no prices are shown, every request is quoted.
-export function subscriptionForm({ heading = 'Request a subscription', id = 'subscribe', org = false, plan = '' } = {}) {
+// Program seat subscription request (/for-workforce-programs/). Like the enrollment form it opens a pre-filled email;
+// no prices are shown, every request is quoted.
+export function subscriptionForm({ heading = 'Request a subscription', id = 'subscribe' } = {}) {
   const S = cfg.subscriptions;
   return `<section class="form-box" id="${id}" aria-labelledby="${id}-h"><h2 id="${id}-h">${esc(heading)}</h2>
-<p class="small muted">Tell us how many seats you need and how you’d like to pay. Pressing the button opens your email app with a pre-filled request to our team (${esc(cfg.enrollTo)}). We reply with your quote, usually within one business day. Nothing you type is stored on this website.</p>
+<p class="small muted">Tell us how many seats you need. Pressing the button opens your email app with a pre-filled request to our team (${esc(cfg.enrollTo)}). We reply with your quote, usually within one business day. Nothing you type is stored on this website.</p>
 ${noscript('request a subscription')}
-<form class="form" data-enroll data-kind="subscription" data-to="${esc(cfg.enrollTo)}" data-cc="${esc(cfg.enrollCc)}" method="post" novalidate>
-${org ? `<div class="row2"><div class="field"><label for="${id}-org">School, program or organization ${req}</label><input id="${id}-org" name="Organization" type="text" autocomplete="organization" required></div>
-<div class="field"><label for="${id}-type">Type of program ${opt}</label><select id="${id}-type" name="Type"><option value="">Select</option>${['High school or CTE program', 'Community college or adult education', 'Workforce board or American Job Center', 'Reentry, veterans or youth program', 'Nonprofit job-readiness program', 'Employer', 'Other'].map((t) => `<option>${t}</option>`).join('')}</select></div></div>` : ''}
+<form class="form" data-enroll data-kind="subscription" data-to="${esc(cfg.enrollTo)}" method="post" novalidate>
+<div class="row2"><div class="field"><label for="${id}-org">School, program or organization ${req}</label><input id="${id}-org" name="Organization" type="text" autocomplete="organization" required></div>
+<div class="field"><label for="${id}-type">Type of program ${opt}</label><select id="${id}-type" name="Type"><option value="">Select</option>${['High school or CTE program', 'Community college or adult education', 'Workforce board or American Job Center', 'Reentry, veterans or youth program', 'Nonprofit job-readiness program', 'Employer', 'Other'].map((t) => `<option>${t}</option>`).join('')}</select></div></div>
 <div class="row2"><div class="field"><label for="${id}-name">Full name ${req}</label><input id="${id}-name" name="Name" type="text" autocomplete="name" required></div>
 <div class="field"><label for="${id}-email">Email ${req}</label><input id="${id}-email" name="Email" type="email" autocomplete="email" required></div></div>
 <div class="row2"><div class="field"><label for="${id}-phone">Phone ${opt}</label><input id="${id}-phone" name="Phone" type="tel" autocomplete="tel"></div>
 ${stateField(id)}</div>
-<div class="row2">${org ? '' : `<div class="field"><label for="${id}-plan">Plan</label><select id="${id}-plan" name="Plan">${S.plans.map((p) => `<option${p.name === plan ? ' selected' : ''} data-min="${p.min}">${esc(p.name)} (${esc(p.seats)})</option>`).join('')}</select></div>`}
-<div class="field"><label for="${id}-seats">Seats per month ${req}</label><input id="${id}-seats" name="Seats" type="number" min="1" max="100000" value="${org ? 25 : 1}" inputmode="numeric" required><div class="hint">One seat is one learner. You can add seats any time.</div></div>
-${org ? `<div class="field"><label for="${id}-cycle">Billing ${req}</label><select id="${id}-cycle" name="Billing" required>${S.cycles.map((c) => `<option>${c}</option>`).join('')}</select></div>` : ''}</div>
-${org ? '' : `<div class="field"><label for="${id}-cycle">Billing ${req}</label><select id="${id}-cycle" name="Billing" required>${S.cycles.map((c) => `<option>${c}</option>`).join('')}</select></div>`}
+<div class="row2"><div class="field"><label for="${id}-seats">Seats ${req}</label><input id="${id}-seats" name="Seats" type="number" min="1" max="100000" value="25" inputmode="numeric" required><div class="hint">One seat is one learner. You can add seats any time.</div></div>
+<div class="field"><label for="${id}-cycle">Billing ${req}</label><select id="${id}-cycle" name="Billing" required>${S.cycles.map((c, i) => `<option${i === 0 ? ' selected' : ''}>${c}${i === 0 ? ' (recommended)' : ''}</option>`).join('')}</select></div></div>
 <div class="field"><label for="${id}-roles">Trainings or job titles of interest ${opt}</label><input id="${id}-roles" name="Trainings" type="text" placeholder="For example: CNA, welder, warehouse associate"></div>
 <div class="field"><label for="${id}-msg">Questions or notes ${opt}</label><textarea id="${id}-msg" name="Message"></textarea></div>
-${org ? `<label class="check"><input type="checkbox" name="Authorized" value="Confirmed" required><span>I am authorized to request this subscription for my organization. ${req}</span></label>` : `<label class="check"><input type="checkbox" name="Age" value="Confirmed" required><span>I am 18 or older, or I am a parent/guardian requesting for a minor. ${req}</span></label>`}
+<label class="check"><input type="checkbox" name="Authorized" value="Confirmed" required><span>I am authorized to request this subscription for my organization. ${req}</span></label>
 ${consent('this subscription request')}
 <p class="err" role="alert" hidden></p>
 <button class="btn btn-primary btn-block" type="submit">Request my subscription quote</button>
@@ -103,14 +101,14 @@ ${notice}
 </section>`;
 }
 
-// How subscription billing and the loyalty discount work (shared by both subscription pages).
+// How program subscription billing and the loyalty discount work (/for-workforce-programs/).
 export function subscriptionTerms() {
   const { step, max } = cfg.subscriptions.loyalty;
   const years = Math.round(max / step) + 1;
   const pc = (n) => `${Math.round(n * 100)}%`;
   const ladder = Array.from({ length: years }, (_, i) => Math.min(i * step, max));
-  return `<h2 id="billing">Pay monthly, yearly or by the decade</h2>
-<div class="grid-3"><div class="card"><h3>Monthly</h3><p>Pay each month for the seats you use. Add seats whenever you need them.</p></div><div class="card"><h3>Yearly</h3><p>Pay once a year for your seats and skip the monthly bills.</p></div><div class="card"><h3>Decade</h3><p>Lock in ten years of seats with a single payment. Ask us for a decade quote.</p></div></div>
+  return `<h2 id="billing">Pay yearly (recommended) or monthly</h2>
+<div class="grid-3"><div class="card"><h3>Yearly (recommended)</h3><p>One payment and one invoice a year for all your seats. Easy to budget, easy to fund from a grant or program year, and nothing to manage month to month.</p></div><div class="card"><h3>Monthly</h3><p>Pay each month for the seats you use, if your program needs to start small.</p></div><div class="card"><h3>Add seats any time</h3><p>Adding learners mid-year never resets your loyalty discount.</p></div></div>
 <h2 id="loyalty">Your price drops every year you stay</h2>
 <p>On monthly and yearly plans, your price goes down by <strong>${pc(step)}</strong> after every full year you keep your subscription, until you reach <strong>${pc(max)} off</strong> your original price.</p>
 <ol class="loyalty" aria-label="Loyalty discount by year">${ladder.map((d, i) => `<li><i style="height:${Math.round(110 * (1 - d * 2.4))}px" aria-hidden="true"></i><b>${d ? `${pc(d)} off` : 'Full price'}</b>Year ${i + 1}${i === ladder.length - 1 ? '+' : ''}</li>`).join('')}</ol>

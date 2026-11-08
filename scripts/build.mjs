@@ -144,8 +144,7 @@ ${cfg.name} publishes free, plain-language career information for ${countLabel(c
 - [All careers](${abs('/careers/')}): directory with pay, growth and training time
 - [Salary guide](${abs('/salary-guide/')}): BLS median pay for all ${countLabel(careers.length)} careers
 - [All trainings](${abs('/training/')}): online courses by job title, each under $50
-- [Training subscriptions](${abs('/subscriptions/')}): seats for individuals and groups, billed monthly, yearly or by the decade
-- [Programs and schools](${abs('/for-workforce-programs/')}): seat subscriptions for schools and workforce programs
+- [Programs and schools](${abs('/for-workforce-programs/')}): yearly seat subscriptions for schools and workforce programs
 - [Online career training](${abs('/online-career-training/')}): how the job-title trainings work, prices and what they do and don't lead to
 - [Job readiness training](${abs('/job-readiness-training/')}) · [Employee training programs](${abs('/employee-training-programs/')}) · [Career readiness for schools](${abs('/career-readiness-programs-for-schools/')})
 - Training by field: [healthcare](${abs('/healthcare-career-training/')}) · [skilled trades and manufacturing](${abs('/skilled-trades-training/')}) · [transportation and logistics](${abs('/transportation-logistics-training/')}) · [technology and business](${abs('/technology-business-career-training/')})
