@@ -58,7 +58,7 @@
   function clean(o) {
     var f = fresh(), out = {};
     var str = function (v) { return v == null ? '' : String(v); };
-    var known =function (list, set) { return (Array.isArray(list) ? list : []).filter(function (x, i, a) { return (set ? own(set, x) : typeof x === 'string' || typeof x === 'number') && a.indexOf(x) === i; }); };
+    var known = function (list, set) { return (Array.isArray(list) ? list : []).filter(function (x, i, a) { return (set ? own(set, x) : typeof x === 'string' || typeof x === 'number') && a.indexOf(x) === i; }); };
     out.step = Math.min(8, Math.max(0, +o.step || 0));
     out.goals = known(o.goals).filter(function (g) { return P.questions.goals.some(function (x) { return x.value === g; }); });
     out.stage = P.questions.stages.some(function (x) { return x.value === o.stage; }) ? o.stage : '';
@@ -163,7 +163,7 @@
         S.colleges = ids;
         ids.forEach(function (id) { if (!S.collegeInfo[id]) { var r = rows.filter(function (x) { return x[0] === id; })[0]; if (r) S.collegeInfo[id] = [r[1], r[2], r[3], r[5]]; } });
         Object.keys(S.collegeInfo).forEach(function (id) { if (ids.indexOf(+id) < 0) delete S.collegeInfo[id]; });
-                save();
+        save();
       }
     });
   }

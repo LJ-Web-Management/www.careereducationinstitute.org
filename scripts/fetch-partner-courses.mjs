@@ -133,5 +133,5 @@ if (out.length < selection.length) {
   console.error(`\n${selection.length - out.length} of ${selection.length} selected courses could not be read; src/data/partner-courses.json was not changed.`);
   process.exit(1);
 }
-fs.writeFileSync(OUT, JSON.stringify(out, null, 1));
+fs.writeFileSync(OUT, JSON.stringify(out, null, 1) + '\n');
 console.log(`\nSaved ${out.length} partner courses.`);

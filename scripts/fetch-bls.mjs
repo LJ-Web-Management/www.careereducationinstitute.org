@@ -37,5 +37,5 @@ labor.meta.oewsYear = Number(year);
 labor.meta.oewsLabel = `May ${year}`;
 labor.meta.wageSource = `BLS Occupational Employment and Wage Statistics (OEWS), May ${year}`;
 labor.meta.fetched = new Date().toLocaleDateString('en-CA');
-fs.writeFileSync(file, JSON.stringify(labor, null, 1));
+fs.writeFileSync(file, JSON.stringify(labor, null, 1) + '\n');
 console.log('\nUpdated', Object.keys(labor.careers).length, 'careers');

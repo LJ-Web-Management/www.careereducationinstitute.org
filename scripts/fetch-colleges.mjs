@@ -159,5 +159,5 @@ const out = {
   cip,
   institutions
 };
-fs.writeFileSync(OUT, JSON.stringify(out));
+fs.writeFileSync(OUT, JSON.stringify(out) + '\n');
 console.log(`Wrote ${institutions.length} institutions, ${used.size} program codes (${(fs.statSync(OUT).size / 1e6).toFixed(1)} MB) to src/data/colleges.json`);

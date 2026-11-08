@@ -134,7 +134,7 @@
       if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
       dlg.querySelector('[data-close]').focus();
       dlg.addEventListener('close', function f() { dlg.removeEventListener('close', f); if (from && from.focus) from.focus(); });
-      
+
       Promise.all([getJSON(base + '/assets/finder/programs/' + encodeURIComponent(r[3]) + '.json'), getJSON(base + '/assets/finder/cip.json')]).then(function (x) {
         var info = x[0][r[0]] || {}, cip = x[1];
         var links = body.querySelector('[data-links]');
