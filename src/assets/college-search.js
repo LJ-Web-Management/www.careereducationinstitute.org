@@ -17,7 +17,7 @@
     o = o || {};
     var base = o.base || (window.MP && MP.base) || '';
     var saved = (o.saved || []).slice();
-    var PAGE = 20, shown = PAGE, rows = [], meta = {}, majors = [], origin = null, originLabel = '';
+    var PAGE = 20, shown = PAGE, rows = [], meta = {}, majors = [], origin = null, originLabel = '', drawn = '';
     el.innerHTML = '<p class="muted">Loading ' + (o.compact ? '' : 'the college search') + '…</p>';
     getJSON(base + '/assets/finder/colleges.json').then(function (j) { rows = j.rows; meta = j.meta; majors = j.majors; render(j.states); }).catch(function () {
       el.innerHTML = '<p class="callout">The college search could not load. Please refresh the page, or browse <a href="' + base + '/colleges/">colleges by state</a>.</p>';
@@ -46,7 +46,9 @@
         + '<p class="small muted cs-source">Source: ' + esc(meta.source) + ' (' + esc(meta.directory) + '; ' + esc(meta.completions) + '). Confirm details with each school.</p>'
         + '<dialog class="dlg" data-dlg aria-labelledby="' + id + 'dt"><div class="dlg-in"><button class="dlg-x" type="button" data-close aria-label="Close">×</button><div data-dlg-body></div></div></dialog>';
       var f = el.querySelector('form');
-      var go = function () { shown = PAGE; draw(); };
+      // A text box also fires "change" when it loses focus, which happens when a result is clicked: redraw only when a
+      // filter really changed, or the list is rebuilt under the pointer and that first click is lost.
+      var go = function () { if (JSON.stringify(filters()) === drawn) return; shown = PAGE; draw(); };
       f.addEventListener('input', go); f.addEventListener('change', go);
       f.addEventListener('submit', function (e) { e.preventDefault(); go(); });
       el.querySelector('[data-more]').addEventListener('click', function () { shown += PAGE; draw(); });
@@ -54,7 +56,7 @@
         var b = e.target;
         if (!navigator.geolocation) { b.textContent = 'Location not available'; return; }
         b.textContent = 'Finding you…';
-        navigator.geolocation.getCurrentPosition(function (pos) { origin = [pos.coords.latitude, pos.coords.longitude]; originLabel = 'your location'; f.zip.value = ''; b.textContent = 'Using your location'; go(); }, function () { b.textContent = 'Location not shared'; });
+        navigator.geolocation.getCurrentPosition(function (pos) { origin = [pos.coords.latitude, pos.coords.longitude]; originLabel = 'your location'; f.zip.value = ''; b.textContent = 'Using your location'; shown = PAGE; draw(); }, function () { b.textContent = 'Location not shared'; });
       });
       var dlg = el.querySelector('[data-dlg]');
       dlg.querySelector('[data-close]').addEventListener('click', function () { dlg.close(); });
@@ -79,6 +81,7 @@
 
     function draw(keepScroll) {
       var F = filters();
+      drawn = JSON.stringify(F);
       var mIdx = F.major ? majors.map(function (m) { return m[0]; }).indexOf(F.major) : -1;
       var mine = F.mine && o.majors ? o.majors.map(function (s) { return majors.map(function (m) { return m[0]; }).indexOf(s); }).filter(function (i) { return i > -1; }) : [];
       var words = F.q.split(/\s+/).filter(Boolean);

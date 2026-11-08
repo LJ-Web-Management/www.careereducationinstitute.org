@@ -4,7 +4,9 @@
   if (!form || !dataEl) return;
   var data = JSON.parse(dataEl.textContent);
   // Quizzes that score every career load the career list from a shared file while the visitor answers.
-  var careersReady = data.careersUrl ? fetch(data.careersUrl).then(function (r) { return r.json(); }).then(function (c) { data.careers = c; }) : null;
+  var careersReady = null;
+  var loadCareers = function () { careersReady = fetch(data.careersUrl).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (c) { data.careers = c; }); careersReady.catch(function () { careersReady = null; }); };
+  if (data.careersUrl) loadCareers();
   var out = document.querySelector('.results');
   var sets = [].slice.call(form.querySelectorAll('fieldset'));
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
@@ -171,7 +173,13 @@
     }
 
     if (data.type === 'careers' && !data.careers) {
-      if (careersReady) careersReady.then(function () { form.dispatchEvent(new Event('submit', { cancelable: true })); });
+      // Still loading: show the results when the list arrives; if it failed, try once more and say so if that fails too
+      if (!careersReady) loadCareers();
+      careersReady.then(function () { form.dispatchEvent(new Event('submit', { cancelable: true })); }, function () {
+        warn.querySelector('p').textContent = 'Your results could not load. Check your connection and press the results button again.';
+        warn.querySelector('[data-anyway]').hidden = true;
+        warn.hidden = false;
+      });
       return;
     }
     if (data.type === 'careers') {

@@ -38,11 +38,23 @@
     ['course', 'training'].forEach(function (k) {
       var sec = root.querySelector('[data-cart-group="' + k + '"]'), ls = groups[k];
       sec.hidden = !ls.length;
-      sec.querySelector('[data-lines]').innerHTML = ls.map(function (l) {
+      var amt = function (l) { return fmt(l.total) + (l.disc > 0 ? '<small>' + Math.round(l.t.discount * 100) + '% volume discount</small>' : ''); };
+      var who = function (l) { return l.n === 1 ? 'learner' : 'learners'; };
+      var ul = sec.querySelector('[data-lines]');
+      // Same lines as on screen (only learner counts changed): update them in place. Rebuilding them would replace the
+      // button being clicked when a learner box loses focus (its "change" fires first), and that click would be lost.
+      var same = ul.children.length === ls.length && ls.every(function (l, n) { return ul.children[n].getAttribute('data-s') === l.i.s; });
+      if (same) ls.forEach(function (l, n) {
+        var li = ul.children[n], box = li.querySelector('.qty input');
+        li.querySelector('.amt').innerHTML = amt(l);
+        if (box.value !== String(l.n)) box.value = l.n;
+        li.querySelector('.ctl .small').textContent = who(l);
+      });
+      else ul.innerHTML = ls.map(function (l) {
         var title = k === 'course' ? D.courses[l.i.s].t : String(l.i.t || l.i.s);
         return '<li class="cart-line" data-k="' + k + '" data-s="' + esc(l.i.s) + '"><div><p class="k">' + (k === 'course' ? 'Online course' : 'Job-title training') + '</p><h3><a href="' + esc(urlOf(l.i)) + '">' + esc(title) + '</a></h3><p class="meta">' + fmt(l.p) + ' per learner</p></div>' +
-          '<div class="amt">' + fmt(l.total) + (l.disc > 0 ? '<small>' + Math.round(l.t.discount * 100) + '% volume discount</small>' : '') + '</div>' +
-          '<div class="ctl"><span class="qty"><button type="button" data-step="-1" aria-label="One fewer learner">−</button><input type="number" min="1" max="1000" value="' + l.n + '" aria-label="Learners for ' + esc(title) + '" inputmode="numeric"><button type="button" data-step="1" aria-label="One more learner">+</button></span><span class="small muted">' + (l.n === 1 ? 'learner' : 'learners') + '</span><button class="link-btn" type="button" data-remove>Remove</button></div></li>';
+          '<div class="amt">' + amt(l) + '</div>' +
+          '<div class="ctl"><span class="qty"><button type="button" data-step="-1" aria-label="One fewer learner">−</button><input type="number" min="1" max="1000" value="' + l.n + '" aria-label="Learners for ' + esc(title) + '" inputmode="numeric"><button type="button" data-step="1" aria-label="One more learner">+</button></span><span class="small muted">' + who(l) + '</span><button class="link-btn" type="button" data-remove>Remove</button></div></li>';
       }).join('');
       var sum = root.querySelector('[data-sum-' + k + ']');
       sum.hidden = !ls.length;

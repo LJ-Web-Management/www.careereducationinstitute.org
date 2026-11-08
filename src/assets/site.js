@@ -53,19 +53,22 @@
   var f = d.querySelector('[data-filter]');
   if (f) {
     var out = d.querySelector('[data-count]'), grid = d.querySelector('[data-cards]'), dir = d.querySelector('[data-dir]');
-    var all = null, loading = false, total = out ? out.textContent : '', base = (window.MP && window.MP.base) || '';
+    var all = null, loading = false, total = out ? out.textContent : '', base = (window.MP && window.MP.base) || '', shownKey = null;
     var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
     var card = function (c) { return '<article class="card link fcard"><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-' + esc(c.c) + '"/></svg></span><h3><a class="stretch" href="' + esc(base + c.u) + '">' + esc(c.n) + '</a></h3><p>' + esc(c.b) + '</p><div class="fcard-foot"><span class="fcard-big">$' + Math.round(c.m).toLocaleString('en-US') + ' <small>median pay</small></span><span>' + (c.g > 0 ? '+' : '') + c.g.toFixed(1) + '% growth · Training: ' + esc(c.t) + '</span></div></article>'; };
     var run = function () {
-      var q = (f.q.value || '').toLowerCase().trim(), cat = f.cat.value, edu = f.edu.value, sort = f.sort.value;
-      if (!q && !cat && !edu && !sort) { grid.hidden = true; grid.innerHTML = ''; dir.hidden = false; if (out) out.textContent = total; return; }
+      var q = (f.q.value || '').toLowerCase().trim(), cat = f.cat.value, edu = f.edu.value, sort = f.sort.value, key = [q, cat, edu, sort].join('|');
+      // "change" also fires when the search box loses focus (a result being clicked): nothing to redo if nothing changed,
+      // and rebuilding the cards then would swallow that click
+      if (key === shownKey) return;
+      if (!q && !cat && !edu && !sort) { shownKey = key; grid.hidden = true; grid.innerHTML = ''; dir.hidden = false; if (out) out.textContent = total; return; }
       if (!all) {
-        if (!loading) { loading = true; if (out) out.textContent = 'Loading…'; fetch(base + '/assets/careers.json').then(function (r) { return r.json(); }).then(function (j) { all = j; run(); }); }
+        if (!loading) { loading = true; if (out) out.textContent = 'Loading…'; fetch(base + '/assets/careers.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (j) { all = j; run(); }).catch(function () { loading = false; if (out) out.textContent = 'The career list could not load. Please try again.'; }); }
         return;
       }
       var res = all.filter(function (c) { return (!q || c.k.indexOf(q) > -1) && (!cat || c.c === cat) && (!edu || c.e <= +edu); });
       if (sort) res.sort(function (a, b) { return sort === 'name' ? a.n.localeCompare(b.n) : sort === 'train' ? a.mo - b.mo : sort === 'median' ? b.m - a.m : b.g - a.g; });
-      grid.innerHTML = res.map(card).join(''); grid.hidden = false; dir.hidden = true;
+      shownKey = key; grid.innerHTML = res.map(card).join(''); grid.hidden = false; dir.hidden = true;
       if (out) out.textContent = res.length + ' career' + (res.length === 1 ? '' : 's');
     };
     f.addEventListener('input', run); f.addEventListener('change', run);

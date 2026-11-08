@@ -155,7 +155,12 @@ export function loadColleges() {
   const custom = finderSrc.collegesCustom;
   const hidden = new Set((custom.hide || []).map(String));
   const list = raw.institutions.filter((i) => !hidden.has(String(i.id))).map((i) => ({ ...i, ...(custom.edit?.[i.id] || {}) }));
-  for (const a of custom.add || []) list.push({ programs: '', ug: 1, grad: 0, online: 0, onlineUg: 0, onlineGrad: 0, custom: 1, ...a });
+  for (const a of custom.add || []) {
+    // The search and the state pages need these on every school (a missing state or ZIP would stop the build or the search)
+    const missing = ['id', 'name', 'city', 'state', 'zip'].filter((k) => !a[k]);
+    if (missing.length || !STATES[a.state]) { console.warn(`! colleges-custom.json add ${a.name || a.id || '(unnamed)'}: ${missing.length ? `missing ${missing.join(', ')}` : `unknown state ${a.state}`}; left out`); continue; }
+    list.push({ programs: '', ug: 1, grad: 0, online: 0, onlineUg: 0, onlineGrad: 0, custom: 1, ...a, id: Number(a.id), zip: String(a.zip).slice(0, 5) });
+  }
   // Official links must be web addresses: the college search turns them into links, so anything else is dropped.
   for (const i of list) for (const k of ['web', 'admissions', 'netPrice']) {
     if (i[k] && !/^https?:\/\/[^\s"<>]+$/i.test(i[k])) { console.warn(`! college ${i.id}: ${k} "${i[k]}" is not an http(s) address; left out`); i[k] = ''; }

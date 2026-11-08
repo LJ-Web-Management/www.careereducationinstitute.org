@@ -33,7 +33,7 @@ function unzipFirst(buf) {
     if (!/\.csv$/i.test(name) || /_rv\.csv$/i.test(name)) continue; // skip revised-data companions
     const start = local + 30 + buf.readUInt16LE(local + 26) + buf.readUInt16LE(local + 28);
     const data = buf.subarray(start, start + size);
-    return (method === 8 ? zlib.inflateRawSync(data) : data).toString('utf8').replace(/^﻿/, '');
+    return (method === 8 ? zlib.inflateRawSync(data) : data).toString('utf8').replace(/^\uFEFF/, '');
   }
   throw new Error('No CSV in zip');
 }
@@ -75,7 +75,7 @@ const hd = await table(`HD${YEAR}`);
 const ic = Object.fromEntries((await table(`IC${YEAR}`)).map((r) => [r.UNITID, r]));
 const comp = await table(`C${YEAR}_A`);
 console.log('Downloading CIP titles…');
-const cipRows = parseCsv((await get('https://nces.ed.gov/ipeds/cipcode/Files/CIPCode2020.csv')).toString('utf8').replace(/^﻿/, ''));
+const cipRows = parseCsv((await get('https://nces.ed.gov/ipeds/cipcode/Files/CIPCode2020.csv')).toString('utf8').replace(/^\uFEFF/, ''));
 
 // Freely associated states (FM, MH, PW) report to IPEDS but are not U.S. jurisdictions.
 const NOT_US = new Set(['FM', 'MH', 'PW']);
