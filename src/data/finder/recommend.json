@@ -1,0 +1,25 @@
+{
+  "_help": "How the College & Career Finder ranks CEI trainings and careers. Every recommendation is a real CEI training (one per career profile, at /training/<slug>/, plus the checkout courses). weights: points a training earns for each connection to the visitor's answers (career: a career they chose; major, minor, interestCareer: the training is in that item's career list; interestField: it is in a career field linked to one of their interests; industry: it is in an industry they picked in step 7; relatedCareer: related to a career they chose; skillCourse: listed under a skill they picked, counted in full only when it shares a career field with the rest of their answers; skillMatch and skillAll: small extras for trainings already related). A training must reach minScore to be recommended, so unrelated courses are never shown just to fill space. Earlier items in a major's or interest's career list count more (each later position keeps 'positionDecay' less, down to 'positionFloor'). boosts: extra points for a training (career slug -> points, negative to demote). hide: careers whose training is never recommended. pins: majors -> trainings always listed first for that major (they still must be related). courseOverrides: career slug -> { name, description, url, enrollUrl } to change how a training is shown in the finder.",
+  "weights": {
+    "career": 16,
+    "major": 10,
+    "minor": 6,
+    "interestCareer": 7,
+    "interestField": 2,
+    "industry": 6,
+    "relatedCareer": 3,
+    "skillCourse": 6,
+    "skillMatch": 1.5,
+    "skillAll": 0.5
+  },
+  "positionDecay": 0.07,
+  "positionFloor": 0.55,
+  "minScore": 6,
+  "maxCourses": 6,
+  "maxCareers": 9,
+  "maxCoursesPerStep": 3,
+  "boosts": {},
+  "hide": [],
+  "pins": {},
+  "courseOverrides": {}
+}

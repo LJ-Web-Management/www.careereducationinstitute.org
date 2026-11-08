@@ -218,6 +218,8 @@
       return fail('We could not reach the enrollment system. Please try again or call ' + D.phone + '.');
     }
 
+    // Analytics: the purchase (no personal details), credited to the College & Career Finder when it led here
+    if (window.MP && MP.track) MP.track('purchase', MP.withFinder({ transaction_id: orderRef.replace('#', '') || 'CEI-' + Date.now(), value: Number(r.pay.toFixed(2)), currency: 'USD', items: lines.map(function (l) { return { item_id: l.s, item_name: (l.c && l.c.t) || l.s, price: l.c && l.c.p, quantity: l.n }; }) }));
     // Bought: take these courses out of the browser cart
     if (window.MP && MP.cart) MP.cart.set(MP.cart.get().filter(function (i) { return !(i.k === 'course' && lines.some(function (l) { return l.s === i.s; })); }));
     form.hidden = true;

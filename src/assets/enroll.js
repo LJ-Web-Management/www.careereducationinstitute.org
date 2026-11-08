@@ -107,6 +107,8 @@
       notice.querySelector('pre').textContent = 'To: ' + form.dataset.to + '\nCc: ' + form.dataset.cc + '\nSubject: ' + subject + '\n\n' + body;
       notice.classList.add('show');
       window.MP_LAST_MAILTO = url;
+      // Analytics: the request itself (no personal details), credited to the College & Career Finder when it led here
+      if (window.MP && MP.track) MP.track(kind === 'enroll' || kind === 'cart' || !kind ? 'enroll_request' : kind + '_request', MP.withFinder ? MP.withFinder({ course_name: course || 'none', form: kind || 'enroll' }) : { course_name: course || 'none' });
       if (!window.MP_NO_MAILTO) window.location.href = url;
       setTimeout(function () { notice.focus(); }, 300);
     });

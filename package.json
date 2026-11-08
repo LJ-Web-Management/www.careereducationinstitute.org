@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Career Education Institute static website generator: career profiles, trainings, certification courses, checkout, quizzes, guides, employer resources and newsletter pages. The blog is a separate repo (blog.careereducationinstitute.org), built into /blog/ by the deploy workflow.",
+  "description": "Career Education Institute static website generator: career profiles, trainings, certification courses, checkout, quizzes, guides, the College & Career Finder (colleges, majors, minors), employer resources and newsletter pages. The blog is a separate repo (blog.careereducationinstitute.org), built into /blog/ by the deploy workflow.",
   "scripts": {
     "build": "node scripts/build.mjs",
     "audit": "node scripts/audit.mjs",
@@ -11,9 +11,12 @@
     "dev": "node scripts/build.mjs && node scripts/serve.mjs",
     "update-salaries": "node scripts/fetch-bls.mjs",
     "update-partner-courses": "node scripts/fetch-partner-courses.mjs",
-    "course-specs": "node scripts/course-specs.mjs"
+    "course-specs": "node scripts/course-specs.mjs",
+    "update-colleges": "node scripts/fetch-colleges.mjs"
   },
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "devDependencies": {
     "sharp": "^0.33.5"
   }

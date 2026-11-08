@@ -1,0 +1,35 @@
+{
+  "_help": "Answer options for steps 1, 2 and 7 of the College & Career Finder. Change the wording here; keep each 'value' stable because analytics reports use it.",
+  "goals": [
+    { "value": "colleges", "label": "Find colleges and universities", "hint": "Search 3,900+ U.S. colleges by location, type and program" },
+    { "value": "majors", "label": "Explore college majors", "hint": "Compare majors and see where they lead" },
+    { "value": "minors", "label": "Explore college minors", "hint": "Find minors that complement your major" },
+    { "value": "careers", "label": "Discover potential careers", "hint": "See careers connected to your interests" },
+    { "value": "training", "label": "Find training to prepare for a career", "hint": "Practical online courses you can start now" },
+    { "value": "unsure", "label": "I'm not sure yet. Help me figure it out.", "hint": "We will walk you through every step" }
+  ],
+  "stages": [
+    { "value": "high-school", "label": "High school student" },
+    { "value": "recent-grad", "label": "Recent high school graduate" },
+    { "value": "in-college", "label": "Currently attending college" },
+    { "value": "college-grad", "label": "College graduate" },
+    { "value": "professional", "label": "Working professional" },
+    { "value": "changer", "label": "Looking to change careers" },
+    { "value": "other", "label": "Other" }
+  ],
+  "careerGoalTypes": [
+    { "value": "specific", "label": "A specific career", "hint": "Search for the job title you have in mind" },
+    { "value": "industry", "label": "An industry", "hint": "Pick a field and see the careers in it" },
+    { "value": "general", "label": "A general career interest", "hint": "Start from careers suggested by your answers" },
+    { "value": "exploring", "label": "I'm still exploring", "hint": "Browse suggestions with no pressure to choose" }
+  ],
+  "stageNotes": {
+    "high-school": "You can start exploring careers and building skills now, long before you choose a college or program.",
+    "recent-grad": "This is a great time to compare college, trade school and short-term training side by side.",
+    "in-college": "Short career training alongside your classes can help you test a career and build practical skills for internships.",
+    "college-grad": "Practical, job-specific training can help you connect your degree to the roles you are applying for.",
+    "professional": "Targeted training can help you move up in your field or prepare for a new responsibility.",
+    "changer": "Short, low-cost training is a practical way to test a new field before you commit to a longer program.",
+    "other": "Explore at your own pace. Every result links to free career information."
+  }
+}

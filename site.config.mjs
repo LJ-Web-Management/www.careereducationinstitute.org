@@ -102,7 +102,15 @@ export default {
   // Google Analytics 4 measurement id and Microsoft Clarity project id. Both load after page load,
   // never with GPC or the opt-out on /your-privacy-choices/ (see src/assets/site.js).
   // Leave one empty to turn it off.
-  analytics: { ga4: 'G-FPKWMLEWMG', clarity: 'z4kntlcpgn' },
+  // gtm: optional Google Tag Manager container id (GTM-XXXXXXX); it loads under the same privacy rules. The College &
+  // Career Finder and the course buttons send their events to both (see README, Analytics events).
+  analytics: { ga4: 'G-FPKWMLEWMG', clarity: 'z4kntlcpgn', gtm: '' },
+
+  // College & Career Finder (/college-and-career-finder/, data in src/data/finder/, admin at /finder-admin/).
+  // leadEndpoint: optional URL that receives the finder's lead forms as a JSON POST (for example a Zapier or Make
+  // webhook, a Google Apps Script web app or a CRM form endpoint). Leave it empty and lead forms open a pre-filled
+  // email to enrollTo instead. repo and branch: where the admin dashboard publishes data changes (GitHub).
+  finder: { leadEndpoint: '', repo: 'LJ-Web-Management/www.careereducationinstitute.org', branch: 'main' },
   verification: { google: '', bing: '' },
   social: [] // e.g. ['https://www.linkedin.com/company/career-education-institute']
 };
