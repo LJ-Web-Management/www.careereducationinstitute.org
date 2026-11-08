@@ -16,8 +16,9 @@ guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The b
 | 700+ career hubs in 17 fields | Overview, day in the life, salary, how to become, skills, glossary, how-to index plus 3 step-by-step task pages, interview questions, FAQ, fit quiz |
 | 700+ job-title trainings | Course page with price, length, timed syllabus and enrollment form, plus a free practice test. Truck driver, forklift operator and flagger point to the matching provider course instead |
 | 3 checkout trainings | Forklift operator, flagger and mold inspector training from HAZWOPER-OSHA.com, named and listed like every other training under `/training/` with a Buy now button. Old `/courses/` links redirect (`movedFrom` in `src/data/partner-selection.mjs`). Prices come from the provider catalog, the same as on HAZWOPER-OSHA.com |
-| Program seat subscriptions | `/for-workforce-programs/` only (schools, workforce boards, nonprofits): yearly billing recommended (monthly available), 3% yearly loyalty discount up to 15%, quoted by email, no published prices. Settings in `site.config.mjs → subscriptions`. The old individual `/subscriptions/` page was removed; its address redirects to `/training/` |
+| Subscription programs | Two programs, both priced by the number of seats per month and quoted by email (no published prices), each with the subscriber's own landing page and optional paid white label: **Jobs and workforce** at `/for-employers/` (onboarding and retraining, plus 17 industry pages) and **Schools** at `/for-schools/` (high schools and colleges). Yearly billing recommended (monthly available), 3% yearly loyalty discount up to 15%. Settings in `site.config.mjs → subscriptions`; program wording and the request form in `src/lib/forms.mjs → PROGRAMS`. The staffing-agency, old workforce-programs and partner-program pages were removed; their addresses redirect (`REMOVED_PROGRAMS` in `src/pages/employers.mjs`) |
 | Checkout | `/checkout/?course=<slug>`: Stripe card payment and enrollment in the provider LMS |
+| Job-title training checkout | Until a training has an LMS course id, its page checks out with the Typeform in `site.config.mjs → forms.trainingCheckout` (hidden field `page_url` = the page address). In the cart, one job-title training links to that page's checkout; several different trainings go in one emailed enrollment request |
 | Comparisons | About 2,200 "X vs. Y" career comparisons, plus a comparison hub for each field |
 | Quizzes | Career Match, College vs. Trade School, Career Change Readiness, Work Style, 17 field quizzes |
 | Guides | 46 guides for students, career changers, professionals and employers |
@@ -25,7 +26,6 @@ guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The b
 | Lists and data | 14 "best careers" lists, salary guide, A to Z glossary |
 | College & Career Finder | Nine steps, each its own searchable page: `/college-and-career-finder/` (start), `/college-and-career-finder/education-level/`, `/career-interests/` (plus a page per interest), `/colleges/` (plus a page per state), `/college-majors/` (plus 16 field pages and 109 major pages), `/college-minors/` (plus 50 minor pages), `/career-finder/`, `/skills-to-learn/` (plus 12 skill pages) and `/college-and-career-finder/results/` (noindex). Every page carries data-driven FAQs (FAQPage schema). Also `/college-majors-and-career-paths/` and `/career-options-after-high-school/`. See **College & Career Finder** below |
 | Keyword landing pages | 10 pages built from the SEO and AI keyword research: `/online-career-training/`, `/job-readiness-training/`, `/employee-training-programs/`, `/career-readiness-programs-for-schools/`, four field training pages (healthcare, skilled trades, logistics, technology and business) and two answer-led question pages (`/career-exploration/`, `/choosing-online-career-training/`) |
-| Partner program | `/partners/` plus a page each for school districts, colleges, companies and organizations: a discount code for their people and a share of each sale, with a sign-up form |
 | Students, changers and professionals hubs, worksheets, newsletter sign-up, company and legal pages | |
 
 ## Everyday tasks
@@ -33,7 +33,6 @@ guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The b
 |---|---|
 | Publish a blog post | In the **blog.careereducationinstitute.org** repository: upload a zip to its `blog-uploads/` folder. See its BLOG-UPLOAD-GUIDE.md |
 | Change the contact, newsletter sign-up or unsubscribe form | Paste the new Typeform live-embed id into `site.config.mjs → forms`. The sign-up popup on the blog home and posts lives in `src/assets/newsletter.js` |
-| Change the partner discount, the partner's share or how long a share link lasts | Edit `site.config.mjs → partnerProgram` (10% off for learners, 5% of the discounted price to the partner, share links kept 30 days). Partner page copy lives in `src/pages/partners.mjs`. The discount actually charged at checkout comes from the code set up in the LMS |
 | Have Codex write and publish a post | In the **blog.careereducationinstitute.org** repository: send Codex the one-line prompt at the top of its BLOG-POST-PROMPT.md |
 | Change phone, emails, legal company, governing state, volume discounts | Edit `site.config.mjs` |
 | Change a job-title training's length | Edit `src/data/course-pricing.mjs` (the price follows the length ladder), then run `npm run course-specs` |
@@ -121,16 +120,16 @@ Volume discounts (2 to 1,000 seats) are set in `site.config.mjs → bulkTiers`.
 Discount codes: the checkout's code box checks the code with `POST /api/apply_coupon_referral` (LMS coupons, or
 referral codes starting with `R-`), shows the discount and sends `coupon_id` or `ref_code` with the order, the same
 way the provider's own checkout does. If a code is applied but the LMS returns a higher amount than the page shows,
-the card is not charged. Partner share links (`?code=XYZ` on any page) fill the code in at checkout and on enrollment
-forms for `partnerProgram.linkDays` days.
+the card is not charged. A code in the checkout address (`/checkout/?course=<slug>&code=XYZ`) is
+filled in and applied.
 
 Never put a Stripe secret key in this repository. Card data goes straight to Stripe and never touches this site.
 
 ## Enrollment requests
-Job-title trainings, employer quotes and partner program sign-ups use forms that open a pre-filled email to
-`info@hazwoper-osha.com`, configured in `site.config.mjs`. If no email app opens, the form shows the full message with a Copy button (and any `mailto:` link on the site also copies its address). Learners can enter a
-partner discount code on the enrollment form; it appears in the email so the team can apply it to the invoice.
-The contact form and the newsletter forms are embedded Typeforms (`site.config.mjs → forms`).
+Cart requests for several job-title trainings and subscription quote requests use forms that open a pre-filled email to
+`info@hazwoper-osha.com`, configured in `site.config.mjs`. If no email app opens, the form shows the full message with a Copy button (and any `mailto:` link on the site also copies its address). A single
+job-title training checks out with the embedded Typeform on its own page.
+The contact form, the training checkout and the newsletter forms are embedded Typeforms (`site.config.mjs → forms`).
 
 ## Run locally
 ```bash

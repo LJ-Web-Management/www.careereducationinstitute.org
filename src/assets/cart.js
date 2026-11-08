@@ -1,5 +1,6 @@
 // Cart page: lists what site.js saved in this browser, with learner counts, volume pricing and two ways to finish:
-// card checkout for online courses (all in one order) and one enrollment request for job-title trainings.
+// card checkout for online courses (all in one order); job-title trainings check out on their own page when there is
+// only one, or go in one enrollment request when there are several.
 (function () {
   var root = document.querySelector('[data-cart]');
   var dataEl = document.getElementById('cart-data');
@@ -45,6 +46,20 @@
       sum.querySelector('[data-sum-rows]').innerHTML = '<tr><th scope="row">' + ls.length + (ls.length === 1 ? (k === 'course' ? ' course' : ' training') : (k === 'course' ? ' courses' : ' trainings')) + '</th><td>' + fmt(sub) + '</td></tr>' +
         (sub > total ? '<tr><th scope="row">Volume discount</th><td>-' + fmt(round(sub - total)) + '</td></tr>' : '') + '<tr class="total"><th scope="row">' + (k === 'course' ? 'Total' : 'Estimated total') + '</th><td>' + fmt(total) + '</td></tr>';
       if (k === 'training') {
+        // One training: check out with the Typeform on its own page (it takes the learner count).
+        // Several different trainings: one emailed enrollment request for all of them.
+        var one = ls.length === 1;
+        sec.querySelector('[data-training-single]').hidden = !one;
+        sec.querySelector('[data-training-multi]').hidden = one;
+        sec.querySelector('[data-training-intro="single"]').hidden = !one;
+        sec.querySelector('[data-training-intro="multi"]').hidden = one;
+        var cta = root.querySelector('[data-training-cta]');
+        if (one) {
+          var go = ls[0].i.u.split('#')[0] + '#enroll';
+          sec.querySelector('[data-single-link]').href = go;
+          sec.querySelector('[data-single-link]').textContent = 'Check out: ' + ls[0].i.t;
+          if (cta) { cta.href = go; cta.textContent = 'Check out'; }
+        } else if (cta) { cta.href = '#cart-enroll'; cta.textContent = 'Request enrollment'; }
         var form = root.querySelector('form[data-enroll]');
         if (form) {
           form.elements.Cart.value = ls.map(function (l) { return '- ' + l.i.t + ': ' + l.n + (l.n === 1 ? ' learner' : ' learners') + ' x ' + fmt(l.p) + (l.disc > 0 ? ', ' + Math.round(l.t.discount * 100) + '% volume discount' : '') + ' = ' + fmt(l.total); }).join('\n') + '\nEstimated total: ' + fmt(total);

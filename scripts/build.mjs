@@ -20,7 +20,6 @@ import { newsletterPages } from '../src/pages/newsletter.mjs';
 import { utilityPages } from '../src/pages/utility.mjs';
 import { employerPages } from '../src/pages/employers.mjs';
 import { coursePages } from '../src/pages/courses.mjs';
-import { partnerPages } from '../src/pages/partners.mjs';
 import { keywordPages } from '../src/pages/landing.mjs';
 import { finderPages } from '../src/pages/finder.mjs';
 import { checkFinder, finderPayload, careerDetails, collegeIndex, programShards, cipTitles, majors as finderMajors, majorPath } from '../src/lib/finder.mjs';
@@ -63,7 +62,7 @@ const pairs = new Map();
 for (const c of careers) for (const r of c.related) if (byslug[r]) pairs.set(compareSlug(c.slug, r), [c, byslug[r]]);
 ctx.pairs = [...pairs.values()];
 for (const [a, b] of ctx.pairs) pages.push(comparePage(a, b, ctx));
-pages.push(trainingCatalog(ctx), homePage(ctx), ...hubPages(ctx), ...quizPages(ctx), ...guidePages(ctx), ...companyPages(ctx), ...legalPages(ctx), ...newsletterPages(), ...employerPages(ctx), ...coursePages(ctx), ...partnerPages(ctx), ...keywordPages(ctx), ...finderPages(ctx));
+pages.push(trainingCatalog(ctx), homePage(ctx), ...hubPages(ctx), ...quizPages(ctx), ...guidePages(ctx), ...companyPages(ctx), ...legalPages(ctx), ...newsletterPages(), ...employerPages(ctx), ...coursePages(ctx), ...keywordPages(ctx), ...finderPages(ctx));
 pages.push(...utilityPages(ctx, pages)); // search, sitemap page, 404 (needs the full list)
 
 // ---------- Write ----------
@@ -144,7 +143,8 @@ ${cfg.name} publishes free, plain-language career information for ${countLabel(c
 - [All careers](${abs('/careers/')}): directory with pay, growth and training time
 - [Salary guide](${abs('/salary-guide/')}): BLS median pay for all ${countLabel(careers.length)} careers
 - [All trainings](${abs('/training/')}): online courses by job title, each under $50
-- [Programs and schools](${abs('/for-workforce-programs/')}): yearly seat subscriptions for schools and workforce programs
+- [Jobs and workforce program](${abs('/for-employers/')}): onboarding and retraining subscriptions priced by seats per month, with a landing page and optional white label
+- [Schools program](${abs('/for-schools/')}): the same subscription for high schools and colleges
 - [Online career training](${abs('/online-career-training/')}): how the job-title trainings work, prices and what they do and don't lead to
 - [Job readiness training](${abs('/job-readiness-training/')}) · [Employee training programs](${abs('/employee-training-programs/')}) · [Career readiness for schools](${abs('/career-readiness-programs-for-schools/')})
 - Training by field: [healthcare](${abs('/healthcare-career-training/')}) · [skilled trades and manufacturing](${abs('/skilled-trades-training/')}) · [transportation and logistics](${abs('/transportation-logistics-training/')}) · [technology and business](${abs('/technology-business-career-training/')})

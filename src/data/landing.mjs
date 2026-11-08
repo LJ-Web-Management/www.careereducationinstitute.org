@@ -59,7 +59,7 @@ Browse all {careers} in the [searchable training catalog](/training/), or start 
 ## Self-paced, short-term and affordable
 - **Self-paced:** there are no class times. Learn on a phone or computer whenever you have 20 minutes.
 - **Short-term:** courses run {minHours} to {maxHours} hours, so most people finish in one to three weeks of evenings.
-- **Affordable:** prices run from {minPrice} to {maxPrice} by course length, with no application fee. Groups get volume pricing from 2 learners, and schools and workforce programs can [subscribe to training seats](/for-workforce-programs/).
+- **Affordable:** prices run from {minPrice} to {maxPrice} by course length, with no application fee. Groups get volume pricing from 2 learners, and [employers](/for-employers/) and [schools](/for-schools/) can subscribe to training seats by the month.
 - **12 months of access**, so you can come back to the material once you start the job.
 
 ## Career training without a degree
@@ -202,18 +202,15 @@ Browse all {careers} job titles in the [training catalog](/training/), or see on
 ## Employee training for small business
 Small businesses rarely have a trainer or an LMS. With our courses you don’t need either: enroll one employee or ten, and each person gets a login by email, 12 months of access and a certificate when they finish. There is no setup fee or minimum.
 
-## Training programs for staffing agencies
-Staffing firms and recruiters use job-title training as **pre-employment and candidate skills training**: a candidate who has completed a forklift, warehouse or medical assistant course can talk about the job in an interview and needs less ramp-up on assignment. See [training for recruiters and staffing agencies](/for-staffing-agencies/).
-
-## Workforce development and workforce readiness programs
-Workforce boards, nonprofits, re-entry programs and schools can subscribe to a set number of seats and give each participant training in the career they are pursuing. See [training seats for schools and workforce programs](/for-workforce-programs/).
+## Onboarding and retraining subscriptions
+Training more than a few people? The [jobs and workforce program](/for-employers/) is a subscription priced by the number of seats you want each month, for onboarding new hires and retraining current employees. Every subscription includes your own landing page for your learners, and white label (your name and logo in place of ours) is a paid add-on. Workforce boards, American Job Centers and nonprofits use the same program for their participants.
 
 ## Pricing
 Job-title trainings cost {minPrice} to {maxPrice} per learner, depending on course length. Volume discounts apply automatically:
 
 {tiers}
 
-Training a whole program? [Seat subscriptions](/for-workforce-programs/) are billed yearly (or monthly) and quoted on request. Use the [training ROI calculator](/employers/training-roi-calculator/) to estimate what faster ramp-up and lower turnover are worth to you.
+Training a whole team? [Subscriptions](/for-employers/) are priced by seats per month and quoted on request. Use the [training ROI calculator](/employers/training-roi-calculator/) to estimate what faster ramp-up and lower turnover are worth to you.
 
 ## What the training does not replace
 Our courses are general, non-credit job-role training. They do not replace OSHA-required training, state licensing programs, manufacturer certification or your own site-specific procedures and equipment sign-offs. Think of them as the classroom foundation that makes your on-site training faster.`,
@@ -225,8 +222,8 @@ Our courses are general, non-credit job-role training. They do not replace OSHA-
       ['Do you offer corporate training on general topics such as Excel or leadership?', 'Our catalog is organized by job title rather than topic. Office roles such as administrative assistant and bookkeeper cover the software those jobs use, including Microsoft Office and spreadsheets, as part of the role.'],
       ['Can you invoice our company?', 'Yes. Ask for an invoice or provide purchase order details when you request pricing.']
     ],
-    cta: { title: 'Get a team quote', text: 'Tell us your roles and headcount. We reply with pricing and setup details.', btn: 'Request group pricing', link: '/for-employers/#quote' },
-    related: [['Onboarding training for employers', '/for-employers/'], ['Staffing agencies', '/for-staffing-agencies/'], ['Schools and workforce programs', '/for-workforce-programs/'], ['Onboarding plans by job', '/employers/onboarding-plans/'], ['Hiring guides by job', '/employers/hiring-guides/'], ['Training ROI calculator', '/employers/training-roi-calculator/']]
+    cta: { title: 'Get a subscription quote', text: 'Tell us how many seats you need each month. We reply with your price, landing page and white label options.', btn: 'Request a quote', link: '/for-employers/#subscribe' },
+    related: [['Jobs and workforce program', '/for-employers/'], ['Schools program', '/for-schools/'], ['Onboarding plans by job', '/employers/onboarding-plans/'], ['Hiring guides by job', '/employers/hiring-guides/'], ['Training ROI calculator', '/employers/training-roi-calculator/']]
   },
 
   // ---------------------------------------------------------------- Schools and institutions (keywords 61 to 80)
@@ -273,12 +270,10 @@ Point students to the field that interests them, where every career is compared 
 Students who want hands-on work without a four-year degree should also see [highest-paying jobs without a degree](/best-careers/highest-paying-jobs-without-a-degree/) and our [guide to community college](/guides/community-college-guide/).
 
 ## Training seats for schools, colleges and workforce programs
-When students are ready to go deeper, schools can give them **job-title training**: self-paced online courses of {minHours} to {maxHours} hours for {careers} careers, each with a final knowledge check and certificate of completion. Seats are sold as yearly (or monthly) [subscriptions for schools and workforce programs](/for-workforce-programs/), sized to your program and billed by invoice or purchase order.
-
-Districts and colleges can also join the [partner program](/partners/school-districts/), which gives students and families a discount code on training they buy themselves.
+When students are ready to go deeper, schools can give them **job-title training**: self-paced online courses of {minHours} to {maxHours} hours for {careers} careers, each with a final knowledge check and certificate of completion. Seats are sold through the [schools program](/for-schools/): a subscription priced by the number of seats you want each month, with your school’s own landing page for students and optional white label (your school’s name and logo in place of ours). Billing is yearly (recommended) or monthly, by invoice or purchase order.
 
 ## Career education programs for adults and community organizations
-The same tools work for adult education, re-entry, veterans’ and nonprofit workforce programs. Our [career changers hub](/career-changers/) and [job readiness training](/job-readiness-training/) page are written for adults, and [organizations can partner with us](/partners/organizations/) to offer participants a discount.
+The same tools work for adult education, re-entry, veterans’ and nonprofit workforce programs. Our [career changers hub](/career-changers/) and [job readiness training](/job-readiness-training/) page are written for adults, and workforce organizations can subscribe through the [jobs and workforce program](/for-employers/).
 
 Our trainings are general, non-credit courses. They don’t grant academic credit or replace a CTE program of study, but they fit well alongside one.`,
     faq: [
@@ -286,11 +281,11 @@ Our trainings are general, non-credit courses. They don’t grant academic credi
       ['What grade levels are the resources for?', 'They are written for high school students and adults. Middle school teachers often use the career profiles and quizzes with more guidance.'],
       ['Is the Career Match Quiz a formal career assessment?', 'No. It is a free interest-based self-reflection tool that suggests careers to explore. It is not a validated psychological or aptitude test.'],
       ['Can students earn credit for your trainings?', 'No. The trainings are non-credit. Some teachers use them as enrichment or as preparation for a CTE pathway or apprenticeship.'],
-      ['How do training seat subscriptions work for schools?', 'You choose a number of seats and yearly billing (monthly is also available). Each seat gives one learner access to the catalog, and seats can move to new students as others finish. Prices are quoted by email.'],
-      ['Can nonprofits and workforce boards use the program?', 'Yes. Workforce boards, nonprofits and community organizations use the same subscriptions and partner program.']
+      ['How do training seat subscriptions work for schools?', 'Your price is set by the number of seats you want each month, billed yearly (recommended) or monthly. Each seat gives one student access to the catalog, and seats move to new students as others finish. Every subscription includes your school’s own landing page, and white label is a paid add-on. Prices are quoted by email.'],
+      ['Can nonprofits and workforce boards use the program?', 'Yes. Workforce boards, nonprofits and community organizations subscribe through the [jobs and workforce program](/for-employers/).']
     ],
-    cta: { title: 'Training seats for your school', text: 'Yearly seat subscriptions for students and program participants, with a loyalty discount every year you stay.', btn: 'Request a quote', link: '/for-workforce-programs/#subscribe' },
-    related: [['For students', '/students/'], ['High school career planning', '/guides/high-school-career-planning/'], ['Career Match Quiz', '/quizzes/career-match/'], ['Free worksheets', '/resources/'], ['Schools and workforce programs', '/for-workforce-programs/'], ['Partner program for school districts', '/partners/school-districts/']]
+    cta: { title: 'Training seats for your school', text: 'Subscriptions priced by seats per month, with your school’s own landing page and optional white label.', btn: 'Request a quote', link: '/for-schools/#subscribe' },
+    related: [['For students', '/students/'], ['High school career planning', '/guides/high-school-career-planning/'], ['Career Match Quiz', '/quizzes/career-match/'], ['Free worksheets', '/resources/'], ['Schools program', '/for-schools/']]
   },
 
   // ---------------------------------------------------------------- Healthcare (keywords 81 to 100)
@@ -559,7 +554,7 @@ The [technology career quiz](/quizzes/which-technology-career-is-right-for-me/) 
       ['What is vocational training?', 'Vocational training (also called career and technical education or trade school) teaches the skills for a specific job, such as welding, medical assisting or HVAC, rather than general academics. Programs typically last a few months to two years and often prepare you for a license or certification exam. Compare it with college in our [college vs. trade school guide](/guides/college-vs-trade-school/).'],
       ['What is career training?', 'Career training is any instruction aimed at preparing you for a particular job: vocational programs, apprenticeships, certificate programs, employer training and short online courses. At Career Education Institute, career training means a self-paced course built around one job title.'],
       ['What is job readiness training?', 'Job readiness training teaches the workplace and job-search skills needed to get and keep a job: communication, reliability, teamwork, problem solving, resumes and interviews. See [job readiness training](/job-readiness-training/).'],
-      ['What is workforce development?', 'Workforce development is the system of programs that helps people gain job skills and helps employers find skilled workers: American Job Centers, WIOA-funded training, apprenticeships, community college programs and employer training. Programs for organizations are on our [schools and workforce programs](/for-workforce-programs/) page.'],
+      ['What is workforce development?', 'Workforce development is the system of programs that helps people gain job skills and helps employers find skilled workers: American Job Centers, WIOA-funded training, apprenticeships, community college programs and employer training. Programs for organizations are on our [jobs and workforce](/for-employers/) and [schools](/for-schools/) pages.'],
       ['What online courses help you get a job?', 'The courses that help most are tied to a specific job and teach what employers screen for: the duties, vocabulary, tools and safety rules of the role, plus resume and interview preparation. Courses that lead to a recognized credential employers ask for, such as CompTIA A+ for IT support, also help.'],
       ['What are the best online career training programs?', 'The best program is the one that matches your target job and is honest about outcomes. Look for clear course content, a realistic length and price, a sample or practice test, and plain statements about whether it leads to a license, certification or credit. Our [guide to choosing online career training](/choosing-online-career-training/) has a checklist.'],
       ['Are online career courses worth it?', 'They are worth it when the price is low relative to what you gain: a clearer career decision, a head start in a longer program, or stronger interviews. They are not worth it if a course promises a license, a job or a credential it can’t deliver. A {minPrice} to {maxPrice} course that saves you from enrolling in the wrong program is money well spent.'],
@@ -599,7 +594,7 @@ The [technology career quiz](/quizzes/which-technology-career-is-right-for-me/) 
       ['What should I look for before paying for career training?', 'Before you pay, check: the total cost including fees, books and exams; the length and schedule; whether it leads to a credential the job requires; refund terms; and sample content. For longer programs, ask for completion and job placement rates in writing. Our [refund policy](/refund-policy/) and free practice tests show what we offer.'],
       ['Which online courses help with workplace skills?', 'Courses that put workplace skills in the context of a real job work best, because you see how communication, teamwork and safety apply on a shift. Every one of our job-title trainings includes a module on the skills employers look for in that role. Free guides cover [soft skills](/guides/soft-skills-employers-want/) and [your first 90 days](/guides/first-90-days-new-job/).'],
       ['What training programs do employers use for new hires?', 'Most employers combine an orientation (policies, HR, safety), job-specific training (often online modules plus shadowing a trained coworker), required compliance training and a 30-60-90 day plan. See [employee training programs](/employee-training-programs/) and our free [onboarding plans by job](/employers/onboarding-plans/).'],
-      ['How can staffing agencies prepare candidates for work?', 'Agencies can give candidates job-title training before placement so they know the role’s duties, vocabulary and safety rules, screen for reliability, run mock interviews and give clear assignment details. See [training for staffing agencies](/for-staffing-agencies/).'],
+      ['How can staffing agencies prepare candidates for work?', 'Agencies can give candidates job-title training before placement so they know the role’s duties, vocabulary and safety rules, screen for reliability, run mock interviews and give clear assignment details.'],
       ['What are good career readiness programs for high schools?', 'Strong programs combine career exploration (interest quizzes, career research), work-based learning (job shadowing, internships), CTE pathways, job-search skills and financial literacy. Our [career readiness resources for schools](/career-readiness-programs-for-schools/) include free tools and lesson ideas.'],
       ['How can schools help students explore careers online?', 'Have students take an interest quiz, research matched careers using day-in-the-life and salary pages, compare two careers side by side and map the training path for one. Every step can be done with our free [career profiles](/careers/) and [quizzes](/quizzes/).'],
       ['What skills should I learn for an office job?', 'Microsoft Office or Google Workspace (especially email, calendar and spreadsheets), typing and data accuracy, phone and customer service etiquette, scheduling, filing and clear writing. Our [administrative assistant training](/training/administrative-assistant/) covers how these are used on the job.'],

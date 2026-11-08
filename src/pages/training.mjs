@@ -1,7 +1,7 @@
 import cfg from '../../site.config.mjs';
 import { esc, href, abs, money, clamp, fitTitle, listJoin, lowerFirst, shuffle, hash, taskPhrase, countLabel } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, sideLinks, answerBox, icon } from '../lib/layout.mjs';
-import { enrollForm } from '../lib/forms.mjs';
+import { trainingCheckout } from '../lib/forms.mjs';
 import { pick, searchKeywords } from '../lib/career-helpers.mjs';
 import { catBySlug } from '../data/categories.mjs';
 import { moduleWeights, minutesLabel } from '../data/course-pricing.mjs';
@@ -62,8 +62,8 @@ function courseFaqs(c) {
     ['Is the course online?', `Yes. The course runs on our online learning platform (LMS). After you enroll, we email your login details.`],
     [`Will this course make me a licensed or certified ${c.lower}?`, `No. This is a general career-preparation course. It does not by itself grant a state license, national certification or academic credit. ${c.license ? c.license + ' ' : ''}It is designed to help you understand the job and prepare for the formal training, exams and interviews that follow.`],
     ['Who is this course for?', `Students exploring careers, adults changing careers, new hires who want a faster ramp-up, and employers onboarding ${c.pluralLower}.`],
-    ['How do I enroll?', `Use the enrollment form on this page. It opens a pre-filled email to our team, and we reply with your payment link or invoice and your LMS access. You can also call ${cfg.phone}.`],
-    ['Do you offer group or employer pricing?', `${cfg.course.groupNote}. Choose “My team or employees” on the form or visit our employer training page.`],
+    ['How do I enroll?', `Use the checkout form on this page: enter your details and the number of learners, and we email your LMS access. You can also call ${cfg.phone}.`],
+    ['Do you offer group or employer pricing?', `${cfg.course.groupNote}. Enter the number of seats on the checkout form or visit our employer training page.`],
     ['What do I receive when I finish?', `${cfg.course.certificate} from Career Education Institute after you pass the final knowledge check.`]
   ];
 }
@@ -93,12 +93,12 @@ export function trainingPages(c, ctx) {
 <h2 id="preview">Free preview lessons</h2><p>Sample the course material for free:</p><ul><li><a href="${href(c.url + 'glossary/')}">${esc(c.title)} vocabulary (${c.terms.length} terms)</a></li>${c.howto.map((h) => `<li><a href="${href(`${c.url}how-to/${h.slug}/`)}">How to ${esc(taskPhrase(h.t))}</a></li>`).join('')}<li><a href="${href(path + 'practice-test/')}">${esc(c.title)} practice test (${qs.length} questions)</a></li><li><a href="${href(c.url + 'day-in-the-life/')}">A day in the life of ${c.a} ${esc(c.lower)}</a></li></ul>
 <h2 id="career">Why train for this career</h2><p>${esc(c.summary)} BLS reports a median wage of <strong>${money(c.l.wages.median)}</strong> (${ctx.labor.meta.oewsLabel}) and about <strong>${c.l.annualOpenings.toLocaleString('en-US')}</strong> openings per year. <a href="${href(c.url)}">Read the full ${esc(c.lower)} career profile</a> or <a href="${href(c.url + 'salary/')}">see salary details</a>.</p>
 <aside class="callout info"><p><strong>Try the career before you commit to it.</strong> Find out if being ${c.a} ${esc(c.lower)} is right for you for ${price}, before you spend thousands of dollars and months of your time on a full training program.</p><p><strong>Important:</strong> This is a general, non-credit career-preparation course. It does not by itself grant a state license, national certification, college credit or a guarantee of employment, and it does not replace any state-required training program. ${c.license ? esc(c.license) : ''}</p></aside>
-${enrollForm({ course: c, heading: `Buy ${c.title} Training: ${price}` })}
+${trainingCheckout({ course: c, heading: `Buy ${c.title} Training: ${price}` })}
 ${faqBlock(faqs, `${c.title} training FAQ`)}
 <h2 id="related">Related trainings</h2><div class="grid">${c.related.map((s) => byslug[s]).filter(Boolean).map((r) => `<article class="card link"><h3><a class="stretch" href="${href(r.trainingUrl)}">${esc(r.title)} Training</a></h3><p>${esc(r.blurb)}</p></article>`).join('')}</div>`;
     const aside = `<div class="cta-card"><h2>${esc(c.title)} Training</h2><p class="buy-price">${price}<span> per learner</span></p><p>${esc(cfg.course.format)} · about ${c.hours} hours · ${esc(cfg.course.certificate)}</p><ul><li>${mods.length} modules</li><li>${c.terms.length}+ key terms</li><li>${qs.length}-question practice exam</li></ul><a class="btn btn-primary" href="#enroll">Buy now</a><button class="btn btn-light" type="button" data-add-cart="${cartItem({ k: 'training', s: c.slug, t: `${c.title} Training`, p: c.price, u: href(c.trainingUrl) })}">Add to cart</button></div>${sideLinks(`Explore the ${c.lower} career`, [['Career overview', c.url], ['Salary & pay scale', c.url + 'salary/'], ['How to become one', c.url + 'how-to-become/'], ['Interview questions', c.url + 'interview-questions/'], ['Is it right for me? (quiz)', c.url + 'is-it-right-for-me/']])}`;
     pages.push({
-      path, crumbs, og, kind: 'Training', name: `${c.title} Training`, keywords: searchKeywords(c), scripts: ['enroll'],
+      path, crumbs, og, kind: 'Training', name: `${c.title} Training`, keywords: searchKeywords(c),
       mcta: `<a class="btn btn-primary" href="#enroll">Buy now · ${price}</a><a class="btn" href="${href(path + 'practice-test/')}">Free practice test</a>`,
       title: fitTitle(pick([`${c.title} Training Course (Online)`, `${c.title} Training (Online)`, `${c.short} Training Course (Online)`])),
       desc: clamp(`Online ${c.lower} training: ${c.hours} hours, ${price}. Learn the duties, ${c.terms.length}+ key terms, step-by-step tasks, safety and how to get hired. Self-paced, with a certificate.`),
