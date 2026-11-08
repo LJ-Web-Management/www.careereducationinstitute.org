@@ -737,3 +737,11 @@ table.cmp td ul{margin:0;padding-left:1.1em;font-size:.88rem}
 .college-table td,.college-table th{font-size:.9rem}
 .finder-note{margin-top:1.6em}
 @media print{.finder{border:0;box-shadow:none;padding:0}.fz-steps,.fz-bar,.fz-of,.fz-nav,.res-actions,.res-toc,.course-card .btn-row,.train-strip p,.dlg,.finder-wrap~.layout,.page-hero .hero-note{display:none!important}.print-only{display:block}.course-card,.pick-card,.sk{break-inside:avoid;box-shadow:none}.res-train{background:none;margin:0;padding:0}}
+.link-cols{columns:3 210px;column-gap:26px;padding-left:1.1em;margin-bottom:1.4em}
+.link-cols li{break-inside:avoid}
+.major-field h3{display:flex;align-items:center;gap:8px;margin-top:1.2em}
+.major-field h3 svg{width:24px;height:24px;fill:none;stroke:var(--teal);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.step-links{columns:2 260px;column-gap:26px}
+.fz-steps a{display:flex;align-items:center;gap:6px;width:100%;padding:6px 8px;border-radius:8px;font:600 .8rem/1.2 var(--sans);color:var(--muted);text-decoration:none;white-space:nowrap}
+.fz-steps a:hover{background:var(--teal-soft);color:var(--navy)}
+.fz-steps [aria-current] a{color:var(--navy)}
