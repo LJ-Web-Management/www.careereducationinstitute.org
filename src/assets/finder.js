@@ -114,7 +114,7 @@
     if (!r.length) return '';
     return '<aside class="train-strip"><h3>' + esc(title) + '</h3><div class="ts-list">' + r.map(function (x) {
       var c = career(x.slug);
-      return '<div class="ts-item"><a href="' + base + c.course.url + '">' + esc(c.course.name) + '</a><span class="small muted">' + esc(E.reasonText(x.reasons[0] || ['', ''])) + ' · $' + Number(c.course.price).toFixed(2) + '</span></div>';
+      return '<div class="ts-item"><a href="' + base + c.course.url + '">' + esc(c.course.name) + '</a><span class="small muted">' + esc(E.reasonText(x.reasons[0] || ['', ''])) + ' · $' + Number(c.course.price).toFixed(2) + ' · <a href="' + base + c.course.buy + '">Buy now</a></span></div>';
     }).join('') + '</div><p class="small"><a href="' + base + '/training/">Explore related training</a></p></aside>';
   }
   // ---------- Steps ----------
@@ -248,7 +248,7 @@
       + '</div></section>';
     var B = '<section class="res-sec" id="res-b"><h3>B. Recommended career paths</h3>' + (paths.length ? '<div class="pick-grid">' + paths.map(function (x) {
       var c = career(x.slug);
-      return '<article class="pick-card"><h4>' + esc(c.title) + '</h4><p>' + esc(c.blurb) + '</p><p class="small"><strong>Key skills:</strong> ' + esc(c.hard.slice(0, 3).join(', ')) + '</p><p class="small muted">' + esc(x.reasons.slice(0, 2).map(E.reasonText).join(' · ')) + '</p><div class="pc-act"><button class="btn btn-sm" type="button" data-detail="career" data-v="' + x.slug + '">Details</button><a class="btn btn-sm" href="' + base + '/careers/' + x.slug + '/">Career profile</a></div></article>';
+      return '<article class="pick-card"><h4>' + esc(c.title) + '</h4><p>' + esc(c.blurb) + '</p><p class="small"><strong>Key skills:</strong> ' + esc(c.hard.slice(0, 3).join(', ')) + '</p><p class="small muted">' + esc(x.reasons.slice(0, 2).map(E.reasonText).join(' · ')) + '</p><p class="small"><a href="' + base + c.course.url + '">' + esc(c.course.name) + '</a>: <strong>$' + Number(c.course.price).toFixed(2) + '</strong>, start today</p><div class="pc-act"><a class="btn btn-sm btn-primary" href="' + base + c.course.buy + '">Buy now</a><button class="btn btn-sm" type="button" data-detail="career" data-v="' + x.slug + '">Details</button><a class="btn btn-sm" href="' + base + '/careers/' + x.slug + '/">Career profile</a></div></article>';
     }).join('') + '</div>' : '<p>Choose a few interests, majors or careers to see career paths. <a href="#" data-go="2">Pick interests</a></p>') + '</section>';
     // Skills: the ones chosen, then skills common to the suggested careers and chosen majors
     var freq = {};
@@ -263,7 +263,7 @@
       ? '<p>Practical online courses from Career Education Institute matched to your majors, minors, career goals and skills. Each one is self-paced and focused on a single job.</p><div class="course-grid">' + courses.map(function (x) { return courseCard(x); }).join('') + '</div>'
       : '<p>We did not find training closely related to your answers yet. Add a major, interest or career goal, or browse the full catalog.</p>')
       + '<p class="btn-row"><a class="btn" href="' + base + '/training/">Browse all training programs</a></p></section>';
-    var E5 = '<section class="res-sec" id="res-e"><h3>E. Why consider additional career training?</h3><p>Your college major can provide an academic foundation, while additional career training can help you develop practical knowledge and skills relevant to your professional interests.</p><p>You do not need to wait until graduation to start. A short course can help you test a career before you commit to a program, prepare for an internship or part-time job, and speak the language of the field in interviews.</p>' + (stageNote ? '<p><strong>For you:</strong> ' + esc(stageNote) + '</p>' : '') + '<p class="small muted">Career Education Institute is not a college, university, degree-granting institution or admissions service. CEI trainings are general, non-credit career-preparation courses: they do not replace a college degree, grant academic credit or guarantee employment.</p></section>';
+    var E5 = '<section class="res-sec" id="res-e"><h3>E. Why consider additional career training?</h3><p>Your college major can provide an academic foundation, while additional career training can help you develop practical knowledge and skills relevant to your professional interests.</p><p>You do not need to wait until graduation to start. A short course can help you test a career before you commit to a program, prepare for an internship or part-time job, and speak the language of the field in interviews.</p>' + (stageNote ? '<p><strong>For you:</strong> ' + esc(stageNote) + '</p>' : '') + '<p><strong>Try a career before you commit to it.</strong> For the price of one course, find out if a career is right for you before you spend thousands of dollars on a degree or full training program.</p><p class="small muted">Career Education Institute is not a college, university, degree-granting institution or admissions service. CEI trainings are general, non-credit career-preparation courses: they do not replace a college degree, grant academic credit or guarantee employment.</p></section>';
     return head('Your personalized results', 'Based on your answers. Change any step to update them.')
       + '<p class="print-only">College &amp; Career Finder results from Career Education Institute, ' + new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) + '</p>'
       + '<div class="res-actions no-print"><button class="btn btn-primary" type="button" data-act="download">Download my results</button><button class="btn" type="button" data-act="email">Email my results</button><button class="btn" type="button" data-act="share">Copy a link to my results</button><span class="small muted" data-share-msg aria-live="polite"></span></div>'
@@ -273,7 +273,7 @@
   function courseCard(x) {
     var c = career(x.slug), k = c.course, buy = k.buyLabel === 'Buy now';
     var item = esc(JSON.stringify({ k: buy ? 'course' : 'training', s: buy ? k.buy.split('course=')[1] : x.slug, t: k.name, p: k.price, u: base + k.url }));
-    return '<article class="course-card"><div class="cc-head"><span class="ico">' + ico(c.cat) + '</span><div><h4><a href="' + base + k.url + '">' + esc(k.name) + '</a></h4><p class="cc-meta">Online, self-paced · about ' + k.hours + ' hours · $' + Number(k.price).toFixed(2) + '</p></div></div><p>' + esc(courseDesc(c)) + '</p><p class="cc-skills"><strong>Skills developed:</strong> ' + esc(c.hard.slice(0, 3).join(', ')) + '</p><p class="cc-why"><strong>Why it fits you:</strong> ' + esc(x.reasons.slice(0, 2).map(E.reasonText).join('; ')) + '.</p><div class="btn-row"><a class="btn btn-primary btn-sm" href="' + base + k.buy + '">' + (buy ? 'Start learning today' : 'Enroll in this course') + '</a><a class="btn btn-sm" href="' + base + k.url + '">View course details</a><button class="btn btn-sm btn-light no-print" type="button" data-add-cart="' + item + '">Add to cart</button></div></article>';
+    return '<article class="course-card"><div class="cc-head"><span class="ico">' + ico(c.cat) + '</span><div><h4><a href="' + base + k.url + '">' + esc(k.name) + '</a></h4><p class="cc-meta">Online, self-paced · about ' + k.hours + ' hours · $' + Number(k.price).toFixed(2) + '</p></div></div><p>' + esc(courseDesc(c)) + '</p><p class="cc-skills"><strong>Skills developed:</strong> ' + esc(c.hard.slice(0, 3).join(', ')) + '</p><p class="cc-why"><strong>Why it fits you:</strong> ' + esc(x.reasons.slice(0, 2).map(E.reasonText).join('; ')) + '.</p><div class="btn-row"><a class="btn btn-primary btn-sm" href="' + base + k.buy + '">Buy now · $' + Number(k.price).toFixed(2) + '</a><a class="btn btn-sm" href="' + base + k.url + '">View course details</a><button class="btn btn-sm btn-light no-print" type="button" data-add-cart="' + item + '">Add to cart</button></div></article>';
   }
 
   // Plain-text summary for emails
@@ -332,7 +332,7 @@
       openDlg('<h2 id="dlg-title">' + esc(c.title) + '</h2><p class="small muted">' + esc(catName(c.cat)) + ' · Typical training: ' + esc(c.train) + '</p><p>' + esc(x ? x[0] : c.blurb) + '</p><p>' + pickBtn('career', s, on, c.title) + ' <a class="btn btn-sm" href="' + base + '/careers/' + s + '/">Full career profile</a></p>'
         + (x ? '<div class="dlg-cols"><div><h3>Common responsibilities</h3><ul>' + x[1].map(function (y) { return '<li>' + esc(y) + '</li>'; }).join('') + '</ul></div><div><h3>Important skills</h3><ul>' + c.hard.concat(x[3]).map(function (y) { return '<li>' + esc(y) + '</li>'; }).join('') + '</ul></div></div><h3>Relevant education</h3><p>' + esc(x[2]) + ' <span class="small muted">Typical entry education (BLS): ' + esc(x[4]) + '.</span></p>' : '<p class="muted">Loading details…</p>')
         + (c.related.length ? '<h3>Related career paths</h3><ul class="dlg-links">' + c.related.filter(function (r) { return P.careers[r]; }).map(function (r) { return '<li><button class="link-btn" type="button" data-detail="career" data-v="' + r + '">' + esc(P.careers[r][0]) + '</button></li>'; }).join('') + '</ul>' : '')
-        + '<aside class="train-strip"><h3>Training for this career</h3><div class="ts-item"><a href="' + base + c.course.url + '">' + esc(c.course.name) + '</a><span class="small muted">Online, self-paced · about ' + c.course.hours + ' hours · $' + Number(c.course.price).toFixed(2) + '</span></div><p class="btn-row"><a class="btn btn-primary btn-sm" href="' + base + c.course.buy + '">Develop skills for this career</a></p></aside>'
+        + '<aside class="train-strip"><h3>Training for this career</h3><div class="ts-item"><a href="' + base + c.course.url + '">' + esc(c.course.name) + '</a><span class="small muted">Online, self-paced · about ' + c.course.hours + ' hours · $' + Number(c.course.price).toFixed(2) + '</span></div><p class="btn-row"><a class="btn btn-primary btn-sm" href="' + base + c.course.buy + '">Buy now · $' + Number(c.course.price).toFixed(2) + '</a></p></aside>'
         + '<p class="small muted">Career information is general. Requirements vary by state and employer, and no career outcome is guaranteed.</p>');
     };
     render();
@@ -372,7 +372,22 @@
       else if (act === 'compare-clear') { ui.compare = []; redraw(t); }
       else if (act === 'restart') { if (confirm('Clear all your answers and start over?')) { S = fresh(); ui.compare = []; store.set(KEY, S); if (PAGE === 0) go(0, true); else location.href = stepUrl(0); } }
       else if (act === 'download') download();
-      else if (act === 'email') location.href = mailto('', '', 'My College & Career Finder results', summary());
+      else if (act === 'email') {
+        var text = summary();
+        location.href = mailto('', '', 'My College & Career Finder results', text);
+        var box = root.querySelector('[data-copy-box]');
+        if (!box) {
+          box = d.createElement('div'); box.className = 'notice show copy-box no-print'; box.setAttribute('data-copy-box', ''); box.setAttribute('role', 'status'); box.tabIndex = -1;
+          box.innerHTML = '<p><strong>Your email app should now be open with your results.</strong> If nothing opened, copy them below and paste them into any email or note.</p><pre></pre><button class="btn btn-sm" type="button" data-act="copy-results">Copy my results</button> <span class="small muted" data-copy-msg aria-live="polite"></span>';
+          var acts = root.querySelector('.res-actions'); acts.parentNode.insertBefore(box, acts.nextSibling);
+        }
+        box.querySelector('pre').textContent = text;
+        setTimeout(function () { box.focus(); }, 300);
+      }
+      else if (act === 'copy-results') {
+        var cb = root.querySelector('[data-copy-box]');
+        MP.copyText(cb.querySelector('pre').textContent, cb.querySelector('pre')).then(function (ok) { cb.querySelector('[data-copy-msg]').textContent = ok ? 'Copied.' : 'Select the text above and copy it.'; });
+      }
       else if (act === 'share') {
         var url = shareUrl(), msg = root.querySelector('[data-share-msg]');
         var done = function () { msg.textContent = 'Link copied. Anyone with the link can see these results.'; };

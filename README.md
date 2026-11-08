@@ -16,7 +16,7 @@ guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The b
 | 700+ career hubs in 17 fields | Overview, day in the life, salary, how to become, skills, glossary, how-to index plus 3 step-by-step task pages, interview questions, FAQ, fit quiz |
 | 700+ job-title trainings | Course page with price, length, timed syllabus and enrollment form, plus a free practice test. Truck driver, forklift operator and flagger point to the matching provider course instead |
 | 3 checkout trainings | Forklift operator, flagger and mold inspector training from HAZWOPER-OSHA.com, named and listed like every other training under `/training/` with a Buy now button. Old `/courses/` links redirect (`movedFrom` in `src/data/partner-selection.mjs`). Prices come from the provider catalog, the same as on HAZWOPER-OSHA.com |
-| Subscriptions | `/subscriptions/` (seat plans for individuals and groups) and `/for-workforce-programs/` (program seats): monthly, yearly or decade billing, 3% yearly loyalty discount up to 15%, quoted by email, no published prices. Settings in `site.config.mjs → subscriptions` |
+| Program seat subscriptions | `/for-workforce-programs/` only (schools, workforce boards, nonprofits): yearly billing recommended (monthly available), 3% yearly loyalty discount up to 15%, quoted by email, no published prices. Settings in `site.config.mjs → subscriptions`. The old individual `/subscriptions/` page was removed; its address redirects to `/training/` |
 | Checkout | `/checkout/?course=<slug>`: Stripe card payment and enrollment in the provider LMS |
 | Comparisons | About 2,200 "X vs. Y" career comparisons, plus a comparison hub for each field |
 | Quizzes | Career Match, College vs. Trade School, Career Change Readiness, Work Style, 17 field quizzes |
@@ -94,6 +94,15 @@ themselves from their own email app, or copy a share link. Answers stay in the v
 
 **Analytics**: the finder uses the site's normal Google Analytics 4 page tracking (no custom events).
 
+## Selling the training on every page
+Every career has one training to buy: its job-title training, or the checkout course that replaces it. `courseFor()` in
+`src/lib/offer.mjs` defines its name, price and Buy now link, and `offerBox()` renders “HVAC Technician Training: $39.99, start
+today” with Buy now and Add to cart. It appears under the tabs of every career profile page, on comparisons, and in the
+results of the Career Match and Work Style quizzes (each match), field quizzes, fit quizzes and practice tests
+(`offerData()` feeds `src/assets/quiz.js`). Buy now goes to card checkout for checkout courses and to the training's order
+form (`#enroll`) for the others. The non-credit disclaimers are paired with a value line (“Find out if this career is right for
+you for $39.99, before you spend thousands…”).
+
 ## Pricing and course length
 Job-title trainings are priced under $50, by length: 6 hours $29.99, 8 hours $34.99, 10 hours $39.99, 12 hours $44.99,
 14 hours $49.99. Each course splits into 10 timed modules. **COURSE-SPECS.md** lists every training's
@@ -119,7 +128,7 @@ Never put a Stripe secret key in this repository. Card data goes straight to Str
 
 ## Enrollment requests
 Job-title trainings, employer quotes and partner program sign-ups use forms that open a pre-filled email to
-`info@hazwoper-osha.com` (cc `hasan@hazwoper-osha.com`), configured in `site.config.mjs`. Learners can enter a
+`info@hazwoper-osha.com`, configured in `site.config.mjs`. If no email app opens, the form shows the full message with a Copy button (and any `mailto:` link on the site also copies its address). Learners can enter a
 partner discount code on the enrollment form; it appears in the email so the team can apply it to the invoice.
 The contact form and the newsletter forms are embedded Typeforms (`site.config.mjs → forms`).
 

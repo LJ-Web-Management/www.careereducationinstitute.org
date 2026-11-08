@@ -30,9 +30,8 @@ export default {
   phone: '1-866-429-6742',
   phoneE164: '+18664296742',
   email: 'info@hazwoper-osha.com',
-  // Enrollment form opens a pre-filled email to these addresses.
+  // Enrollment form opens a pre-filled email to this address.
   enrollTo: 'info@hazwoper-osha.com',
-  enrollCc: 'hasan@hazwoper-osha.com',
   governingState: 'Illinois',
 
   // Date shown as "Last updated" on content pages (YYYY-MM-DD). Bump when content is reviewed.
@@ -62,19 +61,12 @@ export default {
     { min: 501, max: 1000, discount: 0.1 }
   ],
 
-  // Seat subscriptions (/subscriptions/ and /for-workforce-programs/). No prices are published: every request is quoted
-  // by email. Monthly and yearly plans drop `loyalty.step` in price after each full year, up to `loyalty.max`; the
-  // discount resets when seats are reduced or the plan is cancelled.
+  // Program seat subscriptions (/for-workforce-programs/). No prices are published: every request is quoted by email.
+  // Yearly billing is the default and the one we recommend. Plans drop `loyalty.step` in price after each full year,
+  // up to `loyalty.max`; the discount resets when seats are reduced or the plan is cancelled.
   subscriptions: {
-    cycles: ['Monthly', 'Yearly', 'Decade (10 years)'],
-    loyalty: { step: 0.03, max: 0.15 },
-    // Plans for individuals, families and small groups on /subscriptions/
-    plans: [
-      { name: 'Solo', seats: '1 seat', min: 1, max: 1, for: 'One learner exploring or training for a new job', points: ['Any job-title training in the catalog', 'Switch trainings as your goals change', 'Certificate for every training you finish'] },
-      { name: 'Household', seats: '2 to 5 seats', min: 2, max: 5, for: 'Families, roommates and study partners', points: ['A seat for each learner', 'Each person picks their own trainings', 'One bill for the whole household'], featured: true },
-      { name: 'Small group', seats: '6 to 25 seats', min: 6, max: 25, for: 'Small businesses, crews, clubs and classes', points: ['Assign seats to anyone in your group', 'Move a seat to a new person when someone finishes', 'Completion updates on request'] },
-      { name: 'Organization', seats: '26+ seats', min: 26, max: 100000, for: 'Schools, workforce programs and employers', points: ['Seat count set to your program size', 'Invoice or purchase-order billing', 'Setup help for your learner list'] }
-    ]
+    cycles: ['Yearly', 'Monthly'],
+    loyalty: { step: 0.03, max: 0.15 }
   },
 
   // Card checkout for partner courses: Stripe (publishable key only) + the provider LMS API.

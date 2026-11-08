@@ -1,7 +1,7 @@
 import cfg from '../../site.config.mjs';
 import { esc, href, abs, clamp, fitTitle, md, countLabel } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, sideLinks, answerBox } from '../lib/layout.mjs';
-import { STATES, enrollForm, subscriptionForm, subscriptionTerms } from '../lib/forms.mjs';
+import { STATES, enrollForm } from '../lib/forms.mjs';
 import { partnerCourses, partnerTable, tierTable, providerLine } from '../lib/partners.mjs';
 import { movedFrom } from '../data/partner-selection.mjs';
 import { cartItem } from './training.mjs';
@@ -55,7 +55,7 @@ ${c.objectives.length ? `<h2 id="objectives">What you will be able to do</h2><ul
 ${faqs.length ? faqBlock(faqs, 'Frequently asked questions') : ''}
 ${career ? `<h2 id="career">The ${esc(career.lower)} career</h2><p>${esc(career.blurb)} <a href="${href(career.url)}">Read the ${esc(career.lower)} career profile</a>, including <a href="${href(career.url + 'salary/')}">pay</a> and <a href="${href(career.url + 'day-in-the-life/')}">a day in the life</a>, or take the free <a href="${href(career.trainingUrl + 'practice-test/')}">practice test</a>.</p>` : ''}
 ${related.length ? `<h2 id="related">More trainings you can start today</h2>${partnerTable(related)}` : ''}`;
-    const aside = `<div class="cta-card buy-box"><p class="eyebrow" style="color:#ffd88a">Job-title training</p><h2>${esc(c.short)}</h2><p class="buy-price">${price(c.price)}<span> per learner</span></p><ul><li>${esc(c.hours)}</li><li>${esc(c.langLabel)}</li><li>${esc(c.facts['What You Get'] || 'Certificate of completion')}</li>${c.ceu ? `<li>${esc(c.ceu)} CEU</li>` : ''}</ul><a class="btn btn-primary" href="${href(`/checkout/?course=${c.slug}`)}">Buy now</a><p class="small" style="margin:.8em 0 0">Invoice or purchase order? Call <a href="tel:${cfg.phoneE164}" style="color:#fff">${cfg.phone}</a>.</p></div>${sideLinks('Keep exploring', [...(career ? [[`${career.title} career`, career.url], ['Free practice test', career.trainingUrl + 'practice-test/']] : []), ['All job-title trainings', '/training/'], ['Subscriptions', '/subscriptions/'], ['Refund policy', '/refund-policy/']])}`;
+    const aside = `<div class="cta-card buy-box"><p class="eyebrow" style="color:#ffd88a">Job-title training</p><h2>${esc(c.short)}</h2><p class="buy-price">${price(c.price)}<span> per learner</span></p><ul><li>${esc(c.hours)}</li><li>${esc(c.langLabel)}</li><li>${esc(c.facts['What You Get'] || 'Certificate of completion')}</li>${c.ceu ? `<li>${esc(c.ceu)} CEU</li>` : ''}</ul><a class="btn btn-primary" href="${href(`/checkout/?course=${c.slug}`)}">Buy now</a><p class="small" style="margin:.8em 0 0">Invoice or purchase order? Call <a href="tel:${cfg.phoneE164}" style="color:#fff">${cfg.phone}</a>.</p></div>${sideLinks('Keep exploring', [...(career ? [[`${career.title} career`, career.url], ['Free practice test', career.trainingUrl + 'practice-test/']] : []), ['All job-title trainings', '/training/'], ['Refund policy', '/refund-policy/']])}`;
     pages.push({
       path, crumbs, og: career ? `/og/${career.slug}.png` : '/og/training.png', kind: 'Training', name: c.title, scripts: [],
       mcta: `<a class="btn btn-primary" href="${href(`/checkout/?course=${c.slug}`)}">Buy now · ${price(c.price)}</a>`,
@@ -79,36 +79,8 @@ ${related.length ? `<h2 id="related">More trainings you can start today</h2>${pa
     pages.push({ path: from, noindex: true, redirect: to, og: '/og/training.png', title: 'This Page Has Moved | Career Education Institute', desc: 'This training has moved. You are being sent to its new page in the Career Education Institute job-title training catalog.', body: `${pageHero({ eyebrow: 'Moved', h1: 'This page has moved', lead: `Continue to <a href="${href(to)}">the new page</a>.`, meta: false })}`, schema: [] });
   }
 
-  // ---------- Subscriptions for individuals, households and small groups (quoted by email, no published prices) ----------
-  {
-    const path = '/subscriptions/';
-    const crumbs = [['Home', '/'], coursesHub, ['Subscriptions', path]];
-    const S = cfg.subscriptions;
-    const pc = (n) => `${Math.round(n * 100)}%`;
-    const faqs = [
-      ['What is a seat?', 'A seat is one learner. Each learner gets their own login and can take job-title trainings from our full catalog while the subscription is active.'],
-      ['Why don’t you list prices?', 'Every subscription is quoted for your seat count and billing choice. Send the short form and we reply by email, usually within one business day.'],
-      ['How can I pay?', 'Monthly, yearly or by the decade (ten years paid at once).'],
-      ['Does my price go down?', `Yes. On monthly and yearly plans your price drops ${pc(S.loyalty.step)} after each full year you stay, until you reach ${pc(S.loyalty.max)} off your original price.`],
-      ['What resets the loyalty discount?', 'Reducing your number of seats or cancelling your subscription. Adding seats never resets it.'],
-      ['Can I just buy one training instead?', `Yes. Every training can be bought on its own, most for under $50. Browse the <a href="${href('/training/')}">training catalog</a>.`]
-    ];
-    const main = `${answerBox('Subscriptions in short', `Pick a plan by number of seats (one seat per learner), choose monthly, yearly or decade billing and request a quote by email. On monthly and yearly plans your price drops ${pc(S.loyalty.step)} every year you stay, up to ${pc(S.loyalty.max)} off.`)}
-<h2 id="plans">Choose your plan</h2>
-<ul class="plans">${S.plans.map((pl) => `<li class="plan${pl.featured ? ' featured' : ''}">${pl.featured ? '<span class="tag">Most popular</span>' : ''}<h3>${esc(pl.name)}</h3><p class="seats">${esc(pl.seats)}</p><p class="small muted">${esc(pl.for)}</p><ul>${pl.points.map((x) => `<li>${esc(x)}</li>`).join('')}</ul><a class="btn ${pl.featured ? 'btn-primary' : ''} btn-block" href="#subscribe" data-pick-plan="${esc(pl.name)}">Request a quote</a></li>`).join('')}</ul>
-<p class="small muted">Running a school, workforce board or nonprofit program? See <a href="${href('/for-workforce-programs/')}">program subscriptions</a>.</p>
-${subscriptionTerms()}
-${subscriptionForm({ heading: 'Request your subscription quote', plan: 'Household' })}
-${faqBlock(faqs, 'Subscription questions')}`;
-    pages.push({
-      path, crumbs, og: '/og/training.png', kind: 'Page', name: 'Training subscriptions', scripts: ['enroll'],
-      mcta: `<a class="btn btn-primary" href="#subscribe">Request a quote</a><a class="btn" href="#plans">See plans</a>`,
-      title: fitTitle('Career Training Subscriptions by Seat'),
-      desc: clamp(`Subscribe to Career Education Institute job-title training by seat: plans for one learner, households and small groups. Pay monthly, yearly or by the decade, with a loyalty discount.`),
-      body: `${pageHero({ crumbs, eyebrow: 'Subscriptions', h1: 'Training Subscriptions', lead: `Seats for you, your family or your group, with job-title training for ${countLabel(ctx.careers.length)} careers. Pay monthly, yearly or by the decade, and pay less every year you stay.`, meta: false, extra: `<div class="btn-row"><a class="btn btn-primary" href="#plans">See plans</a><a class="btn" href="#subscribe">Request a quote</a></div>` })}<div class="wrap layout"><div class="prose">${main}</div><aside><div class="cta-card"><h2>Pay less every year</h2><p>Monthly and yearly plans drop ${pc(S.loyalty.step)} a year, up to ${pc(S.loyalty.max)} off.</p><ul><li>One seat = one learner</li><li>Monthly, yearly or decade billing</li><li>Certificate for every training</li></ul><a class="btn btn-primary" href="#subscribe">Request a quote</a></div>${sideLinks('Keep exploring', [['All job-title trainings', '/training/'], ['Program subscriptions', '/for-workforce-programs/'], ['Training for employers', '/for-employers/'], ['Contact us', '/contact/']])}</aside></div>`,
-      schema: [faqSchema(faqs.map(([q, a]) => [q, a]), path)]
-    });
-  }
+  // ---------- /subscriptions/ was removed: old links go to the training catalog ----------
+  pages.push({ path: '/subscriptions/', noindex: true, redirect: '/training/', og: '/og/training.png', title: 'This Page Has Moved | Career Education Institute', desc: 'This page has moved. You are being sent to the Career Education Institute training catalog, where every course can be bought on its own.', body: `${pageHero({ eyebrow: 'Moved', h1: 'This page has moved', lead: `Every training can now be bought on its own. Continue to <a href="${href('/training/')}">the training catalog</a>.`, meta: false })}`, schema: [] });
 
   // ---------- Checkout (noindex) ----------
   {
@@ -154,12 +126,12 @@ ${field('address2', 'Apartment, suite or unit', 'text', false, ' autocomplete="a
     const body = `${pageHero({ crumbs, eyebrow: 'Your cart', h1: 'Cart', lead: 'Your cart is saved in this browser only. Trainings marked “buy now” check out together by card; the rest are requested in one enrollment email.', meta: false })}
 <div class="wrap layout cart-page" data-cart><div>
 <noscript><p class="callout">The cart needs JavaScript. You can still enroll from any training’s page, or call ${cfg.phone}.</p></noscript>
-<div data-cart-empty hidden><p class="lead" style="margin-top:0">Your cart is empty.</p><div class="btn-row"><a class="btn btn-primary" href="${href('/training/')}">Browse trainings</a><a class="btn" href="${href('/subscriptions/')}">Subscriptions</a></div></div>
+<div data-cart-empty hidden><p class="lead" style="margin-top:0">Your cart is empty.</p><div class="btn-row"><a class="btn btn-primary" href="${href('/training/')}">Browse trainings</a><a class="btn" href="${href('/quizzes/career-match/')}">Find your career match</a></div></div>
 <section data-cart-group="course" hidden><h2 style="margin-top:0">Buy now: instant access</h2><p class="muted small">These trainings check out by card. Your login is emailed right after checkout.</p><ul class="cart-lines" data-lines></ul></section>
 <section data-cart-group="training" hidden><h2>Enrollment by request</h2><p class="muted small">Send one request for every training below. We reply with a payment link or invoice and your learning-platform login. Prices with volume discounts are estimates until your invoice.</p><ul class="cart-lines" data-lines></ul>
 ${enrollForm({ kind: 'cart', id: 'cart-enroll', heading: 'Request enrollment for these trainings' })}</section>
 </div>
-<aside><div class="side-box cart-sum" data-cart-summary hidden><h2>Summary</h2><div data-sum-course hidden><p class="small" style="margin:0"><strong>Buy now</strong></p><table><tbody data-sum-rows></tbody></table><a class="btn btn-primary btn-block" data-checkout href="${data.checkout}">Check out online</a></div><div data-sum-training hidden style="margin-top:16px"><p class="small" style="margin:0"><strong>By request</strong> <span class="muted">(estimate)</span></p><table><tbody data-sum-rows></tbody></table><a class="btn btn-block" href="#cart-enroll">Request enrollment</a></div><p class="small muted" style="margin:12px 0 0">Volume pricing applies from 2 learners per course. Prices in U.S. dollars.</p></div>${sideLinks('Keep browsing', [['All job-title trainings', '/training/'], ['Subscriptions', '/subscriptions/'], ['Training for employers', '/for-employers/']])}</aside></div>
+<aside><div class="side-box cart-sum" data-cart-summary hidden><h2>Summary</h2><div data-sum-course hidden><p class="small" style="margin:0"><strong>Buy now</strong></p><table><tbody data-sum-rows></tbody></table><a class="btn btn-primary btn-block" data-checkout href="${data.checkout}">Check out online</a></div><div data-sum-training hidden style="margin-top:16px"><p class="small" style="margin:0"><strong>By request</strong> <span class="muted">(estimate)</span></p><table><tbody data-sum-rows></tbody></table><a class="btn btn-block" href="#cart-enroll">Request enrollment</a></div><p class="small muted" style="margin:12px 0 0">Volume pricing applies from 2 learners per course. Prices in U.S. dollars.</p></div>${sideLinks('Keep browsing', [['All job-title trainings', '/training/'], ['Training for employers', '/for-employers/']])}</aside></div>
 <script type="application/json" id="cart-data">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
     pages.push({ path, crumbs, noindex: true, og: '/og/courses.png', scripts: ['cart', 'enroll'], title: 'Cart | Career Education Institute', desc: 'Your Career Education Institute cart: trainings to buy now by card and trainings to request together in one enrollment email.', body, schema: [] });
   }  }

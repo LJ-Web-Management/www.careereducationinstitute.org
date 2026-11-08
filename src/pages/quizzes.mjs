@@ -1,4 +1,5 @@
 import { esc, href, abs, money, clamp, fitTitle, countLabel } from '../lib/util.mjs';
+import { offerData } from '../lib/offer.mjs';
 import { pageHero, faqBlock, faqSchema, ctaCard, sideLinks, answerBox, band } from '../lib/layout.mjs';
 
 const SCALE = ['Strongly dislike', 'Dislike', 'Not sure', 'Like', 'Strongly like'];
@@ -20,7 +21,7 @@ const prefs = [
 
 // o and g (annual openings, projected growth) feed a small job-outlook adjustment in quiz.js so that, among careers that fit
 // about equally well, ones with more openings rank first instead of the tie going to whichever is listed first.
-const careerPayload = (cs) => cs.map((c) => ({ n: c.title, u: href(c.url), r: c.riasec, t: c.traits, e: c.eduLevel, p: money(c.l.wages.median), tr: c.train, o: c.l.annualOpenings, g: c.l.growthPct }));
+const careerPayload = (cs) => cs.map((c) => ({ n: c.title, u: href(c.url), r: c.riasec, t: c.traits, e: c.eduLevel, p: money(c.l.wages.median), tr: c.train, o: c.l.annualOpenings, g: c.l.growthPct, k: offerData(c) }));
 // Quizzes that score every career load this shared file (written by the build) instead of embedding it.
 export const quizCareerData = (careers) => careerPayload(careers);
 const QUIZ_CAREERS = href('/assets/quiz-careers.json');
@@ -29,8 +30,11 @@ function renderQuestions(qs) {
   return qs.map((q, i) => `<fieldset><legend><span class="qn">Question ${i + 1} of ${qs.length}</span>${esc(q.q)}</legend>${q.scale ? `<div class="scale">${SCALE.map((l, v) => `<label class="opt"><input type="radio" name="q${i}" value="${v + 1}" required><span>${l}</span></label>`).join('')}</div>` : `<div class="opts">${q.options.map(([l], v) => `<label class="opt"><input type="radio" name="q${i}" value="${v}" required><span>${esc(l)}</span></label>`).join('')}</div>`}</fieldset>`).join('');
 }
 
+let shopCtx;
+const shopLine = () => ({ text: `Start a job-title training today: ${countLabel(shopCtx.careers.length)} online courses from $${Math.min(...shopCtx.careers.map((c) => c.price)).toFixed(2)}, each with a certificate.`, link: href('/training/'), btn: 'Find your training' });
+
 function quizPage({ path, crumbs, eyebrow, h1, lead, intro, data, questions, after = '', title, desc, faqs = [], aside }) {
-  const clean = { ...data, questions: questions.map((q) => (q.scale ? { scale: true, key: q.key } : { eduQ: !!q.eduQ, options: q.options.map(([, w]) => ({ w })) })) };
+  const clean = { shop: shopLine(), ...data, questions: questions.map((q) => (q.scale ? { scale: true, key: q.key } : { eduQ: !!q.eduQ, options: q.options.map(([, w]) => ({ w })) })) };
   const body = `${pageHero({ crumbs, eyebrow, h1, lead })}<div class="wrap layout"><div class="prose">${answerBox('How it works', intro)}
 <form class="quiz" data-quiz novalidate>${renderQuestions(questions)}<div class="quiz-bar"><div class="progress" aria-hidden="true"><i></i></div><button class="btn btn-primary" type="submit">See my results</button></div></form>
 <section class="results" aria-live="polite" tabindex="-1"></section><script type="application/json" id="quiz-data">${JSON.stringify(clean)}</script>${after}${faqs.length ? faqBlock(faqs) : ''}</div>
@@ -39,6 +43,7 @@ function quizPage({ path, crumbs, eyebrow, h1, lead, intro, data, questions, aft
 }
 
 export function quizPages(ctx) {
+  shopCtx = ctx;
   const { careers, categories } = ctx;
   const pages = [];
   const hub = ['Quizzes', '/quizzes/'];
