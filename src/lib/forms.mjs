@@ -11,14 +11,20 @@ export const typeformEmbed = (id, height = 520) => `<div class="tf-box" style="-
 // Checkout Typeform for one job-title training, on that training's own page. The form has a transparent background
 // and auto height, so it sits straight on the page (no card, no minimum height). page_url (this page's address,
 // including any query string) is set as a hidden field before Typeform's script reads the embed.
+// The panel around it (a "Checkout" header, an order summary and numbered steps) makes it read as checkout, not as a
+// contact form.
+const lock = '<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
 export function trainingCheckout({ course, heading, id = 'enroll' }) {
-  return `<section class="tf-checkout" id="${id}" aria-labelledby="${id}-h"><h2 id="${id}-h">${esc(heading)}</h2>
-<p class="small muted">${esc(course.title)} Training · about ${course.hours} hours · $${course.price.toFixed(2)} per learner. Buying for several learners? Enter the number of seats in the form. Volume pricing applies from 2.</p>
+  return `<section class="tf-checkout" id="${id}" aria-labelledby="${id}-h">
+<div class="tfc-head"><p class="tfc-kicker"><span>Checkout</span><span class="tfc-secure">${lock} Secure order form</span></p><h2 id="${id}-h">${esc(heading)}</h2></div>
+<div class="tfc-summary"><p class="tfc-label">Your order</p><div class="tfc-line"><div><strong>${esc(course.title)} Training</strong><span>Online, self-paced · about ${course.hours} hours · ${esc(cfg.course.access)} · ${esc(cfg.course.certificate)}</span></div><div class="tfc-price">$${course.price.toFixed(2)}<small>per learner</small></div></div><p class="tfc-note">Buying for more than one learner? Enter the number of learners in the form. Volume pricing applies from 2.</p></div>
+<div class="tfc-form"><p class="tfc-step"><span class="tfc-num" aria-hidden="true">1</span>Fill in the checkout form below</p>
 <div data-tf-live="${esc(cfg.forms.trainingCheckout)}"></div>
 <script>(function(){var f=document.currentScript.previousElementSibling;if(f)f.setAttribute('data-tf-hidden','page_url='+encodeURIComponent(location.href));})();</script>
 <script src="https://embed.typeform.com/next/embed.js" async></script>
-<noscript><p class="callout">The checkout form needs JavaScript. Please email <a href="mailto:${cfg.enrollTo}">${cfg.enrollTo}</a> or call ${cfg.phone} to enroll.</p></noscript>
-${callLine}
+<noscript><p class="callout">The checkout form needs JavaScript. Please email <a href="mailto:${cfg.enrollTo}">${cfg.enrollTo}</a> or call ${cfg.phone} to place your order.</p></noscript>
+<p class="tfc-step tfc-after"><span class="tfc-num" aria-hidden="true">2</span>We email your order confirmation and course login</p>
+<p class="small muted" style="margin:0">Questions about your order? Call <a href="tel:${cfg.phoneE164}">${cfg.phone}</a> or email <a href="mailto:${cfg.email}">${cfg.email}</a>.</p></div>
 </section>`;
 }
 
