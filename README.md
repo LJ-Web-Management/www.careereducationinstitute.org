@@ -23,6 +23,7 @@ guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The b
 | Guides | 46 guides for students, career changers, professionals and employers |
 | Employers | Buyer pages (employers, staffing agencies, workforce programs, 17 industries), 700+ hiring guides, 700+ job description templates, 700+ onboarding plans, ROI calculator, onboarding assessment |
 | Lists and data | 14 "best careers" lists, salary guide, A to Z glossary |
+| Keyword landing pages | 10 pages built from the SEO and AI keyword research: `/online-career-training/`, `/job-readiness-training/`, `/employee-training-programs/`, `/career-readiness-programs-for-schools/`, four field training pages (healthcare, skilled trades, logistics, technology and business) and two answer-led question pages (`/career-exploration/`, `/choosing-online-career-training/`) |
 | Partner program | `/partners/` plus a page each for school districts, colleges, companies and organizations: a discount code for their people and a share of each sale, with a sign-up form |
 | Students, changers and professionals hubs, worksheets, newsletter sign-up, company and legal pages | |
 
@@ -39,6 +40,7 @@ guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The b
 | Refresh provider course prices and details | `npm run update-partner-courses` (reads the provider catalog and rewrites `src/data/partner-courses.json`) |
 | Edit a career | `src/data/careers/*.mjs` |
 | Edit a guide | `src/data/guides/*.mjs` (Markdown in the `body` field) |
+| Edit a keyword landing page | `src/data/landing.mjs` (Markdown with `{careers}`, `{pay:<slug>}`, `{table:<key>}` tokens; rendered by `src/pages/landing.mjs`) |
 | Edit legal pages | `src/pages/legal.mjs` |
 | Refresh BLS pay data (each spring) | `BLS_API_KEY=<your key> npm run update-salaries -- 2026` (year of the new OEWS release), then rebuild. A free key from data.bls.gov/registrationEngine is needed now that there are 700+ careers (the keyless API allows only 25 requests a day). Projections in `src/data/labor.json` are updated by hand each fall from BLS Table 1.2 |
 | Mark content as reviewed | Change `updated` in `site.config.mjs` |

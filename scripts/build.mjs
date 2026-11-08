@@ -21,6 +21,7 @@ import { utilityPages } from '../src/pages/utility.mjs';
 import { employerPages } from '../src/pages/employers.mjs';
 import { coursePages } from '../src/pages/courses.mjs';
 import { partnerPages } from '../src/pages/partners.mjs';
+import { keywordPages } from '../src/pages/landing.mjs';
 import { writeImages } from './images.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -59,7 +60,7 @@ const pairs = new Map();
 for (const c of careers) for (const r of c.related) if (byslug[r]) pairs.set(compareSlug(c.slug, r), [c, byslug[r]]);
 ctx.pairs = [...pairs.values()];
 for (const [a, b] of ctx.pairs) pages.push(comparePage(a, b, ctx));
-pages.push(trainingCatalog(ctx), homePage(ctx), ...hubPages(ctx), ...quizPages(ctx), ...guidePages(ctx), ...companyPages(ctx), ...legalPages(ctx), ...newsletterPages(), ...employerPages(ctx), ...coursePages(ctx), ...partnerPages(ctx));
+pages.push(trainingCatalog(ctx), homePage(ctx), ...hubPages(ctx), ...quizPages(ctx), ...guidePages(ctx), ...companyPages(ctx), ...legalPages(ctx), ...newsletterPages(), ...employerPages(ctx), ...coursePages(ctx), ...partnerPages(ctx), ...keywordPages(ctx));
 pages.push(...utilityPages(ctx, pages)); // search, sitemap page, 404 (needs the full list)
 
 // ---------- Write ----------
@@ -133,6 +134,10 @@ ${cfg.name} publishes free, plain-language career information for ${countLabel(c
 - [All trainings](${abs('/training/')}): online courses by job title, each under $50
 - [Training subscriptions](${abs('/subscriptions/')}): seats for individuals and groups, billed monthly, yearly or by the decade
 - [Programs and schools](${abs('/for-workforce-programs/')}): seat subscriptions for schools and workforce programs
+- [Online career training](${abs('/online-career-training/')}): how the job-title trainings work, prices and what they do and don't lead to
+- [Job readiness training](${abs('/job-readiness-training/')}) · [Employee training programs](${abs('/employee-training-programs/')}) · [Career readiness for schools](${abs('/career-readiness-programs-for-schools/')})
+- Training by field: [healthcare](${abs('/healthcare-career-training/')}) · [skilled trades and manufacturing](${abs('/skilled-trades-training/')}) · [transportation and logistics](${abs('/transportation-logistics-training/')}) · [technology and business](${abs('/technology-business-career-training/')})
+- [Career exploration questions](${abs('/career-exploration/')}) and [how to choose online career training](${abs('/choosing-online-career-training/')}): short, direct answers to common career and training questions
 - [Guides](${abs('/guides/')}): choosing a career, college vs. trade school, changing careers, resumes, interviews
 - [For students](${abs('/students/')}) · [For career changers](${abs('/career-changers/')}) · [For working professionals](${abs('/professionals/')})
 - [Full facts for every career (llms-full.txt)](${abs('/llms-full.txt')})
