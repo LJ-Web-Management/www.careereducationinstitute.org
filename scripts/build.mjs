@@ -22,6 +22,8 @@ import { employerPages } from '../src/pages/employers.mjs';
 import { coursePages } from '../src/pages/courses.mjs';
 import { partnerPages } from '../src/pages/partners.mjs';
 import { keywordPages } from '../src/pages/landing.mjs';
+import { finderPages } from '../src/pages/finder.mjs';
+import { checkFinder, finderPayload, careerDetails, collegeIndex, programShards, cipTitles, majors as finderMajors, majorPath } from '../src/lib/finder.mjs';
 import { writeImages } from './images.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -50,6 +52,7 @@ try {
     : JSON.parse(fs.readFileSync(blogSrc, 'utf8'));
 } catch (e) { console.warn(`! blog posts not loaded from ${blogSrc} (${e.message}); homepage blog section skipped`); }
 const cats = categories.filter((cat) => careers.some((c) => c.cat === cat.slug));
+checkFinder(byslug, cats); // College & Career Finder mappings must point at real careers and trainings
 setGlobals({ careers, categories: cats, partners: partnerCourses });
 const ctx = { labor, careers, byslug, categories: cats, posts, ROOT };
 
@@ -60,7 +63,7 @@ const pairs = new Map();
 for (const c of careers) for (const r of c.related) if (byslug[r]) pairs.set(compareSlug(c.slug, r), [c, byslug[r]]);
 ctx.pairs = [...pairs.values()];
 for (const [a, b] of ctx.pairs) pages.push(comparePage(a, b, ctx));
-pages.push(trainingCatalog(ctx), homePage(ctx), ...hubPages(ctx), ...quizPages(ctx), ...guidePages(ctx), ...companyPages(ctx), ...legalPages(ctx), ...newsletterPages(), ...employerPages(ctx), ...coursePages(ctx), ...partnerPages(ctx), ...keywordPages(ctx));
+pages.push(trainingCatalog(ctx), homePage(ctx), ...hubPages(ctx), ...quizPages(ctx), ...guidePages(ctx), ...companyPages(ctx), ...legalPages(ctx), ...newsletterPages(), ...employerPages(ctx), ...coursePages(ctx), ...partnerPages(ctx), ...keywordPages(ctx), ...finderPages(ctx));
 pages.push(...utilityPages(ctx, pages)); // search, sitemap page, 404 (needs the full list)
 
 // ---------- Write ----------
@@ -85,6 +88,15 @@ fs.writeFileSync(path.join(DIST, 'assets', 'shell.json'), JSON.stringify(shell()
 // Data loaded on demand by the careers directory filter and the all-careers quizzes
 fs.writeFileSync(path.join(DIST, 'assets', 'careers.json'), JSON.stringify(directoryData(careers)));
 fs.writeFileSync(path.join(DIST, 'assets', 'quiz-careers.json'), JSON.stringify(quizCareerData(careers)));
+// College & Career Finder downloads: questionnaire data, career details, the IPEDS college index, program lists by
+// state and program titles (all loaded on demand by finder.js and college-search.js)
+const FD = path.join(DIST, 'assets', 'finder');
+fs.mkdirSync(path.join(FD, 'programs'), { recursive: true });
+fs.writeFileSync(path.join(FD, 'data.json'), JSON.stringify(finderPayload(careers, cats)));
+fs.writeFileSync(path.join(FD, 'careers-detail.json'), JSON.stringify(careerDetails(careers)));
+fs.writeFileSync(path.join(FD, 'colleges.json'), JSON.stringify(collegeIndex()));
+fs.writeFileSync(path.join(FD, 'cip.json'), JSON.stringify(cipTitles()));
+for (const [st, rows] of Object.entries(programShards())) fs.writeFileSync(path.join(FD, 'programs', `${st}.json`), JSON.stringify(rows));
 for (const f of fs.readdirSync(path.join(ROOT, 'src/assets')).filter((f) => f.endsWith('.js'))) {
   fs.writeFileSync(path.join(DIST, 'assets', f), minJs(fs.readFileSync(path.join(ROOT, 'src/assets', f), 'utf8')));
 }
@@ -94,9 +106,9 @@ if (process.env.CNAME) fs.writeFileSync(path.join(DIST, 'CNAME'), process.env.CN
 
 // ---------- SEO files ----------
 const indexable = pages.filter((p) => !p.noindex && !p.file);
-const groups = { main: [], careers: [], training: [], courses: [], guides: [], employers: [], blog: [] };
+const groups = { main: [], careers: [], training: [], courses: [], guides: [], employers: [], colleges: [], blog: [] };
 for (const p of indexable) {
-  const g = p.path.startsWith('/careers/') || p.path.startsWith('/compare/') || p.path.startsWith('/best-careers/') ? 'careers' : p.path.startsWith('/training/') ? 'training' : p.path.startsWith('/courses/') ? 'courses' : p.path.startsWith('/guides/') || p.path.startsWith('/resources/') || p.path.startsWith('/quizzes/') ? 'guides' : p.path.startsWith('/blog/') ? 'blog' : p.path.startsWith('/employers/') || p.path.startsWith('/for-') ? 'employers' : 'main';
+  const g = /^\/(colleges|college-majors|college-minors|skills-to-learn)\//.test(p.path) ? 'colleges' : p.path.startsWith('/careers/') || p.path.startsWith('/compare/') || p.path.startsWith('/best-careers/') ? 'careers' : p.path.startsWith('/training/') ? 'training' : p.path.startsWith('/courses/') ? 'courses' : p.path.startsWith('/guides/') || p.path.startsWith('/resources/') || p.path.startsWith('/quizzes/') ? 'guides' : p.path.startsWith('/blog/') ? 'blog' : p.path.startsWith('/employers/') || p.path.startsWith('/for-') ? 'employers' : 'main';
   groups[g].push(p);
 }
 const urlset = (list) => `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${list.map((p) => `<url><loc>${abs(p.path)}</loc><lastmod>${p.modified || cfg.updated}</lastmod>${p.og ? `<image:image><image:loc>${abs(p.og)}</image:loc></image:image>` : ''}</url>`).join('\n')}\n</urlset>\n`;
@@ -137,6 +149,9 @@ ${cfg.name} publishes free, plain-language career information for ${countLabel(c
 - [Online career training](${abs('/online-career-training/')}): how the job-title trainings work, prices and what they do and don't lead to
 - [Job readiness training](${abs('/job-readiness-training/')}) · [Employee training programs](${abs('/employee-training-programs/')}) · [Career readiness for schools](${abs('/career-readiness-programs-for-schools/')})
 - Training by field: [healthcare](${abs('/healthcare-career-training/')}) · [skilled trades and manufacturing](${abs('/skilled-trades-training/')}) · [transportation and logistics](${abs('/transportation-logistics-training/')}) · [technology and business](${abs('/technology-business-career-training/')})
+- [College & Career Finder](${abs('/college-and-career-finder/')}): free tool to explore U.S. colleges, college majors and minors, career paths and skills, with related training recommendations
+- [College majors](${abs('/college-majors/')}) (${finderMajors.length} majors with courses, skills, careers, minors and how many colleges offer each) · [College minors](${abs('/college-minors/')}) · [Majors and career paths](${abs('/college-majors-and-career-paths/')}) · [Skills to learn](${abs('/skills-to-learn/')}) · [Career options after high school](${abs('/career-options-after-high-school/')})
+- [College and university search](${abs('/colleges/')}): degree-granting U.S. colleges by state, city, ZIP, type, online programs and major, from U.S. Department of Education IPEDS data. Career Education Institute is not a college or admissions service.
 - [Career exploration questions](${abs('/career-exploration/')}) and [how to choose online career training](${abs('/choosing-online-career-training/')}): short, direct answers to common career and training questions
 - [Guides](${abs('/guides/')}): choosing a career, college vs. trade school, changing careers, resumes, interviews
 - [For students](${abs('/students/')}) · [For career changers](${abs('/career-changers/')}) · [For working professionals](${abs('/professionals/')})

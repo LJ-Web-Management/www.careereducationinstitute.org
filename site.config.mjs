@@ -103,6 +103,7 @@ export default {
   // never with GPC or the opt-out on /your-privacy-choices/ (see src/assets/site.js).
   // Leave one empty to turn it off.
   analytics: { ga4: 'G-FPKWMLEWMG', clarity: 'z4kntlcpgn' },
+
   verification: { google: '', bing: '' },
   social: [] // e.g. ['https://www.linkedin.com/company/career-education-institute']
 };

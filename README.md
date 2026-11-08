@@ -23,6 +23,7 @@ guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The b
 | Guides | 46 guides for students, career changers, professionals and employers |
 | Employers | Buyer pages (employers, staffing agencies, workforce programs, 17 industries), 700+ hiring guides, 700+ job description templates, 700+ onboarding plans, ROI calculator, onboarding assessment |
 | Lists and data | 14 "best careers" lists, salary guide, A to Z glossary |
+| College & Career Finder | `/college-and-career-finder/`: a nine-step tool (goals, education stage, interests, colleges, majors, minors, career goals, skills, personalized results) that ends in career paths, skills and ranked CEI training recommendations. Plus indexable pages from the same data: `/college-majors/` (109 majors, 16 field pages), `/college-minors/` (50), `/college-majors-and-career-paths/`, `/skills-to-learn/` (12), `/career-options-after-high-school/`, `/colleges/` (search) and a page per state. See **College & Career Finder** below |
 | Keyword landing pages | 10 pages built from the SEO and AI keyword research: `/online-career-training/`, `/job-readiness-training/`, `/employee-training-programs/`, `/career-readiness-programs-for-schools/`, four field training pages (healthcare, skilled trades, logistics, technology and business) and two answer-led question pages (`/career-exploration/`, `/choosing-online-career-training/`) |
 | Partner program | `/partners/` plus a page each for school districts, colleges, companies and organizations: a discount code for their people and a share of each sale, with a sign-up form |
 | Students, changers and professionals hubs, worksheets, newsletter sign-up, company and legal pages | |
@@ -38,6 +39,8 @@ guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The b
 | Change a job-title training's length | Edit `src/data/course-pricing.mjs` (the price follows the length ladder), then run `npm run course-specs` |
 | Add or remove a provider course | Edit `src/data/partner-selection.mjs` (LMS course id, page slug, job title, field), then run `npm run update-partner-courses`. Only list courses that are the complete training for a job title, not topic, refresher or endorsement courses |
 | Refresh provider course prices and details | `npm run update-partner-courses` (reads the provider catalog and rewrites `src/data/partner-courses.json`) |
+| Edit finder majors, minors, interests, skills, rankings or course mappings | Edit `src/data/finder/*.json` (each file has a `_help` note), then push. The build checks every mapping |
+| Refresh the college directory (each fall, when IPEDS publishes) | `npm run update-colleges -- 2025` (the IPEDS year), then rebuild |
 | Edit a career | `src/data/careers/*.mjs` |
 | Edit a guide | `src/data/guides/*.mjs` (Markdown in the `body` field) |
 | Edit a keyword landing page | `src/data/landing.mjs` (Markdown with `{careers}`, `{pay:<slug>}`, `{table:<key>}` tokens; rendered by `src/pages/landing.mjs`) |
@@ -50,6 +53,39 @@ Every push to `main` rebuilds and deploys automatically (GitHub Actions to Pages
 also builds the blog repository into `/blog/` (with this build's `/assets/shell.json`: header, footer, stylesheet),
 shows the blog's latest posts on the homepage (from the blog's `posts.json`) and site search merges the blog's
 `search-index.json`. The workflow also runs every 6 hours, and whenever the blog repository asks for it.
+
+## College & Career Finder
+Helps students, parents, job seekers and career changers explore colleges, majors, minors and careers, then connects
+their answers to CEI trainings. Career Education Institute is presented throughout as **not** a college, degree-granting
+institution or admissions service, and trainings as non-credit courses that do not replace a degree or guarantee
+employment.
+
+**Two separate data sources, never mixed**
+- **Colleges and programs: U.S. Department of Education IPEDS only.** `npm run update-colleges [year]`
+  (`scripts/fetch-colleges.mjs`) downloads the directory (HD), online-education flags (IC), completions by program (C_A)
+  and CIP program titles, keeping active, degree-granting, Title IV schools in U.S. states, DC and territories (3,954 in
+  the 2024 data). It writes `src/data/colleges.json`. Nothing is invented: no tuition, admission requirements or
+  outcomes are shown; each school links to its official website, admissions page, net price calculator (when reported)
+  and its College Navigator profile. Verified corrections go in `src/data/finder/colleges-custom.json`.
+  A major is "offered" by a school when the school reported awards under one of the major's CIP codes.
+- **Training recommendations: the CEI course catalog only.** Every recommendation is a job-title training that exists
+  (one per career profile) or the checkout course that replaces it. Prices and course pages come from the catalog. The
+  build (`checkFinder` in `src/lib/finder.mjs`) stops if any mapping names a career/training that does not exist.
+
+**Data files** (`src/data/finder/`, each with a `_help` note): `majors.json` (fields and majors: summary, coursework,
+skills, degrees, ordered career list, minors with why they pair well, interests, CIP codes), `minors.json`,
+`interests.json`, `skills.json`, `questions.json` (answer wording), `recommend.json` (ranking weights, minimum score,
+boosts, hidden courses, per-major pins, course overrides), `colleges-custom.json`.
+
+**Recommendation engine** (`src/assets/finder-engine.js`, the same file in the browser and the static pages): each training scores points for connections to the visitor's careers, majors, minors, interests, industries and
+skills (earlier items in a list count more). Only trainings reaching `minScore` are shown, so nothing unrelated is
+added to fill space. Skill-listed courses count fully only when they share a career field with the rest of the answers.
+Ties go to careers with more BLS annual openings.
+
+**No lead forms**: results are shown without any sign-up. Visitors can download or print them, email them to
+themselves from their own email app, or copy a share link. Answers stay in the visitor's browser.
+
+**Analytics**: the finder uses the site's normal Google Analytics 4 page tracking (no custom events).
 
 ## Pricing and course length
 Job-title trainings are priced under $50, by length: 6 hours $29.99, 8 hours $34.99, 10 hours $39.99, 12 hours $44.99,

@@ -16,7 +16,31 @@ export const icons = {
   'education-and-childcare': '<path d="M2.5 9.5 12 5l9.5 4.5L12 14z"/><path d="M6.5 11.6v4.1c0 1.2 2.5 2.8 5.5 2.8s5.5-1.6 5.5-2.8v-4.1"/><path d="M21.5 9.5v5"/>',
   'community-and-social-services': '<circle cx="8.5" cy="8" r="2.8"/><circle cx="16.5" cy="9" r="2.3"/><path d="M3.5 19c0-3 2.2-5.2 5-5.2s5 2.2 5 5.2"/><path d="M13.8 14.6c.8-.5 1.7-.8 2.7-.8 2.4 0 4 1.9 4 4.6"/>',
   'beauty-fitness-and-personal-care': '<circle cx="6.5" cy="6.5" r="2.5"/><circle cx="6.5" cy="17.5" r="2.5"/><path d="M8.6 8 20 18.5M8.6 16 20 5.5"/>',
-  'agriculture-and-animal-care': '<path d="M12 20.5v-8"/><path d="M12 12.5c0-4 3-7 8-7 0 4.5-3 7-8 7z"/><path d="M12 15C12 11.5 9.5 9 4.5 9c0 4 2.5 6 7.5 6z"/>'
+  'agriculture-and-animal-care': '<path d="M12 20.5v-8"/><path d="M12 12.5c0-4 3-7 8-7 0 4.5-3 7-8 7z"/><path d="M12 15C12 11.5 9.5 9 4.5 9c0 4 2.5 6 7.5 6z"/>',
+  // Extra icons for the College & Career Finder (interest cards, skills, major fields)
+  'f-ai': '<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9.5 15l1.5-6h2l1.5 6M10 13h4"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/>',
+  'f-gear': '<circle cx="12" cy="12" r="3"/><path d="M12 2.8v2.4M12 18.8v2.4M2.8 12h2.4M18.8 12h2.4M5.5 5.5l1.7 1.7M16.8 16.8l1.7 1.7M5.5 18.5l1.7-1.7M16.8 7.2l1.7-1.7"/><circle cx="12" cy="12" r="6.2"/>',
+  'f-money': '<rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.8"/><path d="M6 9.5v5M18 9.5v5"/>',
+  'f-people': '<circle cx="9" cy="8" r="3"/><path d="M3.5 19c0-3.2 2.4-5.5 5.5-5.5s5.5 2.3 5.5 5.5"/><path d="M16 5.5a2.6 2.6 0 0 1 0 5.2M17.5 13.8c1.9.6 3 2.4 3 4.7"/>',
+  'f-megaphone': '<path d="M4 10v4a1 1 0 0 0 1 1h2l8 4V5L7 9H5a1 1 0 0 0-1 1z"/><path d="M7 15l1.5 5h2.5L9.8 15.6"/><path d="M18.5 9.5a3.5 3.5 0 0 1 0 5"/>',
+  'f-leaf': '<path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15"/><path d="M5 19c3-4 6-7 10-9"/>',
+  'f-scale': '<path d="M12 3.5v17M7 20.5h10M5 6.5h14"/><path d="M5 6.5 2.5 12.5a2.5 2.5 0 0 0 5 0zM19 6.5l-2.5 6a2.5 2.5 0 0 0 5 0z"/>',
+  'f-palette': '<path d="M12 3.5a8.5 8.5 0 0 0 0 17c1.4 0 2-1 1.6-2.2-.5-1.4.4-2.8 1.9-2.8h1.9a3.6 3.6 0 0 0 3.6-3.6C21 7.2 17 3.5 12 3.5z"/><circle cx="7.5" cy="11" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="15" cy="7.5" r="1.2"/>',
+  'f-globe': '<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.3 2.4 3.5 5.2 3.5 8.5s-1.2 6.1-3.5 8.5c-2.3-2.4-3.5-5.2-3.5-8.5S9.7 5.9 12 3.5z"/>',
+  'f-chat': '<path d="M4 5.5h16v10H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/>',
+  'f-flag': '<path d="M5 21V4M5 4.5h12l-2 4 2 4H5"/>',
+  'f-bulb': '<path d="M9 18h6M10 21h4"/><path d="M8.5 14.5a6 6 0 1 1 7 0c-.8.6-1.5 1.5-1.5 2.5v1h-4v-1c0-1-.7-1.9-1.5-2.5z"/>',
+  'f-puzzle': '<path d="M5 8h3.5a2 2 0 1 1 4 0H16v3.5a2 2 0 1 1 0 4V19h-3.5a2 2 0 1 0-4 0H5v-3.5a2 2 0 1 0 0-4z"/>',
+  'f-clipboard': '<rect x="5" y="4.5" width="14" height="16.5" rx="2"/><path d="M9 4.5V3h6v1.5"/><path d="M8.5 11l2 2 4-4M8.5 17h7"/>',
+  'f-headset': '<path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M19 19c0 1.5-1.5 2-4 2h-2"/>',
+  'f-wrench': '<path d="M14.6 6.4a4.2 4.2 0 0 0-5.4 5.3L4 16.9 7.1 20l5.2-5.2a4.2 4.2 0 0 0 5.3-5.4l-2.5 2.5-2.6-.6-.6-2.6z"/>',
+  'f-book': '<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5"/>',
+  'f-trend': '<path d="M3.5 17.5l5.5-5.5 4 4 7.5-7.5"/><path d="M15 8.5h5.5V14"/>',
+  'f-search': '<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/>',
+  'f-school': '<path d="M3 20.5h18M5 20.5v-9M19 20.5v-9M9.5 20.5v-4h5v4"/><path d="M2.5 11.5 12 5l9.5 6.5"/><path d="M12 5V2.5h3"/>',
+  'f-plane': '<path d="M21 15.5 13 11V5a1.5 1.5 0 0 0-3 0v6l-8 4.5V17l8-2.5V19l-2.5 1.5V22l4-1 4 1v-1.5L13 19v-4.5l8 2.5z"/>',
+  'f-sport': '<circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17M3.5 12h17"/><path d="M6 6c2.5 1.6 3.8 3.6 3.8 6S8.5 16.4 6 18M18 6c-2.5 1.6-3.8 3.6-3.8 6s1.3 4.4 3.8 6"/>',
+  'f-home': '<path d="M3.5 11 12 4l8.5 7"/><path d="M6 9.5v10.5h12V9.5"/><path d="M10 20v-5h4v5"/>'
 };
 
 export const categories = [
