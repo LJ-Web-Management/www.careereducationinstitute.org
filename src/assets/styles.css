@@ -764,3 +764,24 @@ table.cmp td ul{margin:0;padding-left:1.1em;font-size:.88rem}
 .fz-steps a{display:flex;align-items:center;gap:6px;width:100%;padding:6px 8px;border-radius:8px;font:600 .8rem/1.2 var(--sans);color:var(--muted);text-decoration:none;white-space:nowrap}
 .fz-steps a:hover{background:var(--teal-soft);color:var(--navy)}
 .fz-steps [aria-current] a{color:var(--navy)}
+
+/* Checkout panel around the training checkout Typeform (src/lib/forms.mjs → trainingCheckout) */
+.tf-checkout{margin:2.4em 0;border:2px solid var(--navy);border-radius:var(--r);background:#fff;overflow:hidden;scroll-margin-top:90px}
+.tfc-head{background:var(--navy);color:#fff;padding:18px 22px}
+.tfc-head h2{color:#fff;margin:6px 0 0;font-size:1.5rem}
+.tfc-kicker{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;margin:0;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-soft)}
+.tfc-secure{display:inline-flex;align-items:center;gap:6px;letter-spacing:.02em;text-transform:none;font-weight:600;color:#fff;opacity:.9}
+.tfc-summary{background:var(--gold-soft);border-bottom:1px solid var(--line);padding:16px 22px}
+.tfc-label{margin:0 0 6px;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.tfc-line{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.tfc-line strong{display:block;color:var(--navy);font-size:1.08rem}
+.tfc-line span{display:block;font-size:.9rem;color:var(--muted);margin-top:2px}
+.tfc-price{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--navy);text-align:right;white-space:nowrap;line-height:1.1}
+.tfc-price small{display:block;font-family:var(--sans);font-size:.78rem;font-weight:500;color:var(--muted)}
+.tfc-note{margin:10px 0 0;font-size:.9rem}
+.tfc-form{padding:18px 22px 22px}
+.tfc-step{display:flex;align-items:flex-start;line-height:1.35;gap:10px;margin:0 0 12px;font-weight:700;color:var(--navy)}
+.tfc-after{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.tfc-num{flex:none;margin-top:-3px;display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--navy);font-size:.9rem}
+@media (max-width:560px){.tfc-head,.tfc-summary,.tfc-form{padding-left:16px;padding-right:16px}.tfc-line{flex-direction:column;gap:6px}.tfc-price{text-align:left}.tfc-price small{display:inline;margin-left:6px}}
+@media (max-width:760px){.tfc-form [data-tf-widget],.tfc-form [data-tf-widget] iframe{min-height:360px}}
