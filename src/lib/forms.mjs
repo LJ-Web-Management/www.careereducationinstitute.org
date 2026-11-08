@@ -8,6 +8,20 @@ export const STATES = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
 // the minimum height that shows the whole form (it still grows if the form gets longer).
 export const typeformEmbed = (id, height = 520) => `<div class="tf-box" style="--tf-h:${height}px"><div data-tf-live="${esc(id)}"></div></div><script src="https://embed.typeform.com/next/embed.js" async></script>`;
 
+// Checkout Typeform for one job-title training, on that training's own page. The form has a transparent background
+// and auto height, so it sits straight on the page (no card, no minimum height). page_url (this page's address,
+// including any ?code= partner link) is set as a hidden field before Typeform's script reads the embed.
+export function trainingCheckout({ course, heading, id = 'enroll' }) {
+  return `<section class="tf-checkout" id="${id}" aria-labelledby="${id}-h"><h2 id="${id}-h">${esc(heading)}</h2>
+<p class="small muted">${esc(course.title)} Training · about ${course.hours} hours · $${course.price.toFixed(2)} per learner. Buying for several learners? Enter the number of seats in the form. Volume pricing applies from 2.</p>
+<div data-tf-live="${esc(cfg.forms.trainingCheckout)}"></div>
+<script>(function(){var f=document.currentScript.previousElementSibling;if(f)f.setAttribute('data-tf-hidden','page_url='+encodeURIComponent(location.href));})();</script>
+<script src="https://embed.typeform.com/next/embed.js" async></script>
+<noscript><p class="callout">The checkout form needs JavaScript. Please email <a href="mailto:${cfg.enrollTo}">${cfg.enrollTo}</a> or call ${cfg.phone} to enroll.</p></noscript>
+${callLine}
+</section>`;
+}
+
 const req = '<span class="req" aria-hidden="true">*</span>';
 const opt = '<span class="muted small">(optional)</span>';
 const stateField = (id) => `<div class="field"><label for="${id}-state">State ${req}</label><select id="${id}-state" name="State" autocomplete="address-level1" required><option value="">Select your state</option>${STATES.map((s) => `<option>${s}</option>`).join('')}</select><div class="hint">We currently serve U.S. residents only.</div></div>`;

@@ -18,6 +18,7 @@ guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The b
 | 3 checkout trainings | Forklift operator, flagger and mold inspector training from HAZWOPER-OSHA.com, named and listed like every other training under `/training/` with a Buy now button. Old `/courses/` links redirect (`movedFrom` in `src/data/partner-selection.mjs`). Prices come from the provider catalog, the same as on HAZWOPER-OSHA.com |
 | Program seat subscriptions | `/for-workforce-programs/` only (schools, workforce boards, nonprofits): yearly billing recommended (monthly available), 3% yearly loyalty discount up to 15%, quoted by email, no published prices. Settings in `site.config.mjs → subscriptions`. The old individual `/subscriptions/` page was removed; its address redirects to `/training/` |
 | Checkout | `/checkout/?course=<slug>`: Stripe card payment and enrollment in the provider LMS |
+| Job-title training checkout | Until a training has an LMS course id, its page checks out with the Typeform in `site.config.mjs → forms.trainingCheckout` (hidden field `page_url` = the page address). In the cart, one job-title training links to that page's checkout; several different trainings go in one emailed enrollment request |
 | Comparisons | About 2,200 "X vs. Y" career comparisons, plus a comparison hub for each field |
 | Quizzes | Career Match, College vs. Trade School, Career Change Readiness, Work Style, 17 field quizzes |
 | Guides | 46 guides for students, career changers, professionals and employers |

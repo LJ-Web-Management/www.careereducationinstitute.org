@@ -83,7 +83,10 @@ export default {
   forms: {
     contact: '01M544HP0YBQQ0WGMHMXFC933Z', // /contact/
     newsletterSignup: '01M5421ZBBAAEPEEQB6DV7W1B6', // /newsletter/
-    newsletterUnsubscribe: '01M54344EYC6CM7DTS0QBXTN4Z' // /newsletter/unsubscribe/
+    newsletterUnsubscribe: '01M54344EYC6CM7DTS0QBXTN4Z', // /newsletter/unsubscribe/
+    // Checkout on each job-title training page (until its LMS course id exists). The page address is sent as the
+    // hidden field page_url, so each order shows which training was bought.
+    trainingCheckout: '01M6XRJKMGT7X82NTX8R3BEZ4G'
   },
 
   // Partner discount program (/partners/): learners who use a partner's code get `discount`
