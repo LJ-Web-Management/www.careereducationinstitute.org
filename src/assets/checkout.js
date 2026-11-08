@@ -149,8 +149,8 @@
   };
   codeBtn.addEventListener('click', function () { if (applied) clearCode(); else applyCode(); });
   codeEl.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); applyCode(); } });
-  // A code from the URL (?code=) or from a partner's share link is filled in and applied.
-  var startCode = params.get('code') || (window.MP && MP.code ? MP.code() : '');
+  // A code in the checkout address (?code=) is filled in and applied.
+  var startCode = params.get('code');
   if (startCode) { codeEl.value = startCode; applyCode(); }
 
   form.addEventListener('submit', async function (e) {

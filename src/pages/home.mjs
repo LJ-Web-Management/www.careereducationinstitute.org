@@ -60,7 +60,7 @@ export function homePage(ctx) {
 
 <section class="section alt"><div class="wrap"><div class="section-head"><p class="eyebrow">Instant access</p><h2>Trainings you can start in five minutes</h2><p>Buy at checkout and your login arrives by email right away.</p></div>${partnerTable(partnerCourses)}<p class="btn-row"><a class="btn btn-primary" href="${href('/training/')}">Search all trainings</a><a class="btn" href="${href('/cart/')}">View cart</a></p></div></section>
 
-${band('Training new hires? Give every one the same strong start.', 'Onboarding training by job title for employers, staffing agencies and workforce programs, with group pricing.', 'See employer training', '/for-employers/', 'Hiring guides', '/employers/hiring-guides/')}
+${band('Training new hires? Give every one the same strong start.', 'Onboarding and retraining subscriptions for employers and workforce programs, priced by seats per month.', 'See the jobs and workforce program', '/for-employers/', 'Hiring guides', '/employers/hiring-guides/')}
 
 ${featuredGuides.length ? `<section class="section centered"><div class="wrap"><div class="section-head"><p class="eyebrow">Guides</p><h2>Plain-English career guides</h2></div><ul class="list-view">${featuredGuides.map((g) => `<li><h3><a href="${href(gp(g))}">${esc(g.title)}</a></h3><p>${esc(g.desc)}</p></li>`).join('')}</ul><p style="margin-top:20px"><a class="btn" href="${href('/guides/')}">All guides</a></p></div></section>` : ''}
 

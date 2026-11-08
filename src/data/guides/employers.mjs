@@ -386,7 +386,7 @@ Clients judge agencies by how quickly placed workers become productive and how o
 - Safety basics and PPE expectations
 - Professional expectations: attendance, communication, reporting
 
-Our [job-title trainings](/for-staffing-agencies/) cover these for {careers} roles, including high-volume staffing categories such as [warehouse associate](/training/warehouse-associate/), [forklift operator](/training/forklift-operator/), [CNA](/training/certified-nursing-assistant/), [janitor](/training/janitor/), [hand packer](/training/hand-packer/) and [customer service representative](/training/customer-service-representative/).
+Our [job-title trainings](/training/) cover these for {careers} roles, including high-volume staffing categories such as [warehouse associate](/training/warehouse-associate/), [forklift operator](/training/forklift-operator/), [CNA](/training/certified-nursing-assistant/), [janitor](/training/janitor/), [hand packer](/training/hand-packer/) and [customer service representative](/training/customer-service-representative/).
 
 ## How to build it into your process
 1. Assign training after the initial screen and before placement.

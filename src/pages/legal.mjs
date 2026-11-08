@@ -23,7 +23,7 @@ This Privacy Policy explains how we collect, uses, discloses and protects person
 
 ## 1. Information we collect
 ### Information you give us
-- **Enrollment and partner program requests.** Our enrollment and partner sign-up forms do not send or store your information on this website. When you press the submit button, your own email application opens with a pre-filled message. If you choose to send it, we receive what you include, typically your name, email address, phone number (optional), state, course of interest, number of learners, organization (for group and partner requests), any partner discount code and any message.
+- **Enrollment and subscription requests.** Our enrollment and subscription request forms do not send or store your information on this website. When you press the submit button, your own email application opens with a pre-filled message. If you choose to send it, we receive what you include, typically your name, email address, phone number (optional), state, course of interest, number of learners, organization (for group and subscription requests) and any message.
 - **Contact and newsletter forms.** Our contact form and our newsletter sign-up and unsubscribe forms are hosted by a third-party form provider. What you enter there (for example, your name, email address, phone number, company and message) is collected by that provider and shared with us so we can reply to you or manage your newsletter subscription.
 - **Course enrollment and payment.** When you enroll, we collect the information needed to create your learning-platform (LMS) account and process payment.
 - **Online checkout.** When you buy a course on our checkout page, the details you enter (name, email, phone, company, billing address and number of learners) are sent to the learning platform of ${sister}, to create your learner account and order. Your card details are entered into a secure form provided by Stripe, Inc. and go directly to Stripe. We never see or store full card numbers.
@@ -35,7 +35,7 @@ This Privacy Policy explains how we collect, uses, discloses and protects person
 - **Analytics.** We use Google Analytics to collect pseudonymous usage information (pages viewed, approximate location, device type), with Google signals and ad personalization turned off. We also use Microsoft Clarity to see how visitors use our pages through heatmaps and session replays (clicks, scrolling and mouse movement); Clarity masks text you type into forms. Analytics does not load if your browser sends a Global Privacy Control (GPC) signal or if you opt out on our [Your Privacy Choices](/your-privacy-choices/) page.
 
 ### Information from others
-- Employers, staffing agencies or workforce programs that enroll you as part of a group may provide your name, work email and course assignment.
+- Employers, schools or workforce programs that enroll you as part of a group may provide your name, work email and course assignment.
 
 ## 2. How we use information
 - To respond to inquiries and process enrollment requests
@@ -200,7 +200,6 @@ Career Education Institute is built to be fast and private. **Our website does n
 | Local storage: \`cei-newsletter-popup\`, plus a blog service worker that stores nothing | Remembers that you have seen the newsletter sign-up popup on the blog, so it opens only once. The service worker caches no pages or data; it only lets a hard refresh show the popup again | Until you clear it | Yes: clear browser data |
 | Local storage: \`cei-cart\` | Keeps the courses and trainings you add to your cart, with learner numbers, so they are still there when you come back | Until you remove them, check out or clear it | Yes: empty your cart or clear browser data |
 | Local storage: \`cei-search-view\` | Remembers whether you prefer site search results as a list or a grid | Until you clear it | Yes: clear browser data |
-| Local storage: \`cei-partner-code\` | Remembers a partner discount code from a partner’s link, so it is filled in at checkout and on enrollment forms | ${cfg.partnerProgram.linkDays} days, or until you clear it | Yes: clear browser data |
 | Form provider (contact and newsletter forms) | Runs the contact form and the newsletter sign-up and unsubscribe forms, only on those three pages. The provider may set its own cookies under its privacy policy | Per the provider’s policy | Avoid those pages; call or email us instead |
 | Hosting logs (GitHub Pages) | Security and reliable delivery; set by our host, not by cookies we control | Per host’s policy | Not applicable |
 | Stripe cookies (for example, \`__stripe_mid\`, \`__stripe_sid\`) | Fraud prevention for card payments, set only on the checkout page | Up to 1 year | Avoid the checkout page; order by phone instead |
@@ -208,7 +207,7 @@ Career Education Institute is built to be fast and private. **Our website does n
 | Microsoft Clarity cookies (for example, \`_clck\`, \`_clsk\`) | Heatmaps and session replays of clicks, scrolling and mouse movement, with form input masked. Not set if your browser sends GPC or you opt out | Up to 1 year | Yes: GPC signal or [Your Privacy Choices](/your-privacy-choices/) |
 
 ## Quizzes and forms
-Quiz answers are processed in your browser and are not stored or sent. Enrollment and partner sign-up forms open your own email app, and the website itself does not store what you type. The contact form and the newsletter sign-up and unsubscribe forms are hosted by a third-party form provider, which receives what you enter there. The checkout page sends your order details to our course provider and your card details to Stripe, as described in our [Privacy Policy](/privacy-policy/).
+Quiz answers are processed in your browser and are not stored or sent. Enrollment and subscription request forms open your own email app, and the website itself does not store what you type. The contact form, the checkout form on each job-title training page and the newsletter sign-up and unsubscribe forms are hosted by a third-party form provider, which receives what you enter there. The checkout page sends your order details to our course provider and your card details to Stripe, as described in our [Privacy Policy](/privacy-policy/).
 
 ## Third-party sites
 When you follow links to other sites (such as government data sources or our learning platform), those sites may use their own cookies under their own policies.

@@ -2,9 +2,6 @@
   var forms = document.querySelectorAll('form[data-enroll]');
   [].forEach.call(forms, function (form) {
     var box = form.parentNode, notice = box.querySelector('.notice'), err = form.querySelector('.err');
-    // Fill in a partner discount code remembered from a partner's share link
-    var codeField = form.elements.Code;
-    if (codeField && form.dataset.kind === 'enroll' && !codeField.value && window.MP && MP.code) codeField.value = MP.code();
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var bad = [];
@@ -27,18 +24,21 @@
       var subject, lines;
       var consent = 'Contact consent: agreed to Terms of Use and Privacy Policy';
       if (kind === 'subscription') {
-        subject = 'Subscription request: ' + v('Seats') + (v('Seats') === '1' ? ' seat, ' : ' seats, ') + v('Billing').toLowerCase() + ' (' + (v('Organization') || v('Name')) + ')';
+        var program = form.dataset.program || 'Jobs/Workforce';
+        subject = program + ' subscription request: ' + v('Seats') + (v('Seats') === '1' ? ' seat' : ' seats') + ' per month, ' + v('Billing').toLowerCase() + ' (' + (v('Organization') || v('Name')) + ')';
         lines = [
-          'Hello Career Education Institute team, I would like a quote for a seat subscription.',
+          'Hello Career Education Institute team, I would like a quote for a ' + program + ' subscription.',
           '',
           v('Organization') ? 'Organization: ' + v('Organization') : null,
-          v('Type') ? 'Program type: ' + v('Type') : null,
+          'Program: ' + program,
+          v('Type') ? 'Type: ' + v('Type') : null,
           'Name: ' + v('Name'),
           'Email: ' + v('Email'),
           'Phone: ' + (v('Phone') || 'Not provided'),
           'State: ' + v('State'),
-          'Seats: ' + v('Seats'),
+          'Seats per month: ' + v('Seats'),
           'Billing: ' + v('Billing'),
+          'White label: ' + (v('WhiteLabel') || 'No'),
           'Trainings of interest: ' + (v('Trainings') || 'Not sure yet'),
           '',
           'Notes: ' + (v('Message') || 'None'),
@@ -46,27 +46,6 @@
           v('Organization') ? 'Authorization: authorized to request for this organization (confirmed)' : 'Age confirmation: 18 or older, or parent/guardian (confirmed)',
           consent
         ].filter(function (l) { return l !== null; });
-      } else if (kind === 'partner') {
-        subject = 'Partner program sign-up: ' + v('Organization') + ' (' + v('Type') + ')';
-        lines = [
-          'Hello Career Education Institute team, we would like to join the partner discount program.',
-          '',
-          'Organization: ' + v('Organization'),
-          'Organization type: ' + v('Type'),
-          'Website: ' + (v('Website') || 'Not provided'),
-          'Contact name: ' + v('Name'),
-          'Title or role: ' + (v('Role') || 'Not provided'),
-          'Email: ' + v('Email'),
-          'Phone: ' + (v('Phone') || 'Not provided'),
-          'State: ' + v('State'),
-          'People who could use the code: ' + (v('Reach') || 'Not provided'),
-          'Preferred code: ' + (v('Code') || 'No preference'),
-          '',
-          'How we plan to share the code: ' + (v('Message') || 'Not provided'),
-          '',
-          'Authorization: authorized to sign up on behalf of this organization (confirmed)',
-          consent
-        ];
       } else {
         subject = kind === 'employer' ? 'Group training request: ' + (v('Organization') || v('Name')) : kind === 'cart' ? 'Enrollment request: ' + v('CartCount') + (v('CartCount') === '1' ? ' training (' : ' trainings (') + v('Name') + ')' : 'Enrollment request: ' + course + ' (' + v('Name') + ')';
         lines = [
@@ -85,7 +64,6 @@
         if (kind === 'cart') lines.push('', 'Trainings in my cart:', v('Cart'), '');
         lines.push('Enrolling: ' + v('Enrolling'));
         if (kind !== 'cart') lines.push('Number of learners: ' + (v('Learners') || '1'));
-        if (v('Code')) lines.push('Partner discount code: ' + v('Code').toUpperCase());
         lines.push('', 'Notes: ' + (v('Message') || 'None'), '', 'Age confirmation: 18 or older, or parent/guardian (confirmed)', consent);
       }
       lines.push('Sent from: ' + location.href);

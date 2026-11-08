@@ -61,9 +61,12 @@ export default {
     { min: 501, max: 1000, discount: 0.1 }
   ],
 
-  // Program seat subscriptions (/for-workforce-programs/). No prices are published: every request is quoted by email.
-  // Yearly billing is the default and the one we recommend. Plans drop `loyalty.step` in price after each full year,
-  // up to `loyalty.max`; the discount resets when seats are reduced or the plan is cancelled.
+  // The two subscription programs: Jobs/Workforce (/for-employers/: onboarding and retraining) and Schools
+  // (/for-schools/: high schools and colleges). Price is set by the number of seats per month and quoted by email
+  // (no prices are published). Every subscriber gets its own landing page for its learners; white label (their
+  // branding instead of ours) is a paid add-on. Yearly billing is the default and the one we recommend. Plans drop
+  // `loyalty.step` in price after each full year, up to `loyalty.max`; the discount resets when seats are reduced or
+  // the plan is cancelled.
   subscriptions: {
     cycles: ['Yearly', 'Monthly'],
     loyalty: { step: 0.03, max: 0.15 }
@@ -88,11 +91,6 @@ export default {
     // hidden field page_url, so each order shows which training was bought.
     trainingCheckout: '01M6XRJKMGT7X82NTX8R3BEZ4G'
   },
-
-  // Partner discount program (/partners/): learners who use a partner's code get `discount`
-  // off, and the partner earns `share` of the sale price after that discount. A partner's
-  // share link (any page with ?code=XYZ) keeps the code filled in for `linkDays` days.
-  partnerProgram: { discount: 0.1, share: 0.05, linkDays: 30 },
 
   // Google Analytics 4 measurement id and Microsoft Clarity project id. Both load after page load,
   // never with GPC or the opt-out on /your-privacy-choices/ (see src/assets/site.js).
