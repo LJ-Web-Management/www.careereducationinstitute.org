@@ -51,6 +51,15 @@ try {
     ? await fetch(blogSrc, { signal: AbortSignal.timeout(10000) }).then((r) => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
     : JSON.parse(fs.readFileSync(blogSrc, 'utf8'));
 } catch (e) { console.warn(`! blog posts not loaded from ${blogSrc} (${e.message}); homepage blog section skipped`); }
+// posts.json comes from another repository (or the live blog): keep only well-formed posts, so one bad entry can neither
+// stop the build (an unreadable date) nor put markup into this site's pages.
+{
+  const ok = (p) => p && typeof p.title === 'string' && typeof p.slug === 'string' && /^[A-Za-z0-9][A-Za-z0-9._~/-]*$/.test(p.slug) && !p.slug.includes('..')
+    && typeof p.date === 'string' && /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/.test(p.date);
+  const list = Array.isArray(posts) ? posts : [];
+  posts = list.filter(ok).map((p) => ({ ...p, category: typeof p.category === 'string' ? p.category : '', description: typeof p.description === 'string' ? p.description : '' }));
+  if (posts.length < list.length) console.warn(`! skipped ${list.length - posts.length} blog post(s) with a missing title, slug or YYYY-MM-DD date`);
+}
 const cats = categories.filter((cat) => careers.some((c) => c.cat === cat.slug));
 checkFinder(byslug, cats); // College & Career Finder mappings must point at real careers and trainings
 setGlobals({ careers, categories: cats, partners: partnerCourses });

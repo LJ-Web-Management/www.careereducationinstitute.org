@@ -1,5 +1,5 @@
 import cfg from '../../site.config.mjs';
-import { esc, href, abs, money, money2, pct, num, fmtDate, clamp, fitTitle, listJoin, lowerFirst, year, taskPhrase } from '../lib/util.mjs';
+import { esc, jsonScript, href, abs, money, money2, pct, num, fmtDate, clamp, fitTitle, listJoin, lowerFirst, year, taskPhrase } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, ctaCard, sideLinks, answerBox, icon } from '../lib/layout.mjs';
 import { subnav, pick, dataNote, facts, rangeBar, occupationSchema, relatedCards, compareSlug, genFaqs, stateNote, growthWord, SUB, searchKeywords } from '../lib/career-helpers.mjs';
 import { catBySlug } from '../data/categories.mjs';
@@ -272,7 +272,7 @@ ${others.length ? `<h2 id="more">More ${esc(c.lower)} how-to guides</h2><ul>${ot
 <form class="quiz" data-quiz novalidate>${statements.map((st, i) => `<fieldset><legend><span class="qn">Statement ${i + 1} of ${statements.length}</span>${esc(st)}</legend><div class="scale">${['Strongly disagree', 'Disagree', 'Not sure', 'Agree', 'Strongly agree'].map((lab, v) => `<label class="opt"><input type="radio" name="q${i}" value="${v + 1}" required><span>${lab}</span></label>`).join('')}</div></fieldset>`).join('')}
 <div class="quiz-bar"><div class="progress" aria-hidden="true"><i></i></div><button class="btn btn-primary" type="submit">See my fit score</button></div></form>
 <section class="results" aria-live="polite" tabindex="-1"></section>
-<script type="application/json" id="quiz-data">${JSON.stringify(data)}</script>
+<script type="application/json" id="quiz-data">${jsonScript(data)}</script>
 <h2 id="about">What this career really involves</h2><p>${esc(c.summary)}</p><ul>${c.duties.slice(0, 5).map((d) => `<li>${esc(d)}</li>`).join('')}</ul><p>Read a full <a href="${href(c.url + 'day-in-the-life/')}">day in the life</a> or see <a href="${href(c.url + 'salary/')}">${esc(c.lower)} salary data</a>.</p>`;
     const s = shell(c, ctx, { path, h1: `Is ${esc(c.title)} the Right Career for You?`, lead: `A quick, free ${statements.length}-question quiz to see how well the ${esc(c.lower)} career fits your personality, preferences and goals.`, eyebrow: 'Career fit quiz', crumb: 'Fit Quiz', main });
     pages.push({

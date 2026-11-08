@@ -6,11 +6,16 @@
   if (!root || !dataEl || !window.MP || !MP.cart) return;
   var D = JSON.parse(dataEl.textContent);
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  // Cart items come from browser storage: look them up only as the page's own entries (never "constructor" and the like)
+  var has = function (o, k) { return typeof k === 'string' && Object.prototype.hasOwnProperty.call(o, k); };
+  var sel = function (v) { return window.CSS && CSS.escape ? CSS.escape(v) : String(v).replace(/["\\]/g, '\\$&'); };
+  // Links point at this site only: the course page from the page data, or the training page for the slug
+  var urlOf = function (i) { return i.k === 'course' ? D.courses[i.s].u : /^\/(?!\/)[^\s"<>]*$/.test(i.u || '') ? i.u : ((window.MP && MP.base) || '') + '/training/' + encodeURIComponent(i.s) + '/'; };
   var fmt = function (n) { return '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
   var round = function (n) { return Math.round(n * 100) / 100; };
   var tierFor = function (n) { for (var i = D.tiers.length - 1; i >= 0; i--) if (n >= D.tiers[i].min) return D.tiers[i]; return D.tiers[0]; };
   // Current price for an item, or null when it is no longer sold that way
-  var priceOf = function (i) { return i.k === 'course' ? (D.courses[i.s] ? D.courses[i.s].p : null) : (D.trainings[i.s] != null ? D.trainings[i.s] : null); };
+  var priceOf = function (i) { return i.k === 'course' ? (has(D.courses, i.s) ? D.courses[i.s].p : null) : i.k === 'training' && has(D.trainings, i.s) ? D.trainings[i.s] : null; };
   var line = function (i) {
     var p = priceOf(i), n = Math.max(1, Math.min(1000, parseInt(i.n, 10) || 1)), t = tierFor(n);
     var sub = round(p * n), total = round(round(p * (1 - t.discount)) * n);
@@ -34,8 +39,8 @@
       var sec = root.querySelector('[data-cart-group="' + k + '"]'), ls = groups[k];
       sec.hidden = !ls.length;
       sec.querySelector('[data-lines]').innerHTML = ls.map(function (l) {
-        var title = k === 'course' && D.courses[l.i.s] ? D.courses[l.i.s].t : l.i.t;
-        return '<li class="cart-line" data-k="' + k + '" data-s="' + esc(l.i.s) + '"><div><p class="k">' + (k === 'course' ? 'Online course' : 'Job-title training') + '</p><h3><a href="' + esc(l.i.u) + '">' + esc(title) + '</a></h3><p class="meta">' + fmt(l.p) + ' per learner</p></div>' +
+        var title = k === 'course' ? D.courses[l.i.s].t : String(l.i.t || l.i.s);
+        return '<li class="cart-line" data-k="' + k + '" data-s="' + esc(l.i.s) + '"><div><p class="k">' + (k === 'course' ? 'Online course' : 'Job-title training') + '</p><h3><a href="' + esc(urlOf(l.i)) + '">' + esc(title) + '</a></h3><p class="meta">' + fmt(l.p) + ' per learner</p></div>' +
           '<div class="amt">' + fmt(l.total) + (l.disc > 0 ? '<small>' + Math.round(l.t.discount * 100) + '% volume discount</small>' : '') + '</div>' +
           '<div class="ctl"><span class="qty"><button type="button" data-step="-1" aria-label="One fewer learner">−</button><input type="number" min="1" max="1000" value="' + l.n + '" aria-label="Learners for ' + esc(title) + '" inputmode="numeric"><button type="button" data-step="1" aria-label="One more learner">+</button></span><span class="small muted">' + (l.n === 1 ? 'learner' : 'learners') + '</span><button class="link-btn" type="button" data-remove>Remove</button></div></li>';
       }).join('');
@@ -47,7 +52,7 @@
       if (k === 'training') {
         var form = root.querySelector('form[data-enroll]');
         if (form) {
-          form.elements.Cart.value = ls.map(function (l) { return '- ' + l.i.t + ': ' + l.n + (l.n === 1 ? ' learner' : ' learners') + ' x ' + fmt(l.p) + (l.disc > 0 ? ', ' + Math.round(l.t.discount * 100) + '% volume discount' : '') + ' = ' + fmt(l.total); }).join('\n') + '\nEstimated total: ' + fmt(total);
+          form.elements.Cart.value = ls.map(function (l) { return '- ' + String(l.i.t || l.i.s) + ': ' + l.n + (l.n === 1 ? ' learner' : ' learners') + ' x ' + fmt(l.p) + (l.disc > 0 ? ', ' + Math.round(l.t.discount * 100) + '% volume discount' : '') + ' = ' + fmt(l.total); }).join('\n') + '\nEstimated total: ' + fmt(total);
           form.elements.CartCount.value = ls.length;
         }
       }
@@ -71,7 +76,7 @@
     var a = document.activeElement, li = a && a.closest && a.closest('.cart-line'), which = li && (a.matches('input') ? 'input' : a.getAttribute('data-step') ? '[data-step="' + a.getAttribute('data-step') + '"]' : null);
     var key = li && li.getAttribute('data-k') + '|' + li.getAttribute('data-s');
     render();
-    if (key && which) { var again = root.querySelector('.cart-line[data-k="' + key.split('|')[0] + '"][data-s="' + key.split('|')[1] + '"] ' + which); if (again) again.focus(); }
+    if (key && which) { var again = root.querySelector('.cart-line[data-k="' + sel(key.split('|')[0]) + '"][data-s="' + sel(key.split('|')[1]) + '"] ' + which); if (again) again.focus(); }
   });
   render();
 })();

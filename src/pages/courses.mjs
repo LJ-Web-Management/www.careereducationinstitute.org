@@ -1,5 +1,5 @@
 import cfg from '../../site.config.mjs';
-import { esc, href, abs, clamp, fitTitle, md, countLabel } from '../lib/util.mjs';
+import { esc, jsonScript, href, abs, clamp, fitTitle, md, countLabel } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, sideLinks, answerBox } from '../lib/layout.mjs';
 import { STATES, enrollForm, subscriptionForm, subscriptionTerms } from '../lib/forms.mjs';
 import { partnerCourses, partnerTable, tierTable, providerLine } from '../lib/partners.mjs';
@@ -38,7 +38,7 @@ export function coursePages(ctx) {
     const career = c.career && byslug[c.career];
     const related = partnerCourses.filter((x) => x !== c);
     const [p1, p2] = intro[c.career] || [];
-    const faqs = c.faqs.map(([q, a]) => [q, md(a, { headingIds: false }).html.replace(/^<p>|<\/p>$/g, '')]);
+    const faqs = c.faqs.map(([q, a]) => [q, md(a, { headingIds: false, html: false }).html.replace(/^<p>|<\/p>$/g, '')]);
     const summary = `${c.title} is the ${c.hoursAdj} online training for the ${c.jobLower} job${c.regulation ? `, covering ${c.regulation}` : ''}. It is available in ${c.langLabel} and costs ${price(c.price)} per learner.`;
     const main = `${answerBox('Course at a glance', esc(summary))}
 ${p1 ? `<p>${esc(p1)} ${esc(p2)}</p>` : ''}
@@ -70,7 +70,7 @@ ${related.length ? `<h2 id="related">More trainings you can start today</h2>${pa
         ...(c.objectives.length ? { teaches: c.objectives.slice(0, 8) } : {}),
         hasCourseInstance: [{ '@type': 'CourseInstance', courseMode: 'Online', courseWorkload: `PT${Math.round(c.hoursNum || 1)}H` }],
         offers: [{ '@type': 'Offer', category: 'Paid', price: c.price, priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: abs(path), seller: { '@id': abs('/#org') } }]
-      }, ...(faqs.length ? [faqSchema(c.faqs.map(([q, a]) => [q, md(a).html]), path)] : [])]
+      }, ...(faqs.length ? [faqSchema(c.faqs.map(([q, a]) => [q, md(a, { html: false }).html]), path)] : [])]
     });
   }
 
@@ -142,7 +142,7 @@ ${field('address2', 'Apartment, suite or unit', 'text', false, ' autocomplete="a
 <section class="result-card" id="checkoutSuccess" hidden tabindex="-1"><p class="eyebrow">Order complete</p><h2>Thank you for your order</h2><p>Order reference: <strong data-order-ref></strong></p><p>Your receipt and course login details are being sent to <strong data-order-email></strong>. If you don’t see them within 15 minutes, check your spam folder or call ${cfg.phone}.</p><div class="btn-row"><a class="btn" href="${href('/training/')}">Browse more trainings</a></div></section>
 </div>
 <aside><div class="side-box order-summary"><h2>Order summary</h2><p class="summary-course" data-sum-name>Select a course</p><p class="small muted" data-sum-meta></p><table><tbody><tr><th scope="row" data-sum-qty>1 × $0.00</th><td class="num" data-sum-sub>$0.00</td></tr><tr data-sum-discount-row hidden><th scope="row" data-sum-discount-label>Volume discount</th><td class="num" data-sum-discount>-$0.00</td></tr><tr data-sum-code-row hidden><th scope="row" data-sum-code-label>Discount code</th><td class="num" data-sum-code>-$0.00</td></tr><tr class="total"><th scope="row">Total</th><td class="num" data-sum-total>$0.00</td></tr></tbody></table><p class="small muted">Prices in U.S. dollars. ${esc(providerLine())}.</p><p class="small"><a data-sum-link href="${href('/training/')}">View course details</a></p></div></aside></div>
-<script type="application/json" id="checkout-data">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
+<script type="application/json" id="checkout-data">${jsonScript(data)}</script>`;
     pages.push({ path, crumbs, noindex: true, og: '/og/courses.png', scripts: ['checkout'], title: 'Checkout | Career Education Institute', desc: 'Secure card checkout for Career Education Institute job-title trainings, with volume pricing from 2 learners and instant access by email.', body, schema: [] });
 
   // Cart (saved in the visitor's browser by site.js): online courses go to card checkout together; job-title trainings
@@ -160,7 +160,7 @@ ${field('address2', 'Apartment, suite or unit', 'text', false, ' autocomplete="a
 ${enrollForm({ kind: 'cart', id: 'cart-enroll', heading: 'Request enrollment for these trainings' })}</section>
 </div>
 <aside><div class="side-box cart-sum" data-cart-summary hidden><h2>Summary</h2><div data-sum-course hidden><p class="small" style="margin:0"><strong>Buy now</strong></p><table><tbody data-sum-rows></tbody></table><a class="btn btn-primary btn-block" data-checkout href="${data.checkout}">Check out online</a></div><div data-sum-training hidden style="margin-top:16px"><p class="small" style="margin:0"><strong>By request</strong> <span class="muted">(estimate)</span></p><table><tbody data-sum-rows></tbody></table><a class="btn btn-block" href="#cart-enroll">Request enrollment</a></div><p class="small muted" style="margin:12px 0 0">Volume pricing applies from 2 learners per course. Prices in U.S. dollars.</p></div>${sideLinks('Keep browsing', [['All job-title trainings', '/training/'], ['Subscriptions', '/subscriptions/'], ['Training for employers', '/for-employers/']])}</aside></div>
-<script type="application/json" id="cart-data">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
+<script type="application/json" id="cart-data">${jsonScript(data)}</script>`;
     pages.push({ path, crumbs, noindex: true, og: '/og/courses.png', scripts: ['cart', 'enroll'], title: 'Cart | Career Education Institute', desc: 'Your Career Education Institute cart: trainings to buy now by card and trainings to request together in one enrollment email.', body, schema: [] });
   }  }
   return pages;

@@ -21,10 +21,12 @@ for (let i = 0; i < ids.length; i += per) {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ seriesid: chunk.map(c => c.id), startyear: year, endyear: year, ...(key ? { registrationkey: key } : {}) })
   });
+  if (!res.ok) { console.error(`BLS API: HTTP ${res.status}`); process.exit(1); }
   const json = await res.json();
   if (json.status !== 'REQUEST_SUCCEEDED') { console.error(json.message); process.exit(1); }
   for (const s of json.Results.series) {
     const c = chunk.find(x => x.id === s.seriesID);
+    if (!c) continue; // not a series this request asked for
     const v = s.data?.[0]?.value;
     const n = v && v !== '-' ? Number(String(v).replace(/[^0-9.]/g, '')) : null;
     labor.careers[c.slug].wages[types[c.t]] = n;

@@ -7,7 +7,8 @@
   var base = (window.MP && window.MP.base) || '', idx = null;
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var norm = function (s) { return s.toLowerCase().replace(/[^a-z0-9 ]+/g, ' '); };
-  var link = function (u) { return /^https?:/.test(u) ? u : base + u; };
+  // Addresses are checked when the index loads (see load): full http(s) addresses as they are, site paths under the base path
+  var link = function (u) { return esc(/^https?:/.test(u) ? u : base + u); };
   // Filter groups for the page types in the index (anything else is "Other")
   var GROUPS = [
     ['careers', 'Careers', ['Career', 'Career field', 'Directory', 'Comparison']],
@@ -98,7 +99,14 @@
     status.textContent = 'Loading…';
     // The blog is a separate site (MP.blog) with its own index; results still show if it can't be loaded.
     var blog = fetch(((window.MP && window.MP.blog) || base + '/blog') + '/search-index.json').then(function (r) { return r.ok ? r.json() : []; }).catch(function () { return []; });
-    Promise.all([fetch(base + '/search-index.json').then(function (r) { return r.json(); }), blog]).then(function (j) { idx = j[0].concat(j[1]); cb(); });
+    // Entries also come from the blog's index (another repository): keep only those with a title and a web address or
+    // site path, so nothing else (a javascript: link, say) can become a link here.
+    var valid = function (p) { return p && typeof p.t === 'string' && typeof p.u === 'string' && /^(https?:\/\/|\/(?!\/))/i.test(p.u); };
+    var tidy = function (p) { return { t: p.t, u: p.u, d: typeof p.d === 'string' ? p.d : '', y: typeof p.y === 'string' ? p.y : '', k: typeof p.k === 'string' ? p.k : '' }; };
+    Promise.all([fetch(base + '/search-index.json').then(function (r) { return r.json(); }), blog]).then(function (j) {
+      idx = [].concat(Array.isArray(j[0]) ? j[0] : [], Array.isArray(j[1]) ? j[1] : []).filter(valid).map(tidy);
+      cb();
+    }).catch(function () { status.textContent = 'Search could not load. Please refresh the page and try again.'; });
   };
 
   typesEl.addEventListener('click', function (e) {
@@ -117,7 +125,7 @@
 
   var params = new URLSearchParams(location.search);
   var q0 = params.get('q');
-  if (params.get('type')) type = params.get('type');
+  if (params.get('type') && (params.get('type') === 'other' || GROUPS.some(function (g) { return g[0] === params.get('type'); }))) type = params.get('type');
   if (['az', 'za'].indexOf(params.get('sort')) > -1) sortEl.value = params.get('sort');
   if (q0) { input.value = q0; load(run); }
   form.addEventListener('submit', function (e) { e.preventDefault(); sync(); load(run); });

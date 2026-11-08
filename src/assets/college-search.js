@@ -5,6 +5,8 @@
 (function () {
   var d = document;
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  // Official school links become links only when they are web addresses (escaped for the attribute), never javascript: etc.
+  var web = function (u) { return typeof u === 'string' && /^https?:\/\//i.test(u) ? esc(u) : ''; };
   var CONTROL = { 1: 'Public', 2: 'Private nonprofit', 3: 'Private for-profit' }, LEVEL = { 1: 'Four-year', 2: 'Two-year' };
   var AWARD = { C: 'Certificate', A: 'Associate', B: 'Bachelor’s', M: 'Master’s', D: 'Doctoral' };
   var cache = {};
@@ -25,8 +27,8 @@
       var p = o.params || {};
       var fieldGroups = {}, fieldOrder = [];
       majors.forEach(function (m, i) { if (!fieldGroups[m[2]]) { fieldGroups[m[2]] = []; fieldOrder.push(m[2]); } fieldGroups[m[2]].push([m[0], m[1], i]); });
-      var stOpts = Object.keys(states).filter(function (s) { return rows.some(function (r) { return r[3] === s; }); }).map(function (s) { return '<option value="' + s + '"' + (p.state === s ? ' selected' : '') + '>' + esc(states[s]) + '</option>'; }).join('');
-      var mjOpts = fieldOrder.map(function (f) { return '<optgroup label="' + esc(f) + '">' + fieldGroups[f].map(function (m) { return '<option value="' + m[0] + '"' + (p.major === m[0] ? ' selected' : '') + '>' + esc(m[1]) + '</option>'; }).join('') + '</optgroup>'; }).join('');
+      var stOpts = Object.keys(states).filter(function (s) { return rows.some(function (r) { return r[3] === s; }); }).map(function (s) { return '<option value="' + esc(s) + '"' + (p.state === s ? ' selected' : '') + '>' + esc(states[s]) + '</option>'; }).join('');
+      var mjOpts = fieldOrder.map(function (f) { return '<optgroup label="' + esc(f) + '">' + fieldGroups[f].map(function (m) { return '<option value="' + esc(m[0]) + '"' + (p.major === m[0] ? ' selected' : '') + '>' + esc(m[1]) + '</option>'; }).join('') + '</optgroup>'; }).join('');
       var id = 'cs' + Math.random().toString(36).slice(2, 7);
       var sel = function (name, label, opts) { return '<div class="field"><label for="' + id + name + '">' + label + '</label><select id="' + id + name + '" name="' + name + '">' + opts + '</select></div>'; };
       el.innerHTML = '<form class="filters cs-filters" role="search" aria-label="Search colleges and universities">'
@@ -111,9 +113,9 @@
       og.hidden = !origin; og.textContent = origin ? 'Sorted by distance from ' + originLabel + (F.state || words.length || F.city ? '.' : ', within about 100 miles.') : '';
       el.querySelector('[data-list]').innerHTML = res.slice(0, shown).map(function (r) {
         var on = saved.indexOf(r[0]) > -1;
-        return '<li class="cs-item"><div class="cs-main"><button class="cs-name" type="button" data-id="' + r[0] + '">' + esc(r[1]) + '</button><span class="cs-loc">' + esc(r[2]) + ', ' + r[3] + (dist[r[0]] != null && dist[r[0]] < 99999 ? ' · about ' + Math.round(dist[r[0]]) + ' mi' : '') + '</span><ul class="chips"><li class="chip">' + CONTROL[r[6]] + '</li><li class="chip">' + LEVEL[r[7]] + '</li>' + (r[10] & 1 ? '<li class="chip chip-on">Online programs</li>' : '') + (r[9] ? '<li class="chip">Graduate</li>' : '') + '</ul></div><div class="cs-act">'
-          + (r[5] ? '<a class="btn btn-sm" href="' + esc(r[5]) + '" rel="nofollow noopener external" target="_blank">Website<span class="vh"> of ' + esc(r[1]) + ' (opens in a new tab)</span></a>' : '')
-          + (o.onSave ? '<button class="btn btn-sm' + (on ? ' btn-primary' : '') + '" type="button" data-save data-id="' + r[0] + '" aria-pressed="' + on + '">' + (on ? 'Saved' : 'Save') + '<span class="vh"> ' + esc(r[1]) + '</span></button>' : '') + '</div></li>';
+        return '<li class="cs-item"><div class="cs-main"><button class="cs-name" type="button" data-id="' + esc(r[0]) + '">' + esc(r[1]) + '</button><span class="cs-loc">' + esc(r[2]) + ', ' + esc(r[3]) + (dist[r[0]] != null && dist[r[0]] < 99999 ? ' · about ' + Math.round(dist[r[0]]) + ' mi' : '') + '</span><ul class="chips"><li class="chip">' + CONTROL[r[6]] + '</li><li class="chip">' + LEVEL[r[7]] + '</li>' + (r[10] & 1 ? '<li class="chip chip-on">Online programs</li>' : '') + (r[9] ? '<li class="chip">Graduate</li>' : '') + '</ul></div><div class="cs-act">'
+          + (web(r[5]) ? '<a class="btn btn-sm" href="' + web(r[5]) + '" rel="nofollow noopener external" target="_blank">Website<span class="vh"> of ' + esc(r[1]) + ' (opens in a new tab)</span></a>' : '')
+          + (o.onSave ? '<button class="btn btn-sm' + (on ? ' btn-primary' : '') + '" type="button" data-save data-id="' + esc(r[0]) + '" aria-pressed="' + on + '">' + (on ? 'Saved' : 'Save') + '<span class="vh"> ' + esc(r[1]) + '</span></button>' : '') + '</div></li>';
       }).join('') || '<li class="cs-empty">No colleges match these filters. Try removing one.</li>';
       el.querySelector('[data-more-wrap]').hidden = res.length <= shown;
       if (o.onCount) o.onCount(res.length);
@@ -123,24 +125,24 @@
       var dlg = el.querySelector('[data-dlg]'), body = dlg.querySelector('[data-dlg-body]');
       var ms = r[13].map(function (i) { return majors[i]; });
       body.innerHTML = '<h2 id="' + dlg.getAttribute('aria-labelledby') + '">' + esc(r[1]) + '</h2>' + (r[14] ? '<p class="muted small">Also known as ' + esc(r[14]) + '</p>' : '')
-        + '<p>' + esc(r[2]) + ', ' + r[3] + ' ' + r[4] + '</p><ul class="chips"><li class="chip">' + CONTROL[r[6]] + '</li><li class="chip">' + LEVEL[r[7]] + '</li><li class="chip">' + (r[8] && r[9] ? 'Undergraduate and graduate' : r[9] ? 'Graduate' : 'Undergraduate') + '</li></ul>'
+        + '<p>' + esc(r[2]) + ', ' + esc(r[3]) + ' ' + esc(r[4]) + '</p><ul class="chips"><li class="chip">' + CONTROL[r[6]] + '</li><li class="chip">' + LEVEL[r[7]] + '</li><li class="chip">' + (r[8] && r[9] ? 'Undergraduate and graduate' : r[9] ? 'Graduate' : 'Undergraduate') + '</li></ul>'
         + '<h3>Online education</h3><p>' + (r[10] & 1 ? 'Reports offering at least one program entirely online' + ((r[10] & 2) && (r[10] & 4) ? ' (undergraduate and graduate).' : r[10] & 2 ? ' (undergraduate).' : r[10] & 4 ? ' (graduate).' : '.') + ' Check with the school which programs are online.' : 'Does not report any program offered entirely online. Some individual courses may be online.') + '</p>'
-        + '<h3>Official links</h3><ul data-links>' + (r[5] ? '<li><a href="' + esc(r[5]) + '" rel="nofollow noopener external" target="_blank">School website</a></li>' : '') + '<li><a href="https://nces.ed.gov/collegenavigator/?id=' + r[0] + '" rel="noopener" target="_blank">College Navigator profile (U.S. Department of Education)</a>: costs, admissions, enrollment and outcomes</li></ul>'
-        + (ms.length ? '<h3>Majors offered from this guide</h3><ul class="cs-majors" data-majors>' + ms.map(function (m) { return '<li><a href="' + base + '/college-majors/' + m[0] + '/">' + esc(m[1]) + '</a></li>'; }).join('') + '</ul>' : '')
+        + '<h3>Official links</h3><ul data-links>' + (web(r[5]) ? '<li><a href="' + web(r[5]) + '" rel="nofollow noopener external" target="_blank">School website</a></li>' : '') + '<li><a href="https://nces.ed.gov/collegenavigator/?id=' + encodeURIComponent(r[0]) + '" rel="noopener" target="_blank">College Navigator profile (U.S. Department of Education)</a>: costs, admissions, enrollment and outcomes</li></ul>'
+        + (ms.length ? '<h3>Majors offered from this guide</h3><ul class="cs-majors" data-majors>' + ms.map(function (m) { return '<li><a href="' + base + '/college-majors/' + esc(m[0]) + '/">' + esc(m[1]) + '</a></li>'; }).join('') + '</ul>' : '')
         + '<h3>All programs reported</h3><div data-programs><p class="muted">Loading programs…</p></div>'
         + '<p class="small muted">Programs: awards the school reported to IPEDS (' + esc(meta.completions) + '). Program names can differ at the school.</p>';
       if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
       dlg.querySelector('[data-close]').focus();
       dlg.addEventListener('close', function f() { dlg.removeEventListener('close', f); if (from && from.focus) from.focus(); });
       
-      Promise.all([getJSON(base + '/assets/finder/programs/' + r[3] + '.json'), getJSON(base + '/assets/finder/cip.json')]).then(function (x) {
+      Promise.all([getJSON(base + '/assets/finder/programs/' + encodeURIComponent(r[3]) + '.json'), getJSON(base + '/assets/finder/cip.json')]).then(function (x) {
         var info = x[0][r[0]] || {}, cip = x[1];
         var links = body.querySelector('[data-links]');
-        if (info.a) links.insertAdjacentHTML('beforeend', '<li><a href="' + esc(info.a) + '" rel="nofollow noopener external" target="_blank">Admissions</a></li>');
-        if (info.n) links.insertAdjacentHTML('beforeend', '<li><a href="' + esc(info.n) + '" rel="nofollow noopener external" target="_blank">Net price calculator</a></li>');
+        if (web(info.a)) links.insertAdjacentHTML('beforeend', '<li><a href="' + web(info.a) + '" rel="nofollow noopener external" target="_blank">Admissions</a></li>');
+        if (web(info.n)) links.insertAdjacentHTML('beforeend', '<li><a href="' + web(info.n) + '" rel="nofollow noopener external" target="_blank">Net price calculator</a></li>');
         var ml = body.querySelector('[data-majors]');
-        if (ml && info.l) [].forEach.call(ml.children, function (li, k) { var lv = info.l[r[13][k]] || ''; if (lv) li.insertAdjacentHTML('beforeend', ' <span class="muted small">' + lv.split('').map(function (l) { return AWARD[l]; }).join(', ') + '</span>'); });
-        var progs = (info.p || '').split(',').filter(Boolean).map(function (p) { var a = p.split(':'); return [a[0], a[1]]; });
+        if (ml && info.l) [].forEach.call(ml.children, function (li, k) { var lv = String(info.l[r[13][k]] || ''); if (lv) li.insertAdjacentHTML('beforeend', ' <span class="muted small">' + lv.split('').map(function (l) { return AWARD[l]; }).join(', ') + '</span>'); });
+        var progs = (info.p || '').split(',').filter(Boolean).map(function (p) { var a = p.split(':'); return [a[0], a[1] || '']; });
         var fam = {};
         progs.forEach(function (p) { var k = p[0].slice(0, 2); (fam[k] = fam[k] || []).push(p); });
         body.querySelector('[data-programs]').innerHTML = progs.length ? Object.keys(fam).sort().map(function (k) {

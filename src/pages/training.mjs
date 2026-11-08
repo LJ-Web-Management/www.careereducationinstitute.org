@@ -1,5 +1,5 @@
 import cfg from '../../site.config.mjs';
-import { esc, href, abs, money, clamp, fitTitle, listJoin, lowerFirst, shuffle, hash, taskPhrase, countLabel } from '../lib/util.mjs';
+import { esc, jsonScript, href, abs, money, clamp, fitTitle, listJoin, lowerFirst, shuffle, hash, taskPhrase, countLabel } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, sideLinks, answerBox, icon } from '../lib/layout.mjs';
 import { enrollForm } from '../lib/forms.mjs';
 import { pick, searchKeywords } from '../lib/career-helpers.mjs';
@@ -122,7 +122,7 @@ ${faqBlock(faqs, `${c.title} training FAQ`)}
 <form class="quiz" data-quiz novalidate>${qs.map((q, i) => `<fieldset id="q${i + 1}"><legend><span class="qn">Question ${i + 1} of ${qs.length}</span>${esc(q.q)}</legend><div class="opts">${q.o.map((o, j) => `<label class="opt"><input type="radio" name="q${i}" value="${j}"><span>${esc(o)}</span></label>`).join('')}</div><details class="explain"><summary>Show answer</summary><p><strong>Answer: ${esc(q.o[q.a])}.</strong> ${esc(q.why)}</p></details></fieldset>`).join('')}
 <div class="quiz-bar"><div class="progress" aria-hidden="true"><i></i></div><button class="btn btn-primary" type="submit">Grade my test</button></div></form>
 <section class="results" aria-live="polite" tabindex="-1"></section>
-<script type="application/json" id="quiz-data">${JSON.stringify(data)}</script>
+<script type="application/json" id="quiz-data">${jsonScript(data)}</script>
 <h2 id="study">How to study</h2><ul><li>Review the <a href="${href(c.url + 'glossary/')}">${esc(c.lower)} glossary</a>: half of these questions test vocabulary.</li><li>Read the step-by-step guides: ${c.howto.map((h) => `<a href="${href(`${c.url}how-to/${h.slug}/`)}">${esc(taskPhrase(h.t))}</a>`).join(', ')}.</li><li>Retake the test until you score 90% or higher.</li></ul>`;
     const aside = `<div class="cta-card"><h2>Go beyond the practice test</h2><p>${esc(c.title)} training includes ${mods.length} modules and a full final exam.</p><a class="btn btn-primary" href="${href(c.trainingUrl)}">View training</a></div>${sideLinks('Study resources', [['Glossary', c.url + 'glossary/'], ['How-to guides', c.url + 'how-to/'], ['Interview questions', c.url + 'interview-questions/'], ['Career overview', c.url]])}`;
     pages.push({

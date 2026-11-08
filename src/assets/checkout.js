@@ -9,14 +9,17 @@
   var val = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
   var errBox = $('#checkoutError'), payBtn = $('#payBtn');
   var fmt = function (n) { return '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  // Courses named in the address or the browser cart count only if they are this page's own entries (not "constructor")
+  var isCourse = function (k) { return typeof k === 'string' && Object.prototype.hasOwnProperty.call(D.courses, k); };
 
   var params = new URLSearchParams(location.search);
   // Two ways in: ?course=<slug> buys one course (learners set below), ?cart=1 buys every online course in the
   // browser cart in one order (learners per course come from the cart).
   var slug = params.get('course');
   var fromCart = !slug && window.MP && MP.cart;
-  var lines = slug && D.courses[slug] ? [{ s: slug, c: D.courses[slug], n: 1 }]
-    : fromCart ? MP.cart.get().filter(function (i) { return i.k === 'course' && D.courses[i.s]; }).map(function (i) { return { s: i.s, c: D.courses[i.s], n: Math.max(1, Math.min(1000, parseInt(i.n, 10) || 1)) }; }) : [];
+  var lines = slug && isCourse(slug) ? [{ s: slug, c: D.courses[slug], n: 1 }]
+    : fromCart ? MP.cart.get().filter(function (i) { return i.k === 'course' && isCourse(i.s); }).map(function (i) { return { s: i.s, c: D.courses[i.s], n: Math.max(1, Math.min(1000, parseInt(i.n, 10) || 1)) }; }) : [];
   if (!lines.length) {
     form.hidden = true;
     var p = document.createElement('div');
@@ -33,7 +36,7 @@
   else {
     // Learner counts are set per course in the cart
     var seatsField = seatsEl.closest('.field');
-    seatsField.innerHTML = '<p class="small" style="margin:0">Learner numbers come from your cart: ' + lines.map(function (l) { return l.n + ' × ' + l.c.t; }).join('; ') + '. <a href="' + (window.MP ? MP.base : '') + '/cart/">Change them in your cart</a>.</p>';
+    seatsField.innerHTML = '<p class="small" style="margin:0">Learner numbers come from your cart: ' + lines.map(function (l) { return l.n + ' × ' + esc(l.c.t); }).join('; ') + '. <a href="' + (window.MP ? MP.base : '') + '/cart/">Change them in your cart</a>.</p>';
   }
   var seats = function () { var n = parseInt(seatsEl.value, 10); return n > 0 ? Math.min(n, 1000) : 1; };
   // Discount code checked with the provider LMS: a coupon (percentage or fixed amount) or an
@@ -66,7 +69,7 @@
     } else {
       set('data-sum-name', lines.length + (lines.length === 1 ? ' online course' : ' online courses'));
       var meta = $('[data-sum-meta]');
-      meta.innerHTML = '<ul class="sum-lines">' + r.ls.map(function (x) { return '<li><span>' + x.n + ' × ' + fmt(x.l.c.p) + ' ' + x.l.c.t.replace(/[&<>]/g, '') + '</span><span>' + fmt(x.sub) + '</span></li>'; }).join('') + '</ul>';
+      meta.innerHTML = '<ul class="sum-lines">' + r.ls.map(function (x) { return '<li><span>' + x.n + ' × ' + fmt(x.l.c.p) + ' ' + esc(x.l.c.t) + '</span><span>' + fmt(x.sub) + '</span></li>'; }).join('') + '</ul>';
       set('data-sum-qty', 'Subtotal');
       set('data-sum-discount-label', 'Volume discount');
     }
@@ -151,10 +154,13 @@
   codeEl.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); applyCode(); } });
   // A code from the URL (?code=) or from a partner's share link is filled in and applied.
   var startCode = params.get('code') || (window.MP && MP.code ? MP.code() : '');
+  if (!/^[A-Za-z0-9_-]{2,40}$/.test(startCode)) startCode = '';
   if (startCode) { codeEl.value = startCode; applyCode(); }
 
+  var busy = false;
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
+    if (busy) return; // one payment at a time (a second Enter or click while paying does nothing)
     errBox.hidden = true;
     var bad = [].filter.call(form.querySelectorAll('[required]'), function (el) {
       var ok = el.type === 'checkbox' ? el.checked : el.value.trim() !== '';
@@ -167,6 +173,12 @@
     if (bad.length) { bad[0].focus(); return fail('Please complete the highlighted fields (check your email, phone and 5-digit ZIP code).'); }
     if (!stripe || !card) return fail('The secure card form is still loading. Please wait a moment and try again.');
 
+    busy = true;
+    try { await pay(); } catch (x) { fail('Payment could not be completed. Please try again or call ' + D.phone + '.'); }
+    busy = false;
+  });
+
+  async function pay() {
     payBtn.disabled = true;
     payBtn.textContent = 'Processing…';
     var r = totals();
@@ -207,8 +219,9 @@
       if (od.clientSecret) {
         // The LMS sets the amount. Never charge more than the page shows.
         var pi = await stripe.retrievePaymentIntent(od.clientSecret);
-        var cents = pi.paymentIntent && pi.paymentIntent.amount;
-        if (cents && cents > Math.round(r.pay * 100) + 1) return fail(applied
+        var cents = pi && pi.paymentIntent && pi.paymentIntent.amount;
+        if (!(cents > 0)) return fail('We could not confirm the price for this order, so your card was not charged. Please try again or call ' + D.phone + ' and we will help you finish enrolling.');
+        if (cents > Math.round(r.pay * 100) + 1) return fail(applied
           ? 'Your discount code could not be applied to this order, so your card was not charged. Remove the code to pay ' + fmt(cents / 100) + ', or call ' + D.phone + ' and we will help.'
           : 'We could not confirm the price for this order, so your card was not charged. Please call ' + D.phone + ' and we will help you finish enrolling.');
         var cf = await stripe.confirmCardPayment(od.clientSecret, { payment_method: pm.paymentMethod.id });
@@ -227,5 +240,5 @@
     ok.hidden = false;
     ok.focus();
     ok.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
+  }
 })();

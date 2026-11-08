@@ -4,15 +4,15 @@
   // Partner share links: ?code=XYZ on any page remembers the discount code for MP.cd days, and
   // MP.code() hands it to the checkout and enrollment forms to fill in.
   var MP = window.MP = window.MP || {};
-  var CODE_KEY = 'cei-partner-code';
+  var CODE_KEY = 'cei-partner-code', CODE_RE = /^[A-Za-z0-9_-]{2,40}$/;
   try {
     var linkCode = new URLSearchParams(location.search).get('code');
-    if (linkCode && /^[A-Za-z0-9_-]{2,40}$/.test(linkCode)) localStorage.setItem(CODE_KEY, JSON.stringify({ c: linkCode, t: Date.now() }));
+    if (linkCode && CODE_RE.test(linkCode)) localStorage.setItem(CODE_KEY, JSON.stringify({ c: linkCode, t: Date.now() }));
   } catch (e) {}
   MP.code = function () {
     try {
       var saved = JSON.parse(localStorage.getItem(CODE_KEY) || 'null');
-      if (saved && Date.now() - saved.t < (MP.cd || 30) * 864e5) return saved.c;
+      if (saved && CODE_RE.test(saved.c) && Date.now() - saved.t < (MP.cd || 30) * 864e5) return saved.c;
       localStorage.removeItem(CODE_KEY);
     } catch (e) {}
     return '';
@@ -55,7 +55,7 @@
     var out = d.querySelector('[data-count]'), grid = d.querySelector('[data-cards]'), dir = d.querySelector('[data-dir]');
     var all = null, loading = false, total = out ? out.textContent : '', base = (window.MP && window.MP.base) || '';
     var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
-    var card = function (c) { return '<article class="card link fcard"><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-' + c.c + '"/></svg></span><h3><a class="stretch" href="' + base + c.u + '">' + esc(c.n) + '</a></h3><p>' + esc(c.b) + '</p><div class="fcard-foot"><span class="fcard-big">$' + Math.round(c.m).toLocaleString('en-US') + ' <small>median pay</small></span><span>' + (c.g > 0 ? '+' : '') + c.g.toFixed(1) + '% growth · Training: ' + esc(c.t) + '</span></div></article>'; };
+    var card = function (c) { return '<article class="card link fcard"><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-' + esc(c.c) + '"/></svg></span><h3><a class="stretch" href="' + esc(base + c.u) + '">' + esc(c.n) + '</a></h3><p>' + esc(c.b) + '</p><div class="fcard-foot"><span class="fcard-big">$' + Math.round(c.m).toLocaleString('en-US') + ' <small>median pay</small></span><span>' + (c.g > 0 ? '+' : '') + c.g.toFixed(1) + '% growth · Training: ' + esc(c.t) + '</span></div></article>'; };
     var run = function () {
       var q = (f.q.value || '').toLowerCase().trim(), cat = f.cat.value, edu = f.edu.value, sort = f.sort.value;
       if (!q && !cat && !edu && !sort) { grid.hidden = true; grid.innerHTML = ''; dir.hidden = false; if (out) out.textContent = total; return; }

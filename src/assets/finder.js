@@ -13,6 +13,9 @@
   var E = window.CEIRecommend, KEY = 'cei-finder';
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var ico = function (k) { return '<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-' + k + '"/></svg>'; };
+  // Saved answers, shared links and the address are visitor-controlled: a slug counts only as the data's own key
+  // (so "constructor" or "__proto__" never pass as a major, minor, career and so on)
+  var own = function (o, k) { return typeof k === 'string' && !!o && Object.prototype.hasOwnProperty.call(o, k); };
   var store = { get: function (k) { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } }, set: function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
   var STEPS = [['goals', 'Goals'], ['stage', 'Education'], ['interests', 'Interests'], ['colleges', 'Colleges'], ['majors', 'Majors'], ['minors', 'Minors'], ['careers', 'Careers'], ['skills', 'Skills'], ['results', 'Results']];
   var fresh = function () { return { v: 1, step: 0, goals: [], stage: '', interests: [], colleges: [], collegeInfo: {}, majors: [], minors: [], ctype: '', careers: [], industries: [], skills: [] }; };
@@ -43,9 +46,9 @@
     // A shared link shows those results without replacing this visitor's own saved answers
     if (shared) { try { S = Object.assign(fresh(), clean(JSON.parse(decodeURIComponent(escape(atob(shared.replace(/-/g, '+').replace(/_/g, '/'))))))); S.shared = true; } catch (e) {} }
     else if (saved && saved.v === 1) S = Object.assign(fresh(), clean(saved));
-    if (q.get('major') && P.major[q.get('major')] && S.majors.indexOf(q.get('major')) < 0) { S.majors.push(q.get('major')); save(); }
-    if (q.get('minor') && P.minor[q.get('minor')] && S.minors.indexOf(q.get('minor')) < 0) { S.minors.push(q.get('minor')); save(); }
-    if (q.get('interest') && P.interest[q.get('interest')] && S.interests.indexOf(q.get('interest')) < 0) { S.interests.push(q.get('interest')); save(); }
+    if (own(P.major, q.get('major')) && S.majors.indexOf(q.get('major')) < 0) { S.majors.push(q.get('major')); save(); }
+    if (own(P.minor, q.get('minor')) && S.minors.indexOf(q.get('minor')) < 0) { S.minors.push(q.get('minor')); save(); }
+    if (own(P.interest, q.get('interest')) && S.interests.indexOf(q.get('interest')) < 0) { S.interests.push(q.get('interest')); save(); }
     S.step = PAGE;
     root.innerHTML = '<div class="fz"><nav class="fz-steps" aria-label="Finder steps"><ol data-steps></ol></nav><div class="fz-bar" aria-hidden="true"><i data-bar></i></div><p class="fz-of" data-of></p><section class="fz-panel" data-panel></section><div class="fz-nav" data-nav></div></div><dialog class="dlg" data-dlg aria-labelledby="dlg-title"><div class="dlg-in"><button class="dlg-x" type="button" data-close aria-label="Close">×</button><div data-dlg-body></div></div></dialog>';
     bind();
@@ -54,7 +57,8 @@
   // Keep only known keys and values from saved or shared answers
   function clean(o) {
     var f = fresh(), out = {};
-    var known = function (list, set) { return (Array.isArray(list) ? list : []).filter(function (x) { return set ? !!set[x] : true; }); };
+    var str = function (v) { return v == null ? '' : String(v); };
+    var known =function (list, set) { return (Array.isArray(list) ? list : []).filter(function (x, i, a) { return (set ? own(set, x) : typeof x === 'string' || typeof x === 'number') && a.indexOf(x) === i; }); };
     out.step = Math.min(8, Math.max(0, +o.step || 0));
     out.goals = known(o.goals).filter(function (g) { return P.questions.goals.some(function (x) { return x.value === g; }); });
     out.stage = P.questions.stages.some(function (x) { return x.value === o.stage; }) ? o.stage : '';
@@ -62,8 +66,8 @@
     out.careers = known(o.careers, P.careers); out.skills = known(o.skills, P.skill);
     out.industries = known(o.industries).filter(function (x) { return P.categories.some(function (c) { return c.slug === x; }); });
     out.ctype = ['specific', 'industry', 'general', 'exploring'].indexOf(o.ctype) > -1 ? o.ctype : '';
-    out.colleges = known(o.colleges).map(Number).filter(Boolean).slice(0, 50);
-    out.collegeInfo = {}; out.colleges.forEach(function (id) { var c = o.collegeInfo && o.collegeInfo[id]; if (c) out.collegeInfo[id] = [String(c[0]), String(c[1]), String(c[2]), /^https?:\/\//.test(c[3]) ? c[3] : '']; });
+    out.colleges = known(o.colleges).map(Number).filter(function (n, i, a) { return n > 0 && n % 1 === 0 && a.indexOf(n) === i; }).slice(0, 50);
+    out.collegeInfo = {}; out.colleges.forEach(function (id) { var c = own(o.collegeInfo, String(id)) && o.collegeInfo[id]; if (Array.isArray(c)) out.collegeInfo[id] = [str(c[0]), str(c[1]), str(c[2]), /^https?:\/\//.test(c[3]) ? String(c[3]) : '']; });
     return Object.assign(f, out);
   }
   var save = function () { if (!S.shared) store.set(KEY, S); };

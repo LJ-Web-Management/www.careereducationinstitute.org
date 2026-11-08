@@ -1,4 +1,4 @@
-import { esc, href, abs, money, clamp, fitTitle, countLabel } from '../lib/util.mjs';
+import { esc, jsonScript, href, abs, money, clamp, fitTitle, countLabel } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, ctaCard, sideLinks, answerBox, band } from '../lib/layout.mjs';
 
 const SCALE = ['Strongly dislike', 'Dislike', 'Not sure', 'Like', 'Strongly like'];
@@ -33,7 +33,7 @@ function quizPage({ path, crumbs, eyebrow, h1, lead, intro, data, questions, aft
   const clean = { ...data, questions: questions.map((q) => (q.scale ? { scale: true, key: q.key } : { eduQ: !!q.eduQ, options: q.options.map(([, w]) => ({ w })) })) };
   const body = `${pageHero({ crumbs, eyebrow, h1, lead })}<div class="wrap layout"><div class="prose">${answerBox('How it works', intro)}
 <form class="quiz" data-quiz novalidate>${renderQuestions(questions)}<div class="quiz-bar"><div class="progress" aria-hidden="true"><i></i></div><button class="btn btn-primary" type="submit">See my results</button></div></form>
-<section class="results" aria-live="polite" tabindex="-1"></section><script type="application/json" id="quiz-data">${JSON.stringify(clean)}</script>${after}${faqs.length ? faqBlock(faqs) : ''}</div>
+<section class="results" aria-live="polite" tabindex="-1"></section><script type="application/json" id="quiz-data">${jsonScript(clean)}</script>${after}${faqs.length ? faqBlock(faqs) : ''}</div>
 <aside>${aside || ctaCard({ title: 'Turn results into a plan', text: 'Every career in our directory has a matching online training so you can learn the job before you commit.', btn: 'Browse trainings', link: '/training/' })}${sideLinks('More quizzes', [['Career Match Quiz', '/quizzes/career-match/'], ['College or Trade School?', '/quizzes/college-or-trade-school/'], ['Career Change Readiness', '/quizzes/career-change-readiness/'], ['Work Style Quiz', '/quizzes/work-style/'], ['All quizzes', '/quizzes/']].filter(([, l]) => l !== path))}</aside></div>`;
   return { path, crumbs, body, title, desc, og: '/og/quiz.png', kind: 'Quiz', name: h1, scripts: ['quiz'], schema: faqs.length ? [faqSchema(faqs, path)] : [] };
 }

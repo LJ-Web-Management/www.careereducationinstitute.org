@@ -3,6 +3,14 @@ import cfg from '../../site.config.mjs';
 export const esc = (s = '') =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
+// JSON for a <script> element (data blocks and inline scripts): "<" only ever appears inside JSON strings, so writing it
+// as < keeps a "</script>" or "<!--" in the data from ending the element early.
+export const jsonScript = (v) => JSON.stringify(v).replace(/</g, '\\u003c');
+
+// Link targets allowed in Markdown: web, email and phone links, in-page anchors and site paths. Anything else (for
+// example javascript: or data: URLs, which could run script when clicked) is dropped and the text shown unlinked.
+const safeLink = (u) => /^(https?:\/\/|mailto:|tel:|#|\/)/i.test(u) || /^[a-z0-9._~-]+(?:[/?#]|$)/i.test(u);
+
 export const slugify = (s) =>
   String(s).toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '')
     .replace(/['’]/g, '').replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
@@ -78,13 +86,16 @@ const inline = (s) => {
   out = out.replace(/(^|[^*])\*([^*\s][^*]*)\*/g, '$1<em>$2</em>');
   out = out.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, text, url) => {
     const u = url.replace(/&amp;/g, '&');
+    if (!safeLink(u)) return text;
     const ext = /^https?:/.test(u) && !u.startsWith(cfg.url);
     return `<a href="${esc(href(u))}"${ext ? ' rel="noopener"' : ''}>${text}</a>`;
   });
   return out;
 };
 
-export function md(src, { headingIds = true } = {}) {
+// html: false treats lines that start with an HTML tag as text (escaped), for Markdown that comes from outside this
+// repository, such as the provider catalog's FAQ answers.
+export function md(src, { headingIds = true, html = true } = {}) {
   const lines = String(src).replace(/\r\n?/g, '\n').split('\n');
   const out = [];
   const toc = [];
@@ -112,7 +123,7 @@ export function md(src, { headingIds = true } = {}) {
       continue;
     }
     if (/^---+$/.test(line.trim())) { flushAll(); out.push('<hr>'); continue; }
-    if (/^<(button|p|div|form|section|aside|figure|img|details|iframe)\b/.test(line.trim())) { flushAll(); out.push(line.trim()); continue; }
+    if (html && /^<(button|p|div|form|section|aside|figure|img|details|iframe)\b/.test(line.trim())) { flushAll(); out.push(line.trim()); continue; }
     if (line.startsWith('|')) { flushPara(); flushList(); flushQuote(); table.push(line.trim()); continue; }
     if ((m = line.match(/^>\s?(.*)$/))) { flushPara(); flushList(); flushTable(); quote.push(m[1]); continue; }
     if ((m = line.match(/^\s*[-*•]\s+(.*)$/))) {

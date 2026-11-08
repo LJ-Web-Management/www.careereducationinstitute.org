@@ -2,3 +2,6 @@ node_modules/
 dist/
 .DS_Store
 *.log
+# Local secrets (for example BLS_API_KEY): never commit
+.env
+.env.*

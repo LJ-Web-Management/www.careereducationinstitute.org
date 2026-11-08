@@ -9,6 +9,8 @@ const BASE = 'https://hazwoper-osha.com/';
 const OUT = new URL('../src/data/partner-courses.json', import.meta.url);
 const UA = { 'User-Agent': 'Mozilla/5.0 (Career Education Institute catalog sync)' };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+// An error page must never be read as the catalog: fail on any non-2xx response.
+const page = async (url) => { const r = await fetch(url, { headers: UA, signal: AbortSignal.timeout(60000) }); if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`); return r.text(); };
 
 const ENT = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', rsquo: '’', lsquo: '‘', ldquo: '“', rdquo: '”', ndash: '–', mdash: '\u2014', hellip: '…', reg: '®', trade: '™', copy: '©', deg: '°', frac12: '½', bull: '•', middot: '·', eacute: 'é', ntilde: 'ñ' };
 const decode = (s) => s.replace(/&(#x?[0-9a-f]+|[a-z]+);/gi, (m, e) => (e[0] === '#' ? String.fromCodePoint(e[1].toLowerCase() === 'x' ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10)) : ENT[e.toLowerCase()] ?? m));
@@ -95,7 +97,7 @@ function parseDetail(h) {
 }
 
 // 1) Catalog listing: id, price, hours, languages, detail path
-const listing = await (await fetch(BASE + 'online-courses', { headers: UA })).text();
+const listing = await page(BASE + 'online-courses');
 const cat = {};
 for (const m of listing.matchAll(/<[^>]*\bdata-id="(\d+)"[^>]*data-title="[^"]*"[^>]*>/g)) {
   const id = Number(m[1]);
@@ -118,12 +120,18 @@ const out = [];
 for (const { id, job, career = null } of selection) {
   const c = cat[id];
   if (!c || !c.path) { console.warn('! not found in catalog:', id); continue; }
-  const html = await (await fetch(BASE + c.path, { headers: UA })).text();
+  if (!(c.price > 0)) { console.warn('! no valid price in catalog:', id); continue; }
+  const html = await page(BASE + c.path);
   const d = parseDetail(html);
   const slug = c.path.split('/').pop();
   out.push({ id, slug, job, career, price: c.price, hours: c.hours, langs: c.langs, ...d, fetched: new Date().toLocaleDateString('en-CA') });
   process.stdout.write('.');
   await sleep(250);
+}
+// Checkout charges by these course ids and prices, so keep the current file unless every selected course came back.
+if (out.length < selection.length) {
+  console.error(`\n${selection.length - out.length} of ${selection.length} selected courses could not be read; src/data/partner-courses.json was not changed.`);
+  process.exit(1);
 }
 fs.writeFileSync(OUT, JSON.stringify(out, null, 1));
 console.log(`\nSaved ${out.length} partner courses.`);

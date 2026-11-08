@@ -156,6 +156,10 @@ export function loadColleges() {
   const hidden = new Set((custom.hide || []).map(String));
   const list = raw.institutions.filter((i) => !hidden.has(String(i.id))).map((i) => ({ ...i, ...(custom.edit?.[i.id] || {}) }));
   for (const a of custom.add || []) list.push({ programs: '', ug: 1, grad: 0, online: 0, onlineUg: 0, onlineGrad: 0, custom: 1, ...a });
+  // Official links must be web addresses: the college search turns them into links, so anything else is dropped.
+  for (const i of list) for (const k of ['web', 'admissions', 'netPrice']) {
+    if (i[k] && !/^https?:\/\/[^\s"<>]+$/i.test(i[k])) { console.warn(`! college ${i.id}: ${k} "${i[k]}" is not an http(s) address; left out`); i[k] = ''; }
+  }
   list.sort((a, b) => a.state.localeCompare(b.state) || a.name.localeCompare(b.name));
   // Majors each school reports awarding (a program code that starts with one of the major's CIP codes)
   const prefixes = majors.map((m, idx) => [idx, m.cip]);
