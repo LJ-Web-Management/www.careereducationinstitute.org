@@ -238,6 +238,18 @@
     });
   });
 
+  // Delivery notice on course pages: shown once per browser session, closed with the button, Esc or a click outside.
+  var notice = d.querySelector('dialog[data-notice]');
+  if (notice && notice.showModal) {
+    var seen = false;
+    try { seen = sessionStorage.getItem('cei-notice') === '1'; } catch (e) {}
+    if (!seen) {
+      notice.showModal();
+      notice.addEventListener('close', function () { try { sessionStorage.setItem('cei-notice', '1'); } catch (e) {} });
+      notice.addEventListener('click', function (e) { if (e.target === notice) notice.close(); });
+    }
+  }
+
   // Print buttons
   [].forEach.call(d.querySelectorAll('[data-print]'), function (b) { b.addEventListener('click', function () { window.print(); }); });
 })();
