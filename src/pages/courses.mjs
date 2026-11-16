@@ -57,7 +57,7 @@ ${career ? `<h2 id="career">The ${esc(career.lower)} career</h2><p>${esc(career.
 ${related.length ? `<h2 id="related">More trainings you can start today</h2>${partnerTable(related)}` : ''}`;
     const aside = `<div class="cta-card buy-box"><p class="eyebrow" style="color:#ffd88a">Job-title training</p><h2>${esc(c.short)}</h2><p class="buy-price">${price(c.price)}<span> per learner</span></p><ul><li>${esc(c.hours)}</li><li>${esc(c.langLabel)}</li><li>${esc(c.facts['What You Get'] || 'Certificate of completion')}</li>${c.ceu ? `<li>${esc(c.ceu)} CEU</li>` : ''}</ul><a class="btn btn-primary" href="${href(`/checkout/?course=${c.slug}`)}">Buy now</a><p class="small" style="margin:.8em 0 0">Invoice or purchase order? Call <a href="tel:${cfg.phoneE164}" style="color:#fff">${cfg.phone}</a>.</p></div>${sideLinks('Keep exploring', [...(career ? [[`${career.title} career`, career.url], ['Free practice test', career.trainingUrl + 'practice-test/']] : []), ['All job-title trainings', '/training/'], ['Refund policy', '/refund-policy/']])}`;
     pages.push({
-      path, crumbs, og: career ? `/og/${career.slug}.png` : '/og/training.png', kind: 'Training', name: c.title, scripts: [],
+      path, crumbs, og: career ? `/og/${career.slug}.png` : '/og/training.png', kind: 'Training', notice: true, name: c.title, scripts: [],
       mcta: `<a class="btn btn-primary" href="${href(`/checkout/?course=${c.slug}`)}">Buy now · ${price(c.price)}</a>`,
       title: fitTitle(`${c.title} Course (Online)`),
       desc: clamp(`${c.title}: ${c.hoursAdj} online course${c.regulation ? ` aligned with ${c.regulation}` : ''}. ${c.langLabel}, ${price(c.price)} per learner, certificate of completion. Buy online today.`),

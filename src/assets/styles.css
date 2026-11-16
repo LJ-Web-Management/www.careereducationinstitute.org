@@ -785,3 +785,10 @@ table.cmp td ul{margin:0;padding-left:1.1em;font-size:.88rem}
 .tfc-num{flex:none;margin-top:-3px;display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--gold);color:var(--navy);font-size:.9rem}
 @media (max-width:560px){.tfc-head,.tfc-summary,.tfc-form{padding-left:16px;padding-right:16px}.tfc-line{flex-direction:column;gap:6px}.tfc-price{text-align:left}.tfc-price small{display:inline;margin-left:6px}}
 @media (max-width:760px){.tfc-form [data-tf-widget],.tfc-form [data-tf-widget] iframe{min-height:360px}}
+/* Delivery notice (course pages) */
+.delivery-notice{width:min(460px,calc(100% - 32px));padding:28px 26px 24px;border:2px solid var(--navy);border-radius:var(--r);background:#fff;color:var(--text);box-shadow:8px 8px 0 var(--gold)}
+.delivery-notice::backdrop{background:rgba(2,35,80,.55)}
+.delivery-notice h2{margin:0 0 .5em;font-size:1.5rem}
+.delivery-notice p{margin:0 0 1.2em}
+.delivery-notice form{margin:0}
+.delivery-notice .btn{width:100%}
