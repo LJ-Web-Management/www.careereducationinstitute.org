@@ -1,6 +1,6 @@
 import cfg from '../../site.config.mjs';
 import { esc, href, money, money2, pct, num, article, listJoin, slugify, fmtDate } from './util.mjs';
-import { courseHours, priceForHours } from '../data/course-pricing.mjs';
+import { courseTier, hoursForTier, priceForTier, DEFAULT_TIER } from '../data/course-pricing.mjs';
 import { replaceTraining } from '../data/partner-selection.mjs';
 
 // BLS publishes only annual wages for some salaried occupations (teachers, pilots, coaches).
@@ -22,8 +22,8 @@ export function enrich(c, labor) {
     ...c, l, lower, plural, pluralLower, traits,
     a: c.article || article(lower),
     short: c.short || c.title,
-    hours: courseHours[c.slug] || 10,
-    price: priceForHours[courseHours[c.slug] || 10],
+    hours: hoursForTier[courseTier[c.slug] || DEFAULT_TIER],
+    price: priceForTier[courseTier[c.slug] || DEFAULT_TIER],
     replacedBy: replaceTraining[c.slug] || null,
     url: `/careers/${c.slug}/`,
     trainingUrl: `/training/${c.slug}/`,

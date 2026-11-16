@@ -7,7 +7,7 @@ import cfg from '../site.config.mjs';
 import { categories } from '../src/data/categories.mjs';
 import { enrich } from '../src/lib/career-helpers.mjs';
 import { modules } from '../src/pages/training.mjs';
-import { minutesLabel, priceForHours } from '../src/data/course-pricing.mjs';
+import { minutesLabel, priceForTier, hoursForTier } from '../src/data/course-pricing.mjs';
 import { partnerCourses } from '../src/lib/partners.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -24,15 +24,17 @@ const build = careers.filter((c) => !c.replacedBy);
 const replaced = careers.filter((c) => c.replacedBy);
 let md = `# Career Education Institute course specs
 
-Generated ${new Date().toLocaleDateString('en-CA')} by \`npm run course-specs\`. Do not edit by hand: change \`src/data/course-pricing.mjs\` (hours) or the career data, then run the script again.
+Generated ${new Date().toLocaleDateString('en-CA')} by \`npm run course-specs\`. Do not edit by hand: change \`src/data/course-pricing.mjs\` (tiers and hours) or the career data, then run the script again.
 
 Each job-title training is self-paced online with ${cfg.course.access}, ends with a final knowledge check and awards a ${cfg.course.certificate.toLowerCase()}. Seat time below is the target the website advertises, so build each course to that length.
 
-## Price ladder
+## Price tiers
 
-| Length | Price per learner |
-|---|---|
-${Object.entries(priceForHours).map(([h, p]) => `| ${h} hours | ${$(p)} |`).join('\n')}
+Price follows the role tier, not course length. Every training is 3 or 4 hours.
+
+| Tier | Length | Price per learner |
+|---|---|---|
+${Object.entries(priceForTier).map(([t, p]) => `| ${t} | ${hoursForTier[t]} hours | ${$(p)} |`).join('\n')}
 
 Volume discounts at checkout and on quotes: ${cfg.bulkTiers.filter((t) => t.discount > 0).map((t) => `${t.min} to ${t.max} seats ${Math.round(t.discount * 100)}%`).join(', ')}.
 

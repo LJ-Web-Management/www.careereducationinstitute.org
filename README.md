@@ -104,8 +104,8 @@ form (`#enroll`) for the others. The non-credit disclaimers are paired with a va
 you for $39.99, before you spend thousands…”).
 
 ## Pricing and course length
-Job-title trainings are priced under $50, by length: 6 hours $29.99, 8 hours $34.99, 10 hours $39.99, 12 hours $44.99,
-14 hours $49.99. Each course splits into 10 timed modules. **COURSE-SPECS.md** lists every training's
+Every job-title training is 3 or 4 hours long and priced under $50. Price is set by role tier (`priceForTier` in
+`src/data/course-pricing.mjs`), not by length. Each course splits into 10 timed modules. **COURSE-SPECS.md** lists every training's
 length, price and module plan for the course builders. Regenerate it with `npm run course-specs`.
 
 Provider courses use the provider's own price, because the provider LMS charges by course id.

@@ -8,12 +8,12 @@ import { employerCats } from '../data/employer-cats.mjs';
 import { guides, gp } from '../data/guides/index.mjs';
 import { resources } from '../data/resources.mjs';
 import { fieldCourses } from '../lib/partners.mjs';
-import { courseHours, priceForHours } from '../data/course-pricing.mjs';
+import { courseHours, priceForTier } from '../data/course-pricing.mjs';
 
 const E = ['Home', '/'];
 const JOBS = Object.keys(courseHours).length;
 const HOURS = Object.values(courseHours);
-const PRICES = Object.values(priceForHours);
+const PRICES = Object.values(priceForTier);
 const EH = ['Employers', '/employers/'];
 const empGuides = () => guides.filter((g) => g.topic === 'employers');
 const empSheets = () => resources.filter((r) => r.audience === 'employers');

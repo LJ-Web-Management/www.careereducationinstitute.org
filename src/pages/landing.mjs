@@ -1,13 +1,13 @@
 import { esc, href, abs, money, money2, clamp, fitTitle, md, wordCount, fmtDate, countLabel } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, ctaCard, sideLinks } from '../lib/layout.mjs';
 import { tierTable, partnerById } from '../lib/partners.mjs';
-import { priceForHours } from '../data/course-pricing.mjs';
+import { priceForTier, hoursForTier } from '../data/course-pricing.mjs';
 import { landingPages, fieldLandings } from '../data/landing.mjs';
 
 // Keyword landing pages (src/data/landing.mjs), one per keyword cluster, at /<slug>/.
 const UPDATED = '2026-11-08';
-const HOURS = Object.keys(priceForHours).map(Number);
-const PRICES = Object.values(priceForHours);
+const HOURS = Object.values(hoursForTier);
+const PRICES = Object.values(priceForTier);
 const usd = (n) => '$' + money2(n).slice(1);
 
 export const landingPath = (slug) => `/${slug}/`;
