@@ -36,6 +36,7 @@ guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The b
 | Have Codex write and publish a post | In the **blog.careereducationinstitute.org** repository: send Codex the one-line prompt at the top of its BLOG-POST-PROMPT.md |
 | Change phone, emails, legal company, governing state, volume discounts | Edit `site.config.mjs` |
 | Turn the course delivery popup on or off | Edit `popup.txt` in the repo root: `true` shows the popup on every course page, `false` hides it. Then push |
+| Turn checkout on or off | Edit `checkout.txt` in the repo root: `true` keeps checkout open, `false` replaces the checkout page and the checkout form on every training page with a "checkout is temporarily disabled" notice. Then push |
 | Change a job-title training's length | Edit `src/data/course-pricing.mjs` (the price follows the length ladder), then run `npm run course-specs` |
 | Add or remove a provider course | Edit `src/data/partner-selection.mjs` (LMS course id, page slug, job title, field), then run `npm run update-partner-courses`. Only list courses that are the complete training for a job title, not topic, refresher or endorsement courses |
 | Refresh provider course prices and details | `npm run update-partner-courses` (reads the provider catalog and rewrites `src/data/partner-courses.json`) |

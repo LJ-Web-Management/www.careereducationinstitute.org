@@ -1,7 +1,7 @@
 import cfg from '../../site.config.mjs';
 import { esc, href, abs, clamp, fitTitle, md, countLabel } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, sideLinks, answerBox } from '../lib/layout.mjs';
-import { STATES, enrollForm } from '../lib/forms.mjs';
+import { STATES, enrollForm, CHECKOUT_ON, checkoutClosedNotice } from '../lib/forms.mjs';
 import { partnerCourses, partnerTable, tierTable, providerLine } from '../lib/partners.mjs';
 import { movedFrom } from '../data/partner-selection.mjs';
 import { cartItem } from './training.mjs';
@@ -88,7 +88,7 @@ ${related.length ? `<h2 id="related">More trainings you can start today</h2>${pa
     const crumbs = [['Home', '/'], coursesHub, ['Checkout', path]];
     const data = { key: cfg.checkout.stripePublishableKey, api: cfg.checkout.apiBase, from: cfg.checkout.orderFrom, tiers: cfg.bulkTiers, phone: cfg.phone, email: cfg.email, courses: Object.fromEntries(partnerCourses.map((c) => [c.slug, { id: c.id, t: c.title, p: c.price, h: c.hours, u: href(c.url) }])) };
     const field = (id, label, type = 'text', req = true, extra = '') => `<div class="field"><label for="${id}">${label}${req ? ' <span class="req" aria-hidden="true">*</span>' : ''}</label><input id="${id}" name="${id}" type="${type}"${req ? ' required' : ''}${extra}></div>`;
-    const body = `${pageHero({ crumbs, eyebrow: 'Secure checkout', h1: 'Checkout', lead: 'Enter your details and card to enroll. Your course login is emailed as soon as your order is complete.', meta: false })}
+    const openBody = () => `${pageHero({ crumbs, eyebrow: 'Secure checkout', h1: 'Checkout', lead: 'Enter your details and card to enroll. Your course login is emailed as soon as your order is complete.', meta: false })}
 <div class="wrap layout checkout"><div>
 <noscript><p class="callout">Checkout needs JavaScript. To order by phone, call ${cfg.phone} or email ${cfg.email}.</p></noscript>
 <form class="form form-box" id="checkoutForm" novalidate>
@@ -115,7 +115,10 @@ ${field('address2', 'Apartment, suite or unit', 'text', false, ' autocomplete="a
 </div>
 <aside><div class="side-box order-summary"><h2>Order summary</h2><p class="summary-course" data-sum-name>Select a course</p><p class="small muted" data-sum-meta></p><table><tbody><tr><th scope="row" data-sum-qty>1 × $0.00</th><td class="num" data-sum-sub>$0.00</td></tr><tr data-sum-discount-row hidden><th scope="row" data-sum-discount-label>Volume discount</th><td class="num" data-sum-discount>-$0.00</td></tr><tr data-sum-code-row hidden><th scope="row" data-sum-code-label>Discount code</th><td class="num" data-sum-code>-$0.00</td></tr><tr class="total"><th scope="row">Total</th><td class="num" data-sum-total>$0.00</td></tr></tbody></table><p class="small muted">Prices in U.S. dollars. ${esc(providerLine())}.</p><p class="small"><a data-sum-link href="${href('/training/')}">View course details</a></p></div></aside></div>
 <script type="application/json" id="checkout-data">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
-    pages.push({ path, crumbs, noindex: true, og: '/og/courses.png', scripts: ['checkout'], title: 'Checkout | Career Education Institute', desc: 'Secure card checkout for Career Education Institute job-title trainings, with volume pricing from 2 learners and instant access by email.', body, schema: [] });
+    const closedBody = () => `${pageHero({ crumbs, eyebrow: 'Checkout', h1: 'Checkout', lead: 'Checkout is temporarily disabled.', meta: false })}
+<div class="wrap" style="padding-block:32px">${checkoutClosedNotice()}<div class="btn-row"><a class="btn" href="${href('/training/')}">Browse trainings</a></div></div>`;
+    const body = CHECKOUT_ON ? openBody() : closedBody();
+    pages.push({ path, crumbs, noindex: true, og: '/og/courses.png', scripts: CHECKOUT_ON ? ['checkout'] : [], title: 'Checkout | Career Education Institute', desc: 'Secure card checkout for Career Education Institute job-title trainings, with volume pricing from 2 learners and instant access by email.', body, schema: [] });
 
   // Cart (saved in the visitor's browser by site.js): online courses go to card checkout together; job-title trainings
   // go to one enrollment request. The page data carries current prices so a saved cart never shows stale ones.

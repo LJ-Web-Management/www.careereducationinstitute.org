@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import cfg from '../../site.config.mjs';
 import { esc, href } from './util.mjs';
 
@@ -8,6 +9,12 @@ export const STATES = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
 // the minimum height that shows the whole form (it still grows if the form gets longer).
 export const typeformEmbed = (id, height = 520) => `<div class="tf-box" style="--tf-h:${height}px"><div data-tf-live="${esc(id)}"></div></div><script src="https://embed.typeform.com/next/embed.js" async></script>`;
 
+// checkout.txt in the repo root switches checkout: "false" closes it (the card checkout page and the checkout form on
+// every job-title training page show a notice instead of a form), anything else (or no file) leaves it open.
+const checkoutFile = new URL('../../checkout.txt', import.meta.url);
+export const CHECKOUT_ON = !(fs.existsSync(checkoutFile) && fs.readFileSync(checkoutFile, 'utf8').trim().toLowerCase() === 'false');
+export const checkoutClosedNotice = (h = 'h2', hid = 'checkout-closed-h') => `<div class="callout checkout-closed"><${h} id="${hid}">Checkout is temporarily disabled</${h}><p>Due to high learner volume, we have disabled checkout to give the best experience to current learners. If you have an urgent need, please email support at <a href="mailto:${cfg.email}">${cfg.email}</a>.</p></div>`;
+
 // Checkout Typeform for one job-title training, on that training's own page. The form has a transparent background
 // and auto height, so it sits straight on the page (no card, no minimum height). page_url (this page's address,
 // including any query string) is set as a hidden field before Typeform's script reads the embed.
@@ -15,6 +22,7 @@ export const typeformEmbed = (id, height = 520) => `<div class="tf-box" style="-
 // contact form.
 const lock = '<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
 export function trainingCheckout({ course, heading, id = 'enroll' }) {
+  if (!CHECKOUT_ON) return `<section id="${id}" aria-labelledby="${id}-h">${checkoutClosedNotice('h2', `${id}-h`)}</section>`;
   return `<section class="tf-checkout" id="${id}" aria-labelledby="${id}-h">
 <div class="tfc-head"><p class="tfc-kicker"><span>Checkout</span><span class="tfc-secure">${lock} Secure order form</span></p><h2 id="${id}-h">${esc(heading)}</h2></div>
 <div class="tfc-summary"><p class="tfc-label">Your order</p><div class="tfc-line"><div><strong>${esc(course.title)} Training</strong><span>Online, self-paced · about ${course.hours} hours · ${esc(cfg.course.access)} · ${esc(cfg.course.certificate)}</span></div><div class="tfc-price">$${course.price.toFixed(2)}<small>per learner</small></div></div><p class="tfc-note">Buying for more than one learner? Enter the number of learners in the form. Volume pricing applies from 2.</p></div>
