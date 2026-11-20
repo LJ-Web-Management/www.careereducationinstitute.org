@@ -792,3 +792,58 @@ table.cmp td ul{margin:0;padding-left:1.1em;font-size:.88rem}
 .delivery-notice p{margin:0 0 1.2em}
 .delivery-notice form{margin:0}
 .delivery-notice .btn{width:100%}
+/* Career Radar daily game (/games/career-radar/, src/assets/career-radar.js) */
+.radar{--hot:#1f8a4c;--hot-soft:#dcf2e4;--warm:var(--gold);--warm-soft:var(--gold-soft);--cold:#c4473a;--cold-soft:var(--red-soft);background:#fff;border:1.5px solid var(--navy);border-radius:var(--r);box-shadow:6px 6px 0 var(--gold);padding:20px;margin:0 0 30px}
+.radar-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px}
+.radar-top p{margin:0}
+.radar-day{font:700 1.3rem/1.2 var(--serif);color:var(--navy)}
+.radar-count{font-size:.88rem;color:var(--muted)}
+.radar-form{display:flex;gap:10px;align-items:flex-start}
+.radar-input{position:relative;flex:1;min-width:0}
+.radar-input input{font-size:1.05rem}
+.radar-list{position:absolute;z-index:20;left:0;right:0;top:calc(100% + 4px);list-style:none;margin:0;padding:4px;background:#fff;border:1.5px solid var(--navy);border-radius:10px;box-shadow:0 18px 30px -18px rgba(2,35,80,.5);max-height:320px;overflow-y:auto}
+.radar-list li{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin:0;padding:9px 10px;border-radius:7px;cursor:pointer;line-height:1.3}
+.radar-list li[aria-selected=true]{background:var(--teal-soft)}
+.radar-list small{font-size:.8rem;color:var(--muted)}
+.radar-list small.was{margin-left:auto;font-weight:700}
+.radar-list .radar-none{cursor:default;color:var(--muted)}
+.radar-msg{min-height:1.4em;margin:10px 0 4px;font-size:.93rem;color:var(--navy)}
+.radar-msg.bad{color:var(--red)}
+.radar-guesses{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.radar-latest{margin:0 0 14px;padding-bottom:14px;border-bottom:1px dashed var(--line2)}
+.rg{margin:0;border-radius:9px;background:#f4f1ea;position:relative;overflow:hidden}
+.rg::before{content:"";position:absolute;inset:0 auto 0 0;width:var(--w);background:var(--cold-soft)}
+.rg.warm::before{background:var(--warm-soft)}
+.rg.hot::before{background:var(--hot-soft)}
+.rg.latest{outline:2px solid var(--navy)}
+.rg-row{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;padding:10px 12px;border:0;background:none;font:600 1rem/1.3 var(--sans);color:var(--text);text-align:left;cursor:pointer}
+.rg-rank{flex:none;font:700 .95rem var(--mono);padding:2px 8px;border-radius:6px;color:#fff;background:var(--cold)}
+.rg.warm .rg-rank{background:#a87613}
+.rg.hot .rg-rank{background:var(--hot)}
+.rg-tag{font:700 .66rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--teal);border:1px solid currentColor;border-radius:4px;padding:1px 4px;vertical-align:2px}
+.rg-why{position:relative;padding:0 12px 12px;font-size:.9rem}
+.rg-why p{margin:0 0 4px;color:var(--muted)}
+.rg-why ul{margin:0 0 6px}
+.radar-tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.radar-end{scroll-margin-top:90px}
+.radar-result{margin:4px 0 16px;box-shadow:none;border-color:var(--line2)}
+.radar-result h3{margin-top:1.2em}
+.radar-next{font-size:.93rem;color:var(--muted)}
+.radar-next b{font-family:var(--mono);color:var(--navy)}
+.radar-top10{columns:2;column-gap:28px}
+.radar-top10 li{break-inside:avoid}
+.radar-key{font-weight:700;padding:0 6px;border-radius:5px}
+.radar-key.hot{background:#dcf2e4;color:#17643a}
+.radar-key.warm{background:var(--gold-soft);color:#7a5207}
+.radar-key.cold{background:var(--red-soft);color:var(--red)}
+.radar-dialog{width:min(460px,calc(100% - 32px));padding:26px 24px 22px;border:2px solid var(--navy);border-radius:var(--r);background:#fff;color:var(--text);box-shadow:8px 8px 0 var(--gold)}
+.radar-dialog::backdrop{background:rgba(2,35,80,.55)}
+.radar-dialog h2{margin:0 0 .6em;font-size:1.45rem}
+.radar-dialog form{margin:16px 0 0}
+.radar-dialog .btn{width:100%}
+.radar-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin:0}
+.radar-stats div{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.radar-stats dt{font-size:.8rem;color:var(--muted)}
+.radar-stats dd{margin:0;font:700 1.5rem/1.2 var(--serif);color:var(--navy)}
+.game-card .eyebrow{margin-bottom:.5rem}
+@media (max-width:560px){.radar{padding:16px 14px}.radar-form .btn{padding:.7em 1em}.radar-top10{columns:1}}

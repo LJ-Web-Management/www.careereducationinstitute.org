@@ -22,6 +22,8 @@ import { employerPages } from '../src/pages/employers.mjs';
 import { coursePages } from '../src/pages/courses.mjs';
 import { keywordPages } from '../src/pages/landing.mjs';
 import { finderPages } from '../src/pages/finder.mjs';
+import { gamePages } from '../src/pages/games.mjs';
+import { guessList, secretFiles } from '../src/lib/career-radar.mjs';
 import { checkFinder, finderPayload, careerDetails, collegeIndex, programShards, cipTitles, majors as finderMajors, majorPath } from '../src/lib/finder.mjs';
 import { writeImages } from './images.mjs';
 
@@ -62,7 +64,7 @@ const pairs = new Map();
 for (const c of careers) for (const r of c.related) if (byslug[r]) pairs.set(compareSlug(c.slug, r), [c, byslug[r]]);
 ctx.pairs = [...pairs.values()];
 for (const [a, b] of ctx.pairs) pages.push(comparePage(a, b, ctx));
-pages.push(trainingCatalog(ctx), homePage(ctx), ...hubPages(ctx), ...quizPages(ctx), ...guidePages(ctx), ...companyPages(ctx), ...legalPages(ctx), ...newsletterPages(), ...employerPages(ctx), ...coursePages(ctx), ...keywordPages(ctx), ...finderPages(ctx));
+pages.push(trainingCatalog(ctx), homePage(ctx), ...hubPages(ctx), ...quizPages(ctx), ...guidePages(ctx), ...companyPages(ctx), ...legalPages(ctx), ...newsletterPages(), ...employerPages(ctx), ...coursePages(ctx), ...keywordPages(ctx), ...finderPages(ctx), ...gamePages(ctx));
 pages.push(...utilityPages(ctx, pages)); // search, sitemap page, 404 (needs the full list)
 
 // ---------- Write ----------
@@ -96,6 +98,12 @@ fs.writeFileSync(path.join(FD, 'careers-detail.json'), JSON.stringify(careerDeta
 fs.writeFileSync(path.join(FD, 'colleges.json'), JSON.stringify(collegeIndex()));
 fs.writeFileSync(path.join(FD, 'cip.json'), JSON.stringify(cipTitles()));
 for (const [st, rows] of Object.entries(programShards())) fs.writeFileSync(path.join(FD, 'programs', `${st}.json`), JSON.stringify(rows));
+// Career Radar daily game: every career's name, aliases and training (for guesses), plus one closeness ranking per
+// possible answer, named by its place in the answer pool (src/data/career-radar.mjs); career-radar.js loads today's.
+const GR = path.join(DIST, 'assets', 'games', 'career-radar');
+fs.mkdirSync(GR, { recursive: true });
+fs.writeFileSync(path.join(GR, 'careers.json'), JSON.stringify(guessList(careers)));
+secretFiles(careers).forEach((r, i) => fs.writeFileSync(path.join(GR, `${i}.json`), JSON.stringify(r)));
 for (const f of fs.readdirSync(path.join(ROOT, 'src/assets')).filter((f) => f.endsWith('.js'))) {
   fs.writeFileSync(path.join(DIST, 'assets', f), minJs(fs.readFileSync(path.join(ROOT, 'src/assets', f), 'utf8')));
 }
@@ -107,7 +115,7 @@ if (process.env.CNAME) fs.writeFileSync(path.join(DIST, 'CNAME'), process.env.CN
 const indexable = pages.filter((p) => !p.noindex && !p.file);
 const groups = { main: [], careers: [], training: [], courses: [], guides: [], employers: [], colleges: [], blog: [] };
 for (const p of indexable) {
-  const g = /^\/(colleges|college-majors|college-minors|skills-to-learn|career-interests)\//.test(p.path) ? 'colleges' : p.path.startsWith('/careers/') || p.path.startsWith('/compare/') || p.path.startsWith('/best-careers/') ? 'careers' : p.path.startsWith('/training/') ? 'training' : p.path.startsWith('/courses/') ? 'courses' : p.path.startsWith('/guides/') || p.path.startsWith('/resources/') || p.path.startsWith('/quizzes/') ? 'guides' : p.path.startsWith('/blog/') ? 'blog' : p.path.startsWith('/employers/') || p.path.startsWith('/for-') ? 'employers' : 'main';
+  const g = /^\/(colleges|college-majors|college-minors|skills-to-learn|career-interests)\//.test(p.path) ? 'colleges' : p.path.startsWith('/careers/') || p.path.startsWith('/compare/') || p.path.startsWith('/best-careers/') ? 'careers' : p.path.startsWith('/training/') ? 'training' : p.path.startsWith('/courses/') ? 'courses' : p.path.startsWith('/guides/') || p.path.startsWith('/resources/') || p.path.startsWith('/quizzes/') || p.path.startsWith('/games/') ? 'guides' : p.path.startsWith('/blog/') ? 'blog' : p.path.startsWith('/employers/') || p.path.startsWith('/for-') ? 'employers' : 'main';
   groups[g].push(p);
 }
 const urlset = (list) => `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${list.map((p) => `<url><loc>${abs(p.path)}</loc><lastmod>${p.modified || cfg.updated}</lastmod>${p.og ? `<image:image><image:loc>${abs(p.og)}</image:loc></image:image>` : ''}</url>`).join('\n')}\n</urlset>\n`;

@@ -21,6 +21,7 @@ guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The b
 | Job-title training checkout | Until a training has an LMS course id, its page checks out with the Typeform in `site.config.mjs → forms.trainingCheckout` (hidden field `page_url` = the page address). In the cart, one job-title training links to that page's checkout; several different trainings go in one emailed enrollment request |
 | Comparisons | About 2,200 "X vs. Y" career comparisons, plus a comparison hub for each field |
 | Quizzes | Career Match, College vs. Trade School, Career Change Readiness, Work Style, 17 field quizzes |
+| Daily games | `/games/` hub and **Career Radar** (`/games/career-radar/`), a once-a-day "guess the mystery career" game. See **Career Radar** below |
 | Guides | 46 guides for students, career changers, professionals and employers |
 | Employers | Buyer pages (employers, staffing agencies, workforce programs, 17 industries), 700+ hiring guides, 700+ job description templates, 700+ onboarding plans, ROI calculator, onboarding assessment |
 | Lists and data | 14 "best careers" lists, salary guide, A to Z glossary |
@@ -44,6 +45,7 @@ guides, employer hiring and onboarding resources). Hosted on GitHub Pages. The b
 | Refresh the college directory (each fall, when IPEDS publishes) | `npm run update-colleges -- 2025` (the IPEDS year), then rebuild |
 | Edit a career | `src/data/careers/*.mjs` |
 | Edit a guide | `src/data/guides/*.mjs` (Markdown in the `body` field) |
+| Change Career Radar's launch date or possible answers | Edit `src/data/career-radar.mjs`, then push. Changing the answers list changes which career falls on each day from then on |
 | Edit a keyword landing page | `src/data/landing.mjs` (Markdown with `{careers}`, `{pay:<slug>}`, `{table:<key>}` tokens; rendered by `src/pages/landing.mjs`) |
 | Edit legal pages | `src/pages/legal.mjs` |
 | Refresh BLS pay data (each spring) | `BLS_API_KEY=<your key> npm run update-salaries -- 2026` (year of the new OEWS release), then rebuild. A free key from data.bls.gov/registrationEngine is needed now that there are 700+ careers (the keyless API allows only 25 requests a day). Projections in `src/data/labor.json` are updated by hand each fall from BLS Table 1.2 |
@@ -94,6 +96,30 @@ Ties go to careers with more BLS annual openings.
 themselves from their own email app, or copy a share link. Answers stay in the visitor's browser.
 
 **Analytics**: the finder uses the site's normal Google Analytics 4 page tracking (no custom events).
+
+## Career Radar (daily game)
+`/games/career-radar/`: one mystery career per day, the same for every visitor. Players type job titles (titles or
+"also called" names) and each guess is ranked by how close it is to the mystery career out of every career on the
+site: #1 is the answer. Guesses are unlimited; the game ends when the player finds it or gives up, then locks until
+local midnight. A hint adds a career about halfway between the best guess and the answer. The end screen shows the
+answer's training (Buy now, Add to cart), links to its profile and salary page, the 10 closest careers, a countdown and
+a share button (spoiler-free text with green, yellow and red counts).
+
+**The date formula** (`src/assets/career-radar.js`, settings in `src/data/career-radar.mjs`):
+`day` = days since `launch` in the visitor's local calendar (launch day is Career Radar #1), and the answer is
+`answers[(day × step + offset) mod answers.length]`. `step` is a prime that doesn't divide the number of answers (the
+build checks), so every answer comes up once before any repeats. The answers are 265 well-known careers (100,000+ U.S.
+jobs when the list was made); guesses can be any career.
+
+**Closeness** (`src/lib/career-radar.mjs`), all from the career data: text similarity of duties, skills, tools,
+vocabulary and certifications (TF-IDF), BLS SOC job group, career field, related-career links, Holland interest code,
+work traits and training level. Players can tap a guess to see which of these it shares with the answer.
+
+**Files**: the build writes `/assets/games/career-radar/careers.json` (every career's title, slug and aliases) and one
+ranking file per possible answer (`0.json`, `1.json`, … by place in the answers list). The page loads only today's.
+
+**Saved progress**: guesses, streak and stats are kept in the visitor's browser (`localStorage`, key
+`cei-career-radar`). No account, nothing sent anywhere; only normal GA4 page tracking.
 
 ## Selling the training on every page
 Every career has one training to buy: its job-title training, or the checkout course that replaces it. `courseFor()` in
