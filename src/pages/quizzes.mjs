@@ -1,4 +1,4 @@
-import { esc, href, abs, money, clamp, fitTitle, countLabel } from '../lib/util.mjs';
+import { esc, href, abs, money, priceText, clamp, fitTitle, countLabel } from '../lib/util.mjs';
 import { offerData } from '../lib/offer.mjs';
 import { pageHero, faqBlock, faqSchema, ctaCard, sideLinks, answerBox, band } from '../lib/layout.mjs';
 
@@ -31,7 +31,7 @@ function renderQuestions(qs) {
 }
 
 let shopCtx;
-const shopLine = () => ({ text: `Start a job-title training today: ${countLabel(shopCtx.careers.length)} online courses from $${Math.min(...shopCtx.careers.map((c) => c.price)).toFixed(2)}, each with a certificate.`, link: href('/training/'), btn: 'Find your training' });
+const shopLine = () => ({ text: `Start a job-title training today: ${countLabel(shopCtx.careers.length)} online courses from ${priceText(Math.min(...shopCtx.careers.map((c) => c.price)))}, each with a certificate.`, link: href('/training/'), btn: 'Find your training' });
 
 function quizPage({ path, crumbs, eyebrow, h1, lead, intro, data, questions, after = '', title, desc, faqs = [], aside }) {
   const clean = { shop: shopLine(), ...data, questions: questions.map((q) => (q.scale ? { scale: true, key: q.key } : { eduQ: !!q.eduQ, options: q.options.map(([, w]) => ({ w })) })) };

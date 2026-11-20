@@ -123,15 +123,15 @@ ranking file per possible answer (`0.json`, `1.json`, … by place in the answer
 
 ## Selling the training on every page
 Every career has one training to buy: its job-title training, or the checkout course that replaces it. `courseFor()` in
-`src/lib/offer.mjs` defines its name, price and Buy now link, and `offerBox()` renders “HVAC Technician Training: $39.99, start
+`src/lib/offer.mjs` defines its name, price and Buy now link, and `offerBox()` renders “HVAC Technician Training: $99.00, start
 today” with Buy now and Add to cart. It appears under the tabs of every career profile page, on comparisons, and in the
 results of the Career Match and Work Style quizzes (each match), field quizzes, fit quizzes and practice tests
 (`offerData()` feeds `src/assets/quiz.js`). Buy now goes to card checkout for checkout courses and to the training's order
 form (`#enroll`) for the others. The non-credit disclaimers are paired with a value line (“Find out if this career is right for
-you for $39.99, before you spend thousands…”).
+you for $79 to $129, before you spend thousands…”).
 
 ## Pricing and course length
-Every job-title training is 3 or 4 hours long and priced under $50. Price is set by role tier (`priceForTier` in
+Every job-title training is 3 or 4 hours long and priced from $79 to $129. Price is set by role tier (`priceForTier` in
 `src/data/course-pricing.mjs`), not by length. Each course splits into 10 timed modules. **COURSE-SPECS.md** lists every training's
 length, price and module plan for the course builders. Regenerate it with `npm run course-specs`.
 

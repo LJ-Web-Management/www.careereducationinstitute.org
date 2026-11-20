@@ -3,7 +3,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import cfg from '../site.config.mjs';
-import { abs, esc, href, wordCount, countLabel } from '../src/lib/util.mjs';
+import { abs, esc, href, wordCount, countLabel, priceText } from '../src/lib/util.mjs';
+import { priceForTier } from '../src/data/course-pricing.mjs';
 import { layout, setGlobals, CSS, shell } from '../src/lib/layout.mjs';
 import { partnerCourses } from '../src/lib/partners.mjs';
 import { categories } from '../src/data/categories.mjs';
@@ -150,7 +151,7 @@ ${cfg.name} publishes free, plain-language career information for ${countLabel(c
 - [Career Match Quiz](${abs('/quizzes/career-match/')}): free interest-based quiz that recommends careers from our ${countLabel(careers.length)} profiles
 - [All careers](${abs('/careers/')}): directory with pay, growth and training time
 - [Salary guide](${abs('/salary-guide/')}): BLS median pay for all ${countLabel(careers.length)} careers
-- [All trainings](${abs('/training/')}): online courses by job title, each under $50
+- [All trainings](${abs('/training/')}): online courses by job title, most ${priceText(Math.min(...Object.values(priceForTier)))} to ${priceText(Math.max(...Object.values(priceForTier)))}
 - [Jobs and workforce program](${abs('/for-employers/')}): onboarding and retraining subscriptions priced by seats per month, with a landing page and optional white label
 - [Schools program](${abs('/for-schools/')}): the same subscription for high schools and colleges
 - [Online career training](${abs('/online-career-training/')}): how the job-title trainings work, prices and what they do and don't lead to

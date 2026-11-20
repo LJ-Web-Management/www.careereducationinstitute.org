@@ -16,7 +16,7 @@ export function courseFor(c) {
 
 const cartAttr = (k) => esc(JSON.stringify(k.cart));
 
-// "HVAC Technician Training: $39.99, start today" with Buy now and Add to cart.
+// "HVAC Technician Training: $99.00, start today" with Buy now and Add to cart.
 export function offerBox(c, { kicker = 'Your matching training', id = '' } = {}) {
   const k = courseFor(c);
   return `<div class="offer"${id ? ` id="${id}"` : ''}><div class="offer-txt"><p class="offer-k">${esc(kicker)}</p><p class="offer-h"><a href="${href(k.url)}">${esc(k.name)}</a>: <strong>${usd(k.price)}</strong>, start today</p><p class="offer-meta">${k.hours} hours · ${esc(cfg.course.format)} · ${esc(cfg.course.certificate)}${k.instant ? ' · Instant access' : ''}</p></div><div class="offer-btns"><a class="btn btn-primary" href="${href(k.buy)}">Buy now</a><button class="btn" type="button" data-add-cart="${cartAttr(k)}">Add to cart</button></div></div>`;

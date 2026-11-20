@@ -605,7 +605,7 @@ ul.grid.search-results>li{margin:0}
 .buy-strip-price{font:700 1.7rem/1.1 var(--serif);color:var(--navy)}
 .buy-strip-price span{font:600 .9rem var(--sans);color:var(--muted)}
 
-/* Course offer: "X Training: $39.99, start today" with Buy now (career pages, quizzes, comparisons) */
+/* Course offer: "X Training: $99.00, start today" with Buy now (career pages, quizzes, comparisons) */
 .offer{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 18px;background:var(--gold-soft);border:1px solid #f0d89c;border-left:5px solid var(--gold);border-radius:12px;padding:14px 18px;margin:1.2em 0}
 .offer p{margin:0}
 .offer-k{font:700 .7rem/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}

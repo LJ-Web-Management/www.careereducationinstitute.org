@@ -19,6 +19,8 @@ export const countLabel = (n) => (n >= 100 ? `${(Math.floor(n / 100) * 100).toLo
 
 export const money = (n) => (n == null ? 'N/A' : '$' + Math.round(n).toLocaleString('en-US'));
 export const money2 = (n) => (n == null ? 'N/A' : '$' + Number(n).toFixed(2));
+// Prices in running text: "$79" for whole-dollar prices, "$59.99" otherwise. Order pages and carts keep money2.
+export const priceText = (n) => (n == null ? 'N/A' : Number.isInteger(Number(n)) ? '$' + Number(n) : money2(n));
 export const num = (n) => Math.round(n).toLocaleString('en-US');
 export const pct = (n) => (n > 0 ? '+' : '') + n.toFixed(1) + '%';
 

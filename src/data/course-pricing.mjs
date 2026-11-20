@@ -1,8 +1,8 @@
 // Course length and price for each job-title training.
-// Every job-title training is a short course of 3 or 4 hours. Every course is priced under $50
-// so the purchase is an easy yes. Price is set by tier (role complexity), not by length. The LMS course should be built to the hours below.
+// Every job-title training is a short course of 3 or 4 hours. Every course is priced from $79 to $129.
+// Price is set by tier (role complexity), not by length. The LMS course should be built to the hours below.
 // Checkout courses (partner-selection.mjs, sold with instant access) keep the provider's own length and price.
-export const priceForTier = { 1: 29.99, 2: 34.99, 3: 39.99, 4: 44.99, 5: 49.99 };
+export const priceForTier = { 1: 79, 2: 89, 3: 99, 4: 119, 5: 129 };
 export const hoursForTier = { 1: 3, 2: 3, 3: 4, 4: 4, 5: 4 };
 export const DEFAULT_TIER = 3;
 

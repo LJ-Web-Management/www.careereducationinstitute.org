@@ -17,7 +17,7 @@ export const landingPages = [
   // ---------------------------------------------------------------- Core online career training (keywords 1 to 20)
   {
     slug: 'online-career-training', cluster: 'core', crumb: 'Online career training',
-    metaTitle: 'Online Career Training by Job Title, Under $50',
+    metaTitle: 'Online Career Training by Job Title, Self-Paced',
     desc: 'Self-paced online career training for {careers} job titles. Each course runs {minHours} to {maxHours} hours, costs {minPrice} to {maxPrice} and needs no degree.',
     eyebrow: 'Online career training', h1: 'Online Career Training and Career Courses by Job Title',
     lead: 'Short, self-paced online job training for {careers} careers. Learn what a job really involves, its vocabulary, tasks, tools and safety rules, before you spend months or thousands of dollars on a program.',
@@ -59,7 +59,7 @@ Browse all {careers} in the [searchable training catalog](/training/), or start 
 ## Self-paced, short-term and affordable
 - **Self-paced:** there are no class times. Learn on a phone or computer whenever you have 20 minutes.
 - **Short-term:** courses run {minHours} to {maxHours} hours, so most people finish in one to three weeks of evenings.
-- **Affordable:** prices run from {minPrice} to {maxPrice} by course length, with no application fee. Groups get volume pricing from 2 learners, and [employers](/for-employers/) and [schools](/for-schools/) can subscribe to training seats by the month.
+- **Affordable:** prices run from {minPrice} to {maxPrice}, set by the role, with no application fee. Groups get volume pricing from 2 learners, and [employers](/for-employers/) and [schools](/for-schools/) can subscribe to training seats by the month.
 - **12 months of access**, so you can come back to the material once you start the job.
 
 ## Career training without a degree
@@ -93,7 +93,7 @@ Where a career needs a license or exam, the course’s “Launching your career�
 Still comparing options? Our [guide to choosing online career training](/choosing-online-career-training/) answers the questions people ask most.`,
     faq: [
       ['What is online career training?', 'Online career training is instruction delivered over the internet that prepares you for a specific job or field. At Career Education Institute each course covers one job title: its duties, vocabulary, step-by-step tasks, tools, safety rules and the path into the career.'],
-      ['How much do your online career courses cost?', 'Job-title trainings cost {minPrice} to {maxPrice}, depending on length ({minHours} to {maxHours} hours). Volume pricing starts at 2 learners.'],
+      ['How much do your online career courses cost?', 'Job-title trainings cost {minPrice} to {maxPrice}, set by the role, and each course page shows its price. Volume pricing starts at 2 learners.'],
       ['Are the courses self-paced?', 'Yes. There are no live sessions or deadlines. You get 12 months of access to the learning platform and can study on any device.'],
       ['Do I need a degree or experience to enroll?', 'No. The courses are written for beginners. There are no prerequisites, applications or entrance exams.'],
       ['Is this the same as vocational school?', 'No. A vocational or trade school program usually lasts months, includes hands-on practice and can lead to a license or certification exam. Our courses are short, online and non-credit. Many learners use one to decide which vocational program to pursue, or to prepare for it.'],
@@ -206,7 +206,7 @@ Small businesses rarely have a trainer or an LMS. With our courses you don’t n
 Training more than a few people? The [jobs and workforce program](/for-employers/) is a subscription priced by the number of seats you want each month, for onboarding new hires and retraining current employees. Every subscription includes your own landing page for your learners, and white label (your name and logo in place of ours) is a paid add-on. Workforce boards, American Job Centers and nonprofits use the same program for their participants.
 
 ## Pricing
-Job-title trainings cost {minPrice} to {maxPrice} per learner, depending on course length. Volume discounts apply automatically:
+Job-title trainings cost {minPrice} to {maxPrice} per learner, set by the role. Volume discounts apply automatically:
 
 {tiers}
 
@@ -559,7 +559,7 @@ The [technology career quiz](/quizzes/which-technology-career-is-right-for-me/) 
       ['What are the best online career training programs?', 'The best program is the one that matches your target job and is honest about outcomes. Look for clear course content, a realistic length and price, a sample or practice test, and plain statements about whether it leads to a license, certification or credit. Our [guide to choosing online career training](/choosing-online-career-training/) has a checklist.'],
       ['Are online career courses worth it?', 'They are worth it when the price is low relative to what you gain: a clearer career decision, a head start in a longer program, or stronger interviews. They are not worth it if a course promises a license, a job or a credential it can’t deliver. A {minPrice} to {maxPrice} course that saves you from enrolling in the wrong program is money well spent.'],
       ['How long does career training take?', 'It ranges widely: a short online course takes hours, a certificate program a few months to a year, an apprenticeship three to five years, and an associate degree two years. Our job-title trainings take {minHours} to {maxHours} hours. See the [fastest careers to train for](/best-careers/fastest-careers-to-train-for/).'],
-      ['How much does online career training cost?', 'Short online job courses often cost under $100; ours cost {minPrice} to {maxPrice}. Certificate programs commonly cost a few hundred to several thousand dollars, and trade school programs can cost more. Federal financial aid, WIOA funds and employer tuition help can lower the cost of eligible programs; see [financial aid basics](/guides/financial-aid-basics/).'],
+      ['How much does online career training cost?', 'Short online job courses cost far less than full programs; ours cost {minPrice} to {maxPrice}. Certificate programs commonly cost a few hundred to several thousand dollars, and trade school programs can cost more. Federal financial aid, WIOA funds and employer tuition help can lower the cost of eligible programs; see [financial aid basics](/guides/financial-aid-basics/).'],
       ['Do employers accept online career courses?', 'Employers value what a course shows: that you understand the job and took initiative. A course is not a substitute for a license or certification the job requires. List the course in a training section of your resume and be ready to talk about what you learned.'],
       ['What is the difference between an online certificate and a career course?', 'A certificate program is usually longer, may be offered by a college, and can prepare you for an industry exam or carry credit. A career course is shorter and focused on learning a job. Our trainings end in a certificate of completion, which shows you finished the course but is not an industry certification. See [certifications vs. degrees](/guides/certifications-vs-degrees/).'],
       ['Is career training better than a college degree?', 'Neither is better for everyone. Career training is faster and cheaper and leads directly to many well-paid trades and technical jobs. A degree is required for professions such as teaching, engineering and nursing (RN) and tends to raise lifetime earnings on average. Take the [College or Trade School? quiz](/quizzes/college-or-trade-school/).'],

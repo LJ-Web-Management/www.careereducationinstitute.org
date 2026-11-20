@@ -1,4 +1,4 @@
-import { esc, href, abs, money, money2, clamp, fitTitle, md, wordCount, fmtDate, countLabel } from '../lib/util.mjs';
+import { esc, href, abs, money, money2, priceText, clamp, fitTitle, md, wordCount, fmtDate, countLabel } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, ctaCard, sideLinks } from '../lib/layout.mjs';
 import { tierTable, partnerById } from '../lib/partners.mjs';
 import { priceForTier, hoursForTier } from '../data/course-pricing.mjs';
@@ -43,7 +43,7 @@ export function keywordPages(ctx) {
   const { careers, byslug } = ctx;
   const fill = (s, p) => (typeof s !== 'string' ? s : s
     .replace(/\{careers\}/g, countLabel(careers.length))
-    .replace(/\{minPrice\}/g, usd(Math.min(...PRICES))).replace(/\{maxPrice\}/g, usd(Math.max(...PRICES)))
+    .replace(/\{minPrice\}/g, priceText(Math.min(...PRICES))).replace(/\{maxPrice\}/g, priceText(Math.max(...PRICES)))
     .replace(/\{minHours\}/g, Math.min(...HOURS)).replace(/\{maxHours\}/g, Math.max(...HOURS))
     .replace(/\{(pay|hours|price):([a-z0-9-]+)\}/g, (m, k, slug) => {
       const c = byslug[slug];
@@ -71,7 +71,7 @@ export function keywordPages(ctx) {
 ${html}
 ${faqs.length ? faqBlock(faqs) : ''}
 <aside class="callout info"><p><strong>Try a career before you commit to it.</strong> For the price of one course, find out if a career is right for you before you spend thousands of dollars and months of your time on a full training program.</p><p>Career Education Institute trainings are general, non-credit career-preparation courses. They do not grant a license, certification or academic credit, do not replace state-approved or legally required training, and do not include job placement. Pay figures are U.S. medians from the Bureau of Labor Statistics.</p></aside>`;
-    const cta = p.cta || (p.field ? { title: 'Not sure which job fits?', text: 'Take the free Career Match Quiz, then try a free practice test before you enroll.', btn: 'Take the quiz', link: '/quizzes/career-match/' } : { title: 'Browse every training', text: `${countLabel(careers.length)} job-title trainings, each ${Math.min(...HOURS)} to ${Math.max(...HOURS)} hours and under $50.`, btn: 'See the catalog', link: '/training/' });
+    const cta = p.cta || (p.field ? { title: 'Not sure which job fits?', text: 'Take the free Career Match Quiz, then try a free practice test before you enroll.', btn: 'Take the quiz', link: '/quizzes/career-match/' } : { title: 'Browse every training', text: `${countLabel(careers.length)} job-title trainings, each ${Math.min(...HOURS)} to ${Math.max(...HOURS)} hours. Prices start at ${priceText(Math.min(...PRICES))}.`, btn: 'See the catalog', link: '/training/' });
     const aside = `${toc.length > 2 ? `<nav class="toc" aria-label="On this page"><h2>On this page</h2><ol>${toc.map((t) => `<li><a href="#${t.id}">${esc(t.text)}</a></li>`).join('')}</ol></nav>` : ''}${ctaCard(cta)}${sideLinks('Related', p.related || [])}`;
     const tableSlugs = [...new Set(Object.values(p.tables || {}).flat())];
     return {

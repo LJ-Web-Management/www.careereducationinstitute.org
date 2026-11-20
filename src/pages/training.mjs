@@ -1,10 +1,10 @@
 import cfg from '../../site.config.mjs';
-import { esc, href, abs, money, clamp, fitTitle, listJoin, lowerFirst, shuffle, hash, taskPhrase, countLabel } from '../lib/util.mjs';
+import { esc, href, abs, money, priceText, clamp, fitTitle, listJoin, lowerFirst, shuffle, hash, taskPhrase, countLabel } from '../lib/util.mjs';
 import { pageHero, faqBlock, faqSchema, sideLinks, answerBox, icon } from '../lib/layout.mjs';
 import { trainingCheckout } from '../lib/forms.mjs';
 import { pick, searchKeywords } from '../lib/career-helpers.mjs';
 import { catBySlug } from '../data/categories.mjs';
-import { moduleWeights, minutesLabel } from '../data/course-pricing.mjs';
+import { moduleWeights, minutesLabel, priceForTier } from '../data/course-pricing.mjs';
 import { partnerById, partnerCourses, partnerTable, tierTable, providerLine } from '../lib/partners.mjs';
 import { courseFor, offerData } from '../lib/offer.mjs';
 
@@ -165,17 +165,17 @@ export function trainingCatalog(ctx) {
   const all = categories.map((cat) => [cat, rowsFor(cat)]);
   const total = all.reduce((n, [, r]) => n + r.length, 0);
   const prices = all.flatMap(([, r]) => r.map((x) => x.price));
-  const body = `${pageHero({ crumbs, eyebrow: `${countLabel(total)} job-title trainings`, h1: 'Career Training by Job Title', lead: `Self-paced online courses that teach you what a job really involves: duties, vocabulary, common procedures, safety and how to get hired. Trainings start at ${usd(Math.min(...prices))}.`, meta: false, extra: `<form class="tl-search" role="search" data-catalog-search><label class="vh" for="tl-q">Search trainings</label><input id="tl-q" name="q" type="search" placeholder="Search ${countLabel(total)} trainings, for example “welder” or “nurse”" autocomplete="off"><select name="cat" aria-label="Career field"><option value="">All fields</option>${categories.map((cat) => `<option value="${cat.slug}">${esc(cat.name)}</option>`).join('')}</select></form><p class="tl-count small muted" data-catalog-count aria-live="polite">${total} trainings</p>` })}
+  const body = `${pageHero({ crumbs, eyebrow: `${countLabel(total)} job-title trainings`, h1: 'Career Training by Job Title', lead: `Self-paced online courses that teach you what a job really involves: duties, vocabulary, common procedures, safety and how to get hired. Trainings start at ${priceText(Math.min(...prices))}.`, meta: false, extra: `<form class="tl-search" role="search" data-catalog-search><label class="vh" for="tl-q">Search trainings</label><input id="tl-q" name="q" type="search" placeholder="Search ${countLabel(total)} trainings, for example “welder” or “nurse”" autocomplete="off"><select name="cat" aria-label="Career field"><option value="">All fields</option>${categories.map((cat) => `<option value="${cat.slug}">${esc(cat.name)}</option>`).join('')}</select></form><p class="tl-count small muted" data-catalog-count aria-live="polite">${total} trainings</p>` })}
 <div class="wrap tl-wrap" data-catalog><p class="tl-note small muted">Every training is online and self-paced, with a certificate of completion. Pick your job title and press Buy now. Trainings marked “Instant access” start right after card checkout; the rest start as soon as we confirm your order by email.</p><ul class="tl-jump" aria-label="Jump to a field">${categories.map((cat) => `<li><a href="#${cat.slug}">${esc(cat.short || cat.name)}</a></li>`).join('')}</ul>
 ${all.map(([cat, rows]) => `<section class="tl-group" id="${cat.slug}" data-cat="${cat.slug}"><div class="tl-head"><h2>${icon(cat.slug, 24)} ${esc(cat.name)}</h2><span class="muted small" data-group-count>${rows.length} trainings</span></div><ul class="tl-list">${rows.map(catalogRow).join('')}</ul></section>`).join('')}
 <div class="tl-empty" data-catalog-empty hidden><h2>No training matches that search</h2><p>Try a shorter word, or tell us the job title and we’ll point you to the closest training.</p><div class="btn-row"><a class="btn btn-primary" href="${href('/quizzes/career-match/')}">Take the Career Match Quiz</a><a class="btn" href="${href('/contact/')}">Ask us</a></div></div>
 <section class="tl-includes"><h2>Every training includes</h2><ul class="checks">${['Role foundations: what the job is, where people work, pay and the career ladder', 'A realistic day-on-the-job walkthrough', 'The vocabulary you’ll hear on day one, with practice drills', 'Step-by-step procedures for the common tasks of the role', 'Safety, compliance and professional standards', 'A final exam and certificate of completion'].map((t) => `<li>${t}</li>`).join('')}</ul><div class="btn-row"><a class="btn btn-primary" href="${href('/quizzes/career-match/')}">Find your career match</a><a class="btn" href="${href('/for-employers/')}">Training a team?</a></div></section>
-<aside class="callout info" style="margin-top:30px"><p><strong>Try a career before you commit to it.</strong> Find out if a career is right for you for ${usd(Math.min(...prices))} to ${usd(Math.max(...prices))}, before you spend thousands of dollars and months of your time on a full training program.</p><p>Career Education Institute trainings are general, non-credit career-preparation courses for U.S. learners. They do not replace state-required licensing programs. ${esc(cfg.course.groupNote)}.</p></aside></div>`;
+<aside class="callout info" style="margin-top:30px"><p><strong>Try a career before you commit to it.</strong> Find out if a career is right for you for ${priceText(Math.min(...prices))} to ${priceText(Math.max(...prices))}, before you spend thousands of dollars and months of your time on a full training program.</p><p>Career Education Institute trainings are general, non-credit career-preparation courses for U.S. learners. They do not replace state-required licensing programs. ${esc(cfg.course.groupNote)}.</p></aside></div>`;
   return {
     path, crumbs, og: '/og/training.png', kind: 'Training catalog', name: 'All trainings',
     mcta: `<a class="btn btn-primary" href="#tl-q">Search trainings</a><a class="btn" href="${href('/cart/')}">View cart</a>`,
     title: fitTitle(`Online Career Training by Job Title (${countLabel(careers.length)} Courses)`),
-    desc: clamp(`Browse ${countLabel(careers.length)} online career trainings by job title, most under $50: healthcare, skilled trades, safety, logistics, business, tech and public safety. Self-paced, with a certificate.`),
+    desc: clamp(`Browse ${countLabel(careers.length)} online career trainings by job title, most ${priceText(Math.min(...Object.values(priceForTier)))} to ${priceText(Math.max(...Object.values(priceForTier)))}: healthcare, skilled trades, safety, logistics, business, tech and public safety. Self-paced, with a certificate.`),
     body,
     schema: []
   };
